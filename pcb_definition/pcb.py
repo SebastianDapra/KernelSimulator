@@ -5,6 +5,7 @@ class PCB(object):
         self.size = size
         self.process_id = id
         self.pc = 0
+
     
     def increment(self):
         self.pc+=1
