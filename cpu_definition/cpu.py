@@ -10,6 +10,7 @@ class CPU(object):
 
     def __init__(self, memory):
         self.memory = memory
+        self.handler = Handler()
         
     def fetch_instruction(self, pcb):
         return self.memory.get(pcb.base_dir + pcb.pc)
@@ -17,19 +18,17 @@ class CPU(object):
     def run(self,pcb):
         while(pcb.size >= pcb.pc):
             data = self.fetch_instruction(pcb)
-            self.compute(data)
+            instruction = self.decode_instruction(data)
+            instruction.execute_instruction(self)
             pcb.increment()
             
-    def compute(self, data):
-        instruction = self.decode_instruction(data)
-        self.execute_instruction(instruction)
-        
     def decode_instruction(self, data):
         return data
     
     def execute_instruction(self, instruction):
         print(instruction)
     
-    
+    def getHandler(self):
+        return self.handler
     
         

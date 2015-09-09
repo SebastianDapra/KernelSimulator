@@ -1,6 +1,6 @@
 class Memory(object):
 
-    def __init__(self, size):
+    def __init__(self):
         self.cells = dict()
         self.initialize_cells(size)
     
@@ -16,3 +16,4 @@ class Memory(object):
         self.cells.update(cell_and_data)
         
     
+        
