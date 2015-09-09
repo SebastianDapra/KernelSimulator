@@ -4,6 +4,8 @@ Created on 01/09/2015
 @author: sebastian
 '''
 
+from handler_cpu.handler import *
+
 class CPU(object):
 
 
