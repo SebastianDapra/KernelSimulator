@@ -1,3 +1,9 @@
+__author__ = 'luciano'
+
+from instruction_definition.instruction import *
+
+# Hay que refactorizar esto...
+
 class CPU_instruction(Instruction):
     def __init__(self, value):
         self.value = value

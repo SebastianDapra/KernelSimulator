@@ -1,3 +1,5 @@
+__author__ = 'luciano'
+
     # Tengo un manejador o alguien que me dice cual es el proximo proceso, los datos que ese proceso
     # necesita tienen que cargarse en memoria
     # (sus instrucciones , etc)

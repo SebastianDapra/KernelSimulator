@@ -1,3 +1,5 @@
+__author__ = 'luciano'
+
 class PCB(object):
 
     def __init__(self, _id, amount_instructions, m_policy):

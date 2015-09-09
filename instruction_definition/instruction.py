@@ -1,3 +1,5 @@
+__author__ = 'luciano'
+
 class Instruction:
 
     def __init__(self, text):
