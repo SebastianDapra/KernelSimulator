@@ -1,28 +1,55 @@
 __author__ = 'luciano'
 
-    # Tengo un manejador o alguien que me dice cual es el proximo proceso, los datos que ese proceso
-    # necesita tienen que cargarse en memoria
-    # (sus instrucciones , etc)
-    # Con las instrucciones en memoria, el cpu puede procesarlas
-    
-    
-    # Lo que nos piden es , que  dependiendo del tipo de instruccion, el cpu deja de procesarlo (vease si es IO)
+class Program():
 
+    def __init__(self, aName=None, aPath=None):
+        self.name = aName
+        self.path = aPath
+        self.instructions = []
 
-class Program:
+    def length(self):
+        return len(self.getInstructions())
 
-    def __init__(self, instructions, name):
-        self._instructions = instructions
-        self._name = name
+    def getPath(self):
+        return self.path
 
-    def get_instructions(self):
-        return self._instructions
+    def add(self, aInstruction):
+        self.instructions.append(aInstruction)
 
-    def name(self):
-        return self._name
+    def setInstructions(self, instrcs):
+        self.instructions = instrcs
 
-    def add_instruction(self, instruction):
-        self._instructions.append(instruction)
+    def getInstructions(self):
+        return self.instructions
 
-    def amount_of_instructions(self):
-        return len(self._instructions)
+    def getInstruction(self, i):
+        return self.instructions[i]
+
+class Instruction():
+
+    def execute(self):
+        pass
+
+class CPUInstruction(Instruction):
+
+    def execute(self):
+        print ("CPU Instruction")
+
+    def determineDispatching(self, aCPU):
+        self.execute()
+
+class IOInstruction(Instruction):
+
+    def execute(self):
+        print ("IO Instruction")
+
+    def determineDispatching(self, aCPU):
+        aCPU.dispatchToIOExecution()
+
+class EndInstruction(Instruction):
+
+    def execute(self):
+        print ("END Instruction")
+
+    def determineDispatching(self, aCPU):
+        aCPU.irq.endInterruption()

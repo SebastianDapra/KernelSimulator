@@ -1,7 +1,5 @@
 import unittest
-from cpu_definition.cpu import *
-from memory_definition.memory import *
-from pcb_definition.pcb import *
+
 
 class Test(unittest.TestCase):
 
@@ -27,3 +25,4 @@ class Test(unittest.TestCase):
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']
     unittest.main()
+
