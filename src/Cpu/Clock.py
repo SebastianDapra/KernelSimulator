@@ -1,7 +1,7 @@
 __author__ = 'luciano'
 
 import threading
-from Alert import TimeoutAlert
+from src.Cpu.Interrupt import TimeoutInterruption
 
 
 class Clock(threading.Thread):
@@ -12,4 +12,4 @@ class Clock(threading.Thread):
 
     def tick(self):
         self.join(self.timeout)
-        raise TimeoutAlert()
+        raise TimeoutInterruption()

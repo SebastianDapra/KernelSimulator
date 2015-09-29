@@ -1,14 +1,16 @@
-from AlertHandler import Alerter
-from Alert import KillAlert, TimeoutAlert, IOAlert, NewAlert, WaitingAlert
-from kernel_definition.Output import Output
-import threading
+__author__ = 'luciano'
 
+
+import threading
+from src.Cpu.Interrupt import *
+from src.Cpu.InterruptManager import InterruptionManager
+from src.Kernel.Output import Output
 
 class Cpu:
 
     def __init__(self, kernel):
         self.kernel = kernel
-        self.alerter = Alerter(self)
+        self.alerter = InterruptionManager(self)
         self.output = Output()
         self.memory_admin = self.kernel.memory_admin()
 
@@ -21,17 +23,18 @@ class Cpu:
                 if not None == instr:
                     instr.run(self.output)
                 else:
-                    self.kernel.handle_signal(KillAlert(), pcb)
+                    self.kernel.handle_signal(KillInterruption(), pcb)
                 self.output.print_all()
                 self.alerter.find(pcb)
 
     def run(self):
-        pcb = self.kernel.scheduler.get_pcb()
+        pcb = self.kernel.scheduler.get_pcb
+        pass
         try:
             while True:
                 self.kernel.timing()
                 threading.Thread(self.read_burst_instruction, pcb)
-        except (KillAlert, TimeoutAlert, IOAlert, NewAlert) as e:
+        except (KillInterruption, TimeoutInterruption, IOInterruption, NewInterruption) as e:
             self.kernel.handle_signal(e, pcb)
         except Exception:
-            self.kernel.handle_signal(WaitingAlert(), pcb)
+            self.kernel.handle_signal(WaitingInterruption(), pcb)

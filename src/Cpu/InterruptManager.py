@@ -1,9 +1,11 @@
 __author__ = 'luciano'
 
-class Alerter:
+from src.Cpu.Interrupt import *
+
+class InterruptionManager:
 
     def __init__(self, cpu):
-        self.alerts = [KillAlert(), TimeoutAlert(), IOAlert(), NewAlert()]
+        self.alerts = [KillInterruption(), TimeoutInterruption(), IOInterruption(), NewInterruption()]
         self.cpu = cpu
 
     def find(self, pcb):
