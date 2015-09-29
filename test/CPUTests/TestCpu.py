@@ -5,7 +5,7 @@ from src.PCB.PCBTable import *
 from src.PCB.PCB import *
 
 
-class TestPCBTable(unittest.TestCase):
+class TestCPU(unittest.TestCase):
 
     def setUp(self):
         self.pcb_table = PCBTable()
@@ -24,5 +24,5 @@ class TestPCBTable(unittest.TestCase):
         self.pcb_table.remove(self.pcb2)
         self.assertEqual(2, self.pcb_table.size())
 
-suite = unittest.TestLoader().loadTestsFromTestCase(TestPCBTable)
+suite = unittest.TestLoader().loadTestsFromTestCase(TestCPU)
 unittest.TextTestRunner(verbosity=2).run(suite)
