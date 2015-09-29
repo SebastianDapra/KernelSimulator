@@ -9,21 +9,19 @@ class Scheduler:
     def __call__(self, *args, **kwargs):
         return self
 
-    @property
+
     def set_as_fifo(self):
         self.policy = FifoScheduler(self.ready_queue)
 
-    @property
     def set_as_priority(self):
         self.policy = PriorityScheduler(self.ready_queue)
 
-    @property
     def set_as_round_robin(self, quantum):
         self.policy = RoundRobinScheduler(quantum, self.ready_queue)
 
     @property
     def get_pcb(self):
-        return self.policy.get_pcb()
+        return self.policy.get_pcb
 
     def add_pcb(self, pcb):
         self.policy.add_pcb(pcb)

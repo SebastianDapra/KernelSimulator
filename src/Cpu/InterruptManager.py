@@ -9,6 +9,9 @@ class InterruptionManager:
         self.cpu = cpu
 
     def find(self, pcb):
+        #list(filter(lambda x: x.alert.condition_of_applicability(pcb, self.cpu), self.alerts))
+        #filter(self.alerts)
+        # esto de abajo deberia quedar mas elegante
         for alert in self.alerts:
             if alert.condition_of_applicability(pcb, self.cpu):
                 return alert

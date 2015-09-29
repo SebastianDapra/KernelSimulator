@@ -4,18 +4,18 @@ import unittest
 
 class Output:
     def __init__(self):
-        self.instrucciones = []
-        self.indice = 0
+        self.instructions = []
+        self.index = 0
 
-    def agregarInstruccion(self, instruccion):
-        self.instrucciones.append(instruccion)
-        self.indice += 1
+    def addInstruction(self, instruccion):
+        self.instructions.append(instruccion)
+        self.index += 1
 
-    def get(self, indice):
-        return self.instrucciones[indice]
+    def get(self, index):
+        return self.instructions[index]
 
     def print_all(self):
-        for instr in self.instrucciones:
+        for instr in self.instructions:
             print (instr)
 
 
@@ -24,8 +24,8 @@ class TestsOutput(unittest.TestCase):
     def setUp(self):
         self.output = Output()
 
-    def test_agregarUnElemento(self):
-        self.output.agregarInstruccion("soy una instruccion")
+    def test_addAnElement(self):
+        self.output.addInstruction("soy una instruccion")
         self.assertEquals("soy una instruccion", self.output.get(0))
 
 

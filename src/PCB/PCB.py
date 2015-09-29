@@ -12,11 +12,9 @@ class PCB:
         self.pid = pid
         self.priority = priority
 
-    @property
     def initial_position(self):
         return self.init_position
 
-    @property
     def final_position(self):
         return self.final_position
 
