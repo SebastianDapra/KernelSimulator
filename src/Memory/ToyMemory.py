@@ -11,3 +11,10 @@ class ToyMemory:
 
     def delete(self,pcb):
         self.representacion.remove(pcb)
+
+    def getNextFreePosition(self):
+        return self.representacion.__sizeof__()
+
+    def write_at(self,instruction,position):
+        self.representacion.insert(position,instruction)
+
