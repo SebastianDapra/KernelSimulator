@@ -2,6 +2,7 @@ __author__ = 'luciano'
 
 from src.Kernel.Output import *
 
+
 class Program:
 
     def __init__(self, name):

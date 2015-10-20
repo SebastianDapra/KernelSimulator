@@ -2,27 +2,26 @@ __author__ = 'luciano'
 
 from src.PCB.ProcessState import *
 
+
 class PCB:
 
-    def __init__(self, init, fin, pc, pid, priority):
-        self.init_position = init
-        self.final_position = fin
+    def __init__(self, amountInstructions, pc, pid, priority):
+        self.amountInstructions = amountInstructions
         self.pc = pc
         self.state = ProcessState.new
         self.pid = pid
         self.priority = priority
 
-    def initial_position(self):
-        return self.init_position
+    def get_amount_of_instructions(self):
+        return self.amountInstructions
 
-    def final_position(self):
-        return self.final_position
+    def get_program_name(self):
+        return self.program_name
 
-    @property
     def get_pc(self):
         return self.pc
 
-    def sum_pc(self):
+    def increment(self):
         self.pc += 1
 
     @property
@@ -33,7 +32,10 @@ class PCB:
     def get_pid(self):
         return self.pid
 
-    @property
+    def has_finished(self):
+        # Esto quizas cambia con la idea de memoria
+        return self.pc == self.amountInstructions
+
     def set_state(self, state_new):
         self.state = state_new
 
@@ -41,9 +43,29 @@ class PCB:
     def get_priority(self):
         return self.priority
 
-    @property
-    def is_last_position(self):
-        return self.pc == self.final_position
+    def set_priority(self, priority):
+        self.priority = priority
+
+    def increase_priority(self):
+        if self.priority == 3:
+            self.priority = PCBPriorities().getPriorities().MEDIUM
+        elif self.priority == 2:
+            self.priority = PCBPriorities().getPriorities().HIGH
 
     def __cmp__(self, another_pcb):
         return self.priority.__cmp__(another_pcb.get_priority)
+
+    def get_instructions(self):
+        pass
+
+
+class PCBPriorities:
+
+    def __init__(self):
+        self._priorities = self.enum(HIGH=1, MEDIUM=2, LOW=3)
+
+    def getPriorities(self):
+        return self._priorities
+
+    def enum(self, **enums):
+        return type('Enum', (), enums)

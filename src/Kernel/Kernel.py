@@ -11,15 +11,28 @@ from src.Instruction import Instruction
 
 class Kernel:
     def __init__(self, clock):
+        self.mode = UserMode()
         self.pid = 0
-        self.scheduler = Scheduler()
-        self.cpu = Cpu(self)
+        self.scheduler = None
+        self.cpu = Cpu(self) #esto es raro
         self.pcb_table = PCBTable()
         self.clock = clock
+        self.memory_admin = None
 
-    @property
+    def set_memory_admin(self, memory_admin):
+        self.memory_admin = memory_admin
+
+    def memory_admin(self):
+        return self.memory_admin
+
     def scheduler(self):
         return self.scheduler
+
+    def toKernelMode(self):
+        self.mode = KernelMode()
+
+    def toUserMode(self):
+        self.mode = UserMode()
 
     @property
     def get_pid(self):
@@ -36,7 +49,7 @@ class Kernel:
         program = Program('Un programa que va a cambiar cuando introduzca el concepto de HD')
         program.addInstruction(Instruction('5 + 5'))
         self.create_pcb(program, priority)
-        self.scheduler.get_pcb
+        self.scheduler.next
 
     @property
     def timing(self):
@@ -44,11 +57,21 @@ class Kernel:
 
     # La senial deberia hacer que la ejecucion de un proceso cambie
     def handle_signal(self, signal, pcb):
+        self.toKernelMode
+        '''
+            Tengo que ver como repercute esto en cuestion de
+            interrupciones y los procesos que se corren, (vease problema con procesos
+            concurrentes)
+        '''
         try:
-            signal.alert_cpu(pcb, self.cpu, self.pcb_table)
+            signal.context_switching(pcb, self.cpu, self.pcb_table)
+            self.toUserMode
+            '''
+                Todas las dudas del mundo !!!
+            '''
         except Exception as e:
             print("Handle unexpected signal! details: " + e.message)
-            TimeoutInterruption().alert_cpu(pcb, self.cpu, self.pcb_table)
+            TimeoutInterruption().context_switching(pcb, self.cpu, self.pcb_table)
 
     def create_pcb(self, program, priority):
         # Esto cambiaria con la implementacion de memoria
@@ -60,3 +83,10 @@ class Kernel:
         self.scheduler.add_pcb(pcb)
 
 
+class UserMode:
+    def __init__(self):
+        pass
+
+class KernelMode:
+    def __init__(self):
+        pass

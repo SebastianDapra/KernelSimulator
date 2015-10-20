@@ -2,6 +2,7 @@ __author__ = 'luciano'
 
 from enum import Enum
 
+
 class ProcessState(Enum):
     new = 1
     ready = 2

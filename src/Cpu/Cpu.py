@@ -17,18 +17,36 @@ class Cpu:
     def scheduler(self):
         return self.kernel.scheduler()
 
+    def fetch_instruction(self,pcb):
+        instruction = self.memory_admin.get_instruction_of(pcb)
+        instruction.run()
+        '''
+        tiene que hacer algo mas por ahora no hago nada si es de IO, pero deberia resolver con polimorfismo
+        '''
+
     def read_burst_instruction(self, pcb):
         while True:
                 instr = self.memory_admin.read_memory(pcb)
+
                 if not None == instr:
+                    '''
+                    tiene que hacer algo mas por ahora no hago nada si es de IO
+                    '''
                     instr.run(self.output)
                 else:
                     self.kernel.handle_signal(KillInterruption(), pcb)
                 self.output.print_all()
                 self.alerter.find(pcb)
 
+    '''
+        obteniendo el pcb del Scheduler, con cada tick del Clock (que esta en el Kernel)
+        creo un Thread que lea y corra la instruccion (read_burst_instruction)
+        Si es una interrupcion le digo al InterruptManager que se haga cargo
+    '''
+
+
     def run(self):
-        pcb = self.kernel.scheduler.get_pcb
+        pcb = self.kernel.scheduler.nextProcess
         pass
         try:
             while True:

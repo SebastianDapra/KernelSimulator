@@ -8,11 +8,18 @@ class InstructionInterruption(Exception):
     def condition_of_applicability(self, pcb, cpu):
         pass
 
-    def alert_cpu(self, pcb, cpu, pcb_table):
-        print("Ejecute"+self.__str__()+" alerta.")
-        new_pcb = cpu.scheduler.get_pcb
-        new_pcb.state = ProcessState.ready
-        cpu.read_burst_instruction(new_pcb)
+    def context_switching(self, pcb, cpu):
+        print("Ejecute"+self.__str__())
+        next_pcb = cpu.scheduler.nextProcess
+        next_pcb.state = ProcessState.running
+        '''
+            Y como conoce el CPU al prox PCB a ejecutar?
+            La CPU mantiene su PCB actual
+        '''
+        #cpu.read_burst_instruction(next_pcb)
+
+    def algo(self, pcb, cpu, pcb_table):
+        pass
 
     def message(self):
         return "I'm a " + self.__str__() + "alert!"
@@ -25,11 +32,11 @@ class KillInterruption(InstructionInterruption):
     def condition_of_applicability(self, pcb, cpu):
         return pcb.final_position == pcb.pc
 
-    def alert_cpu(self, pcb, cpu, pcb_table):
-        super(KillInterruption, self).alert_cpu(pcb, cpu, pcb_table)
-        pcb.state = ProcessState.end
-        cpu.memory_admin.free(pcb) ## NO EXISTE CREALO
+    def algo(self, pcb, cpu, pcb_table):
+        super(KillInterruption, self).context_switching(pcb, cpu)
+        pcb.state = ProcessState.terminated
         pcb_table.remove(pcb)
+        # falta que lo saquen de memoria
 
 
 class TimeoutInterruption(InstructionInterruption):
@@ -39,8 +46,8 @@ class TimeoutInterruption(InstructionInterruption):
     def condition_of_applicability(self, pcb, cpu):
         return True
 
-    def alert_cpu(self, pcb, cpu, pcb_table):
-        super(TimeoutInterruption, self).alert_cpu(pcb, cpu, pcb_table)
+    def algo(self, pcb, cpu, pcb_table):
+        super(TimeoutInterruption, self).context_switching(pcb, cpu)
         pcb.state = ProcessState.ready
 
 
@@ -51,8 +58,8 @@ class IOInterruption(InstructionInterruption):
     def condition_of_applicability(self, pcb, cpu):
         return pcb.next_instruction.is_io_instruction
 
-    def alert_cpu(self, pcb, cpu, pcb_table):
-        super(IOInterruption, self).alert_cpu(pcb, cpu, pcb_table)
+    def algo(self, pcb, cpu, pcb_table):
+        super(IOInterruption, self).context_switching(pcb, cpu)
         pcb.state = ProcessState.waiting
         #Podriamos hacer algo en el medio, como procesar la IOInstruction
         pcb.state = ProcessState.ready
@@ -65,10 +72,22 @@ class NewInterruption(InstructionInterruption):
     def condition_of_applicability(self, pcb, cpu):
         pcb.state.equals(ProcessState.new)
 
-    def alert_cpu(self, pcb, cpu, pcb_table):
-        super(NewInterruption, self).alert_cpu(pcb, cpu, pcb_table)
+    def algo(self, pcb, cpu, pcb_table):
+        super(NewInterruption, self).context_switching(pcb, cpu)
         pcb_table.add(pcb)
         pcb.state = ProcessState.ready
+
+class EndIOInterruption(InstructionInterruption):
+    def __init__(self):
+        super(NewInterruption, self).__init__()
+
+    def condition_of_applicability(self, pcb, cpu):
+        pcb.state.equals(ProcessState.waiting)
+
+    def algo(self, pcb, cpu, pcb_table):
+        super(EndIOInterruption, self).context_switching(pcb, cpu)
+
+
 
 
 class WaitingInterruption(InstructionInterruption):
@@ -79,5 +98,5 @@ class WaitingInterruption(InstructionInterruption):
     def condition_of_applicability(self, pcb, cpu):
         return True
 
-    def alert_cpu(self, pcb, cpu, pcb_table):
+    def context_switching(self, pcb, cpu, pcb_table):
         cpu.kernel.handle_signal(TimeoutInterruption(), pcb)
