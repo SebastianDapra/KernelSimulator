@@ -17,3 +17,4 @@ class Memory:
     def change_instruction_cell(self, from_index, to_index):
         self.cells[to_index] = self.cells[from_index]
         self.cells[from_index] = None
+
