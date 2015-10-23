@@ -13,11 +13,6 @@ class Program:
     def addInstruction(self, instruction):
         self.instructions.append(instruction)
 
-    def execute(self):
-        for instr in self.instructions:
-            pass
-            instr.run(self.output)
-
     def size(self):
         return len(self.instructions)
 

@@ -11,13 +11,17 @@ from src.Instruction import Instruction
 
 class Kernel:
     def __init__(self, clock):
-        self.mode = UserMode()
+        self.mode = None
         self.pid = 0
         self.scheduler = None
         self.cpu = Cpu(self) #esto es raro
         self.pcb_table = PCBTable()
         self.clock = clock
         self.memory_admin = None
+        self.interruptionManager = None
+
+    def setInterruptionManager(self,interruptionManager):
+        self.interruptionManager = interruptionManager
 
     def set_memory_admin(self, memory_admin):
         self.memory_admin = memory_admin
@@ -46,8 +50,7 @@ class Kernel:
         return self.scheduler.ready_queue
 
     def execute(self, program_name, path, priority):
-        program = Program('Un programa que va a cambiar cuando introduzca el concepto de HD')
-        program.addInstruction(Instruction('5 + 5'))
+        program = Program(program_name)
         self.create_pcb(program, priority)
         self.scheduler.next
 
@@ -57,21 +60,9 @@ class Kernel:
 
     # La senial deberia hacer que la ejecucion de un proceso cambie
     def handle_signal(self, signal, pcb):
-        self.toKernelMode
-        '''
-            Tengo que ver como repercute esto en cuestion de
-            interrupciones y los procesos que se corren, (vease problema con procesos
-            concurrentes)
-        '''
-        try:
-            signal.context_switching(pcb, self.cpu, self.pcb_table)
-            self.toUserMode
-            '''
-                Todas las dudas del mundo !!!
-            '''
-        except Exception as e:
-            print("Handle unexpected signal! details: " + e.message)
-            TimeoutInterruption().context_switching(pcb, self.cpu, self.pcb_table)
+        self.toKernelMode()
+        self.mode.handle_signal(pcb,signal,self)
+        self.toUserMode()
 
     def create_pcb(self, program, priority):
         # Esto cambiaria con la implementacion de memoria
@@ -83,10 +74,24 @@ class Kernel:
         self.scheduler.add_pcb(pcb)
 
 
+class KernelMode:
+    def __init__(self):
+        pass
+
+    def handle_signal(pcb,signal,kernel):
+        try:
+            kernel.interruptionManager.managerFor(signal).context_switching(pcb, kernel.cpu, kernel.pcb_table)
+        except Exception as e:
+            '''
+            La Excepcion debe ser una de TimeOut, no una cualquiera !!!!
+            '''
+            print("Handle unexpected signal! details: " + e.message)
+            kernel.interruptionManager.timeoutInterruptionManager().context_switching(pcb, kernel.cpu, kernel.pcb_table)
+
+
 class UserMode:
     def __init__(self):
         pass
 
-class KernelMode:
-    def __init__(self):
+    def handle_signal(pcb,signal,kernel):
         pass

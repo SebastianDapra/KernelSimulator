@@ -6,6 +6,7 @@ from src.Cpu.Interrupt import *
 from src.Cpu.InterruptManager import InterruptionManager
 from src.Kernel.Output import Output
 
+
 class Cpu:
 
     def __init__(self, kernel):
@@ -13,12 +14,22 @@ class Cpu:
         self.alerter = InterruptionManager(self)
         self.output = Output()
         self.memory_admin = self.kernel.memory_admin()
+        self.actual_pcb = None
+
+    def set_actual_pcb(self,pcb):
+        self.actual_pcb = pcb
 
     def scheduler(self):
         return self.kernel.scheduler()
 
-    def fetch_instruction(self,pcb):
-        instruction = self.memory_admin.get_instruction_of(pcb)
+    def set_memory_admin(self,memory_admin):
+        self.memory_admin = memory_admin
+
+    def fetch_instruction(self):
+        return self.memory_admin.get_instruction_of(self.actual_pcb)
+
+
+    def execute_instruction(self,instruction):
         instruction.run()
         '''
         tiene que hacer algo mas por ahora no hago nada si es de IO, pero deberia resolver con polimorfismo

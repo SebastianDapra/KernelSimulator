@@ -1,8 +1,10 @@
 class LogicalMemory:
 
-    def __init__(self, memory, hdd , memory_manager):
-        self.memory = memory
-        self.size_of_memory = self.memory.size_of_memory
+    def __init__(self,memory_manager):
+        self.id = 0
+        self.memory_manager = memory_manager
+
+    def __init__(self, hdd, memory_manager):
         self.id = 0
         self.hdd = hdd
         self.memory_manager = memory_manager

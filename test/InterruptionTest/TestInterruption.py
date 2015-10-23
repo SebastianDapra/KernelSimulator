@@ -5,7 +5,7 @@ from src.PCB.PCBTable import *
 from src.PCB.PCB import *
 
 
-class TestCPU(unittest.TestCase):
+class TestInterruption(unittest.TestCase):
 
     def setUp(self):
         self.pcb_table = PCBTable()

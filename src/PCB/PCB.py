@@ -11,6 +11,16 @@ class PCB:
         self.state = ProcessState.new
         self.pid = pid
         self.priority = priority
+        self.base_register = None
+
+    def set_id(self,pid):
+        self.pid = pid
+
+    def set_amount_of_instructions(self,amountInstructions):
+        self.amountInstructions = amountInstructions
+
+    def set_base_register(self,base_register):
+        self.base_register = base_register
 
     def get_amount_of_instructions(self):
         return self.amountInstructions

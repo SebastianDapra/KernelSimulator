@@ -2,6 +2,10 @@ __author__ = 'luciano'
 
 from src.PCB.ProcessState import *
 
+'''
+Es candidato a pasar a ser un enum, no???
+'''
+
 
 class InstructionInterruption(Exception):
 
@@ -9,7 +13,6 @@ class InstructionInterruption(Exception):
         pass
 
     def context_switching(self, pcb, cpu):
-        print("Ejecute"+self.__str__())
         next_pcb = cpu.scheduler.nextProcess
         next_pcb.state = ProcessState.running
         '''
@@ -77,6 +80,7 @@ class NewInterruption(InstructionInterruption):
         pcb_table.add(pcb)
         pcb.state = ProcessState.ready
 
+
 class EndIOInterruption(InstructionInterruption):
     def __init__(self):
         super(NewInterruption, self).__init__()
@@ -86,8 +90,6 @@ class EndIOInterruption(InstructionInterruption):
 
     def algo(self, pcb, cpu, pcb_table):
         super(EndIOInterruption, self).context_switching(pcb, cpu)
-
-
 
 
 class WaitingInterruption(InstructionInterruption):
