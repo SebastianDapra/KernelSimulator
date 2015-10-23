@@ -11,11 +11,14 @@ class Cpu:
 
     def __init__(self, kernel):
         self.kernel = kernel
-        self.alerter = InterruptionManager(self)
+        self.interruption_manager = InterruptionManager(self)
         self.output = Output()
         self.memory_admin = None
         self.actual_pcb = None
         self.output = None
+
+    def get_actual_pcb(self):
+        return self.actual_pcb
 
     def set_actual_pcb(self,pcb):
         self.actual_pcb = pcb
@@ -39,16 +42,15 @@ class Cpu:
         '''
 
     def execute_instruction(self):
-        actual_instruction = fetch_single_instruction
-        while True:
-            if actual_instruction is not None:
-                '''
+        actual_instruction = self.fetch_single_instruction()
+        if not actual_instruction.is_io_instruction:
+            actual_instruction.run(self.output)
+            '''
                 tiene que hacer algo mas por ahora no hago nada si es de IO
-                '''
-                actual_instruction.run(self.output)
-            else:
-                self.kernel.handle_signal(KillInterruption(), self.actual_pcb)
-                #self.alerter.find(self.actual_pcb)
+            '''
+        else:
+            self.kernel.handle_signal(KillInterruption(), self.actual_pcb)
+                #self.interruption_manager.find(self.actual_pcb)
 
     '''
         obteniendo el pcb del Scheduler, con cada tick del Clock (que esta en el Kernel)
