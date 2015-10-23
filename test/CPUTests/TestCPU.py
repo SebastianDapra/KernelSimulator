@@ -7,7 +7,6 @@ from src.PCB import PCB, PCBTable
 from src.Cpu.Cpu import *
 from src.Kernel import ToyProgram , Program
 
-
 class TestCPU(unittest.TestCase):
 
     def setUp(self):
