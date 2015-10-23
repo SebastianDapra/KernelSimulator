@@ -24,3 +24,7 @@ class Program:
 
     def getInstructionExecutedAt(self, index):
         return self.output.get(index)
+
+    def get_instructions(self):
+        return self.instructions
+

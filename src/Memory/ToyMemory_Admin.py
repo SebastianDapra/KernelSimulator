@@ -19,5 +19,5 @@ class ToyMemoryAdmin:
         '''
         indirecciones al pedo !!! tenes que mirarlas.
         '''
-        return self.memory.get_instruction_of_cell(self, pcb.get_pc(), pcb.get_pid)
+        return self.memory.get_instruction_of_cell(pcb.get_pc())
 

@@ -6,6 +6,9 @@ class Instruction:
     def __init__(self, text):
         self.text = text
 
+    def __call__(self):
+        return self
+
     def text(self):
         return self.text
 
@@ -14,3 +17,4 @@ class Instruction:
 
     def run(self, output):
         output.agregarInstruccion(self.text)
+

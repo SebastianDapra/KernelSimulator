@@ -2,31 +2,37 @@ __author__ = 'luciano'
 
 
 import unittest
-from src.Memory import ToyMemory, ToyMemory_Admin
-from src.PCB import PCB, PCBTable
+from src.Instruction.Instruction import *
+
+from src.Memory.ToyMemory import *
+from src.Memory.ToyMemory_Admin import *
+from src.PCB.PCB import *
 from src.Cpu.Cpu import *
-from src.Kernel import ToyProgram , Program
+from src.Kernel.ToyProgram import *
+from src.Kernel.Program import *
+
 
 class TestCPU(unittest.TestCase):
 
     def setUp(self):
         self.memory = ToyMemory()
         self.cpu = Cpu(None)
+        self.load_program_in_memory()
 
     def load_program_in_memory(self):
         toy_program = ToyProgram(Program("Vim"))
+        amount_instructions = len(toy_program.program.get_instructions())
         self.memory.write_program(toy_program.program)
-        pcb = PCB(toy_program.program.instructions.size,0,None,None)
+        pcb = PCB(amount_instructions,1,None)
+        memory_admin = ToyMemoryAdmin(self.memory)
         self.cpu.set_actual_pcb(pcb)
-        memory_admin = ToyMemory_Admin()
         self.cpu.set_memory_admin(memory_admin)
 
-    def given_pcb_when_cpu_fetch_instruction_from_memory_then(self):
-        self.cpu.fetch_instruction()
 
-        self.assertEqual(3, self.pcb_table.size())
+    def test_given_pcb_when_cpu_fetch_instruction_from_memory_then(self):
+        instruction = self.cpu.fetch_instruction().text
+        expected = Instruction("Hooo").text
+        self.assertEqual(expected,instruction)
 
-    def test_remove(self):
-        self.pcb_table.remove(self.pcb2)
-        self.assertEqual(2, self.pcb_table.size())
+
 

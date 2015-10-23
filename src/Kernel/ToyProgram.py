@@ -10,5 +10,9 @@ class ToyProgram:
         self.load_instructions()
 
     def load_instructions(self):
-        self.program.instructions = map(Instruction("Hooo"),range(1, 10))
+        for i in range(1, 5):
+            self.program.instructions.append(Instruction("Hooo"))
+            self.program.instructions.append(Instruction("Booo"))
+
+
 

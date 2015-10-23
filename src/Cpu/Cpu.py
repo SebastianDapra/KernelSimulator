@@ -13,7 +13,7 @@ class Cpu:
         self.kernel = kernel
         self.alerter = InterruptionManager(self)
         self.output = Output()
-        self.memory_admin = self.kernel.memory_admin()
+        self.memory_admin = None
         self.actual_pcb = None
 
     def set_actual_pcb(self,pcb):

@@ -5,9 +5,9 @@ from src.PCB.ProcessState import *
 
 class PCB:
 
-    def __init__(self, amountInstructions, pc, pid, priority):
+    def __init__(self, amountInstructions, pid, priority):
         self.amountInstructions = amountInstructions
-        self.pc = pc
+        self.pc = 0
         self.state = ProcessState.new
         self.pid = pid
         self.priority = priority
