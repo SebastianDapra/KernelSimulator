@@ -59,9 +59,9 @@ class Kernel:
         self.clock.tick()
 
     # Signal should make process execution changed
-    def handle_signal(self, signal, pcb):
+    def signal_handler(self, signal, pcb):
         self.to_kernel_mode()
-        self.mode.handle_signal(pcb,signal,self)
+        self.mode.manage_interruption_from(signal,pcb)
         self.to_user_mode()
 
     def create_pcb(self, program, priority):
@@ -84,8 +84,11 @@ class KernelMode:
     def __init__(self,kernel):
         self.kernel = kernel
 
-    def handle_signal(pcb,signal):
-        self.kernel.interruptionManager.manager_for(signal).handle_signal(pcb,self.kernel.cpu,self.kernel.pcb_table)
+    def manage_interruption_from(self,interruption,pcb):
+        self.manager_for(interruption).handle_signal(pcb,self.kernel.cpu,self.kernel.pcb_table)
+
+    def manager_for(self,interruption):
+        return self.kernel.interruption_manager.manager_for(interruption)
 
 
 class UserMode:

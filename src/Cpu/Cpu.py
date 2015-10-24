@@ -1,10 +1,9 @@
 __author__ = 'luciano'
 
 import threading
-from src.Cpu.Interrupt import *
 from src.Cpu.InterruptionManager import InterruptionManager
 from src.Kernel.Output import Output
-
+from src.Cpu.Interruption import *
 
 class Cpu:
 
@@ -38,7 +37,7 @@ class Cpu:
         instruction.execute()
         self.actual_pcb.increment()
         if self.actual_pcb.isInvalid():
-            raise KillInterruption()
+            raise Interruption.KillInterruption
 
     def run(self):
         self.set_actual_pcb(self.kernel.scheduler.next_process)
@@ -50,8 +49,8 @@ class Cpu:
         '''
         actual_instruction = self.fetch_single_instruction()
 
-        if actual_instruction.is_io_instruction:
-            self.kernel.handle_signal(IOInterruption(), self.actual_pcb)
+        if actual_instruction.is_io:
+            self.kernel.signal_handler(IOInterruption, self.actual_pcb)
         else:
             self.execute_single_instruction(actual_instruction)
 

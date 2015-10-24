@@ -1,7 +1,7 @@
 __author__ = 'luciano'
 
 import threading
-from src.Cpu.Interrupt import TimeoutInterruption
+from src.Cpu.Interruption import TimeoutInterruption
 
 
 class Clock(threading.Thread):

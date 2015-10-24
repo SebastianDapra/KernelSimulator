@@ -12,7 +12,8 @@ class Instruction:
     def text(self):
         return self.text
 
-    def is_io_instruction(self):
+    @property
+    def is_io(self):
         return False
 
     def execute(self):
@@ -25,7 +26,8 @@ class InstructionIO:
     def __init__(self):
         self.text = "This is an IO Instruction"
 
-    def is_io_instruction(self):
+    @property
+    def is_io(self):
         return True
 
     def execute(self):
