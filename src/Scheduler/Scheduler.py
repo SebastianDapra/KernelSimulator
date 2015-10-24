@@ -8,8 +8,7 @@ Tambien quisiera saber que pasa con el mismo cuando hay interrupciones
 
 class Scheduler:
 
-    def __init__(self, kernel, policy=None, ready_queue_size=50):
-        self.kernel = kernel
+    def __init__(self, policy=None, ready_queue_size=50):
         self.ready_queue = []
         self.ready_queue_size = 50
         self.policy = policy
@@ -22,43 +21,43 @@ class Scheduler:
         return self.ready_queue_size > self.ready_queue.__len__()
 
     def push_to_queue(self, pcb):
+        if self.not_full():
+            self.sch_strategy.push_to_queue(self, pcb)
         self.policy.add_pcb(pcb)
-        #if self.not_full:
-            #self.policy.add_pcb(pcb)
 
     def send_next_to_cpu(self):
-        self.policy.send_next_to_cpu(self)
-        self.kernel.my_long_scheduler.send_pcb_to_sts(self)
-        self.increase_pcbs_priority(1)
+        self.cpu.set_actual_pcb(self.next_process())
+        #self.kernel.my_long_scheduler.send_pcb_to_sts(self)
+        #self.increase_pcbs_priority(1)
 
     def ask_cpu_for_space(self):
         if self.cpu.pcb is None:
             self.send_next_to_cpu()
 
-    def nextProcess(self):
-        return self.policy.nextProcess()
+    def next_process(self):
+        return self.policy.next_process()
 
     def set_as_fifo(self):
-        self.policy = FifoScheduler(self.ready_queue)
+        self.policy = FifoPolicy(self.ready_queue)
 
     def set_as_priority(self):
-        self.policy = PriorityScheduler(self.ready_queue)
+        self.policy = PriorityPolicy(self.ready_queue)
 
     def set_as_round_robin(self, quantum):
-        self.policy = RoundRobinScheduler(quantum, self.ready_queue)
+        self.policy = RoundRobinPolicy(quantum, self.ready_queue)
 
     def increase_pcbs_priority(self):
         self.ready_queue = map((lambda x: x.increase_priority), self.ready_queue)
 
 
-class FifoScheduler:
+class FifoPolicy:
     def __init__(self, ready_queue):
         self.readyQueue = ready_queue
 
     def get_readyQueue(self):
         return self.readyQueue
 
-    def nextProcess(self):
+    def next_process(self):
         #if not self.readyQueue:
         #    raise Exception("No processes available!")
         return self.readyQueue.pop(0)
@@ -70,11 +69,11 @@ class FifoScheduler:
         return -1
 
 
-class PriorityScheduler:
+class PriorityPolicy:
     def __init__(self, ready_queue):
         self.readyQueue = ready_queue
 
-    def nextProcess(self):
+    def next_process(self):
         '''
         Aca deberia buscar al proceso con mayor prioridad y devolver ese
         '''
@@ -87,12 +86,12 @@ class PriorityScheduler:
         return -1
 
 
-class RoundRobinScheduler:
+class RoundRobinPolicy:
     def __init__(self, quantum, ready_queue):
         self.readyQueue = ready_queue
         self.quantum = quantum
 
-    def nextProcess(self):
+    def next_process(self):
         '''
         Hace FIFO pero con Quantum, mirar las diapos !!!
         '''

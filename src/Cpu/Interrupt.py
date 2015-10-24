@@ -13,7 +13,7 @@ class InstructionInterruption(Exception):
         pass
 
     def context_switching(self, pcb, cpu):
-        next_pcb = cpu.scheduler.nextProcess
+        next_pcb = cpu.scheduler.next_process
         next_pcb.state = ProcessState.running
         '''
             Y como conoce el CPU al prox PCB a ejecutar?
@@ -64,7 +64,7 @@ class IOInterruption(InstructionInterruption):
     def algo(self, pcb, cpu, pcb_table):
         super(IOInterruption, self).context_switching(pcb, cpu)
         pcb.state = ProcessState.waiting
-        #Podriamos hacer algo en el medio, como procesar la IOInstruction
+        #Podriamos hacer handle_signal en el medio, como procesar la IOInstruction
         pcb.state = ProcessState.ready
 
 

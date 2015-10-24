@@ -1,4 +1,4 @@
-class SchStrategy():
+class SchStrategy:
 
     def __init__(self):
         pass

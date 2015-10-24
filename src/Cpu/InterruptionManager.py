@@ -2,7 +2,6 @@ __author__ = 'luciano'
 
 from src.Cpu.Interrupt import *
 
-
 class InterruptionManager:
 
     def __init__(self, cpu):
@@ -12,44 +11,33 @@ class InterruptionManager:
     def register(self,handler,interruption):
         self.handlers.update({interruption,handler})
 
-    def managerFor(self,interruption):
-        return self.handlers.get(interruption)
+    def manager_for(self,interruption):
+        manager = self.handlers.get(interruption)
+        if manager is None:
+            raise NotADefaultInterruptionException
+        else:
+            return manager
 
-    def find(self, pcb):
-        #list(filter(lambda x: x.alert.condition_of_applicability(pcb, self.cpu), self.alerts))
-        #filter(self.alerts)
-        # esto de abajo deberia quedar mas elegante
-        for alert in self.alerts:
-            if alert.condition_of_applicability(pcb, self.cpu):
-                return alert
-
-    def alert_for(self, pcb):
-        self.find(pcb).context_switching(pcb)
-
-    def timeoutInterruptionManager():
+    def timeout_interruption_manager(self):
         return TimeoutInterruptionManager()
-
-    def handle(self,interruption):
-        pass
 
     '''
         Le manda el PCB?? O en la interrupcion ya viene el PCB???
         ---
         TODO: Entonces hacer un KILL en cualquier momento de la ejecucion de un proceso,
-        es algo valido y puede hacerse si esta en modo Kernel.
+        es handle_signal valido y puede hacerse si esta en modo Kernel.
 
 
        '''
 
 
 class InstructionInterruptionManager(Exception):
-
     def condition_of_applicability(self, pcb, cpu):
         pass
 
     def context_switching(self, pcb, cpu):
         print("Ejecute"+self.__str__())
-        next_pcb = cpu.scheduler.nextProcess
+        next_pcb = cpu.scheduler.next_process
         next_pcb.state = ProcessState.running
         '''
             Y como conoce el CPU al prox PCB a ejecutar?
@@ -57,7 +45,7 @@ class InstructionInterruptionManager(Exception):
         '''
         #cpu.read_burst_instruction(next_pcb)
 
-    def algo(self, pcb, cpu, pcb_table):
+    def handle_signal(self, pcb, cpu, pcb_table):
         pass
 
     def message(self):
@@ -71,7 +59,7 @@ class KillInterruptionManager(InstructionInterruptionManager):
     def condition_of_applicability(self, pcb, cpu):
         return pcb.final_position == pcb.pc
 
-    def algo(self, pcb, cpu, pcb_table):
+    def handle_signal(self, pcb, cpu, pcb_table):
         super(KillInterruption, self).context_switching(pcb, cpu)
         pcb.state = ProcessState.terminated
         pcb_table.remove(pcb)
@@ -85,7 +73,7 @@ class TimeoutInterruptionManager(InstructionInterruptionManager):
     def condition_of_applicability(self, pcb, cpu):
         return True
 
-    def algo(self, pcb, cpu, pcb_table):
+    def handle_signal(self, pcb, cpu, pcb_table):
         super(TimeoutInterruption, self).context_switching(pcb, cpu)
         pcb.state = ProcessState.ready
 
@@ -97,10 +85,12 @@ class IOInterruptionManager(InstructionInterruptionManager):
     def condition_of_applicability(self, pcb, cpu):
         return pcb.next_instruction.is_io_instruction
 
-    def algo(self, pcb, cpu, pcb_table):
+    def handle_signal(self, pcb, cpu, pcb_table):
         super(IOInterruption, self).context_switching(pcb, cpu)
         pcb.state = ProcessState.waiting
-        #Podriamos hacer algo en el medio, como procesar la IOInstruction
+        '''
+        Cuando pasa a waiting deberia mandarse a la cola de Waiting de IO
+        '''
         pcb.state = ProcessState.ready
 
 
@@ -111,7 +101,7 @@ class NewInterruptionManager(InstructionInterruptionManager):
     def condition_of_applicability(self, pcb, cpu):
         pcb.state.equals(ProcessState.new)
 
-    def algo(self, pcb, cpu, pcb_table):
+    def handle_signal(self, pcb, cpu, pcb_table):
         super(NewInterruption, self).context_switching(pcb, cpu)
         pcb_table.add(pcb)
         pcb.state = ProcessState.ready
@@ -124,7 +114,7 @@ class EndIOInterruptionManager(InstructionInterruptionManager):
     def condition_of_applicability(self, pcb, cpu):
         pcb.state.equals(ProcessState.waiting)
 
-    def algo(self, pcb, cpu, pcb_table):
+    def handle_signal(self, pcb, cpu, pcb_table):
         super(EndIOInterruption, self).context_switching(pcb, cpu)
 
 

@@ -18,25 +18,40 @@ class TestCPU(unittest.TestCase):
     def setUp(self):
         self.memory = ToyMemory()
         self.cpu = Cpu(None)
-        self.setup_load_of_a_program_in_memory()
 
-    def setup_load_of_a_program_in_memory(self):
-        toy_program = ToyProgram(Program("Vim"))
-        amount_instructions = len(toy_program.program.get_instructions())
-        self.memory.write_program(toy_program.program)
+    def load_a_instruction_in_a_program(self):
+        program = Program("SIN-IO")
+        instruction = Instruction("Texto")
+        program.addInstruction(instruction)
+        self.memory.write_program(program)
+        self.setup_load_of_a_program_in_memory(1)
+
+    def load_a_io_instruction_in_a_program(self):
+        program = Program("IO")
+        instruction = InstructionIO()
+        program.addInstruction(instruction)
+        self.memory.write_program(program)
+        self.setup_load_of_a_program_in_memory(1)
+
+    def setup_load_of_a_program_in_memory(self,amount_instructions):
         pcb = PCB(amount_instructions,1,None)
         memory_admin = ToyMemoryAdmin(self.memory)
         self.cpu.set_actual_pcb(pcb)
-        self.cpu.set_memory_admin(memory_admin)
+        self.cpu.set_memory_manager(memory_admin)
 
-    def test_given_pcb_when_cpu_fetch_instruction_from_memory_then(self):
-        instruction = self.cpu.fetch_single_instruction().text
-        expected = Instruction("Hooo").text
-        self.assertEqual(expected,instruction)
+    def test_given_pcb_when_cpu_complete_instruction_cycle_then_increments_pc(self):
+        '''
+        Compare the initial state of PCB's PC with final state
+        '''
+        self.load_a_instruction_in_a_program()
+        self.assertEqual(0,self.cpu.actual_pcb.pc)
+        self.cpu.complete_instruction_cycle()
+        self.assertEqual(1,self.cpu.actual_pcb.pc)
 
-    def test_given_pcb_when_cpu_execute_instruction_from_memory_then(self):
-        output = Output()
-        instruction = self.cpu.fetch_single_instruction()
-        instruction.set_output_device(output)
-        self.cpu.execute_single_instruction(instruction)
-        self.assertEqual(output.get(0),instruction.text)
+'''
+    def test_given_pcb_when_cpu_complete_instruction_cycle_then_has_IO_Interruption(self):
+        self.load_a_io_instruction_in_a_program()
+        self.assertEqual(0,self.cpu.actual_pcb.pc)
+        self.cpu.complete_instruction_cycle()
+        self.assertEqual(1,self.cpu.actual_pcb.pc)
+'''

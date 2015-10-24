@@ -5,7 +5,6 @@ class Instruction:
 
     def __init__(self, text):
         self.text = text
-        self.output = None
 
     def __call__(self):
         return self
@@ -16,9 +15,19 @@ class Instruction:
     def is_io_instruction(self):
         return False
 
-    def set_output_device(self,output):
-        self.output = output
+    def execute(self):
+        pass
+        #self.output.addInstruction(self.text)
 
-    def run(self,):
-        self.output.addInstruction(self.text)
+
+class InstructionIO:
+
+    def __init__(self):
+        self.text = "This is an IO Instruction"
+
+    def is_io_instruction(self):
+        return True
+
+    def execute(self):
+        pass
 

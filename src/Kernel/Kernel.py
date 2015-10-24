@@ -1,12 +1,9 @@
 __author__ = 'luciano'
 
-from src.Cpu.Interrupt import TimeoutInterruption
-from src.Scheduler.Scheduler import *
 from src.Cpu.Cpu import *
 from src.PCB.PCBTable import *
 from src.PCB.PCB import *
 from src.Kernel.Program import *
-from src.Instruction import Instruction
 
 
 class Kernel:
@@ -18,10 +15,10 @@ class Kernel:
         self.pcb_table = PCBTable()
         self.clock = clock
         self.memory_admin = None
-        self.interruptionManager = None
+        self.interruption_manager = None
 
-    def setInterruptionManager(self,interruptionManager):
-        self.interruptionManager = interruptionManager
+    def set_interruption_manager(self,interruption_manager):
+        self.interruption_manager = interruption_manager
 
     def set_memory_admin(self, memory_admin):
         self.memory_admin = memory_admin
@@ -32,11 +29,14 @@ class Kernel:
     def scheduler(self):
         return self.scheduler
 
-    def toKernelMode(self):
-        self.mode = KernelMode()
+    def set_default_kernel_mode(self):
+        self.to_user_mode()
 
-    def toUserMode(self):
-        self.mode = UserMode()
+    def to_kernel_mode(self):
+        self.mode = KernelMode(self)
+
+    def to_user_mode(self):
+        self.mode = UserMode(self)
 
     @property
     def get_pid(self):
@@ -49,7 +49,7 @@ class Kernel:
     def get_ready_queue(self):
         return self.scheduler.ready_queue
 
-    def execute(self, program_name, path, priority):
+    def execute_itself(self, program_name, path, priority):
         program = Program(program_name)
         self.create_pcb(program, priority)
         self.scheduler.next
@@ -58,14 +58,14 @@ class Kernel:
     def timing(self):
         self.clock.tick()
 
-    # La senial deberia hacer que la ejecucion de un proceso cambie
+    # Signal should make process execution changed
     def handle_signal(self, signal, pcb):
-        self.toKernelMode()
+        self.to_kernel_mode()
         self.mode.handle_signal(pcb,signal,self)
-        self.toUserMode()
+        self.to_user_mode()
 
     def create_pcb(self, program, priority):
-        # Esto cambiaria con la implementacion de memoria
+        # This would probably change with memory implementation
         initial_pos = 0
         final_pos = (initial_pos + program.size())
         pcb = PCB(initial_pos, final_pos, 0, self.get_pid, priority)
@@ -75,23 +75,19 @@ class Kernel:
 
 
 class KernelMode:
-    def __init__(self):
-        pass
 
-    def handle_signal(pcb,signal,kernel):
-        try:
-            kernel.interruptionManager.managerFor(signal).context_switching(pcb, kernel.cpu, kernel.pcb_table)
-        except Exception as e:
-            '''
-            La Excepcion debe ser una de TimeOut, no una cualquiera !!!!
-            '''
-            print("Handle unexpected signal! details: " + e.message)
-            kernel.interruptionManager.timeoutInterruptionManager().context_switching(pcb, kernel.cpu, kernel.pcb_table)
+    '''
+    TODO: Restrictions according to the mode the kernel is in:
+    For example: While on kernel mode, no other (concurrent) process can make a progress
+    '''
+
+    def __init__(self,kernel):
+        self.kernel = kernel
+
+    def handle_signal(pcb,signal):
+        self.kernel.interruptionManager.manager_for(signal).handle_signal(pcb,self.kernel.cpu,self.kernel.pcb_table)
 
 
 class UserMode:
-    def __init__(self):
-        pass
-
-    def handle_signal(pcb,signal,kernel):
-        pass
+    def __init__(self,kernel):
+        self.kernel = kernel

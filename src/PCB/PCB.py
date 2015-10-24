@@ -34,6 +34,9 @@ class PCB:
     def increment(self):
         self.pc += 1
 
+    def isInvalid(self):
+        return self.pc == self.amountInstructions
+
     @property
     def get_state(self):
         return self.state

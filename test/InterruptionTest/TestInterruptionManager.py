@@ -2,7 +2,7 @@ __author__ = 'luciano'
 
 import unittest
 from src.PCB.PCB import *
-from src.Cpu.InterruptManager import *
+from src.Cpu.InterruptionManager import *
 from src.Cpu.Cpu import *
 
 
@@ -12,10 +12,8 @@ class TestInterruption(unittest.TestCase):
         self.cpu = Cpu(None)
         self.interruptionManager = InterruptionManager(self.cpu)
         self.cpu.actual_pcb = PCB(3, 5,1)
-        self.cpu
 
-
-    def test_given_a_pcb_and_cpu_when_(self):
+    def test_given_an_instruction_if_is_io_the_handler_interrupts(self):
 
         self.assertEqual(3, self.pcb_table.size())
 

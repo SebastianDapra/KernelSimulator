@@ -21,7 +21,7 @@ class TestScheduler(unittest.TestCase):
         self.scheduler.push_to_queue(self.pcb2)
         self.scheduler.push_to_queue(self.pcb3)
         self.scheduler.push_to_queue(self.pcb4)
-        result = self.scheduler.nextProcess()
+        result = self.scheduler.next_process()
         self.assertEqual(self.pcb1, result)
 
     '''
@@ -32,7 +32,7 @@ class TestScheduler(unittest.TestCase):
         self.scheduler.push_to_queue(self.pcb2)
         self.scheduler.push_to_queue(self.pcb3)
         self.scheduler.push_to_queue(self.pcb4)
-        result = self.scheduler.nextProcess()
+        result = self.scheduler.next_process()
         self.assertEqual(self.pcb1, result)
 
     def test_scheduler_with_priority(self):
@@ -41,7 +41,7 @@ class TestScheduler(unittest.TestCase):
         self.scheduler.push_to_queue(self.pcb2)
         self.scheduler.push_to_queue(self.pcb3)
         self.scheduler.push_to_queue(self.pcb4)
-        result = self.scheduler.nextProcess()
+        result = self.scheduler.next_process()
         self.assertEqual(self.pcb1, result)
      '''
 
