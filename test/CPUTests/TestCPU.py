@@ -27,7 +27,7 @@ class TestCPU(unittest.TestCase):
         program = Program("IO")
         a_kernel = Kernel(None)
         interruption_manager = InterruptionManager(self.cpu)
-        interruption_manager.register(IOInterruption, IOInterruptionManager())
+        interruption_manager.register((IOInterruption, IOInterruptionManager()))
         a_kernel.set_interruption_manager(interruption_manager)
         self.cpu.kernel = a_kernel
         instruction = InstructionIO()
