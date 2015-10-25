@@ -1,17 +1,22 @@
+__author__ = 'luciano'
+
 from src.PCB.ProcessState import *
 
 
 class InterruptionManager:
 
     def __init__(self, cpu):
-        self.handlers = {}
+        self.handlers = []
         self.cpu = cpu
 
-    def register(self, handler,a_interruption):
-        self.handlers.update({a_interruption:handler})
+    def register(self,pack):
+        self.handlers.append(pack)
 
-    def manager_for(self, a_interruption):
-        return self.handlers.get(a_interruption)
+    def manager_for(self,a_interruption):
+        for handler in self.handlers:
+            if handler[0] == a_interruption:
+                return handler[1]
+        #return self.handlers.get(a_interruption)
 
     @property
     def timeout_interruption_manager(self):
@@ -82,7 +87,7 @@ class IOInterruptionManager(InstructionInterruptionManager):
         return pcb.next_instruction.is_io
 
     def handle_signal(self, pcb, cpu, pcb_table):
-        super(IOInterruption, self).context_switching(pcb, cpu)
+        super().context_switching(pcb, cpu)
         pcb.state = ProcessState.waiting
         '''
         Cuando pasa a waiting deberia mandarse a la cola de Waiting de IO

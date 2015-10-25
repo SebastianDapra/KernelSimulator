@@ -31,6 +31,9 @@ class Kernel:
 
     def set_default_kernel_mode(self):
         self.to_user_mode()
+        
+    def add_handlers(self,pack):
+        self.interruption_manager.register(pack)
 
     def to_kernel_mode(self):
         self.mode = KernelMode(self)
