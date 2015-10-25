@@ -38,7 +38,7 @@ class InstructionInterruptionManager:
 
     def context_switching(self, pcb, cpu):
         print("Ejecute"+self.__str__())
-        next_pcb = cpu.scheduler.next_process
+        next_pcb = cpu.scheduler().next_process()
         next_pcb.state = ProcessState.running
         '''
             Y como conoce el CPU al prox PCB a ejecutar?
