@@ -11,10 +11,10 @@ class TestInterruptionManager(unittest.TestCase):
         self.interruption_manager= InterruptionManager(None)
 
     def load_handlers(self):
-        for interruption in [(IOInterruption,IOInterruptionManager),(KillInterruption,KillInterruptionManager),
+        for pack_interruption_handler in [(IOInterruption,IOInterruptionManager),(KillInterruption,KillInterruptionManager),
          (WaitingInterruption,WaitingInterruptionManager),(EndIOInterruption,EndIOInterruptionManager),
          (NewInterruption,NewInterruptionManager),(TimeoutInterruption,TimeoutInterruptionManager)]:
-            self.kernel.add_handlers(interruption)
+            self.interruption_manager.register(pack_interruption_handler)
 
     def test_when_added_handlers_this_work_fine(self):
         self.load_handlers()
