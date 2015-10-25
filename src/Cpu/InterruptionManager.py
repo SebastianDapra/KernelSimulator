@@ -1,5 +1,3 @@
-__author__ = 'luciano'
-
 from src.PCB.ProcessState import *
 
 
@@ -9,10 +7,10 @@ class InterruptionManager:
         self.handlers = {}
         self.cpu = cpu
 
-    def register(self,handler,a_interruption):
+    def register(self, handler,a_interruption):
         self.handlers.update({a_interruption:handler})
 
-    def manager_for(self,a_interruption):
+    def manager_for(self, a_interruption):
         return self.handlers.get(a_interruption)
 
     @property

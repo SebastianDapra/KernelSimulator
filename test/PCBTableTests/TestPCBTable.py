@@ -9,9 +9,9 @@ class TestPCBTable(unittest.TestCase):
 
     def setUp(self):
         self.pcb_table = PCBTable()
-        self.pcb1 = PCB(3, 5, 20, 4)
-        self.pcb2 = PCB(8, 10, 25, 3)
-        self.pcb3 = PCB(20, 30, 15,5)
+        self.pcb1 = PCB(3, 5, 4)
+        self.pcb2 = PCB(8, 10, 3)
+        self.pcb3 = PCB(20, 30, 5)
 
         self.pcb_table.add(self.pcb1)
         self.pcb_table.add(self.pcb2)
