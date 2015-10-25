@@ -29,6 +29,9 @@ class Kernel:
     def scheduler(self):
         return self.scheduler
 
+    def set_scheduler(self, scheduler):
+        self.scheduler = scheduler
+
     def set_default_kernel_mode(self):
         self.to_user_mode()
         

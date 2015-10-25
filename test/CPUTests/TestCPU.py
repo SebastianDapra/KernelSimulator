@@ -6,12 +6,15 @@ from src.Memory.ToyMemory import *
 from src.Memory.ToyMemory_Admin import *
 from src.Kernel.ToyProgram import *
 from src.Kernel.Kernel import *
+from src.Scheduler.Scheduler import *
 
 
 class TestCPU(unittest.TestCase):
     def setUp(self):
         self.memory = ToyMemory()
         self.cpu = Cpu(None)
+        self.scheduler = Scheduler()
+        self.scheduler.set_as_fifo()
 
     def load_a_instruction_in_a_program(self):
         program = Program("SIN-IO")
@@ -24,6 +27,7 @@ class TestCPU(unittest.TestCase):
     def load_a_io_instruction_in_a_program(self):
         program = Program("IO")
         a_kernel = Kernel(None)
+        a_kernel.set_scheduler(self.scheduler)
         interruption_manager = InterruptionManager(self.cpu)
         interruption_manager.register((IOInterruption, IOInterruptionManager()))
         a_kernel.set_interruption_manager(interruption_manager)
@@ -36,6 +40,7 @@ class TestCPU(unittest.TestCase):
 
     def setup_load_of_a_program_in_memory(self, amount_instructions):
         pcb = PCB(amount_instructions, 1, 0)
+        self.scheduler.policy.add_pcb(pcb)
         memory_admin = ToyMemoryAdmin(self.memory)
         self.cpu.set_actual_pcb(pcb)
         self.cpu.set_memory_manager(memory_admin)

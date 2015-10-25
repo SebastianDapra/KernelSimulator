@@ -58,9 +58,9 @@ class FifoPolicy:
     def next_process(self):
         #if not self.readyQueue:
         #    raise Exception("No processes available!")
-        return self.readyQueue.pop(0)
+            return self.readyQueue.pop(0)
 
-    def add_pcb(self,pcb):
+    def add_pcb(self, pcb):
         self.readyQueue.append(pcb)
 
     def get_quantum(self):

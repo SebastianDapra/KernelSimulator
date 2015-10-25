@@ -9,10 +9,10 @@ class InterruptionManager:
         self.handlers = []
         self.cpu = cpu
 
-    def register(self,pack):
+    def register(self, pack):
         self.handlers.append(pack)
 
-    def manager_for(self,a_interruption):
+    def manager_for(self, a_interruption):
         for handler in self.handlers:
             if handler[0] == a_interruption:
                 return handler[1]
@@ -89,6 +89,7 @@ class IOInterruptionManager(InstructionInterruptionManager):
     def handle_signal(self, pcb, cpu, pcb_table):
         super().context_switching(pcb, cpu)
         pcb.state = ProcessState.waiting
+        pcb.pc += 1
         '''
         Cuando pasa a waiting deberia mandarse a la cola de Waiting de IO
         '''
