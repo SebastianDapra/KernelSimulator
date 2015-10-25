@@ -26,7 +26,7 @@ class Cpu:
         self.output = output
 
     def scheduler(self):
-        return self.kernel.scheduler()
+        return self.kernel.scheduler
 
     def set_memory_manager(self,memory_admin):
         self.memory_manager = memory_admin

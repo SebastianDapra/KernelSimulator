@@ -1,5 +1,3 @@
-__author__ = 'luciano'
-
 import unittest
 
 from src.Cpu.InterruptionManager import *
