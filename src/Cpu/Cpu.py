@@ -5,6 +5,7 @@ from src.Cpu.InterruptionManager import InterruptionManager
 from src.Kernel.Output import Output
 from src.Cpu.Interruption import *
 
+
 class Cpu:
 
     def __init__(self, kernel):
@@ -37,7 +38,7 @@ class Cpu:
         instruction.execute()
         self.actual_pcb.increment()
         if self.actual_pcb.isInvalid():
-            raise Interruption.KillInterruption
+            raise KillInterruption
 
     def run(self):
         self.set_actual_pcb(self.kernel.scheduler.next_process)
@@ -54,7 +55,8 @@ class Cpu:
         else:
             self.execute_single_instruction(actual_instruction)
 
-
+    def tick(self):
+        self.run()
 
 
     '''

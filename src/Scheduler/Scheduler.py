@@ -21,8 +21,6 @@ class Scheduler:
         return self.ready_queue_size > self.ready_queue.__len__()
 
     def push_to_queue(self, pcb):
-        if self.not_full():
-            self.sch_strategy.push_to_queue(self, pcb)
         self.policy.add_pcb(pcb)
 
     def send_next_to_cpu(self):
@@ -62,7 +60,7 @@ class FifoPolicy:
         #    raise Exception("No processes available!")
         return self.readyQueue.pop(0)
 
-    def add_pcb(self, pcb):
+    def add_pcb(self,pcb):
         self.readyQueue.append(pcb)
 
     def get_quantum(self):

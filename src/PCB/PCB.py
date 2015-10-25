@@ -66,7 +66,10 @@ class PCB:
             self.priority = PCBPriorities().getPriorities().HIGH
 
     def __cmp__(self, another_pcb):
-        return self.priority.__cmp__(another_pcb.get_priority)
+        return self.priority.__cmp__(another_pcb)
+
+    def __lt__(self, other):
+        return self.priority < other.priority
 
     def get_instructions(self):
         pass
