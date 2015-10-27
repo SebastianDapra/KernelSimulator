@@ -16,3 +16,6 @@ class LongTermScheduler:
         if a_short_scheduler.not_full():
             self.send_pcb_to_sts(a_short_scheduler)
 
+    def add_pcb(self,pcb,scheduler):
+        scheduler.add_pcb(pcb)
+

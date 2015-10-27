@@ -4,6 +4,7 @@ from src.Cpu.Cpu import *
 from src.PCB.PCBTable import *
 from src.PCB.PCB import *
 from src.Kernel.Program import *
+from src.Scheduler.LongTermScheduler import *
 
 
 class Kernel:
@@ -11,7 +12,8 @@ class Kernel:
         self.mode = None
         self.pid = 0
         self.scheduler = None
-        self.cpu = Cpu(self) #esto es raro
+        self.long_term_scheduler = LongTermScheduler()
+        self.cpu = Cpu(self)
         self.pcb_table = PCBTable()
         self.clock = clock
         self.memory_admin = None
@@ -77,7 +79,7 @@ class Kernel:
         pcb = PCB(initial_pos, final_pos, 0, self.get_pid, priority)
         self.pid += 1
         self.pcb_table.add(pcb)
-        self.scheduler.add_pcb(pcb)
+        self.long_term_scheduler.add_pcb(pcb,self.scheduler)
 
 
 class KernelMode:
