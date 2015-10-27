@@ -34,7 +34,7 @@ class PCB:
     def increment(self):
         self.pc += 1
 
-    def is_invalid(self):
+    def is_last_instruction(self):
         return self.pc == self.amountInstructions
 
     @property

@@ -37,8 +37,8 @@ class Cpu:
     def execute_single_instruction(self,instruction):
         instruction.execute()
         self.actual_pcb.increment()
-        if self.actual_pcb.isInvalid():
-            raise KillInterruption
+        if self.actual_pcb.is_last_instruction():
+            self.interruption_manager.manager_for(KillInterruption).handle_signal()
 
     def run(self):
         self.set_actual_pcb(self.kernel.scheduler.next_process)
