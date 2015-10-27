@@ -19,6 +19,6 @@ class LongTermScheduler:
             self.send_pcb_to_sts(a_short_scheduler)
 
     def add_pcb(self,pcb,scheduler):
-        pcb.set_state(ProcessState.ready)
-        scheduler.add_pcb(pcb)
+        pcb.set_state(1)
+        scheduler.policy.add_pcb(pcb)
 

@@ -76,7 +76,7 @@ class Kernel:
     def create_pcb(self, program, priority):
         # This would probably change with memory implementation
         data_to_create_pcb = (program.size(), self.get_pid, priority)
-        pcb = self.interruption_manager.manager_for(NewInterruption).handle_signal(data_to_create_pcb)
+        pcb = self.interruption_manager.manager_for(NewInterruption).handle_signal(data_to_create_pcb, self.pcb_table)
         self.pid += 1
         self.pcb_table.add(pcb)
         #Agrego en memoria
