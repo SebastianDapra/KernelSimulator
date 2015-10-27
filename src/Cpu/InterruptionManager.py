@@ -64,7 +64,7 @@ class KillInterruptionManager(InstructionInterruptionManager):
         return pcb.final_position == pcb.pc
 
     def handle_signal(self, pcb, cpu, pcb_table):
-        super().context_switching(pcb, cpu)
+        #super().context_switching(pcb, cpu)
         pcb.state = ProcessState.terminated
         pcb_table.remove(pcb)
         # falta que lo saquen de memoria

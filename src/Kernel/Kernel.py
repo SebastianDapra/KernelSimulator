@@ -14,6 +14,7 @@ class Kernel:
         self.scheduler = None
         self.long_term_scheduler = LongTermScheduler()
         self.cpu = Cpu(self)
+        self.waiting_queue = []
         self.pcb_table = PCBTable()
         self.clock = clock
         self.memory_admin = None

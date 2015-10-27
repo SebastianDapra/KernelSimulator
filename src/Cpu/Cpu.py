@@ -38,10 +38,12 @@ class Cpu:
         instruction.execute()
         self.actual_pcb.increment()
         if self.actual_pcb.is_last_instruction():
-            self.interruption_manager.manager_for(KillInterruption).handle_signal()
+            self.interruption_manager.manager_for(KillInterruption).handle_signal(self.actual_pcb,self,
+                                                                                  self.kernel.pcb_table)
 
     def run(self):
-        self.set_actual_pcb(self.kernel.scheduler.next_process)
+        #pcb = self.kernel.scheduler.next_process()
+        self.set_actual_pcb(self.kernel.scheduler.next_process())
         self.complete_instruction_cycle()
 
     def complete_instruction_cycle(self):
