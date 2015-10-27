@@ -14,7 +14,6 @@ class TestScheduler(unittest.TestCase):
         self.pcb3 = PCB(30, 15, 5)
         self.pcb4 = PCB(49, 6, 1)
 
-
     def test_scheduler_with_fifo(self):
         self.scheduler = Scheduler(None)
         self.scheduler.set_as_fifo()
@@ -26,7 +25,6 @@ class TestScheduler(unittest.TestCase):
         self.assertEqual(self.pcb1, result)
 
     def test_scheduler_with_round_robin(self):
-        # Tanto este como el de abajo hay que setear bien.
         self.scheduler = Scheduler(None)
         quantum = 1
         self.scheduler.set_as_round_robin(quantum)

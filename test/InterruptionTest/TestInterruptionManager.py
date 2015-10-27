@@ -11,9 +11,9 @@ class TestInterruptionManager(unittest.TestCase):
         load_in_interruption_manager.load_handlers(self.interruption_manager)
 
     def test_when_added_handlers_this_work_fine(self):
-        for interruption in [(IOInterruption, IOInterruptionManager), (KillInterruption, KillInterruptionManager),
-                             (WaitingInterruption, WaitingInterruptionManager),
-                             (EndIOInterruption, EndIOInterruptionManager),
-                             (NewInterruption, NewInterruptionManager),
-                             (TimeoutInterruption, TimeoutInterruptionManager)]:
-            self.assertEqual(interruption[1], self.interruption_manager.manager_for(interruption[0]))
+        for interruption in [(IOInterruption, IOInterruptionManager()), (KillInterruption, KillInterruptionManager()),
+                             (WaitingInterruption, WaitingInterruptionManager()),
+                             (EndIOInterruption, EndIOInterruptionManager()),
+                             (NewInterruption, NewInterruptionManager()),
+                             (TimeoutInterruption, TimeoutInterruptionManager())]:
+            self.assertEqual(interruption[1].__class__, self.interruption_manager.manager_for(interruption[0]).__class__)
