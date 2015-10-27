@@ -1,3 +1,5 @@
+from src.PCB import ProcessState
+
 
 class LongTermScheduler:
 
@@ -17,7 +19,6 @@ class LongTermScheduler:
             self.send_pcb_to_sts(a_short_scheduler)
 
     def add_pcb(self,pcb,scheduler):
-        state_of_pcb = pcb.get_state()
-
+        pcb.set_state(ProcessState.ready)
         scheduler.add_pcb(pcb)
 

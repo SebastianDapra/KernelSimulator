@@ -1,3 +1,5 @@
+from src.PCB.PCB import PCB
+
 __author__ = 'luciano'
 
 from src.PCB.ProcessState import *
@@ -104,10 +106,8 @@ class NewInterruptionManager(InstructionInterruptionManager):
     def condition_of_applicability(self, pcb, cpu):
         pcb.state.equals(ProcessState.new)
 
-    def handle_signal(self, pcb, cpu, pcb_table):
-        super().context_switching(pcb, cpu)
-        pcb_table.add(pcb)
-        pcb.state = ProcessState.ready
+    def handle_signal(self, data_to_create_pcb, pcb_table):
+        return PCB(data_to_create_pcb[0],data_to_create_pcb[1],data_to_create_pcb[2])
 
 
 class EndIOInterruptionManager(InstructionInterruptionManager):

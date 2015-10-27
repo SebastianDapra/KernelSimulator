@@ -74,11 +74,11 @@ class Kernel:
 
     def create_pcb(self, program, priority):
         # This would probably change with memory implementation
-        initial_pos = 0
-        final_pos = (initial_pos + program.size())
-        pcb = PCB(initial_pos, final_pos, 0, self.get_pid, priority)
+        data_to_create_pcb = (program.size(), self.get_pid, priority)
+        pcb = self.interruption_manager.manager_for(NewInterruption).handle_signal(data_to_create_pcb)
         self.pid += 1
         self.pcb_table.add(pcb)
+        #Agrego en memoria
         self.long_term_scheduler.add_pcb(pcb,self.scheduler)
 
 
