@@ -25,8 +25,6 @@ class Scheduler:
 
     def send_next_to_cpu(self):
         self.cpu.set_actual_pcb(self.next_process())
-        #self.kernel.my_long_scheduler.send_pcb_to_sts(self)
-        #self.increase_pcbs_priority(1)
 
     def ask_cpu_for_space(self):
         if self.cpu.pcb is None:
@@ -56,9 +54,7 @@ class FifoPolicy:
         return self.readyQueue
 
     def next_process(self):
-        #if not self.readyQueue:
-        #    raise Exception("No processes available!")
-            return self.readyQueue.pop(0)
+        return self.readyQueue.pop(0)
 
     def add_pcb(self, pcb):
         self.readyQueue.append(pcb)
@@ -72,9 +68,6 @@ class PriorityPolicy:
         self.readyQueue = ready_queue
 
     def next_process(self):
-        '''
-        Aca deberia buscar al proceso con mayor prioridad y devolver ese
-        '''
         return min(self.readyQueue)
 
     def add_pcb(self, pcb):
@@ -88,31 +81,32 @@ class RoundRobinPolicy:
     def __init__(self, quantum, ready_queue):
         self.readyQueue = ready_queue
         self.quantum = quantum
-        self.consumed = 0
+        self.consumed_quantum = 0
 
     def next_process(self):
-        '''
-        Hace FIFO pero con Quantum, mirar las diapos !!!
-        '''
+        self.send_signal()
 
         return self.readyQueue.pop(0)
 
-    def send_signal(self, cpu):
-        if self.is_timeout():
-            cpu.send_timeout()
+    def send_signal(self):
+        if self.is_time_out():
+            last = self.readyQueue.pop(0)
             self.reset_quantum()
-        else :
-            cpu.fetch_decode_and_execute()
+            self.readyQueue.append(last)
+        else:
             self.increase_quantum()
 
     def add_pcb(self, pcb):
         self.readyQueue.append(pcb)
 
+    def increase_quantum(self):
+        self.quantum += 1
+
     def get_quantum(self):
         return self.quantum
 
     def is_time_out(self):
-        return self.consumed == self.quantum
+        return self.consumed_quantum == self.quantum
 
     def reset_quantum(self):
-        self.current = self.max_quantum
+        self.consumed_quantum = 0
