@@ -8,9 +8,7 @@ class ToyHardDisk:
     def load(self,program):
         self.programs.append(program)
 
-    def get_instructions(self,pcb):
+    def get_instructions(self,program):
         '''
         tenemos que relacionar el pcb con el programa !!!
-        :param pcb:
-        :return:
         '''

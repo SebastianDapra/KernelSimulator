@@ -4,23 +4,18 @@ class LogicalMemory:
         self.id = 0
         self.memory_manager = memory_manager
 
-    def __init__(self, hdd, memory_manager):
-        self.id = 0
-        self.hdd = hdd
-        self.memory_manager = memory_manager
-
     def load_program(self,program):
         '''
         Esto es asqueroso pero uso del for, yugg
         '''
-        for x in range(0, program.get_instructions().len + 1):
+        for x in range(0, len(program.get_instructions()) + 1):
             self.memory_manager.write_instruction(x)
 
     def set_memory_manager(self, memory_manager):
         self.memory_manager = memory_manager
 
-    def write_program(self, pcb):
-        self.memory_manager.write_program(pcb, self)
+    def write_program(self, program):
+        self.memory_manager.write_program(program, self)
 
     def delete_program(self, pcb):
         self.memory_manager.delete_program(pcb, self)

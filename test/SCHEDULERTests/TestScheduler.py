@@ -47,3 +47,4 @@ class TestScheduler(unittest.TestCase):
         result = self.scheduler.next_process()
         self.assertEqual(self.pcb4, result)
 
+

@@ -34,7 +34,7 @@ class PCB:
     def increment(self):
         self.pc += 1
 
-    def isInvalid(self):
+    def is_invalid(self):
         return self.pc == self.amountInstructions
 
     @property
@@ -61,9 +61,9 @@ class PCB:
 
     def increase_priority(self):
         if self.priority == 3:
-            self.priority = PCBPriorities().getPriorities().MEDIUM
+            self.priority = PCBPriorities().get_priorities().MEDIUM
         elif self.priority == 2:
-            self.priority = PCBPriorities().getPriorities().HIGH
+            self.priority = PCBPriorities().get_priorities().HIGH
 
     def __cmp__(self, another_pcb):
         return self.priority.__cmp__(another_pcb)
@@ -80,7 +80,7 @@ class PCBPriorities:
     def __init__(self):
         self._priorities = self.enum(HIGH=1, MEDIUM=2, LOW=3)
 
-    def getPriorities(self):
+    def get_priorities(self):
         return self._priorities
 
     def enum(self, **enums):

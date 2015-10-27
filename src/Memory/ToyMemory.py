@@ -25,3 +25,6 @@ class ToyMemory:
 
     def get_instruction_of_cell(self, position):
         return self.representation[position]
+
+    def getNextFreePosition(self):
+        return len(self.representation) + 1

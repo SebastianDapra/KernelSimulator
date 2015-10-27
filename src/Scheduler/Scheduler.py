@@ -88,12 +88,22 @@ class RoundRobinPolicy:
     def __init__(self, quantum, ready_queue):
         self.readyQueue = ready_queue
         self.quantum = quantum
+        self.consumed = 0
 
     def next_process(self):
         '''
         Hace FIFO pero con Quantum, mirar las diapos !!!
         '''
+
         return self.readyQueue.pop(0)
+
+    def send_signal(self, cpu):
+        if self.is_timeout():
+            cpu.send_timeout()
+            self.reset_quantum()
+        else :
+            cpu.fetch_decode_and_execute()
+            self.increase_quantum()
 
     def add_pcb(self, pcb):
         self.readyQueue.append(pcb)
@@ -101,4 +111,8 @@ class RoundRobinPolicy:
     def get_quantum(self):
         return self.quantum
 
+    def is_time_out(self):
+        return self.consumed == self.quantum
 
+    def reset_quantum(self):
+        self.current = self.max_quantum

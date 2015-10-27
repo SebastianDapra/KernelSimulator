@@ -1,10 +1,9 @@
 import unittest
 
 from src.Cpu.InterruptionManager import *
-from src.Cpu.Interruption import *
 from src.Memory.ToyMemory import *
 from src.Memory.ToyMemory_Admin import *
-from src.Kernel.ToyProgram import *
+from test.LoaderTest.ToyProgram import *
 from src.Kernel.Kernel import *
 from src.Scheduler.Scheduler import *
 

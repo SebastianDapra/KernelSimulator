@@ -10,5 +10,5 @@ class Loader:
     def remove(self, pcb):
         self.logical_memory.delete_program(pcb)
 
-    def get_instructions(self,pcb):
-        return self.hdd.get_instructions(pcb)
+    def get_instructions(self,program):
+        return self.hdd.get_instructions(program)
