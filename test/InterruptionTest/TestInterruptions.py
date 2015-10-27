@@ -39,17 +39,9 @@ class TestInterruption(unittest.TestCase):
         self.assertEqual(self.kernel.pid, 1)
         self.assertEqual(len(self.kernel.pcb_table.pcbs), 1)
 
-    '''
     def test_when_a_process_is_killed_then_it_is_removed_from_the_pcb_table(self):
+        self.kernel.pcb_table.add(self.pcb)
         self.cpu.execute_single_instruction(self.program.get_instructions().pop())
         self.assertEqual(len(self.kernel.pcb_table.pcbs), 0)
-    '''
 
-    def test_when_a_process_is_io_then_goes_to_the_waiting_queue(self):
-        io_pcb = PCB(1, 4, 1)
-        instruction_io = InstructionIO()
-        a_program = Program("P")
-        a_program.addInstruction(instruction_io)
-        self.cpu.set_actual_pcb(io_pcb)
-        self.cpu.complete_instruction_cycle()
-        self.assertEqual(io_pcb.state, ProcessState.waiting)
+

@@ -10,7 +10,6 @@ class Cpu:
 
     def __init__(self, kernel):
         self.kernel = kernel
-        self.interruption_manager = InterruptionManager(self)
         self.output = Output()
         self.memory_manager = None
         self.actual_pcb = None
@@ -34,11 +33,14 @@ class Cpu:
     def fetch_single_instruction(self):
         return self.memory_manager.get_instruction_of(self.actual_pcb)
 
+    def interruption_manager(self):
+        return self.kernel.get_interruption_manager()
+
     def execute_single_instruction(self,instruction):
         instruction.execute()
         self.actual_pcb.increment()
         if self.actual_pcb.is_last_instruction():
-            self.interruption_manager.manager_for(KillInterruption).handle_signal(self.actual_pcb,self,
+            self.interruption_manager().manager_for(KillInterruption).handle_signal(self.actual_pcb,self,
                                                                                   self.kernel.pcb_table)
 
     def run(self):

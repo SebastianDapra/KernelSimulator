@@ -1,10 +1,12 @@
+from src.Scheduler.Scheduler import FifoPolicy
+
 __author__ = 'luciano'
 
 from src.Cpu.Cpu import *
 from src.PCB.PCBTable import *
-from src.PCB.PCB import *
 from src.Kernel.Program import *
 from src.Scheduler.LongTermScheduler import *
+from src.Scheduler.Scheduler import *
 
 
 class Kernel:
@@ -26,9 +28,12 @@ class Kernel:
     def set_memory_admin(self, memory_admin):
         self.memory_admin = memory_admin
 
+    def get_interruption_manager(self):
+        return self.interruption_manager
+
     def memory_admin(self):
         return self.memory_admin
-
+    
     def scheduler(self):
         return self.scheduler
 
