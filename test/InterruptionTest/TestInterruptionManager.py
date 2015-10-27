@@ -1,25 +1,29 @@
 __author__ = 'luciano'
 
 import unittest
-from src.PCB.PCB import *
+from src.Cpu.Interruption import *
 from src.Cpu.InterruptionManager import *
-from src.Cpu.Cpu import *
 
 
-class TestInterruption(unittest.TestCase):
-
+class TestInterruptionManager(unittest.TestCase):
     def setUp(self):
-        self.cpu = Cpu(None)
-        self.interruptionManager = InterruptionManager(self.cpu)
-        self.cpu.actual_pcb = PCB(3, 5,1)
+        self.interruption_manager = InterruptionManager(None)
 
-    def test_given_an_instruction_if_is_io_the_handler_interrupts(self):
+    def load_handlers(self):
+        for pack_interruption_handler in [(IOInterruption, IOInterruptionManager),
+                                          (KillInterruption, KillInterruptionManager),
+                                          (WaitingInterruption, WaitingInterruptionManager),
+                                          (EndIOInterruption, EndIOInterruptionManager),
+                                          (NewInterruption, NewInterruptionManager),
+                                          (TimeoutInterruption, TimeoutInterruptionManager)]:
+            self.interruption_manager.register(pack_interruption_handler)
 
-        self.assertEqual(3, self.pcb_table.size())
+    def test_when_added_handlers_this_work_fine(self):
+        self.load_handlers()
+        for interruption in [(IOInterruption, IOInterruptionManager), (KillInterruption, KillInterruptionManager),
+                             (WaitingInterruption, WaitingInterruptionManager),
+                             (EndIOInterruption, EndIOInterruptionManager),
+                             (NewInterruption, NewInterruptionManager),
+                             (TimeoutInterruption, TimeoutInterruptionManager)]:
+            self.assertEqual(interruption[1], self.interruption_manager.manager_for(interruption[0]))
 
-    def test_remove(self):
-        self.pcb_table.remove(self.pcb2)
-        self.assertEqual(2, self.pcb_table.size())
-
-suite = unittest.TestLoader().loadTestsFromTestCase(TestInterruption)
-unittest.TextTestRunner(verbosity=2).run(suite)

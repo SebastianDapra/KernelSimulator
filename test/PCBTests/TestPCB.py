@@ -24,5 +24,5 @@ class TestPCB(unittest.TestCase):
         self.pcb_table.remove(self.pcb2)
         self.assertEqual(2, self.pcb_table.size())
 
-suite = unittest.TestLoader().loadTestsFromTestCase(TestPCBTable)
+suite = unittest.TestLoader().loadTestsFromTestCase(TestPCB)
 unittest.TextTestRunner(verbosity=2).run(suite)

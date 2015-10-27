@@ -28,7 +28,8 @@ class TestScheduler(unittest.TestCase):
     def test_scheduler_with_round_robin(self):
         # Tanto este como el de abajo hay que setear bien.
         self.scheduler = Scheduler(None)
-        self.scheduler.set_as_round_robin(1)
+        quantum = 1
+        self.scheduler.set_as_round_robin(quantum)
         self.scheduler.push_to_queue(self.pcb1)
         self.scheduler.push_to_queue(self.pcb2)
         self.scheduler.push_to_queue(self.pcb3)
@@ -44,5 +45,5 @@ class TestScheduler(unittest.TestCase):
         self.scheduler.push_to_queue(self.pcb3)
         self.scheduler.push_to_queue(self.pcb4)
         result = self.scheduler.next_process()
-        self.assertEqual(self.pcb1, result)
+        self.assertEqual(self.pcb4, result)
 
