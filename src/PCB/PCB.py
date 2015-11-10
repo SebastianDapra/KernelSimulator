@@ -1,20 +1,18 @@
 __author__ = 'luciano'
 
 from src.PCB.ProcessState import *
-
+from src.PCB.PCBInfoHolder import *
 
 class PCB:
 
-    def __init__(self, amountInstructions, pid, priority):
-        self.amountInstructions = amountInstructions
-        self.pc = 0
-        self.state = ProcessState.new
-        self.pid = pid
-        self.priority = priority
-        self.base_register = None
+    def __init__(self, amount_instructions, pid, mem_policy):
+        self._id = pid
+        self._amountInstructions = amount_instructions
+        self._priority = None
+        self._info_holder = mem_policy
 
     def set_id(self,pid):
-        self.pid = pid
+        self._id = pid
 
     def set_amount_of_instructions(self,amountInstructions):
         self.amountInstructions = amountInstructions
@@ -29,13 +27,13 @@ class PCB:
         return self.program_name
 
     def get_pc(self):
-        return self.pc
+        return self._info_holder.current_mem_dir()
 
     def increment(self):
-        self.pc += 1
+        self._info_holder.increment()
 
-    def is_last_instruction(self):
-        return self.pc == self.amountInstructions
+    def get_pc(self):
+        return self._info_holder.current_mem_dir()
 
     @property
     def get_state(self):
@@ -46,8 +44,7 @@ class PCB:
         return self.pid
 
     def has_finished(self):
-        # Esto quizas cambia con la idea de memoria
-        return self.pc == self.amountInstructions
+        return self._info_holder.has_finished()
 
     def set_state(self, state_new):
         self.state = state_new
@@ -72,8 +69,13 @@ class PCB:
         return self.priority < other.priority
 
     def get_instructions(self):
-        pass
+        return self._info_holder.instructions()
 
+    def __str__(self):
+        return 'ID: ' + self._id
+
+    def get_info_holder(self):
+        return self._info_holder
 
 class PCBPriorities:
 
@@ -85,3 +87,4 @@ class PCBPriorities:
 
     def enum(self, **enums):
         return type('Enum', (), enums)
+

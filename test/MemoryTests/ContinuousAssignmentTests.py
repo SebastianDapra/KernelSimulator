@@ -3,9 +3,9 @@ __author__ = 'luciano'
 import unittest
 
 from src.Memory.Memory import *
-from src.MemoryManagment.ContinuousAssignment.ContinuousAssignment import *
+from src.MemoryManagment.ContinuousAssigment.ContinuousAssignment import *
 from src.MemoryManagment.ContinuousAssignment.CAPolicies import *
-from process.PCB import *
+from src.PCB.PCB import *
 
 
 

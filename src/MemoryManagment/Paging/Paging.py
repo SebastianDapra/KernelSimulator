@@ -3,7 +3,7 @@ __author__ = 'luciano'
 from src.MemoryManagment.Paging.Frame import *
 from src.MemoryManagment.Paging.PageCreator import *
 from src.MemoryManagment.Paging.FrameManager import *
-from process.PCBInfoHolder import PageHolder
+from src.PCB.PCBInfoHolder import *
 
 
 class Paging:

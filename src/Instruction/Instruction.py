@@ -33,3 +33,14 @@ class InstructionIO:
     def execute(self):
         pass
 
+
+class InstructionCPU(Instruction):
+
+    def __init__(self):
+        self._text = "This is a CPU Instruction"
+
+    def isIO(self):
+        return False
+
+    def execute(self):
+        pass

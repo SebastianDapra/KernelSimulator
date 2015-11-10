@@ -3,7 +3,7 @@ __author__ = 'luciano'
 import unittest
 
 from src.Memory.Memory import *
-from model.Instruction import *
+from src.Instruction.Instruction import *
 
 class MemoryTest(unittest.TestCase):
 

@@ -4,9 +4,10 @@ import unittest
 from src.HDD.HDD import HDD
 from src.PCB.PCB import PCB
 from src.Memory.MemoryManager import *
-from process.Program import *
-from src.MemoryManagment.ContinuousAssignment.CAPolicies import *
-from process.PCBInfoHolder import BlockHolder
+from src.Kernel.Program import *
+from src.MemoryManagment.ContinuousAssigment.CAPolicies import *
+from src.PCB.PCBInfoHolder import BlockHolder
+from src.Instruction.Instruction import *
 
 class MemoryManagerTest(unittest.TestCase):
 

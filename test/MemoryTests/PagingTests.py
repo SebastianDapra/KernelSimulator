@@ -11,7 +11,7 @@ class PagingTest(unittest.TestCase):
     # Arrange
     def setUp(self):
         self.memory = Memory(50)
-        self.policy = Paging(self.memory, 10)
+        self.policy = Paging(self.memory, 10, None)
         self.pcb1 = PCB(0, 25, PageHolder(None))
         self.pcb2 = PCB(1, 16, PageHolder(None))
 

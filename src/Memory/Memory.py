@@ -6,12 +6,6 @@ class Memory:
     def __init__(self, size):
         self._cells = [None] * size
 
-
-    def __init__(self):
-        self.cells = [None] * 100
-        self.size_of_memory = 100
-        self.next_cell = 0
-
     def read(self):
         pass
 

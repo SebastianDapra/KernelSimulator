@@ -2,7 +2,7 @@ __author__ = 'luciano'
 
 from src.MemoryManagment.ContinuousAssigment.BlockManager import *
 from src.Memory.PolicyResult import *
-from process.PCBInfoHolder import BlockHolder
+from src.PCB.PCBInfoHolder import BlockHolder
 
 
 class ContinuousAssignment:

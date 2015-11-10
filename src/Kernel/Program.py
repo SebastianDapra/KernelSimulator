@@ -28,3 +28,6 @@ class Program:
     def get_instructions(self):
         return self.instructions
 
+    def name(self):
+        return self.name
+
