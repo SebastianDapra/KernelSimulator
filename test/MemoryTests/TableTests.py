@@ -2,7 +2,7 @@ __author__ = 'luciano'
 
 
 import unittest
-from src.MemoryManagment.Paging.Table import *
+from src.MemoryManagment.Paging.PaginationTable import *
 from src.MemoryManagment.Paging.Frame import *
 from src.MemoryManagment.Paging.Page import *
 
@@ -15,7 +15,7 @@ class TableTest(unittest.TestCase):
         self.frame3 = Frame(2, 20, 29)
         self.frame4 = Frame(3, 30, 39)
         self.frames = [self.frame1, self.frame2, self.frame3, self.frame4]
-        self.table = Table()
+        self.table = PaginationTable()
 
     def test_whenIPutAPage_ThenItSavesAndFramesLifeIsIncreased(self):
         page = Page(0, 0, 9, 10)

@@ -20,8 +20,8 @@ class MemoryManagerTest(unittest.TestCase):
         self.instruction3 = InstructionIO()
         self.instructionList1 = [self.instruction1, self.instruction2]
         self.instructionList2 = [self.instruction1, self.instruction2, self.instruction3]
-        self.program1 = Program(self.instructionList1, "AProgram")
-        self.program2 = Program(self.instructionList2, "BProgram")
+        self.program1 = Program("AProgram",self.instructionList1)
+        self.program2 = Program("BProgram",self.instructionList2)
         self.fs.add_file("AProgram", self.program1)
         self.fs.add_file("BProgram", self.program2)
         self.file1 = self.fs.get_program("AProgram")
@@ -34,7 +34,3 @@ class MemoryManagerTest(unittest.TestCase):
     def test_whenTheMemoryManagerAddsTwoProgramsAndIAskForThe6thPosition_thenIShouldGetException(self):
         self.memoryManager.write(self.pcb1)
         self.memoryManager.write(self.pcb2)
-
-
-suite = unittest.TestLoader().loadTestsFromTestCase(MemoryManagerTest)
-unittest.TextTestRunner(verbosity=2).run(suite)

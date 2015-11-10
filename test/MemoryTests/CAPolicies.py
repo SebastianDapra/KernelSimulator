@@ -31,5 +31,3 @@ class TestCAPolicies(unittest.TestCase):
         ca_policy = BestFit()
         self.assertEqual(ca_policy.find_block(self.blocks, self.pcb), self.block3)
 
-suite = unittest.TestLoader().loadTestsFromTestCase(TestCAPolicies)
-unittest.TextTestRunner(verbosity=2).run(suite)

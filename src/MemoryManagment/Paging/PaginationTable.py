@@ -2,7 +2,7 @@ __author__ = 'luciano'
 
 from src.Memory.PolicyResult import *
 
-class Table():
+class PaginationTable():
 
     def __init__(self):
         pass

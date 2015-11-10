@@ -4,9 +4,8 @@ import unittest
 
 from src.Memory.Memory import *
 from src.MemoryManagment.ContinuousAssigment.ContinuousAssignment import *
-from src.MemoryManagment.ContinuousAssignment.CAPolicies import *
+from src.MemoryManagment.ContinuousAssigment.CAPolicies import *
 from src.PCB.PCB import *
-
 
 
 class TestContinuousAssignment(unittest.TestCase):
@@ -45,6 +44,3 @@ class TestContinuousAssignment(unittest.TestCase):
         self.policy.assign_to_memory(pcb5)
         self.assertEqual(len(self.policy._blocks), 4)
 
-
-suite = unittest.TestLoader().loadTestsFromTestCase(TestContinuousAssignment)
-unittest.TextTestRunner(verbosity=2).run(suite)

@@ -5,7 +5,7 @@ from src.Kernel.Output import *
 
 class Program:
 
-    def __init__(self, name):
+    def __init__(self, name, instructions=None):
         self.name = name
         self.instructions = []
         self.output = Output()

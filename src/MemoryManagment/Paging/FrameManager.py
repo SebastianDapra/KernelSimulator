@@ -1,13 +1,13 @@
 __author__ = 'luciano'
 
-from src.MemoryManagment.Paging.Table import *
+from src.MemoryManagment.Paging.PaginationTable import *
 
 class FrameManager():
 
-    def __init__(self, frames, hdd):
+    def __init__(self, frames, hdd=None):
         self._frames = frames
         self._free_frames = frames
-        self._table = Table()
+        self._table = PaginationTable()
         self._hdd = hdd
 
     def update_free_frames(self):

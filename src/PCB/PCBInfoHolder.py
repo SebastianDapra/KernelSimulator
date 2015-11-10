@@ -53,6 +53,9 @@ class BlockHolder:
     def needs_reload(self, pc):
         return False
 
+    def amount_instructions(self):
+        return self.instructions().__len__()
+
     def instructions(self):
         blocks = map(lambda b: b.get_data(), self._program.fetch_blocks())
         return [item for sublist in blocks for item in sublist]

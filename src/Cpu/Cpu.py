@@ -1,10 +1,7 @@
 __author__ = 'luciano'
 
-import threading
-from src.Cpu.InterruptionManager import InterruptionManager
 from src.Kernel.Output import Output
 from src.Cpu.Interruption import *
-
 
 class Cpu:
 
@@ -44,7 +41,6 @@ class Cpu:
                                                                                   self.kernel.pcb_table)
 
     def run(self):
-        #pcb = self.kernel.scheduler.next_process()
         self.set_actual_pcb(self.kernel.scheduler.next_process())
         self.complete_instruction_cycle()
 
@@ -61,10 +57,3 @@ class Cpu:
 
     def tick(self):
         self.run()
-
-
-    '''
-        obteniendo el pcb del Scheduler, con cada tick del Clock (que esta en el Kernel)
-        creo un Thread que lea y corra la instruccion (read_burst_instruction)
-        Si es una interrupcion le digo al InterruptManager que se haga cargo
-    '''

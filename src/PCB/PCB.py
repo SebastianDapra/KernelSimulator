@@ -21,7 +21,7 @@ class PCB:
         self.base_register = base_register
 
     def get_amount_of_instructions(self):
-        return self.amountInstructions
+        return self._amountInstructions
 
     def get_program_name(self):
         return self.program_name

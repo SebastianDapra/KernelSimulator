@@ -3,13 +3,15 @@ __author__ = 'luciano'
 import unittest
 from src.PCB.PCB import *
 from src.MemoryManagment.Paging.PageCreator import *
+from src.Kernel.Program import *
 
 class PageCreatorTest(unittest.TestCase):
 
     # Arrange
     def setUp(self):
         self.page_creator = PageCreator()
-        self.pcb = PCB(0, 20, BlockHolder(None))
+        self.program = Program("Duke Nukem")
+        self.pcb = PCB(0, 20, BlockHolder(self.program))
 
     def test_whenICreatePagesForPCB_ThenTheInfoHolderHasThemAsItShould(self):
         self.page_creator.create(self.pcb, 5)
