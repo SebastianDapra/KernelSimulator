@@ -40,9 +40,13 @@ class TestScheduler(unittest.TestCase):
         self.scheduler = Scheduler(None)
         self.scheduler.set_as_priority()
         self.scheduler.push_to_queue(self.pcb1)
+        self.pcb1.set_priority(4)
         self.scheduler.push_to_queue(self.pcb2)
+        self.pcb2.set_priority(3)
         self.scheduler.push_to_queue(self.pcb3)
+        self.pcb3.set_priority(2)
         self.scheduler.push_to_queue(self.pcb4)
+        self.pcb4.set_priority(1)
         result = self.scheduler.next_process()
         self.assertEqual(self.pcb4, result)
 

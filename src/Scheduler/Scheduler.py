@@ -85,7 +85,6 @@ class RoundRobinPolicy:
 
     def next_process(self):
         self.send_signal()
-
         return self.readyQueue.pop(0)
 
     def send_signal(self):

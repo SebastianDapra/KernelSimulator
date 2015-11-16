@@ -10,6 +10,7 @@ class PCB:
         self._amountInstructions = amount_instructions
         self._priority = None
         self._info_holder = mem_policy
+        self.state = None
 
     def set_id(self,pid):
         self._id = pid
@@ -32,22 +33,19 @@ class PCB:
     def increment(self):
         self._info_holder.increment()
 
-    def get_pc(self):
-        return self._info_holder.current_mem_dir()
-
     @property
     def get_state(self):
         return self.state
 
+    def set_state(self, state):
+        self.state = state
+
     @property
     def get_pid(self):
-        return self.pid
+        return self._id
 
     def has_finished(self):
         return self._info_holder.has_finished()
-
-    def set_state(self, state_new):
-        self.state = state_new
 
     @property
     def get_priority(self):

@@ -3,6 +3,7 @@ import unittest
 from src.Cpu.InterruptionManager import *
 from src.Memory.ToyMemory import *
 from src.Memory.ToyMemory_Admin import *
+from src.PCB.PCBInfoHolder import BlockHolder
 from test.LoaderTest.ToyProgram import *
 from src.Kernel.Kernel import *
 from src.Scheduler.Scheduler import *
@@ -25,7 +26,7 @@ class TestKernel(unittest.TestCase):
         program.addInstruction(instruction)
         program.addInstruction(instruction)
         self.memory.write_program(program)
-        self.setup_load_of_a_program_in_memory(2)
+        self.setup_load_of_a_program_in_memory(2, program, 1)
 
     def load_a_io_instruction_in_a_program(self):
         program = Program("IO")
@@ -39,10 +40,11 @@ class TestKernel(unittest.TestCase):
         program.addInstruction(instruction)
         program.addInstruction(instruction)
         self.memory.write_program(program)
-        self.setup_load_of_a_program_in_memory(2)
+        self.setup_load_of_a_program_in_memory(2, program, 2)
 
-    def setup_load_of_a_program_in_memory(self, amount_instructions):
-        pcb = PCB(amount_instructions, 1, 0)
+    def setup_load_of_a_program_in_memory(self, amount_instructions, program, pcb_id):
+        block_holder = BlockHolder(program)
+        pcb = PCB(amount_instructions, pcb_id, block_holder)
         self.scheduler.policy.add_pcb(pcb)
         memory_admin = ToyMemoryAdmin(self.memory)
         self.cpu.set_actual_pcb(pcb)
@@ -53,12 +55,12 @@ class TestKernel(unittest.TestCase):
         Compare the initial state of PCB's PC with final state
         '''
         self.load_a_instruction_in_a_program()
-        self.assertEqual(0, self.cpu.actual_pcb.pc)
+        self.assertEqual(0, self.cpu.actual_pcb.get_pc)
         self.cpu.complete_instruction_cycle()
-        self.assertEqual(1, self.cpu.actual_pcb.pc)
+        self.assertEqual(1, self.cpu.actual_pcb.get_pc)
 
     def test_given_pcb_when_cpu_complete_instruction_cycle_then_has_IO_Interruption(self):
         self.load_a_io_instruction_in_a_program()
-        self.assertEqual(0, self.cpu.actual_pcb.pc)
+        self.assertEqual(0, self.cpu.actual_pcb.get_pc)
         self.cpu.complete_instruction_cycle()
-        self.assertEqual(1, self.cpu.actual_pcb.pc)
+        self.assertEqual(1, self.cpu.actual_pcb.get_pc)

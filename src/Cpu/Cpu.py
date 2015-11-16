@@ -15,7 +15,7 @@ class Cpu:
     def get_actual_pcb(self):
         return self.actual_pcb
 
-    def set_actual_pcb(self,pcb):
+    def set_actual_pcb(self, pcb):
         self.actual_pcb = pcb
 
     def set_output(self,output):
@@ -36,7 +36,7 @@ class Cpu:
     def execute_single_instruction(self,instruction):
         instruction.execute()
         self.actual_pcb.increment()
-        if self.actual_pcb.is_last_instruction():
+        if self.actual_pcb.has_finished():
             self.interruption_manager().manager_for(KillInterruption).handle_signal(self.actual_pcb,self,
                                                                                   self.kernel.pcb_table)
 
