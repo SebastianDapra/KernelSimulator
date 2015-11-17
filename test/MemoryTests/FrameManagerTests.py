@@ -1,6 +1,5 @@
 __author__ = 'luciano'
 
-__author__ = 'David'
 
 import unittest
 from src.MemoryManagment.Paging.FrameManager import *

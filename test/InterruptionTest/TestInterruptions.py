@@ -1,3 +1,5 @@
+__author__ = 'luciano'
+
 from src.Cpu.Cpu import Cpu
 from src.Instruction.Instruction import Instruction, InstructionIO
 from src.Kernel.Kernel import Kernel
@@ -6,10 +8,6 @@ from src.Memory.ToyMemory import ToyMemory
 from src.Memory.ToyMemory_Admin import ToyMemoryAdmin
 from src.PCB.PCBInfoHolder import BlockHolder
 from src.Scheduler.Scheduler import Scheduler
-
-__author__ = 'luciano'
-
-
 import unittest
 from test.InterruptionTest.Handler_Loaders import *
 
