@@ -11,7 +11,7 @@ class FunctionsForLists:
         return list(map(function,listM))
 
     @staticmethod
-    def foldList(function,listM):
+    def sum(function,listM):
         return sum(FunctionsForLists.mapList(function,listM))
 
     @staticmethod

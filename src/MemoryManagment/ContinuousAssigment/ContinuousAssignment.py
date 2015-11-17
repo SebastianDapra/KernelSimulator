@@ -38,7 +38,7 @@ class ContinuousAssignment:
 
     def compact(self):
         used_blocks = FunctionsForLists.filterList(not self.__free_blocks(), self._blocks)
-        start_index_free_block = FunctionsForLists.foldList(lambda x: x.size(), used_blocks)
+        start_index_free_block = FunctionsForLists.sum(lambda x: x.size(), used_blocks)
         complete_free_block = Block(0, start_index_free_block, self._memory_last_index)
         used_blocks.append(complete_free_block) # We need to do this in two lines. Otherwise, it fails for some reason.
         self._blocks = used_blocks
