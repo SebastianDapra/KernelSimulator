@@ -6,6 +6,7 @@ from src.MemoryManagment.Paging.PaginationTable import *
 from src.MemoryManagment.Paging.Frame import *
 from src.MemoryManagment.Paging.Page import *
 
+
 class TableTest(unittest.TestCase):
 
     # Arrange

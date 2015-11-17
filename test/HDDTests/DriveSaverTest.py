@@ -24,8 +24,10 @@ class BlockCreatorTest(unittest.TestCase):
 
     def test_creating_a_block_with_a_list_of_30_instructions_return_3_lists_of_10(self):
         blocks = self.driveSaver.convert_into_blocks(self.instructions)
-        self.assertEqual(sum(map(len, blocks)), 30)
+        intructions_of_block = sum(map(len, blocks))
+        self.assertEqual(intructions_of_block, 30)
 
     def test_creating_a_block_with_a_list_of_25_instructions_return_3_lists_of_10_and_1_of_5(self):
         blocks = self.driveSaver.convert_into_blocks(self.otherInstructions)
-        self.assertEqual(sum(map(len, blocks)), 25)
+        intructions_of_block = sum(map(len, blocks))
+        self.assertEqual(intructions_of_block, 25)

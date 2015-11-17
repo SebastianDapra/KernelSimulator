@@ -1,8 +1,7 @@
-from jsonpickle.compat import unicode
-
 __author__ = 'luciano'
 
 import jsonpickle
+from jsonpickle.compat import unicode
 from src.HDD.FileSystemComponents import *
 from src.HDD.FileSystem import FileSystem
 from src.HDD.DriveSaver import DriveSaver
@@ -13,8 +12,7 @@ class HDD:
     def __init__(self, amount_sector):
         self._drive_saver = DriveSaver(self)
         self._sectors = dict.fromkeys(range(1, amount_sector), [])
-        self._representation = None
-        jsonpickle.encode(FileSystem(self._drive_saver, Folder(None, "/")))
+        self._representation = jsonpickle.encode(FileSystem(self._drive_saver, Folder(None, "/")))
         self._swap_area = []
 
     def get_drive_saver(self):

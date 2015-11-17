@@ -25,7 +25,6 @@ class FrameManagerTest(unittest.TestCase):
     def test_whenIAssignAPCBTheFirstTime_ThenFrameManagerUsesTheFirstFrame(self):
         # Pages
         first_frame = self.frame_manager.get_frames()[0]
-
         self.frame_manager.assign_page_to_frame(self.pcb)
         first_pcb_page = self.pcb.get_info_holder().get_hold()[0]
         self.assertEquals(first_frame.get_page(), first_pcb_page)
@@ -45,7 +44,7 @@ class FrameManagerTest(unittest.TestCase):
     def test_whenAllFramesAreUsedAndPCBAssignsOneMorePage_ThenTheYoungestFrameGetsEmpty(self):
         # Pages
         first_pcb_page = self.pcb.get_info_holder().get_hold()[0]
-        second_pcb_page =self.pcb.get_info_holder().get_hold()[1]
+        second_pcb_page = self.pcb.get_info_holder().get_hold()[1]
         third_pcb_page = self.pcb.get_info_holder().get_hold()[2]
         forth_pcb_page = self.pcb.get_info_holder().get_hold()[3]
         fifth_pcb_page = self.pcb.get_info_holder().get_hold()[4]

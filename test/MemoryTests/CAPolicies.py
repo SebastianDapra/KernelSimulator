@@ -21,7 +21,7 @@ class TestCAPolicies(unittest.TestCase):
 
     def test_whenISetFirstFit_thenIGetTheFirstBlockFoundByThePolicy(self):
         ca_policy = FirstFit()
-        #self.assertEqual(ca_policy.find_block(self.blocks, self.pcb), self.block1)
+        self.assertEqual(ca_policy.find_block(self.blocks, self.pcb), self.block1)
 
     def test_whenISetWorstFit_thenIGetTheFirstBlockFoundByThePolicy(self):
         ca_policy = WorstFit()

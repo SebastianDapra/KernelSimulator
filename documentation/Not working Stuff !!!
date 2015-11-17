@@ -1,7 +1,6 @@
 -- TESTS --
 
 FrameManagerTest
-MemoryManagerTest
 TestKernel
 TestCPU
 TestHDD

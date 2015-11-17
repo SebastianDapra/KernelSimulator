@@ -33,10 +33,10 @@ class Folder:
         self._siblings.append(folder)
 
     def get_file(self, file_name):
-        return filter(lambda file: file.get_name() == file_name, self._files)[0]
+        return list(filter(lambda file: file.get_name() == file_name, self._files))[0]
 
     def get_folder(self, folder_name):
-        return (filter(lambda folder: folder.get_relative_address() == folder_name, self._siblings))[0]
+        return list(filter(lambda folder: folder.get_relative_address() == folder_name, self._siblings))[0]
 
     def get_files(self):
         return self._files

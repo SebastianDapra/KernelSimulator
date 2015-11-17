@@ -8,7 +8,7 @@ from src.Kernel.Program import *
 from src.MemoryManagment.ContinuousAssigment.CAPolicies import *
 from src.PCB.PCBInfoHolder import BlockHolder
 from src.Instruction.Instruction import *
-import jsonpickle
+
 
 class MemoryManagerTest(unittest.TestCase):
 
@@ -19,18 +19,18 @@ class MemoryManagerTest(unittest.TestCase):
         self.instruction1 = InstructionIO()
         self.instruction2 = InstructionCPU()
         self.instruction3 = InstructionIO()
-        self.instructionList1 = [self.instruction1, self.instruction2]
-        self.instructionList2 = [self.instruction1, self.instruction2, self.instruction3]
-        self.program1 = Program("AProgram",self.instructionList1)
-        self.program2 = Program("BProgram",self.instructionList2)
-        self.fs.add_file("AProgram", self.program1)
-        self.fs.add_file("BProgram", self.program2)
-        self.file1 = self.fs.get_program("AProgram")
-        self.file2 = self.fs.get_program("BProgram")
+        self.instructionsForMonkeyIsland = [self.instruction1, self.instruction2]
+        self.instructionForManiacManson = [self.instruction1, self.instruction2, self.instruction3]
+        self.monkeyIsland = Program("MonkeyIsland",self.instructionsForMonkeyIsland)
+        self.maniacManson = Program("ManiacManson",self.instructionForManiacManson)
+        self.fs.add_file("MonkeyIsland", self.monkeyIsland)
+        self.fs.add_file("ManiacManson", self.maniacManson)
+        self.file1 = self.fs.get_program("MonkeyIsland")
+        self.file2 = self.fs.get_program("ManiacManson")
         self.pcb1 = PCB(0, 2, BlockHolder(self.file1))
         self.pcb2 = PCB(0, 3 , BlockHolder(self.file2))
-        self.memoryManager = MemoryManager()
-        self.memoryManager.set_as_ca(FirstFit())
+        self.memoryManager = MemoryManager(self.hdd)
+        self.memoryManager.set_as_continuous_assignment(FirstFit())
 
     def test_whenTheMemoryManagerAddsTwoProgramsAndIAskForThe6thPosition_thenIShouldGetException(self):
         self.memoryManager.write(self.pcb1)

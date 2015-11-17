@@ -1,6 +1,12 @@
 People:
 Luciano Olmedo, Ivan Belleil, Sebastian Dapra
 
+Deprecated:
+
+All the _definition python packages have been deleted but they are still
+on the repository.
+
+
 Requirements:
 
 Python 3

@@ -34,13 +34,11 @@ class TestContinuousAssignment(unittest.TestCase):
         self.assertEqual(len(self.policy._blocks), 4)
 
     def test_whenINeedToCompact_thenItCompacts(self):
-        pcb1 = PCB(0, 4, BlockHolder(None))
         pcb2 = PCB(1, 2, BlockHolder(None))
         pcb3 = PCB(2, 4, BlockHolder(None))
         pcb4 = PCB(2, 4, BlockHolder(None))
-        self.policy.assign_to_memory(pcb1)
         self.policy.assign_to_memory(pcb2)
-        pcb5 = PCB(3, 3, BlockHolder(None))
-        self.policy.assign_to_memory(pcb5)
+        self.policy.assign_to_memory(pcb3)
+        self.policy.assign_to_memory(pcb4)
         self.assertEqual(len(self.policy._blocks), 4)
 
