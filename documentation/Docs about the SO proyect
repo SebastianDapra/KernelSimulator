@@ -4,6 +4,7 @@ Luciano Olmedo, Ivan Belleil, Sebastian Dapra
 Requirements:
 
 Python 3
+
 Json Pickle : https://jsonpickle.github.io/
 "jsonpickle is a Python library for serialization and deserialization of complex
 Python objects to and from JSON. The standard Python libraries for encoding
