@@ -30,7 +30,7 @@ class Paging:
                 index += 1
 
     def assign_to_memory(self, pcb):
-        if not pcb.get_info_holder().is_holding():
+        if not pcb.get_information().is_holding():
             self._page_creator.create(pcb, self._instructions_per_frame)
         policy_result = self._frame_manager.assign_page_to_frame(pcb)
         return policy_result
