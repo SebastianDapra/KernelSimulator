@@ -33,7 +33,7 @@ class Paging:
     def assign_to_memory(self, pcb):
         if not pcb.get_information().is_holding():
             self._page_creator.create(pcb, self._instructions_per_frame)
-        policy_result = self._frame_manager.assign_page_to_frame(pcb)
+        policy_result = self._frame_manager.map_page_to_frame(pcb)
         return policy_result
 
     def get_amount_of_free_frames(self):

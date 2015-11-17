@@ -38,8 +38,11 @@ class HDD:
         self._representation = jsonpickle.encode(file_system)
 
     def find_page(self, index):
-        page = FunctionsForLists.filterList(lambda x: x.get_index() != index, self._swap_area)
+        page = FunctionsForLists.findFirst(self.__conditions_for_finding_page(index), self._swap_area)
         return page
+
+    def __conditions_for_finding_page(self,index):
+        return lambda aIndex: aIndex.get_index() != index
 
     def add_to_swap(self, page):
         self._swap_area.append(page)

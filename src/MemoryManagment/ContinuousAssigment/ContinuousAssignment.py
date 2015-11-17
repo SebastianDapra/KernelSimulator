@@ -37,7 +37,7 @@ class ContinuousAssignment:
         return FunctionsForLists.exists(existsaBlockWithEnoughSpace,self._blocks)
 
     def compact(self):
-        used_blocks = FunctionsForLists.filterList(lambda x: not x.isFree(), self._blocks)
+        used_blocks = FunctionsForLists.filterList(not self.__free_blocks(), self._blocks)
         start_index_free_block = FunctionsForLists.foldList(lambda x: x.size(), used_blocks)
         complete_free_block = Block(0, start_index_free_block, self._memory_last_index)
         used_blocks.append(complete_free_block) # We need to do this in two lines. Otherwise, it fails for some reason.
@@ -45,6 +45,9 @@ class ContinuousAssignment:
         self.update_index()
         self.update_references()
         self.update_ids()
+
+    def __free_blocks(self):
+        return lambda block : block.isFree()
 
     def update_ids(self):
         result = [block.set_id(block_id) for (block, block_id) in zip(self._blocks, range(0, len(self._blocks)))]
@@ -64,11 +67,7 @@ class ContinuousAssignment:
             next_index += 1
 
     def update_free_blocks(self):
-        result = []
-        for block in self._blocks:
-            if block.isFree():
-                result.append(block)
-        self._free_blocks = result
+        self._free_blocks = FunctionsForLists.filterList(self.__free_blocks(),self._blocks)
 
     def set_memory_manager(self, memory_manager):
         self._memory_manager = memory_manager

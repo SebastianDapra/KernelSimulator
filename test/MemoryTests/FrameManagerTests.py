@@ -25,7 +25,7 @@ class FrameManagerTest(unittest.TestCase):
     def test_whenIAssignAPCBTheFirstTime_ThenFrameManagerUsesTheFirstFrame(self):
         # Pages
         first_frame = self.frame_manager.get_frames()[0]
-        self.frame_manager.assign_page_to_frame(self.pcb)
+        self.frame_manager.map_page_to_frame(self.pcb)
         first_pcb_page = self.pcb.get_information().get_hold()[0]
         self.assertEquals(first_frame.get_page(), first_pcb_page)
 
@@ -34,10 +34,10 @@ class FrameManagerTest(unittest.TestCase):
         first_pcb_page = self.pcb.get_information().get_hold()[0]
         second_pcb_page =self.pcb.get_information().get_hold()[1]
 
-        self.frame_manager.assign_page_to_frame(self.pcb)
+        self.frame_manager.map_page_to_frame(self.pcb)
         first_pcb_page.set_used()
 
-        self.frame_manager.assign_page_to_frame(self.pcb)
+        self.frame_manager.map_page_to_frame(self.pcb)
         second_frame = self.frame_manager.get_frames()[1]
         self.assertEquals(second_frame.get_page(), second_pcb_page)
 
@@ -49,16 +49,16 @@ class FrameManagerTest(unittest.TestCase):
         forth_pcb_page = self.pcb.get_information().get_hold()[3]
         fifth_pcb_page = self.pcb.get_information().get_hold()[4]
 
-        self.frame_manager.assign_page_to_frame(self.pcb)
+        self.frame_manager.map_page_to_frame(self.pcb)
         first_pcb_page.set_used()
-        self.frame_manager.assign_page_to_frame(self.pcb)
+        self.frame_manager.map_page_to_frame(self.pcb)
         second_pcb_page.set_used()
-        self.frame_manager.assign_page_to_frame(self.pcb)
+        self.frame_manager.map_page_to_frame(self.pcb)
         third_pcb_page.set_used()
-        self.frame_manager.assign_page_to_frame(self.pcb)
+        self.frame_manager.map_page_to_frame(self.pcb)
         forth_pcb_page.set_used()
 
         forth_frame = self.frame_manager.get_frames()[3]
 
-        self.frame_manager.assign_page_to_frame(self.pcb)
+        self.frame_manager.map_page_to_frame(self.pcb)
         self.assertEqual(forth_frame.get_page(), fifth_pcb_page)
