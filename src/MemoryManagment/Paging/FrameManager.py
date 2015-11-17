@@ -2,7 +2,7 @@ __author__ = 'luciano'
 
 from src.MemoryManagment.Paging.PaginationTable import *
 
-class FrameManager():
+class FrameManager:
 
     def __init__(self, frames, hdd=None):
         self._frames = frames

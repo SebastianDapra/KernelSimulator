@@ -10,11 +10,11 @@ class Memory:
         pass
 
     def get_instruction_of_cell(self, index):
-        return self.cells.__getitem__(index)
+        return self._cells.__getitem__(index)
 
     def change_instruction_cell(self, from_index, to_index):
-        self.cells[to_index] = self.cells[from_index]
-        self.cells[from_index] = None
+        self._cells[to_index] = self._cells[from_index]
+        self._cells[from_index] = None
 
     def get(self, index):
         return self._cells[index]

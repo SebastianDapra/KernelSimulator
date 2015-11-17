@@ -27,7 +27,7 @@ class TestSchedulerInteractions(unittest.TestCase):
         self.scheduler.send_next_to_cpu()
         self.assertEqual(expected_pcb, self.cpu.get_actual_pcb())
         
-       def test_when_given_scheduler_with_round_robin_and_a_cpu_then_scheduler_sends_next_process_to_cpu(self):
+    def test_when_given_scheduler_with_round_robin_and_a_cpu_then_scheduler_sends_next_process_to_cpu(self):
         self.scheduler.set_cpu(self.cpu)
         quantum = 1
         self.scheduler.set_as_round_robin(quantum)

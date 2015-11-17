@@ -1,12 +1,10 @@
 -- TESTS --
 
-TestScheduler
 FrameManagerTest
 MemoryManagerTest
 TestKernel
 TestCPU
-TestIOInterruptions
-TestInterruptions
 TestHDD
+TestSchedulerInteractions
 
 -----------

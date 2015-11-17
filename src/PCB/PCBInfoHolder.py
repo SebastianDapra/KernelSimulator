@@ -57,7 +57,7 @@ class BlockHolder:
         return self.instructions().__len__()
 
     def instructions(self):
-        blocks = map(lambda b: b.get_data(), self._program.fetch_blocks())
+        blocks = list(map(lambda b: b.get_data(), self._program.fetch_blocks()))
         return [item for sublist in blocks for item in sublist]
 
     def current_mem_dir(self):

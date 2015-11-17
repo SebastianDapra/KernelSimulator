@@ -8,6 +8,7 @@ from src.Kernel.Program import *
 from src.MemoryManagment.ContinuousAssigment.CAPolicies import *
 from src.PCB.PCBInfoHolder import BlockHolder
 from src.Instruction.Instruction import *
+import jsonpickle
 
 class MemoryManagerTest(unittest.TestCase):
 
