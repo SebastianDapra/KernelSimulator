@@ -3,6 +3,7 @@ __author__ = 'luciano'
 import unittest
 from src.Scheduler.Scheduler import *
 from src.Kernel.Kernel import *
+from src.PCB.PCB import *
 import unittest.mock
 
 

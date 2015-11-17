@@ -5,9 +5,6 @@ class LogicalMemory:
         self.memory_manager = memory_manager
 
     def load_program(self,program):
-        '''
-        Esto es asqueroso pero uso del for, yugg
-        '''
         for x in range(0, len(program.get_instructions()) + 1):
             self.memory_manager.write_instruction(x)
 

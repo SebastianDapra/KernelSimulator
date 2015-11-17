@@ -13,3 +13,6 @@ class Clock(threading.Thread):
     def tick(self):
         self.join(self.timeout)
         raise TimeoutInterruption()
+        '''
+            This is actually NOW not working!
+        '''

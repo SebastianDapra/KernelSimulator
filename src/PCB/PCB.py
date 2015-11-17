@@ -9,7 +9,7 @@ class PCB:
     def __init__(self, amount_instructions, pid, mem_policy):
         self._id = pid
         self._amountInstructions = amount_instructions
-        self._priority = None
+        self.priority = None
         self._info_holder = mem_policy
 
     def set_id(self,pid):

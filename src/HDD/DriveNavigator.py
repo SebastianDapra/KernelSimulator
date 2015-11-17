@@ -1,5 +1,6 @@
 __author__ = 'luciano'
 
+
 class Navigator:
 
     def __init__(self, hdd, sector, block_numbers):

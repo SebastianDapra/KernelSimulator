@@ -17,7 +17,7 @@ class ToyMemoryAdmin:
 
     def get_instruction_of(self,pcb):
         '''
-        indirecciones al pedo !!! tenes que mirarlas.
+        Too much indirections !!! Someone has to check this.
         '''
         return self.memory.get_instruction_of_cell(pcb.get_pc())
 

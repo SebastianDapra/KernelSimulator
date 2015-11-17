@@ -1,6 +1,12 @@
 1- Integration Tests
 2- A "Main" module
 3- Study Json-pickle API
-
-
+4- Refactor tests to make them more intention-revealing (like last ones)
+5- Recheck work done by Clock.
+6- Tests including the Clock
+7- Adding threads to the system
+8- IO management should be revisited
+9- Clock should be revisited
+10- Refactor in Kernel
+11- PCB refac
 

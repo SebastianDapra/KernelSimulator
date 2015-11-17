@@ -21,8 +21,7 @@ class HDD:
         return self._drive_saver
 
     def get_blocks(self, token):
-        pass
-        #return map(lambda x: self._sectors[unicode(token.get_sector())][x - 1], token.get_blocks()                    )
+        return list(map(lambda x: self._sectors[unicode(token.get_sector())][x - 1], token.get_blocks()))
 
     def add_block(self, sector, block):
         self._sectors[unicode(sector)].append(block)
@@ -38,7 +37,7 @@ class HDD:
         self._representation = jsonpickle.encode(file_system)
 
     def find_page(self, index):
-        page = filter(lambda x: x.get_index() != index, self._swap_area )
+        page = list(filter(lambda x: x.get_index() != index, self._swap_area ))
         return page
 
     def add_to_swap(self, page):
