@@ -27,10 +27,10 @@ class Memory:
         return len(self._cells) - 1
 
     def get_free_space(self):
-        return len(filter(lambda x: x is None, self._cells))
+        return len(list(filter(lambda x: x is None, self._cells)))
 
     def compact(self):
-        used_cells = filter(lambda x: not x is None, self._cells)
+        used_cells = list(filter(lambda x: not x is None, self._cells))
         self._cells = used_cells + [None] * (len(self._cells) - len(used_cells))
 
     def size(self):

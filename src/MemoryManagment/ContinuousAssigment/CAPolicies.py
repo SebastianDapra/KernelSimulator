@@ -34,8 +34,7 @@ class FirstFit:
         self
 
     def find_block(self, free_blocks, pcb):
-        #return filter(lambda x: x.size() >= pcb.get_amount_of_instructions(), free_blocks)[0]
-        result = filter(lambda x: x.size() >= pcb.get_amount_of_instructions(), free_blocks)
+        result = list(filter(lambda x: x.size() >= pcb.get_amount_of_instructions(), free_blocks))
         return result[0]
 
     '''

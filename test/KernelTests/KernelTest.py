@@ -53,12 +53,12 @@ class TestKernel(unittest.TestCase):
         Compare the initial state of PCB's PC with final state
         '''
         self.load_a_instruction_in_a_program()
-        self.assertEqual(0, self.cpu.actual_pcb.pc)
+        self.assertEqual(0, self.cpu.actual_pcb.get_pc())
         self.cpu.complete_instruction_cycle()
-        self.assertEqual(1, self.cpu.actual_pcb.pc)
+        self.assertEqual(1, self.cpu.actual_pcb.get_pc())
 
     def test_given_pcb_when_cpu_complete_instruction_cycle_then_has_IO_Interruption(self):
         self.load_a_io_instruction_in_a_program()
-        self.assertEqual(0, self.cpu.actual_pcb.pc)
+        self.assertEqual(0, self.cpu.actual_pcb.get_pc())
         self.cpu.complete_instruction_cycle()
-        self.assertEqual(1, self.cpu.actual_pcb.pc)
+        self.assertEqual(1, self.cpu.actual_pcb.get_pc())

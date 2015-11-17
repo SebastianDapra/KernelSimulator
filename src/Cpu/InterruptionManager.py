@@ -1,8 +1,7 @@
-from src.PCB.PCB import PCB
-
 __author__ = 'luciano'
 
 from src.PCB.ProcessState import *
+from src.PCB.PCB import PCB
 
 
 class InterruptionManager:
@@ -32,7 +31,7 @@ class InterruptionManager:
         es signal_handler valido y puede hacerse si esta en modo Kernel.
 
 
-       '''
+    '''
 
 
 class InstructionInterruptionManager:

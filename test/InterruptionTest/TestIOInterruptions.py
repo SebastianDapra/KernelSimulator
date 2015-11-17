@@ -39,8 +39,8 @@ class TestIOInterruption(unittest.TestCase):
         io_pcb = self.kernel.scheduler.ready_queue[0]
         self.cpu.set_actual_pcb(io_pcb)
         without_io_pcb = self.kernel.scheduler.ready_queue[1]
-        self.assertEqual(io_pcb.pid,self.cpu.actual_pcb.pid)
+        self.assertEqual(io_pcb.get_pid,self.cpu.actual_pcb.get_pid)
         self.cpu.complete_instruction_cycle()
         self.assertEqual(ProcessState.waiting,io_pcb.state)
-        self.assertEqual(without_io_pcb.pid,self.cpu.actual_pcb.pid)
+        self.assertEqual(without_io_pcb.get_pid,self.cpu.actual_pcb.get_pid)
         self.assertEqual(ProcessState.running,without_io_pcb)

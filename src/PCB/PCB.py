@@ -3,6 +3,7 @@ __author__ = 'luciano'
 from src.PCB.ProcessState import *
 from src.PCB.PCBInfoHolder import *
 
+
 class PCB:
 
     def __init__(self, amount_instructions, pid, mem_policy):
@@ -32,16 +33,13 @@ class PCB:
     def increment(self):
         self._info_holder.increment()
 
-    def get_pc(self):
-        return self._info_holder.current_mem_dir()
-
     @property
     def get_state(self):
         return self.state
 
     @property
     def get_pid(self):
-        return self.pid
+        return self._id
 
     def has_finished(self):
         return self._info_holder.has_finished()
@@ -76,6 +74,7 @@ class PCB:
 
     def get_info_holder(self):
         return self._info_holder
+
 
 class PCBPriorities:
 

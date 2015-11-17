@@ -38,5 +38,3 @@ class MemoryTest(unittest.TestCase):
         self.memory.compact()
         self.assertEqual(self.memory.get(19), None)
 
-suite = unittest.TestLoader().loadTestsFromTestCase(MemoryTest)
-unittest.TextTestRunner(verbosity=2).run(suite)

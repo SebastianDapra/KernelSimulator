@@ -1,7 +1,7 @@
 __author__ = 'luciano'
 
 import unittest
-from process.Program import *
+from src.Kernel.Program import *
 from src.HDD.HDD import *
 
 
