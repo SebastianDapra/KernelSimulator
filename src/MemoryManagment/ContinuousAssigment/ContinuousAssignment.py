@@ -16,7 +16,7 @@ class ContinuousAssignment:
         self._blocks_manager = BlocksManager()
 
     def assign_to_memory(self, pcb):
-            print("Attempting to Assing Block for PCB ID: " + str(pcb._id))
+            print("Attempting to Assign Block for PCB ID: " + str(pcb._id))
             if self.exists_block_with_space(pcb):
                 print("Block for PCB ID: " + str(pcb._id) + " successfuly assigned!")
                 block_to_use = self._policy.find_block(self._free_blocks, pcb)

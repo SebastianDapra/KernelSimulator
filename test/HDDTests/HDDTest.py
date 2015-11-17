@@ -1,3 +1,5 @@
+from src.Kernel.Program import Program
+
 __author__ = 'luciano'
 
 import unittest

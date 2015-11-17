@@ -11,6 +11,7 @@ class PCB:
         self._amountInstructions = amount_instructions
         self.priority = None
         self._info_holder = mem_policy
+        self.state = None
 
     def set_id(self,pid):
         self._id = pid
@@ -37,15 +38,15 @@ class PCB:
     def get_state(self):
         return self.state
 
+    def set_state(self, state):
+        self.state = state
+
     @property
     def get_pid(self):
         return self._id
 
     def has_finished(self):
         return self._info_holder.has_finished()
-
-    def set_state(self, state_new):
-        self.state = state_new
 
     @property
     def get_priority(self):
