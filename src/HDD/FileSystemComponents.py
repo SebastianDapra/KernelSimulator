@@ -1,5 +1,6 @@
 __author__ = 'luciano'
 
+from src.Kernel.FunctionsForLists import *
 
 class Folder:
 
@@ -8,7 +9,7 @@ class Folder:
         self._absolute_address = self.set_absolute_address(parent, folder_name)
         self._relative_address = folder_name
         self._files = []
-        self._siblings = []
+        self._children = []
 
     @staticmethod
     def set_absolute_address(parent, folder_name):
@@ -30,22 +31,19 @@ class Folder:
 
     def new_folder(self, folder_name):
         folder = Folder(self, folder_name)
-        self._siblings.append(folder)
+        self._children.append(folder)
 
     def get_file(self, file_name):
-        return self.__get_by_condition_in_list(lambda file: file.get_name() == file_name, self._files)
+        return FunctionsForLists.findFirst(lambda file: file.get_name() == file_name, self._files)
 
     def get_folder(self, folder_name):
-        return self.__get_by_condition_in_list(lambda folder: folder.get_relative_address() == folder_name, self._siblings)
-
-    def __get_by_condition_in_list(self,filterCondition,listF):
-        return list(filter(filterCondition,listF))[0]
+        return FunctionsForLists.findFirst(lambda folder: folder.get_relative_address() == folder_name, self._children)
 
     def get_files(self):
         return self._files
 
     def get_folders(self):
-        return self._siblings
+        return self._children
 
     def get_parent(self):
         return self._parent

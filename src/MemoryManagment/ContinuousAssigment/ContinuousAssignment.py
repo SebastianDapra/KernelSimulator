@@ -3,6 +3,7 @@ __author__ = 'luciano'
 from src.MemoryManagment.ContinuousAssigment.BlockManager import *
 from src.Memory.PolicyResult import *
 from src.PCB.PCBInfoHolder import BlockHolder
+from src.Kernel.FunctionsForLists import *
 
 
 class ContinuousAssignment:
@@ -16,31 +17,28 @@ class ContinuousAssignment:
         self._blocks_manager = BlocksManager()
 
     def assign_to_memory(self, pcb):
-            print("Attempting to Assign Block for PCB ID: " + str(pcb._id))
-            if self.exists_block_with_space(pcb):
-                print("Block for PCB ID: " + str(pcb._id) + " successfuly assigned!")
-                block_to_use = self._policy.find_block(self._free_blocks, pcb)
-                self._blocks_manager.divide_block(pcb, block_to_use, self._blocks)
-                self.update_free_blocks()
-                pcb.get_information().set_hold((block_to_use.get_start_index(), block_to_use.get_end_index()))
-                return PolicyResult(block_to_use.get_start_index(), block_to_use.get_end_index())
-            else:
-                print("Compact required!")
-                self._memory.compact()
-                self.compact()
-                self.update_free_blocks()
-                self.assign_to_memory(pcb)
+        print("Attempting to Assign Block for PCB ID: " + str(pcb._id))
+        if self.exists_block_with_space(pcb):
+            print("Block for PCB ID: " + str(pcb._id) + " successfuly assigned!")
+            block_to_use = self._policy.find_block(self._free_blocks, pcb)
+            self._blocks_manager.divide_block(pcb, block_to_use, self._blocks)
+            self.update_free_blocks()
+            pcb.get_information().set_hold((block_to_use.get_start_index(), block_to_use.get_end_index()))
+            return PolicyResult(block_to_use.get_start_index(), block_to_use.get_end_index())
+        else:
+            print("Compact required!")
+            self._memory.compact()
+            self.compact()
+            self.update_free_blocks()
+            self.assign_to_memory(pcb)
 
     def exists_block_with_space(self, pcb):
-        result = False
-        for block in self._blocks:
-            if block.isFree() & (block.size() >= pcb.get_amount_of_instructions()):
-                result = True
-        return result
+        existsaBlockWithEnoughSpace = lambda block: block.isFree() & (block.size() >= pcb.get_amount_of_instructions())
+        return FunctionsForLists.exists(existsaBlockWithEnoughSpace,self._blocks)
 
     def compact(self):
-        used_blocks = filter(lambda x: not x.isFree(), self._blocks)
-        start_index_free_block = sum(map(lambda x: x.size(), used_blocks))
+        used_blocks = FunctionsForLists.filterList(lambda x: not x.isFree(), self._blocks)
+        start_index_free_block = FunctionsForLists.foldList(lambda x: x.size(), used_blocks)
         complete_free_block = Block(0, start_index_free_block, self._memory_last_index)
         used_blocks.append(complete_free_block) # We need to do this in two lines. Otherwise, it fails for some reason.
         self._blocks = used_blocks

@@ -3,6 +3,7 @@ __author__ = 'luciano'
 from src.MemoryManagment.Paging.Frame import *
 from src.MemoryManagment.Paging.PageCreator import *
 from src.MemoryManagment.Paging.FrameManager import *
+from src.Kernel.FunctionsForLists import *
 from src.PCB.PCBInfoHolder import *
 
 
@@ -36,7 +37,7 @@ class Paging:
         return policy_result
 
     def get_amount_of_free_frames(self):
-        return len(filter(lambda f: not f.is_in_use(), self._frames))
+        return len(FunctionsForLists.filterList(lambda f: not f.is_in_use(), self._frames))
 
     def set_memory_manager(self, memory_manager):
         self._memory_manager = memory_manager

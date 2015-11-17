@@ -1,6 +1,7 @@
 __author__ = 'luciano'
 
 from src.MemoryManagment.Paging.PaginationTable import *
+from src.Kernel.FunctionsForLists import *
 
 class FrameManager:
 
@@ -11,7 +12,7 @@ class FrameManager:
         self._hdd = hdd
 
     def update_free_frames(self):
-        self._free_frames = filter(lambda frame: not frame.is_in_use(), self._frames)
+        self._free_frames = FunctionsForLists.filterList(lambda frame: not frame.is_in_use(), self._frames)
 
     def assign_page_to_frame(self, pcb):
         print("Attempting to Assign Page for PCB ID: " + str(pcb._id))

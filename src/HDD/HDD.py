@@ -5,7 +5,7 @@ from jsonpickle.compat import unicode
 from src.HDD.FileSystemComponents import *
 from src.HDD.FileSystem import FileSystem
 from src.HDD.DriveContainer import DriveContainer
-
+from src.Kernel.FunctionsForLists import *
 
 class HDD:
 
@@ -38,7 +38,7 @@ class HDD:
         self._representation = jsonpickle.encode(file_system)
 
     def find_page(self, index):
-        page = list(filter(lambda x: x.get_index() != index, self._swap_area ))
+        page = FunctionsForLists.filterList(lambda x: x.get_index() != index, self._swap_area)
         return page
 
     def add_to_swap(self, page):

@@ -1,4 +1,5 @@
 __author__ = 'luciano'
+from src.Kernel.FunctionsForLists import *
 
 class PageHolder:
 
@@ -34,6 +35,9 @@ class PageHolder:
         return self._pages
 
     def is_holding(self):
+        '''
+        TOBE CORRECTED
+        '''
         return self._pages
 
 
@@ -57,7 +61,7 @@ class BlockHolder:
         return self.instructions().__len__()
 
     def instructions(self):
-        blocks = list(map(lambda b: b.get_data(), self._program.fetch_blocks()))
+        blocks = FunctionsForLists.mapList(lambda b: b.get_data(), self._program.fetch_blocks())
         return [item for sublist in blocks for item in sublist]
 
     def current_mem_dir(self):

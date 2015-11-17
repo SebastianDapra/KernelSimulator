@@ -1,6 +1,7 @@
 __author__ = 'luciano'
 
 import jsonpickle
+from src.Kernel.FunctionsForLists import *
 from jsonpickle.compat import unicode
 
 class Memory:
@@ -39,13 +40,10 @@ class Memory:
         return len(self.__not_ocuppied())
 
     def __not_ocuppied(self):
-        return self.__filter_cells(lambda x: x is None)
-
-    def __filter_cells(self,condition):
-        return list(filter(condition, self._cells))
+        return FunctionsForLists.filterList(lambda x: x is None,self._cells)
 
     def __ocuppied(self):
-        return self.__filter_cells(lambda x: not x is None)
+        return FunctionsForLists.filterList(lambda x: not x is None,self._cells)
 
     def compact(self):
         used_cells = self.__ocuppied()
