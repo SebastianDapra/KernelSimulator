@@ -30,15 +30,15 @@ class PageHolder:
     def current_mem_dir(self):
         return self._pages[self._current].get_real_instruction_number(self._pc)
 
-    def set_hold(self, hold):
-        self._pages = hold
+    def set_representation(self, information_unit):
+        self._pages = information_unit
 
-    def get_hold(self):
+    def get_representation(self):
         return self._pages
 
     def is_holding(self):
         '''
-        TOBE CORRECTED
+        TO-BE CORRECTED
         '''
         return self._pages
 
@@ -63,17 +63,18 @@ class BlockHolder:
         return self.instructions().__len__()
 
     def instructions(self):
-        blocks = FunctionsForLists.mapList(lambda b: b.get_data(), self._program.fetch_blocks())
-        return [item for sublist in blocks for item in sublist]
+        instructions = FunctionsForLists.mapList(lambda b: b.get_data(), self._program.fetch_blocks())
+
+        return [item for sublist in instructions for item in sublist]
 
     def current_mem_dir(self):
         return self._dirs[0] + self._pc
 
-    def get_hold(self):
+    def get_representation(self):
         return self._dirs
 
     def is_holding(self):
         return self._dirs is not None
 
-    def set_hold(self, hold):
-        self._dirs = hold
+    def set_representation(self, information_unit):
+        self._dirs = information_unit

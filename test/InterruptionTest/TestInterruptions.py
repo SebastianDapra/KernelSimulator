@@ -23,7 +23,7 @@ class TestInterruption(unittest.TestCase):
         self.program.addInstruction(self.instruction)
         hold = [1,2,3,4]
         self.block_holder = BlockHolder(self.program)
-        self.block_holder.set_hold(hold)
+        self.block_holder.set_representation(hold)
         self.pcb = PCB(1, 4, self.block_holder)
         self.cpu.set_actual_pcb(self.pcb)
         self.interruption_manager = InterruptionManager(self.cpu)

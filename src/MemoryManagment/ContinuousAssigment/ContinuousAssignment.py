@@ -23,7 +23,7 @@ class ContinuousAssignment:
             block_to_use = self._policy.find_block(self._free_blocks, pcb)
             self._blocks_manager.divide_block(pcb, block_to_use, self._blocks)
             self.update_free_blocks()
-            pcb.get_information().set_hold((block_to_use.get_start_index(), block_to_use.get_end_index()))
+            pcb.get_information().set_representation((block_to_use.get_start_index(), block_to_use.get_end_index()))
             return PolicyResult(block_to_use.get_start_index(), block_to_use.get_end_index())
         else:
             print("Compact required!")
@@ -33,8 +33,9 @@ class ContinuousAssignment:
             self.assign_to_memory(pcb)
 
     def exists_block_with_space(self, pcb):
-        existsaBlockWithEnoughSpace = lambda block: block.isFree() & (block.size() >= pcb.get_amount_of_instructions())
-        return FunctionsForLists.exists(existsaBlockWithEnoughSpace,self._blocks)
+        return [block.isFree() & block.size() >= pcb.get_amount_of_instructions() for block in self._blocks]
+        #existsaBlockWithEnoughSpace = lambda block: block.isFree() & (block.size() >= pcb.get_amount_of_instructions())
+        #return FunctionsForLists.exists(existsaBlockWithEnoughSpace,self._blocks)
 
     def compact(self):
         used_blocks = FunctionsForLists.filterList(not self.__free_blocks(), self._blocks)
@@ -50,7 +51,7 @@ class ContinuousAssignment:
         return lambda block : block.isFree()
 
     def update_ids(self):
-        result = [block.set_id(block_id) for (block, block_id) in zip(self._blocks, range(0, len(self._blocks)))]
+        [block.set_id(block_id) for (block, block_id) in zip(self._blocks, range(0, len(self._blocks)))]
 
     def update_references(self):
         [sndBlock.changePreviousBlock_double(fstBlock) for (fstBlock, sndBlock) in zip(self._blocks[::1], self._blocks[1::1])]

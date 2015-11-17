@@ -16,7 +16,7 @@ class FrameManager:
 
     def map_page_to_frame(self, pcb):
         print("Attempting to Assign Page for PCB ID: " + str(pcb._id))
-        pcb_pages = pcb.get_information().get_hold()
+        pcb_pages = pcb.get_information().get_representation()
         page = self.__not_used_page(pcb_pages)
         pages = self._hdd.find_page(page.get_index())
         '''

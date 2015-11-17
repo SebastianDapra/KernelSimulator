@@ -21,14 +21,19 @@ class Paging:
     def get_amount_of_frames(self):
         return len(self._frames)
 
+    def __can_create(self):
+        return self._memory_size % self._instructions_per_frame == 0
+
     def generate_frames(self):
-        can_create = self._memory_size % self._instructions_per_frame == 0
-        if can_create:
-            index = 0
+        if self.__can_create():
             print("Creating frames...")
-            for split in range(0, self._memory_size, self._instructions_per_frame):
-                self._frames.append(Frame(index, split, split + self._instructions_per_frame - 1))
-                index += 1
+            self.__create_frames()
+
+    def __create_frames(self):
+        index = 0
+        for split in range(0, self._memory_size, self._instructions_per_frame):
+            self._frames.append(FrameBuilder.crearFrame(index, split, split + self._instructions_per_frame - 1))
+            index += 1
 
     def assign_to_memory(self, pcb):
         if not pcb.get_information().is_holding():
