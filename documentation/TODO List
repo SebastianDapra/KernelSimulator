@@ -9,4 +9,6 @@
 9- Clock should be revisited
 10- Refactor in Kernel
 11- PCB refac
+12- Change old test using toy implementations to one using real ones.
 
+13- Check usefullness of Handlers Module (Seems to be deleted)

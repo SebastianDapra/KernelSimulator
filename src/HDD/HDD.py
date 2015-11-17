@@ -4,19 +4,19 @@ import jsonpickle
 from jsonpickle.compat import unicode
 from src.HDD.FileSystemComponents import *
 from src.HDD.FileSystem import FileSystem
-from src.HDD.DriveSaver import DriveSaver
+from src.HDD.DriveContainer import DriveContainer
 
 
 class HDD:
 
     def __init__(self, amount_sector):
-        self._drive_saver = DriveSaver(self)
+        self._drive_container = DriveContainer(self)
         self._sectors = dict.fromkeys(range(1, amount_sector), [])
-        self._representation = jsonpickle.encode(FileSystem(self._drive_saver, Folder(None, "/")))
+        self._representation = jsonpickle.encode(FileSystem(self._drive_container, Folder(None, "/")))
         self._swap_area = []
 
-    def get_drive_saver(self):
-        return self._drive_saver
+    def get_drive_container(self):
+        return self._drive_container
 
     def get_blocks(self, token):
         return list(map(lambda x: self._sectors[unicode(token.get_sector())][x - 1], token.get_blocks()))
@@ -31,7 +31,10 @@ class HDD:
     def generate_file_system(self):
         return jsonpickle.decode(self._representation)
 
-    def serialize_file_system(self, file_system):
+    def display(self,file_system):
+        self.__serialize_file_system(file_system)
+
+    def __serialize_file_system(self, file_system):
         self._representation = jsonpickle.encode(file_system)
 
     def find_page(self, index):

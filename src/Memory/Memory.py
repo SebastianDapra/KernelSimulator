@@ -1,5 +1,7 @@
 __author__ = 'luciano'
 
+import jsonpickle
+from jsonpickle.compat import unicode
 
 class Memory:
 
@@ -20,17 +22,33 @@ class Memory:
         return self._cells[index]
 
     def put(self, position, instruction):
-        print("Writing in Memory Position " + str(position) + " : [ " + str(instruction) + " ]")
+        self.display(position,instruction)
         self._cells[position] = instruction
+
+    def display(self,position,instruction):
+        data = self.__serialize(position,instruction)
+        print("Writing in Memory Position " + data[0] + " : [ " + data[1] + " ]")
+
+    def __serialize(self, position,instruction):
+        return[jsonpickle.encode(position),jsonpickle.encode(instruction._text)]
 
     def get_last_index(self):
         return len(self._cells) - 1
 
     def get_free_space(self):
-        return len(list(filter(lambda x: x is None, self._cells)))
+        return len(self.__not_ocuppied())
+
+    def __not_ocuppied(self):
+        return self.__filter_cells(lambda x: x is None)
+
+    def __filter_cells(self,condition):
+        return list(filter(condition, self._cells))
+
+    def __ocuppied(self):
+        return self.__filter_cells(lambda x: not x is None)
 
     def compact(self):
-        used_cells = list(filter(lambda x: not x is None, self._cells))
+        used_cells = self.__ocuppied()
         self._cells = used_cells + [None] * (len(self._cells) - len(used_cells))
 
     def size(self):

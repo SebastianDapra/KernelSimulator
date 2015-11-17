@@ -24,7 +24,7 @@ class Instruction:
 class InstructionIO:
 
     def __init__(self):
-        self.text = "This is an IO Instruction"
+        self._text = "This is an IO Instruction"
 
     @property
     def is_io(self):
