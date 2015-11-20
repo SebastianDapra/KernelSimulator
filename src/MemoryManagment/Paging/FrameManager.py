@@ -1,6 +1,7 @@
 __author__ = 'luciano'
 
 from src.MemoryManagment.Paging.PaginationTable import *
+from src.Kernel.FunctionsForLists import *
 
 class FrameManager:
 
@@ -11,18 +12,27 @@ class FrameManager:
         self._hdd = hdd
 
     def update_free_frames(self):
-        self._free_frames = filter(lambda frame: not frame.is_in_use(), self._frames)
+        self._free_frames = FunctionsForLists.filterList(lambda frame: not frame.is_in_use(), self._frames)
 
-    def assign_page_to_frame(self, pcb):
+    def map_page_to_frame(self, pcb):
         print("Attempting to Assign Page for PCB ID: " + str(pcb._id))
-        pcb_pages = pcb.get_info_holder().get_hold()
-        page = next(iter(filter(lambda p: not p.has_been_used(), pcb_pages)))
+        pcb_pages = pcb.get_information().get_representation()
+        page = self.__not_used_page(pcb_pages)
         pages = self._hdd.find_page(page.get_index())
+        '''
         if pages:
-            page = pages[0]
+            page = pages
+        '''
+        return self.__update_page_and_frames(page,pages)
+
+    def __update_page_and_frames(self,page,pages):
+        page = pages
         policy_result = self.assign(page)
         self.update_free_frames()
         return policy_result
+
+    def __not_used_page(self,pcb_pages):
+        return FunctionsForLists.findFirst(lambda p: not p.has_been_used(), pcb_pages)
 
     def free_frame_available(self):
         return len(self._free_frames) > 0

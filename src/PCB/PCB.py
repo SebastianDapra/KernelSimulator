@@ -6,11 +6,11 @@ from src.PCB.PCBInfoHolder import *
 
 class PCB:
 
-    def __init__(self, amount_instructions, pid, mem_policy):
+    def __init__(self, amount_instructions, pid, information_about_process):
         self._id = pid
         self._amountInstructions = amount_instructions
         self.priority = None
-        self._info_holder = mem_policy
+        self.information_about_process = information_about_process
         self.state = None
 
     def set_id(self,pid):
@@ -29,10 +29,10 @@ class PCB:
         return self.program_name
 
     def get_pc(self):
-        return self._info_holder.current_mem_dir()
+        return self.information_about_process.current_mem_dir()
 
     def increment(self):
-        self._info_holder.increment()
+        self.information_about_process.increment()
 
     @property
     def get_state(self):
@@ -46,7 +46,7 @@ class PCB:
         return self._id
 
     def has_finished(self):
-        return self._info_holder.has_finished()
+        return self.information_about_process.has_finished()
 
     @property
     def get_priority(self):
@@ -68,13 +68,13 @@ class PCB:
         return self.priority < other.priority
 
     def get_instructions(self):
-        return self._info_holder.instructions()
+        return self.information_about_process.instructions()
 
     def __str__(self):
         return 'ID: ' + self._id
 
-    def get_info_holder(self):
-        return self._info_holder
+    def get_information(self):
+        return self.information_about_process
 
 
 class PCBPriorities:

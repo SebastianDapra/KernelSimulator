@@ -1,12 +1,9 @@
-from src.Scheduler.Scheduler import FifoPolicy
-
 __author__ = 'luciano'
 
 from src.Cpu.Cpu import *
 from src.PCB.PCBTable import *
 from src.Kernel.Program import *
 from src.Scheduler.LongTermScheduler import *
-from src.Scheduler.Scheduler import *
 
 
 class Kernel:

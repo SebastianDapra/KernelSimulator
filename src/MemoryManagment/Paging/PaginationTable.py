@@ -1,6 +1,8 @@
 __author__ = 'luciano'
 
 from src.Memory.PolicyResult import *
+from src.Kernel.FunctionsForLists import *
+
 
 class PaginationTable():
 
@@ -14,7 +16,7 @@ class PaginationTable():
         return PolicyResult(frame_to_use.get_starting_index(), frame_to_use.get_ending_index())
 
     def update_frames_life(self, frame, frames):
-        frames_to_update = filter(lambda x: x is not frame, frames)
+        frames_to_update = FunctionsForLists.filterList(lambda x: x is not frame, frames)
         frame.reset_life()
-        for frm in frames_to_update:
-            frm.increase_life()
+        for x in frames_to_update:
+            x.increase_life()

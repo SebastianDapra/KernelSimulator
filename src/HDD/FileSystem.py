@@ -2,8 +2,8 @@ __author__ = 'luciano'
 
 class FileSystem:
 
-    def __init__(self, drive_saver, main_folder):
-        self._drive_saver = drive_saver
+    def __init__(self, drive_container, main_folder):
+        self._drive_container = drive_container
         self._current_directory = main_folder
 
     def go_to_parent(self):
@@ -17,7 +17,7 @@ class FileSystem:
         self._current_directory.new_folder(folder_name)
 
     def add_file(self, file_name, program):
-        self._current_directory.new_file(self._drive_saver, file_name, program)
+        self._current_directory.new_file(self._drive_container, file_name, program)
 
     def list_files(self):
         return self._current_directory.get_files()

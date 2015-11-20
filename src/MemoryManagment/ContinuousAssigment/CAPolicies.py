@@ -1,5 +1,6 @@
 __author__ = 'luciano'
 
+from src.Kernel.FunctionsForLists import *
 
 
 class WorstFit:
@@ -8,7 +9,7 @@ class WorstFit:
         self
 
     def find_block(self, free_blocks, pcb):
-        blocks_to_sort = filter(lambda x: x.size() >= pcb.get_amount_of_instructions(), free_blocks)
+        blocks_to_sort = FunctionsForLists.filterList(lambda x: x.size() >= pcb.get_amount_of_instructions(), free_blocks)
         return sorted(blocks_to_sort, key=(lambda x: self.get_key(x)))[-1]
 
     def get_key(self, block):
@@ -21,7 +22,7 @@ class BestFit:
         self
 
     def find_block(self, free_blocks, pcb):
-        blocks = filter((lambda x: x.size() >= pcb.get_amount_of_instructions()), free_blocks)
+        blocks = FunctionsForLists.filterList(lambda x: x.size() >= pcb.get_amount_of_instructions(), free_blocks)
         return sorted(blocks, key=(lambda x: self.get_key(x)))[0]
 
     def get_key(self, block):
@@ -34,7 +35,7 @@ class FirstFit:
         self
 
     def find_block(self, free_blocks, pcb):
-        result = list(filter(lambda x: x.size() >= pcb.get_amount_of_instructions(), free_blocks))
+        result = FunctionsForLists.filterList(lambda x: x.size() >= pcb.get_amount_of_instructions(), free_blocks)
         return result[0]
 
     '''

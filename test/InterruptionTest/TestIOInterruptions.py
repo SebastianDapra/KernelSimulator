@@ -30,10 +30,10 @@ class TestIOInterruption(unittest.TestCase):
         hold1 = [1,2,3,4]
         hold2 = [5,6,7,8]
         self.block_holder1 = BlockHolder(self.a_program_with_instruction(instruction_io))
-        self.block_holder1.set_hold(hold1)
+        self.block_holder1.set_representation(hold1)
         self.pcb1 = PCB(1, 1, self.block_holder1)
         self.block_holder2 = BlockHolder(self.a_program_with_instruction(instruction))
-        self.block_holder2.set_hold(hold2)
+        self.block_holder2.set_representation(hold2)
         self.pcb2 = PCB(1, 2, self.block_holder2)
         self.kernel.scheduler.push_to_queue(self.pcb1)
         self.kernel.scheduler.push_to_queue(self.pcb2)

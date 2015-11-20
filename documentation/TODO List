@@ -2,11 +2,13 @@
 2- A "Main" module
 3- Study Json-pickle API
 4- Refactor tests to make them more intention-revealing (like last ones)
-5- Recheck work done by Clock.
+5- ReCheck work done by Clock.
 6- Tests including the Clock
-7- Adding threads to the system
+7- ADDING THREADING to the system (Should be one of the last ones, but still very important !)
 8- IO management should be revisited
 9- Clock should be revisited
 10- Refactor in Kernel
 11- PCB refac
-
+12- Change old test using toy implementations (for ex Memory and HDD) to one using real ones.
+13- Check usefullness of Handlers Module (Seems to be deleted)
+14- More Unit-Testing for Memory!

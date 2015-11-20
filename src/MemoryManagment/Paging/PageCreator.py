@@ -18,7 +18,7 @@ class PageCreator():
         for items in divided_items:
             pages.append(Page(self._index, items[0], items[-1], len(items)))
             self._index += 1
-        pcb.get_info_holder().set_hold(pages)
+        pcb.get_information().set_representation(pages)
 
 
 '''

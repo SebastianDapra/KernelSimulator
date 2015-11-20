@@ -1,5 +1,5 @@
 __author__ = 'luciano'
-
+from src.Kernel.FunctionsForLists import *
 '''
 Me gustaria que avancemos en lo que corresponderia en la interaccion del Scheduler con el Kernel.
 Tambien quisiera saber que pasa con el mismo cuando hay interrupciones
@@ -43,7 +43,7 @@ class Scheduler:
         self.policy = RoundRobinPolicy(quantum, self.ready_queue)
 
     def increase_pcbs_priority(self):
-        self.ready_queue = map((lambda x: x.increase_priority), self.ready_queue)
+        self.ready_queue = FunctionsForLists.mapList((lambda x: x.increase_priority), self.ready_queue)
 
 
 class FifoPolicy:

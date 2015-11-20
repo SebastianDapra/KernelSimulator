@@ -10,10 +10,12 @@ class SchedulerPolicy:
         pass
 
     def send_next_to_cpu(self, scheduler):
-        if scheduler.cpu.pcb is None and scheduler.ready_queue.__len__() > 0:
+        if self.__satisfy_conditions_of_sending(scheduler):
             process_to_cpu = scheduler.ready_queue.pop(0)
             scheduler.cpu.change_pcb(process_to_cpu)
 
+    def __satisfy_conditions_of_sending(self,scheduler):
+        return scheduler.cpu.pcb is None and scheduler.ready_queue.__len__() > 0
 
 class FifoPolicy (SchedulerPolicy):
 

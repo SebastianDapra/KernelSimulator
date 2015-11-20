@@ -15,8 +15,10 @@ class FileSystemComponentsTest(unittest.TestCase):
         print(self.folder.get_absolute_address())
         self.assertEqual(self.folder.get_absolute_address(), "/")
 
-    def test_adding_a_sibling(self):
-        self.folder.new_folder("mario")
-        self.assertEqual(len(self.folder.get_folders()), 1)
+    def test_adding_three_siblings(self):
+        self.folder.new_folder("luciano")
+        self.folder.new_folder("sebastian")
+        self.folder.new_folder("ivan")
+        self.assertEqual(len(self.folder.get_folders()), 3)
 
 

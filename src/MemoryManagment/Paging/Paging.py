@@ -3,6 +3,7 @@ __author__ = 'luciano'
 from src.MemoryManagment.Paging.Frame import *
 from src.MemoryManagment.Paging.PageCreator import *
 from src.MemoryManagment.Paging.FrameManager import *
+from src.Kernel.FunctionsForLists import *
 from src.PCB.PCBInfoHolder import *
 
 
@@ -20,23 +21,28 @@ class Paging:
     def get_amount_of_frames(self):
         return len(self._frames)
 
+    def __can_create(self):
+        return self._memory_size % self._instructions_per_frame == 0
+
     def generate_frames(self):
-        can_create = self._memory_size % self._instructions_per_frame == 0
-        if can_create:
-            index = 0
+        if self.__can_create():
             print("Creating frames...")
-            for split in range(0, self._memory_size, self._instructions_per_frame):
-                self._frames.append(Frame(index, split, split + self._instructions_per_frame - 1))
-                index += 1
+            self.__create_frames()
+
+    def __create_frames(self):
+        index = 0
+        for split in range(0, self._memory_size, self._instructions_per_frame):
+            self._frames.append(FrameBuilder.crearFrame(index, split, split + self._instructions_per_frame - 1))
+            index += 1
 
     def assign_to_memory(self, pcb):
-        if not pcb.get_info_holder().is_holding():
+        if not pcb.get_information().is_holding():
             self._page_creator.create(pcb, self._instructions_per_frame)
-        policy_result = self._frame_manager.assign_page_to_frame(pcb)
+        policy_result = self._frame_manager.map_page_to_frame(pcb)
         return policy_result
 
     def get_amount_of_free_frames(self):
-        return len(filter(lambda f: not f.is_in_use(), self._frames))
+        return len(FunctionsForLists.filterList(lambda f: not f.is_in_use(), self._frames))
 
     def set_memory_manager(self, memory_manager):
         self._memory_manager = memory_manager

@@ -1,0 +1,20 @@
+Operating Systems Simulator - Operating Systems 2015
+
+People:
+Luciano Olmedo, Ivan Belleil, Sebastian Dapra
+
+Deprecated:
+
+All the ._definition and handlers python defined packages have been deleted but they are still
+on the repository (do not know how to delete them :( )
+
+Requirements for running:
+
+Python 3.4 (cause its better than 2.7.x) &
+Json Pickle
+-- Just to serialize objects, in our case, for printing object purposes
+More Info at https://jsonpickle.github.io/ --
+
+Deployed in:
+
+Ubuntu 14.04.3

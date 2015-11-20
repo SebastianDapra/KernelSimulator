@@ -20,8 +20,8 @@ class TestHDD(unittest.TestCase):
 
     def test_serializing_to_HDD(self):
         fs = self.hdd.generate_file_system()
-        fs.add_file("word", self.program1)
-        self.hdd.serialize_file_system(fs)
-        SUTFs = self.hdd.generate_file_system()
-        amount_of_folders = len(SUTFs.list_files())
+        fs.add_file("a word file", self.program1)
+        self.hdd.display(fs)
+        otherFs = self.hdd.generate_file_system()
+        amount_of_folders = len(otherFs.list_files())
         self.assertEquals(amount_of_folders, 1, "Should have 1 file")
