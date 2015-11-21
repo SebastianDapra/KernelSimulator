@@ -1,3 +1,5 @@
+from src.IO.IOManager import IOManager
+
 __author__ = 'luciano'
 
 from src.PCB.ProcessState import *
@@ -84,6 +86,7 @@ class TimeoutInterruptionManager(InstructionInterruptionManager):
 class IOInterruptionManager(InstructionInterruptionManager):
     def __init__(self):
         super().__init__()
+        self.io_manager = IOManager()
 
     def condition_of_applicability(self, pcb, cpu):
         return pcb.next_instruction.is_io
@@ -92,6 +95,7 @@ class IOInterruptionManager(InstructionInterruptionManager):
         super().context_switching(pcb, cpu)
         pcb.state = ProcessState.waiting
         pcb.get_pc() + 1
+        self.io_manager.send_to_io_queue(cpu.fetch_single_instruction())
         '''
         Cuando pasa a waiting deberia mandarse a la cola de Waiting de IO
         '''

@@ -4,7 +4,6 @@ import unittest
 from src.Scheduler.Scheduler import *
 from src.Kernel.Kernel import *
 from src.PCB.PCB import PCB
-import unittest.mock
 
 
 class TestSchedulerInteractions(unittest.TestCase):
@@ -32,6 +31,12 @@ class TestSchedulerInteractions(unittest.TestCase):
         quantum = 1
         self.scheduler.set_as_round_robin(quantum)
         self.scheduler.push_to_queue(self.pcb1)
-        expected_pcb = self.scheduler.next_process()
         self.scheduler.send_next_to_cpu()
-        self.assertEqual(expected_pcb, self.cpu.get_actual_pcb())
+        self.assertEqual(self.pcb1, self.cpu.get_actual_pcb())
+
+    def test_when_given_scheduler_with_fifo_and_a_cpu_then_scheduler_sends_next_process_to_cpu(self):
+        self.scheduler.set_cpu(self.cpu)
+        self.scheduler.set_as_fifo()
+        self.scheduler.push_to_queue(self.pcb1)
+        self.scheduler.send_next_to_cpu()
+        self.assertEqual(self.pcb1, self.cpu.get_actual_pcb())

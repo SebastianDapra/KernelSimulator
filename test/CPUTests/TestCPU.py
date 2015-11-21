@@ -42,6 +42,7 @@ class TestCPU(unittest.TestCase):
 
     def setup_load_of_a_program_in_memory(self, amount_instructions, program, pcb_id):
         block_holder = BlockHolder(program)
+        block_holder.set_representation([0,1])
         pcb = PCB(amount_instructions, pcb_id, block_holder)
         self.scheduler.policy.add_pcb(pcb)
         memory_admin = ToyMemoryAdmin(self.memory)
@@ -53,12 +54,14 @@ class TestCPU(unittest.TestCase):
         Compare the initial state of PCB's PC with final state
         '''
         self.load_a_instruction_in_a_program()
-        self.assertEqual(0, self.cpu.actual_pcb.get_pc)
+        actual_pc = self.cpu.actual_pcb.get_pc
+        self.assertEqual(0, actual_pc)
         self.cpu.complete_instruction_cycle()
-        self.assertEqual(1, self.cpu.actual_pcb.get_pc)
+        self.assertEqual(1, actual_pc)
 
     def test_given_pcb_when_cpu_complete_instruction_cycle_then_has_IO_Interruption(self):
         self.load_a_io_instruction_in_a_program()
-        self.assertEqual(0, self.cpu.actual_pcb.get_pc)
+        actual_pc = self.cpu.actual_pcb.get_pc
+        self.assertEqual(0, actual_pc)
         self.cpu.complete_instruction_cycle()
-        self.assertEqual(1, self.cpu.actual_pcb.get_pc)
+        self.assertEqual(1, actual_pc)
