@@ -37,6 +37,9 @@ class InterruptionManager:
 
 
 class InstructionInterruptionManager:
+    def __init__(self):
+        super().__init__()
+
     def condition_of_applicability(self, pcb, cpu):
         pass
 

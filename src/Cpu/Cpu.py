@@ -54,6 +54,3 @@ class Cpu:
             self.kernel.signal_handler(IOInterruption, self.actual_pcb)
         else:
             self.execute_single_instruction(actual_instruction)
-
-    def tick(self):
-        self.run()
