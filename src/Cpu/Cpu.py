@@ -2,7 +2,6 @@ __author__ = 'luciano'
 
 from src.Kernel.Output import Output
 from src.Cpu.Interruption import *
-
 class Cpu:
 
     def __init__(self, kernel):

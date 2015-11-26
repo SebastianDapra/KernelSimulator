@@ -14,7 +14,7 @@ class Kernel:
         self.long_term_scheduler = LongTermScheduler()
         self.cpu = Cpu(self)
         self.waiting_queue = []
-        self.pcb_table = PCBTable()
+        self.pcb_table = None
         self.clock = clock
         self.memory_admin = None
         self.interruption_manager = None
@@ -24,6 +24,12 @@ class Kernel:
 
     def set_memory_admin(self, memory_admin):
         self.memory_admin = memory_admin
+
+    def set_memory_manager(self, mem):
+        self.cpu.set_memory_manager(mem)
+
+    def set_pcb_table(self, table):
+        self.pcb_table = table
 
     def get_interruption_manager(self):
         return self.interruption_manager

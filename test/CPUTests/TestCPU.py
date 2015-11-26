@@ -3,7 +3,7 @@ __author__ = 'luciano'
 import unittest
 
 from src.Cpu.InterruptionManager import *
-from src.Memory.ToyMemory import *
+from src.Memory.Memory import *
 from src.Memory.ToyMemory_Admin import *
 from src.PCB.PCBInfoHolder import BlockHolder
 from test.LoaderTest.ToyProgram import *
@@ -13,7 +13,7 @@ from src.Scheduler.Scheduler import *
 
 class TestCPU(unittest.TestCase):
     def setUp(self):
-        self.memory = ToyMemory()
+        self.memory = Memory(50)
         self.cpu = Cpu(None)
         self.scheduler = Scheduler()
         self.scheduler.set_as_fifo()
@@ -23,7 +23,7 @@ class TestCPU(unittest.TestCase):
         instruction = Instruction("Texto")
         program.addInstruction(instruction)
         program.addInstruction(instruction)
-        self.memory.write_program(program)
+        self.write_program(program,self.memory)
         self.setup_load_of_a_program_in_memory(2, program, 1)
 
     def load_a_io_instruction_in_a_program(self):
@@ -37,8 +37,14 @@ class TestCPU(unittest.TestCase):
         instruction = InstructionIO()
         program.addInstruction(instruction)
         program.addInstruction(instruction)
-        self.memory.write_program(program)
+        self.write_program(program,self.memory)
         self.setup_load_of_a_program_in_memory(2, program, 2)
+
+    def write_program(self,program,memory):
+        pos = 0
+        for instruction in program.get_instructions():
+            memory.put(pos,instruction)
+
 
     def setup_load_of_a_program_in_memory(self, amount_instructions, program, pcb_id):
         block_holder = BlockHolder(program)
@@ -54,14 +60,14 @@ class TestCPU(unittest.TestCase):
         Compare the initial state of PCB's PC with final state
         '''
         self.load_a_instruction_in_a_program()
-        actual_pc = self.cpu.actual_pcb.get_pc
+        actual_pc = self.cpu.actual_pcb.get_pc()
         self.assertEqual(0, actual_pc)
         self.cpu.complete_instruction_cycle()
         self.assertEqual(1, actual_pc)
 
     def test_given_pcb_when_cpu_complete_instruction_cycle_then_has_IO_Interruption(self):
         self.load_a_io_instruction_in_a_program()
-        actual_pc = self.cpu.actual_pcb.get_pc
+        actual_pc = self.cpu.actual_pcb.get_pc()
         self.assertEqual(0, actual_pc)
         self.cpu.complete_instruction_cycle()
         self.assertEqual(1, actual_pc)

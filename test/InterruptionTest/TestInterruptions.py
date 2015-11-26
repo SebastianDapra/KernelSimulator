@@ -1,3 +1,5 @@
+from src.PCB.PCBTable import PCBTable
+
 __author__ = 'luciano'
 
 from src.Cpu.Cpu import Cpu
@@ -14,9 +16,11 @@ from test.InterruptionTest.Handler_Loaders import *
 
 class TestInterruption(unittest.TestCase):
     def setUp(self):
+        self.pcb_table = PCBTable()
         self.kernel = Kernel(None)
         self.kernel.scheduler = Scheduler()
         self.kernel.scheduler.set_as_fifo()
+        self.kernel.set_pcb_table(self.pcb_table)
         self.cpu = Cpu(self.kernel)
         self.program = Program("Pepe")
         self.instruction = Instruction("first instruction")

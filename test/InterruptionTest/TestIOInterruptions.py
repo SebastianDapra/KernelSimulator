@@ -1,3 +1,5 @@
+from src.Scheduler.Scheduler import Scheduler
+
 __author__ = 'luciano'
 
 import unittest
@@ -13,16 +15,16 @@ class TestIOInterruption(unittest.TestCase):
     def setUp(self):
         self.kernel = Kernel(None)
         self.kernel.to_user_mode()
-        self.cpu = Cpu(self.kernel)
+        #self.cpu = Cpu(self.kernel)
         self.kernel.scheduler = Scheduler(None)
         self.kernel.scheduler.set_as_fifo()
-        self.interruption_manager = InterruptionManager(self.cpu)
+        self.interruption_manager = InterruptionManager(self.kernel.cpu)
         self.kernel.set_interruption_manager(self.interruption_manager)
         load_in_interruption_manager = Handle_Loaders()
         load_in_interruption_manager.load_handlers(self.interruption_manager)
         self.memory = ToyMemory()
         self.memory_manager = ToyMemoryAdmin(self.memory)
-        self.cpu.set_memory_manager(self.memory_manager)
+        self.kernel.set_memory_manager(self.memory_manager)
 
     def two_programs_in_ready_queue(self):
         instruction_io = InstructionIO()
@@ -48,12 +50,12 @@ class TestIOInterruption(unittest.TestCase):
     def test_when_a_process_is_io_then_goes_to_the_waiting_queue(self):
         self.two_programs_in_ready_queue()
         io_pcb = self.kernel.scheduler.ready_queue[0]
-        self.cpu.set_actual_pcb(io_pcb)
+        self.kernel.cpu.set_actual_pcb(io_pcb)
         without_io_pcb = self.kernel.scheduler.ready_queue[1]
-        self.assertEqual(io_pcb.get_pid,self.cpu.actual_pcb.get_pid)
-        self.cpu.complete_instruction_cycle()
+        self.assertEqual(io_pcb.get_pid,self.kernel.cpu.actual_pcb.get_pid)
+        self.kernel.cpu.complete_instruction_cycle()
         self.assertEqual(ProcessState.ProcessState.waiting, io_pcb.get_state)
-        self.cpu.set_actual_pcb(without_io_pcb)
-        self.assertEqual(without_io_pcb.get_pid,self.cpu.actual_pcb.get_pid)
+        self.kernel.cpu.set_actual_pcb(without_io_pcb)
+        self.assertEqual(without_io_pcb.get_pid,self.kernel.cpu.actual_pcb.get_pid)
         without_io_pcb.set_state(ProcessState.ProcessState.running)
         self.assertEqual(ProcessState.ProcessState.running, without_io_pcb.get_state)

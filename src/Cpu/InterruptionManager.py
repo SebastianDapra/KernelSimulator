@@ -97,7 +97,7 @@ class IOInterruptionManager(InstructionInterruptionManager):
     def handle_signal(self, pcb, cpu, pcb_table):
         super().context_switching(pcb, cpu)
         pcb.state = ProcessState.waiting
-        pcb.get_pc() + 1
+        pcb.increment()
         self.io_manager.send_to_io_queue(cpu.fetch_single_instruction())
         '''
         Cuando pasa a waiting deberia mandarse a la cola de Waiting de IO

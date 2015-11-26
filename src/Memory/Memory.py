@@ -23,7 +23,7 @@ class Memory:
         return self._cells[index]
 
     def put(self, position, instruction):
-        self.display(position,instruction)
+        #self.display(position,instruction)
         self._cells[position] = instruction
 
     def display(self,position,instruction):
@@ -31,7 +31,7 @@ class Memory:
         print("Writing in Memory Position " + data[0] + " : [ " + data[1] + " ]")
 
     def __serialize(self, position,instruction):
-        return[jsonpickle.encode(position),jsonpickle.encode(instruction._text)]
+        return[jsonpickle.encode(position),jsonpickle.encode(instruction.text())]
 
     def get_last_index(self):
         return len(self._cells) - 1
