@@ -10,8 +10,10 @@ class PageCreatorTest(unittest.TestCase):
     # Arrange
     def setUp(self):
         self.page_creator = PageCreator()
-        self.program = Program("Duke Nukem")
-        self.pcb = PCB(0, 20, BlockHolder(self.program))
+        self.program = Program("Duke Nukem",20)
+        id = 0
+        cantidadDeInstrucciones = 20
+        self.pcb = PCB(cantidadDeInstrucciones, id, PageHolder(self.program))
 
     def test_whenICreatePagesForPCB_ThenTheInfoHolderHasThemAsItShould(self):
         self.page_creator.create(self.pcb, 5)
@@ -19,6 +21,7 @@ class PageCreatorTest(unittest.TestCase):
 
     def test_whenICreatePagesForPCB_ThenTheInfoTheyHaveIsCorrect(self):
         self.page_creator.create(self.pcb, 5)
+
         page1 = self.pcb.get_information().get_representation()[0]
         page2 = self.pcb.get_information().get_representation()[1]
         page3 = self.pcb.get_information().get_representation()[2]
