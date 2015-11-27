@@ -5,7 +5,7 @@ from src.Kernel.FunctionsForLists import *
 
 class FrameManager:
 
-    def __init__(self, frames, hdd=None):
+    def __init__(self, frames, hdd):
         self._frames = frames
         self._free_frames = frames
         self._table = PaginationTable()
@@ -16,8 +16,9 @@ class FrameManager:
 
     def map_page_to_frame(self, pcb):
         print("Attempting to Assign Page for PCB ID: " + str(pcb._id))
-        pcb_pages = pcb.get_information().get_representation()
+        pcb_pages = pcb.get_pages_assigned()
         page = self.__not_used_page(pcb_pages)
+        self._hdd.add_to_swap(page)
         pages = self._hdd.find_page(page.get_index())
         '''
         if pages:

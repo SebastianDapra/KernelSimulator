@@ -1,7 +1,10 @@
+from src.HDD.HDD import HDD
+
 __author__ = 'luciano'
 
 
 import unittest
+from src.Kernel.Program import *
 from src.MemoryManagment.Paging.FrameManager import *
 from src.MemoryManagment.Paging.Frame import *
 from src.MemoryManagment.Paging.PageCreator import *
@@ -11,27 +14,30 @@ class FrameManagerTest(unittest.TestCase):
 
     # Arrange
     def setUp(self):
-        self.frame1 = Frame(0, 9, BlockHolder(None))
-        self.frame2 = Frame(1, 9, BlockHolder(None))
-        self.frame3 = Frame(2, 9, BlockHolder(None))
-        self.frame4 = Frame(3, 9, BlockHolder(None))
+        program = Program('Excel')
+        pageHolder = PageHolder(program)
+        self.frame1 = Frame(0, 9, -1)
+        self.frame2 = Frame(1, 9, -1)
+        self.frame3 = Frame(2, 9, -1)
+        self.frame4 = Frame(3, 9, -1)
         self.frames = [self.frame1, self.frame2, self.frame3, self.frame4]
-        self.frame_manager = FrameManager(self.frames)
+        self.hdd = HDD(50)
+        self.frame_manager = FrameManager(self.frames, self.hdd)
         self.page_creator = PageCreator()
-        self.pcb = PCB(0, 30, BlockHolder(None))
+        self.pcb = PCB(0, 20, pageHolder)
         self.page_creator.create(self.pcb, 5)
 
     def test_whenIAssignAPCBTheFirstTime_ThenFrameManagerUsesTheFirstFrame(self):
         # Pages
         first_frame = self.frame_manager.get_frames()[0]
         self.frame_manager.map_page_to_frame(self.pcb)
-        first_pcb_page = self.pcb.get_information().get_representation()[0]
+        first_pcb_page = self.pcb.get_page_assigned_by_number(0)
         self.assertEquals(first_frame.get_page(), first_pcb_page)
 
     def test_whenTheFirstPCBPageIsUsedAndPCBIsAssigned_ThenFrameManagerUsesTheSecondFrame(self):
         # Pages
-        first_pcb_page = self.pcb.get_information().get_representation()[0]
-        second_pcb_page =self.pcb.get_information().get_representation()[1]
+        first_pcb_page = self.pcb.get_page_assigned_by_number(0)
+        second_pcb_page =self.pcb.get_page_assigned_by_number(1)
 
         self.frame_manager.map_page_to_frame(self.pcb)
         first_pcb_page.set_used()
@@ -42,11 +48,11 @@ class FrameManagerTest(unittest.TestCase):
 
     def test_whenAllFramesAreUsedAndPCBAssignsOneMorePage_ThenTheYoungestFrameGetsEmpty(self):
         # Pages
-        first_pcb_page = self.pcb.get_information().get_representation()[0]
-        second_pcb_page = self.pcb.get_information().get_representation()[1]
-        third_pcb_page = self.pcb.get_information().get_representation()[2]
-        forth_pcb_page = self.pcb.get_information().get_representation()[3]
-        fifth_pcb_page = self.pcb.get_information().get_representation()[4]
+        first_pcb_page = self.pcb.get_page_assigned_by_number(0)
+        second_pcb_page = self.pcb.get_page_assigned_by_number(1)
+        third_pcb_page = self.pcb.get_page_assigned_by_number(2)
+        forth_pcb_page = self.pcb.get_page_assigned_by_number(3)
+        fifth_pcb_page = self.pcb.get_page_assigned_by_number(4)
 
         self.frame_manager.map_page_to_frame(self.pcb)
         first_pcb_page.set_used()

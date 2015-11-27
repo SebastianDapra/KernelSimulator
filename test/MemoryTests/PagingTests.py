@@ -1,3 +1,5 @@
+from src.HDD.HDD import HDD
+
 __author__ = 'luciano'
 
 import unittest
@@ -11,7 +13,8 @@ class PagingTest(unittest.TestCase):
     # Arrange
     def setUp(self):
         self.memory = Memory(50)
-        self.paging_policy = Paging(self.memory, 10, None)
+        self.hdd = HDD(10)
+        self.paging_policy = Paging(self.memory, 10, self.hdd)
         self.pcb1 = PCB(0, 25, PageHolder(None))
         self.pcb2 = PCB(1, 16, PageHolder(None))
 

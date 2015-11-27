@@ -25,6 +25,12 @@ class PCB:
     def get_amount_of_instructions(self):
         return self._amountInstructions
 
+    def get_pages_assigned(self):
+        return self.get_information().get_representation()
+
+    def get_page_assigned_by_number(self,page_number):
+        return self.get_pages_assigned()[page_number]
+
     def get_program_name(self):
         return self.program_name
 

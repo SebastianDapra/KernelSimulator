@@ -22,10 +22,10 @@ class PageCreatorTest(unittest.TestCase):
     def test_whenICreatePagesForPCB_ThenTheInfoTheyHaveIsCorrect(self):
         self.page_creator.create(self.pcb, 5)
 
-        page1 = self.pcb.get_information().get_representation()[0]
-        page2 = self.pcb.get_information().get_representation()[1]
-        page3 = self.pcb.get_information().get_representation()[2]
-        page4 = self.pcb.get_information().get_representation()[3]
+        page1 = self.pcb.get_page_assigned_by_number(0)
+        page2 = self.pcb.get_page_assigned_by_number(1)
+        page3 = self.pcb.get_page_assigned_by_number(2)
+        page4 = self.pcb.get_page_assigned_by_number(3)
 
         self.assertEqual(page1.get_starting_index(), 0)
         self.assertEqual(page1.get_ending_index(), 4)

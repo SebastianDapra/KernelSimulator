@@ -1,18 +1,23 @@
-import unittest
+from threading import Thread
 
 from src.Cpu.Clock import Clock
-from src.Cpu.InterruptionManager import *
-from src.Memory.Memory import *
-from src.Memory.ToyMemory_Admin import *
+from src.Cpu.Cpu import Cpu
+from src.Cpu.InterruptionManager import InterruptionManager
+from src.Kernel.Kernel import Kernel
+from src.Kernel.Program import Program
+from src.Memory.Memory import Memory
+from src.Memory.ToyMemory_Admin import ToyMemoryAdmin
+from src.PCB.PCB import PCB
 from src.PCB.PCBInfoHolder import BlockHolder
+from src.PCB.PCBTable import PCBTable
+from src.Scheduler.Scheduler import Scheduler
 from test.InterruptionTest.Handler_Loaders import Handle_Loaders
-from test.LoaderTest.ToyProgram import *
-from src.Kernel.Kernel import *
-from src.Scheduler.Scheduler import *
+from src.Instruction.Instruction import Instruction, InstructionIO
 
 
-class TestCPUWithClock(unittest.TestCase):
-    def setUp(self):
+class Main(Thread):
+    def __init__(self):
+        Thread.__init__(self)
         self.memory = Memory(50)
         self.a_kernel = Kernel(None)
         self.cpu = Cpu(self.a_kernel)
@@ -65,7 +70,14 @@ class TestCPUWithClock(unittest.TestCase):
         self.pcb_table.add(self.cpu.get_actual_pcb())
         self.cpu.set_memory_manager(memory_admin)
 
-    def test_the_clock_makes_a_tick_and_the_cpu_fetch_a_single_instruction_to_decode(self):
+    def run(self):
         self.load_a_instruction_in_a_program()
-        self.a_kernel.clock.tick()
-        self.assertTrue(self.cpu.get_actual_pcb().get_pc() == 1)
+        self.cpu.start()
+
+def main():
+    main = Main()
+    main.start()
+
+
+if __name__ == "__main__":
+    main()

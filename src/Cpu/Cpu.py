@@ -1,10 +1,15 @@
+import threading
+
 __author__ = 'luciano'
 
 from src.Kernel.Output import Output
 from src.Cpu.Interruption import *
-class Cpu:
+
+
+class Cpu(threading.Thread):
 
     def __init__(self, kernel):
+        threading.Thread.__init__(self)
         self.kernel = kernel
         self.output = Output()
         self.memory_manager = None
@@ -40,6 +45,7 @@ class Cpu:
                                                                                   self.kernel.pcb_table)
 
     def run(self):
+        print("Running thread...")
         self.set_actual_pcb(self.kernel.scheduler.next_process())
         self.complete_instruction_cycle()
 

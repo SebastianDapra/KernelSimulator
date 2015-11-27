@@ -2,17 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7c7854bc-a2fe-4957-8d76-5da60467d25a" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Cpu/MainCPU.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Cpu/Cpu.py" afterPath="$PROJECT_DIR$/src/Cpu/Cpu.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Cpu/InterruptionManager.py" afterPath="$PROJECT_DIR$/src/Cpu/InterruptionManager.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Kernel/Kernel.py" afterPath="$PROJECT_DIR$/src/Kernel/Kernel.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Memory/Memory.py" afterPath="$PROJECT_DIR$/src/Memory/Memory.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MemoryManagment/Paging/FrameManager.py" afterPath="$PROJECT_DIR$/src/MemoryManagment/Paging/FrameManager.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MemoryManagment/Paging/PageCreator.py" afterPath="$PROJECT_DIR$/src/MemoryManagment/Paging/PageCreator.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/CPUTests/TestCPU.py" afterPath="$PROJECT_DIR$/test/CPUTests/TestCPU.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PCB/PCB.py" afterPath="$PROJECT_DIR$/src/PCB/PCB.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scheduler/Scheduler.py" afterPath="$PROJECT_DIR$/src/Scheduler/Scheduler.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/CPUTests/TestCPUWithClock.py" afterPath="$PROJECT_DIR$/test/CPUTests/TestCPUWithClock.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/InterruptionTest/TestIOInterruptions.py" afterPath="$PROJECT_DIR$/test/InterruptionTest/TestIOInterruptions.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/InterruptionTest/TestInterruptions.py" afterPath="$PROJECT_DIR$/test/InterruptionTest/TestInterruptions.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/KernelTests/KernelTest.py" afterPath="$PROJECT_DIR$/test/KernelTests/KernelTest.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/MemoryTests/FrameManagerTests.py" afterPath="$PROJECT_DIR$/test/MemoryTests/FrameManagerTests.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/MemoryTests/PageCreatorTests.py" afterPath="$PROJECT_DIR$/test/MemoryTests/PageCreatorTests.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/MemoryTests/PagingTests.py" afterPath="$PROJECT_DIR$/test/MemoryTests/PagingTests.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/SCHEDULERTests/TestInteractionsCpuScheduler.py" afterPath="$PROJECT_DIR$/test/SCHEDULERTests/TestInteractionsCpuScheduler.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/SCHEDULERTests/TestScheduler.py" afterPath="$PROJECT_DIR$/test/SCHEDULERTests/TestScheduler.py" />
     </list>
     <ignored path="KernelSimulator.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,55 +28,64 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/KernelSimulator$__init__.coverage" NAME="__init__ Coverage Results" MODIFIED="1448658328783" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/Cpu" />
     <SUITE FILE_PATH="coverage/KernelSimulator$Unittest_TestCPU_test_given_pcb_when_cpu_execute_instruction_from_memory_then.coverage" NAME="Unittest TestCPU.test_given_pcb_when_cpu_execute_instruction_from_memory_then Coverage Results" MODIFIED="1445633079675" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/CPUTests" />
     <SUITE FILE_PATH="coverage/KernelSimulator$Unittest_TestKernel_test_given_pcb_when_cpu_complete_instruction_cycle_then_has_IO_Interruption.coverage" NAME="Unittest TestKernel.test_given_pcb_when_cpu_complete_instruction_cycle_then_has_IO_Interruption Coverage Results" MODIFIED="1448577783328" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/KernelTests" />
     <SUITE FILE_PATH="coverage/KernelSimulator$Unittests_in_FrameManagerTest.coverage" NAME="Unittests in FrameManagerTest Coverage Results" MODIFIED="1448578442738" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/MemoryTests" />
     <SUITE FILE_PATH="coverage/KernelSimulator$Unittests_in_TestCPU.coverage" NAME="Unittests in TestCPU Coverage Results" MODIFIED="1448578021165" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/CPUTests" />
-    <SUITE FILE_PATH="coverage/KernelSimulator$Unittest_PagingTest_test_WhenIAssignASecondPCB_ThenSecondFrameIsUsed.coverage" NAME="Unittest PagingTest.test_WhenIAssignASecondPCB_ThenSecondFrameIsUsed Coverage Results" MODIFIED="1448578502034" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/MemoryTests" />
+    <SUITE FILE_PATH="coverage/KernelSimulator$Unittest_PagingTest_test_WhenIAssignASecondPCB_ThenSecondFrameIsUsed.coverage" NAME="Unittest PagingTest.test_WhenIAssignASecondPCB_ThenSecondFrameIsUsed Coverage Results" MODIFIED="1448644493382" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/MemoryTests" />
     <SUITE FILE_PATH="coverage/KernelSimulator$Unittest_TestKernel_test_given_pcb_when_cpu_complete_instruction_cycle_then_IO_Manager_captures_interruption.coverage" NAME="Unittest TestKernel.test_given_pcb_when_cpu_complete_instruction_cycle_then_IO_Manager_captures_interruption Coverage Results" MODIFIED="1448577779249" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/KernelTests" />
     <SUITE FILE_PATH="coverage/KernelSimulator$Unittests_in_TestPCBTable__1_.coverage" NAME="Unittests in TestPCBTable (1) Coverage Results" MODIFIED="1445794585911" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/PCBTableTests" />
-    <SUITE FILE_PATH="coverage/KernelSimulator$Unittests_in_MemoryManagerTests.coverage" NAME="Unittests in MemoryManagerTests Coverage Results" MODIFIED="1448578379405" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/MemoryTests" />
-    <SUITE FILE_PATH="coverage/KernelSimulator$Unittest_TestScheduler_test_scheduler_with_priority.coverage" NAME="Unittest TestScheduler.test_scheduler_with_priority Coverage Results" MODIFIED="1445953965860" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/SCHEDULERTests" />
-    <SUITE FILE_PATH="coverage/KernelSimulator$Unittests_in_TestIOInterruptions.coverage" NAME="Unittests in TestIOInterruptions Coverage Results" MODIFIED="1448578318116" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/InterruptionTest" />
+    <SUITE FILE_PATH="coverage/KernelSimulator$Unittests_in_MemoryManagerTests.coverage" NAME="Unittests in MemoryManagerTests Coverage Results" MODIFIED="1448643990882" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/MemoryTests" />
+    <SUITE FILE_PATH="coverage/KernelSimulator$Unittests_in_TestIOInterruptions.coverage" NAME="Unittests in TestIOInterruptions Coverage Results" MODIFIED="1448644038272" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/InterruptionTest" />
+    <SUITE FILE_PATH="coverage/KernelSimulator$Unittest_TestScheduler_test_scheduler_with_priority.coverage" NAME="Unittest TestScheduler.test_scheduler_with_priority Coverage Results" MODIFIED="1448655664582" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/SCHEDULERTests" />
     <SUITE FILE_PATH="coverage/KernelSimulator$Unittests_in_TestIODevice.coverage" NAME="Unittests in TestIODevice Coverage Results" MODIFIED="1448571871173" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/IOTests" />
     <SUITE FILE_PATH="coverage/KernelSimulator$Unittests_in_DriveSaverTest.coverage" NAME="Unittests in DriveSaverTest Coverage Results" MODIFIED="1447686062297" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/HDDTests" />
-    <SUITE FILE_PATH="coverage/KernelSimulator$Unittest_PageCreatorTest_test_whenICreatePagesForPCB_ThenTheInfoTheyHaveIsCorrect.coverage" NAME="Unittest PageCreatorTest.test_whenICreatePagesForPCB_ThenTheInfoTheyHaveIsCorrect Coverage Results" MODIFIED="1448578719543" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/MemoryTests" />
-    <SUITE FILE_PATH="coverage/KernelSimulator$Unittests_in_BlockCreatorTest.coverage" NAME="Unittests in BlockCreatorTest Coverage Results" MODIFIED="1448578301192" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/HDDTests" />
-    <SUITE FILE_PATH="coverage/KernelSimulator$Unittest_PagingTest_test_WhenIAssignOnePCB_ThenFirstFrameIsUsed.coverage" NAME="Unittest PagingTest.test_WhenIAssignOnePCB_ThenFirstFrameIsUsed Coverage Results" MODIFIED="1448578492736" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/MemoryTests" />
-    <SUITE FILE_PATH="coverage/KernelSimulator$Unittests_in_ContinuousAssignmentTests.coverage" NAME="Unittests in ContinuousAssignmentTests Coverage Results" MODIFIED="1448578369811" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/MemoryTests" />
-    <SUITE FILE_PATH="coverage/KernelSimulator$Unittest_PageCreatorTest_test_whenICreatePagesForPCB_ThenTheInfoHolderHasThemAsItShould.coverage" NAME="Unittest PageCreatorTest.test_whenICreatePagesForPCB_ThenTheInfoHolderHasThemAsItShould Coverage Results" MODIFIED="1448578474570" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/MemoryTests" />
-    <SUITE FILE_PATH="coverage/KernelSimulator$Unittests_in_TableTests.coverage" NAME="Unittests in TableTests Coverage Results" MODIFIED="1448578399781" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/MemoryTests" />
-    <SUITE FILE_PATH="coverage/KernelSimulator$Unittests_in_FrameManagerTests.coverage" NAME="Unittests in FrameManagerTests Coverage Results" MODIFIED="1448578374138" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/MemoryTests" />
+    <SUITE FILE_PATH="coverage/KernelSimulator$Unittest_PageCreatorTest_test_whenICreatePagesForPCB_ThenTheInfoTheyHaveIsCorrect.coverage" NAME="Unittest PageCreatorTest.test_whenICreatePagesForPCB_ThenTheInfoTheyHaveIsCorrect Coverage Results" MODIFIED="1448643936768" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/MemoryTests" />
+    <SUITE FILE_PATH="coverage/KernelSimulator$Unittests_in_MemoryTest.coverage" NAME="Unittests in MemoryTest Coverage Results" MODIFIED="1448643968871" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/MemoryTests" />
+    <SUITE FILE_PATH="coverage/KernelSimulator$Unittests_in_BlockCreatorTest.coverage" NAME="Unittests in BlockCreatorTest Coverage Results" MODIFIED="1448650787265" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/HDDTests" />
+    <SUITE FILE_PATH="coverage/KernelSimulator$Unittest_TestSchedulerInteractions_test_when_given_scheduler_with_priority_and_cpu_then_scheduler_sends_next_process_to_cpu.coverage" NAME="Unittest TestSchedulerInteractions.test_when_given_scheduler_with_priority_and_cpu_then_scheduler_sends_next_process_to_cpu Coverage Results" MODIFIED="1448657727341" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/SCHEDULERTests" />
+    <SUITE FILE_PATH="coverage/KernelSimulator$Unittest_PagingTest_test_WhenIAssignOnePCB_ThenFirstFrameIsUsed.coverage" NAME="Unittest PagingTest.test_WhenIAssignOnePCB_ThenFirstFrameIsUsed Coverage Results" MODIFIED="1448652615025" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/MemoryTests" />
+    <SUITE FILE_PATH="coverage/KernelSimulator$Unittests_in_ContinuousAssignmentTests.coverage" NAME="Unittests in ContinuousAssignmentTests Coverage Results" MODIFIED="1448643981800" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/MemoryTests" />
+    <SUITE FILE_PATH="coverage/KernelSimulator$MainCPU.coverage" NAME="MainCPU Coverage Results" MODIFIED="1448660258437" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/Cpu" />
+    <SUITE FILE_PATH="coverage/KernelSimulator$Unittest_PageCreatorTest_test_whenICreatePagesForPCB_ThenTheInfoHolderHasThemAsItShould.coverage" NAME="Unittest PageCreatorTest.test_whenICreatePagesForPCB_ThenTheInfoHolderHasThemAsItShould Coverage Results" MODIFIED="1448643044545" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/MemoryTests" />
+    <SUITE FILE_PATH="coverage/KernelSimulator$Unittests_in_TableTests.coverage" NAME="Unittests in TableTests Coverage Results" MODIFIED="1448652666295" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/MemoryTests" />
+    <SUITE FILE_PATH="coverage/KernelSimulator$Unittests_in_FrameManagerTests.coverage" NAME="Unittests in FrameManagerTests Coverage Results" MODIFIED="1448653355939" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/MemoryTests" />
     <SUITE FILE_PATH="coverage/KernelSimulator$Unittest_TestCPU_test_given_pcb_when_cpu_fetch_instruction_from_memory_then.coverage" NAME="Unittest TestCPU.test_given_pcb_when_cpu_fetch_instruction_from_memory_then Coverage Results" MODIFIED="1445633085657" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/CPUTests" />
     <SUITE FILE_PATH="coverage/KernelSimulator$Unittests_in_TestInterruption.coverage" NAME="Unittests in TestInterruption Coverage Results" MODIFIED="1445636651671" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/InterruptionTest" />
-    <SUITE FILE_PATH="coverage/KernelSimulator$Unittest_TestScheduler_test_scheduler_with_round_robin.coverage" NAME="Unittest TestScheduler.test_scheduler_with_round_robin Coverage Results" MODIFIED="1445953961644" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/SCHEDULERTests" />
-    <SUITE FILE_PATH="coverage/KernelSimulator$Unittest_FrameManagerTest_test_whenIAssignAPCBTheFirstTime_ThenFrameManagerUsesTheFirstFrame.coverage" NAME="Unittest FrameManagerTest.test_whenIAssignAPCBTheFirstTime_ThenFrameManagerUsesTheFirstFrame Coverage Results" MODIFIED="1448578452653" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/MemoryTests" />
+    <SUITE FILE_PATH="coverage/KernelSimulator$Unittest_TestScheduler_test_scheduler_with_round_robin.coverage" NAME="Unittest TestScheduler.test_scheduler_with_round_robin Coverage Results" MODIFIED="1448655689906" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/SCHEDULERTests" />
+    <SUITE FILE_PATH="coverage/KernelSimulator$Unittest_TestSchedulerInteractions_test_when_given_scheduler_with_fifo_and_a_cpu_then_scheduler_sends_next_process_to_cpu.coverage" NAME="Unittest TestSchedulerInteractions.test_when_given_scheduler_with_fifo_and_a_cpu_then_scheduler_sends_next_process_to_cpu Coverage Results" MODIFIED="1448656750317" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/SCHEDULERTests" />
+    <SUITE FILE_PATH="coverage/KernelSimulator$Unittest_FrameManagerTest_test_whenIAssignAPCBTheFirstTime_ThenFrameManagerUsesTheFirstFrame.coverage" NAME="Unittest FrameManagerTest.test_whenIAssignAPCBTheFirstTime_ThenFrameManagerUsesTheFirstFrame Coverage Results" MODIFIED="1448651996613" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/MemoryTests" />
     <SUITE FILE_PATH="coverage/KernelSimulator$Unittests_in_TestCPU__1_.coverage" NAME="Unittests in TestCPU (1) Coverage Results" MODIFIED="1448578231118" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/CPUTests" />
-    <SUITE FILE_PATH="coverage/KernelSimulator$Unittests_in_PagingTests.coverage" NAME="Unittests in PagingTests Coverage Results" MODIFIED="1448578393540" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/MemoryTests" />
-    <SUITE FILE_PATH="coverage/KernelSimulator$Unittests_in_BlockTests.coverage" NAME="Unittests in BlockTests Coverage Results" MODIFIED="1448578363707" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/MemoryTests" />
-    <SUITE FILE_PATH="coverage/KernelSimulator$Unittests_in_TestInteractionsCpuScheduler.coverage" NAME="Unittests in TestInteractionsCpuScheduler Coverage Results" MODIFIED="1448578345300" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/SCHEDULERTests" />
-    <SUITE FILE_PATH="coverage/KernelSimulator$Unittests_in_TestPCB.coverage" NAME="Unittests in TestPCB Coverage Results" MODIFIED="1448578338908" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/PCBTests" />
-    <SUITE FILE_PATH="coverage/KernelSimulator$Unittest_PagingTest_test_WhenIWant10PagesInAMemoryOf50Cells_ThenICanMakeThem.coverage" NAME="Unittest PagingTest.test_WhenIWant10PagesInAMemoryOf50Cells_ThenICanMakeThem Coverage Results" MODIFIED="1448578487185" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/MemoryTests" />
-    <SUITE FILE_PATH="coverage/KernelSimulator$Unittests_in_TestInterruptions.coverage" NAME="Unittests in TestInterruptions Coverage Results" MODIFIED="1448578312712" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/InterruptionTest" />
-    <SUITE FILE_PATH="coverage/KernelSimulator$Unittests_in_FileSystemComponentsTests.coverage" NAME="Unittests in FileSystemComponentsTests Coverage Results" MODIFIED="1448578298590" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/HDDTests" />
-    <SUITE FILE_PATH="coverage/KernelSimulator$Unittest_TestScheduler_test_scheduler_with_fifo.coverage" NAME="Unittest TestScheduler.test_scheduler_with_fifo Coverage Results" MODIFIED="1445953956854" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/SCHEDULERTests" />
+    <SUITE FILE_PATH="coverage/KernelSimulator$Unittests_in_PagingTests.coverage" NAME="Unittests in PagingTests Coverage Results" MODIFIED="1448650764783" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/MemoryTests" />
+    <SUITE FILE_PATH="coverage/KernelSimulator$Unittests_in_BlockTests.coverage" NAME="Unittests in BlockTests Coverage Results" MODIFIED="1448643977163" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/MemoryTests" />
+    <SUITE FILE_PATH="coverage/KernelSimulator$Unittests_in_TestScheduler__1_.coverage" NAME="Unittests in TestScheduler (1) Coverage Results" MODIFIED="1448655093403" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/SCHEDULERTests" />
+    <SUITE FILE_PATH="coverage/KernelSimulator$Unittests_in_TestInteractionsCpuScheduler.coverage" NAME="Unittests in TestInteractionsCpuScheduler Coverage Results" MODIFIED="1448656929517" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/SCHEDULERTests" />
+    <SUITE FILE_PATH="coverage/KernelSimulator$Unittest_TestCPUWithClock_test_the_clock_makes_a_tick_and_the_cpu_fetch_a_single_instruction_to_decode.coverage" NAME="Unittest TestCPUWithClock.test_the_clock_makes_a_tick_and_the_cpu_fetch_a_single_instruction_to_decode Coverage Results" MODIFIED="1448659438712" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/CPUTests" />
+    <SUITE FILE_PATH="coverage/KernelSimulator$Unittests_in_TestPCB.coverage" NAME="Unittests in TestPCB Coverage Results" MODIFIED="1448644023458" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/PCBTests" />
+    <SUITE FILE_PATH="coverage/KernelSimulator$Unittest_PagingTest_test_WhenIWant10PagesInAMemoryOf50Cells_ThenICanMakeThem.coverage" NAME="Unittest PagingTest.test_WhenIWant10PagesInAMemoryOf50Cells_ThenICanMakeThem Coverage Results" MODIFIED="1448652611751" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/MemoryTests" />
+    <SUITE FILE_PATH="coverage/KernelSimulator$Unittests_in_TestInterruptions.coverage" NAME="Unittests in TestInterruptions Coverage Results" MODIFIED="1448644040618" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/InterruptionTest" />
+    <SUITE FILE_PATH="coverage/KernelSimulator$Unittests_in_FileSystemComponentsTests.coverage" NAME="Unittests in FileSystemComponentsTests Coverage Results" MODIFIED="1448650792593" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/HDDTests" />
     <SUITE FILE_PATH="coverage/KernelSimulator$Unittests_in_TestKernel__1_.coverage" NAME="Unittests in TestKernel (1) Coverage Results" MODIFIED="1448576601369" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/KernelTests" />
-    <SUITE FILE_PATH="coverage/KernelSimulator$Unittests_in_TestPCBInfoHolder.coverage" NAME="Unittests in TestPCBInfoHolder Coverage Results" MODIFIED="1448578336207" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/PCBTests" />
+    <SUITE FILE_PATH="coverage/KernelSimulator$Unittests_in_TestPCBInfoHolder.coverage" NAME="Unittests in TestPCBInfoHolder Coverage Results" MODIFIED="1448644021080" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/PCBTests" />
+    <SUITE FILE_PATH="coverage/KernelSimulator$Unittest_TestScheduler_test_scheduler_with_fifo.coverage" NAME="Unittest TestScheduler.test_scheduler_with_fifo Coverage Results" MODIFIED="1448655698100" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/SCHEDULERTests" />
     <SUITE FILE_PATH="coverage/KernelSimulator$Unittests_in_TestIOManager.coverage" NAME="Unittests in TestIOManager Coverage Results" MODIFIED="1448571877869" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/IOTests" />
-    <SUITE FILE_PATH="coverage/KernelSimulator$Unittests_in_CAPolicies.coverage" NAME="Unittests in CAPolicies Coverage Results" MODIFIED="1448578367180" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/MemoryTests" />
+    <SUITE FILE_PATH="coverage/KernelSimulator$Unittests_in_CAPolicies.coverage" NAME="Unittests in CAPolicies Coverage Results" MODIFIED="1448643979630" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/MemoryTests" />
+    <SUITE FILE_PATH="coverage/KernelSimulator$Unittests_in_PagingTest.coverage" NAME="Unittests in PagingTest Coverage Results" MODIFIED="1448644460820" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/MemoryTests" />
     <SUITE FILE_PATH="coverage/KernelSimulator$Unittests_in_TestCPUWithClock.coverage" NAME="Unittests in TestCPUWithClock Coverage Results" MODIFIED="1448578196286" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/CPUTests" />
-    <SUITE FILE_PATH="coverage/KernelSimulator$Unittests_in_KernelTest.coverage" NAME="Unittests in KernelTest Coverage Results" MODIFIED="1448575216820" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/KernelTests" />
+    <SUITE FILE_PATH="coverage/KernelSimulator$Unittests_in_KernelTest.coverage" NAME="Unittests in KernelTest Coverage Results" MODIFIED="1448644032487" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/KernelTests" />
     <SUITE FILE_PATH="coverage/KernelSimulator$Unittests_in_TestKernel.coverage" NAME="Unittests in TestKernel Coverage Results" MODIFIED="1448578000719" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/KernelTests" />
-    <SUITE FILE_PATH="coverage/KernelSimulator$Unittest_FrameManagerTest_test_whenAllFramesAreUsedAndPCBAssignsOneMorePage_ThenTheYoungestFrameGetsEmpty.coverage" NAME="Unittest FrameManagerTest.test_whenAllFramesAreUsedAndPCBAssignsOneMorePage_ThenTheYoungestFrameGetsEmpty Coverage Results" MODIFIED="1448578462760" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/MemoryTests" />
-    <SUITE FILE_PATH="coverage/KernelSimulator$Unittests_in_HDDTest.coverage" NAME="Unittests in HDDTest Coverage Results" MODIFIED="1448578304469" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/HDDTests" />
+    <SUITE FILE_PATH="coverage/KernelSimulator$Unittest_FrameManagerTest_test_whenAllFramesAreUsedAndPCBAssignsOneMorePage_ThenTheYoungestFrameGetsEmpty.coverage" NAME="Unittest FrameManagerTest.test_whenAllFramesAreUsedAndPCBAssignsOneMorePage_ThenTheYoungestFrameGetsEmpty Coverage Results" MODIFIED="1448652539561" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/MemoryTests" />
     <SUITE FILE_PATH="coverage/KernelSimulator$Unittests_in_TestLoader.coverage" NAME="Unittests in TestLoader Coverage Results" MODIFIED="1448578325094" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/LoaderTest" />
+    <SUITE FILE_PATH="coverage/KernelSimulator$Unittests_in_HDDTest.coverage" NAME="Unittests in HDDTest Coverage Results" MODIFIED="1448650802731" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/HDDTests" />
     <SUITE FILE_PATH="coverage/KernelSimulator$Unittests_in_TestPCBTable.coverage" NAME="Unittests in TestPCBTable Coverage Results" MODIFIED="1445738443215" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/PCBTests" />
-    <SUITE FILE_PATH="coverage/KernelSimulator$Unittests_in_TestScheduler.coverage" NAME="Unittests in TestScheduler Coverage Results" MODIFIED="1448578348172" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/SCHEDULERTests" />
-    <SUITE FILE_PATH="coverage/KernelSimulator$Unittest_FrameManagerTest_test_whenTheFirstPCBPageIsUsedAndPCBIsAssigned_ThenFrameManagerUsesTheSecondFrame.coverage" NAME="Unittest FrameManagerTest.test_whenTheFirstPCBPageIsUsedAndPCBIsAssigned_ThenFrameManagerUsesTheSecondFrame Coverage Results" MODIFIED="1448578458353" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/MemoryTests" />
+    <SUITE FILE_PATH="coverage/KernelSimulator$Unittests_in_TestScheduler.coverage" NAME="Unittests in TestScheduler Coverage Results" MODIFIED="1448654682242" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/SCHEDULERTests" />
+    <SUITE FILE_PATH="coverage/KernelSimulator$Unittest_FrameManagerTest_test_whenTheFirstPCBPageIsUsedAndPCBIsAssigned_ThenFrameManagerUsesTheSecondFrame.coverage" NAME="Unittest FrameManagerTest.test_whenTheFirstPCBPageIsUsedAndPCBIsAssigned_ThenFrameManagerUsesTheSecondFrame Coverage Results" MODIFIED="1448652587435" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/MemoryTests" />
+    <SUITE FILE_PATH="coverage/KernelSimulator$Unittest_TestSchedulerInteractions_test_when_given_scheduler_with_round_robin_and_a_cpu_then_scheduler_sends_next_process_to_cpu.coverage" NAME="Unittest TestSchedulerInteractions.test_when_given_scheduler_with_round_robin_and_a_cpu_then_scheduler_sends_next_process_to_cpu Coverage Results" MODIFIED="1448656584986" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/SCHEDULERTests" />
     <SUITE FILE_PATH="coverage/KernelSimulator$Unittests_in_TestCPUWithClock__1_.coverage" NAME="Unittests in TestCPUWithClock (1) Coverage Results" MODIFIED="1448571075078" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/CPUTests" />
-    <SUITE FILE_PATH="coverage/KernelSimulator$Unittests_in_PageCreatorTests.coverage" NAME="Unittests in PageCreatorTests Coverage Results" MODIFIED="1448578386693" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/MemoryTests" />
+    <SUITE FILE_PATH="coverage/KernelSimulator$Unittests_in_PageCreatorTests.coverage" NAME="Unittests in PageCreatorTests Coverage Results" MODIFIED="1448650758384" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/MemoryTests" />
     <SUITE FILE_PATH="coverage/KernelSimulator$Unittests_in_TestInterruptionManager.coverage" NAME="Unittests in TestInterruptionManager Coverage Results" MODIFIED="1448578315546" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/InterruptionTest" />
-    <SUITE FILE_PATH="coverage/KernelSimulator$Unittests_in_MemoryTests.coverage" NAME="Unittests in MemoryTests Coverage Results" MODIFIED="1448578383121" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/MemoryTests" />
+    <SUITE FILE_PATH="coverage/KernelSimulator$Unittests_in_MemoryTests.coverage" NAME="Unittests in MemoryTests Coverage Results" MODIFIED="1448643993024" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/MemoryTests" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -84,60 +95,7 @@
     <favorites_list name="KernelSimulator" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="FrameManagerTests.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/MemoryTests/FrameManagerTests.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="43" column="15" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="87" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PageCreatorTests.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/MemoryTests/PageCreatorTests.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="20" column="41" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PageCreator.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/MemoryManagment/Paging/PageCreator.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5480769">
-              <caret line="24" column="64" selection-start-line="24" selection-start-column="64" selection-end-line="24" selection-end-column="64" />
-              <folding>
-                <element signature="e#24#69#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Page.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/MemoryManagment/Paging/Page.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="4" column="28" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PagingTests.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/MemoryTests/PagingTests.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="24" column="34" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="56" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -165,29 +123,36 @@
         <option value="$PROJECT_DIR$/test/PCBTableTests/TestPCBTable.py" />
         <option value="$PROJECT_DIR$/test/PCBTests/TestPCB.py" />
         <option value="$PROJECT_DIR$/src/MemoryManagment/ContinuousAssigment/ContinuousAssignment.py" />
-        <option value="$PROJECT_DIR$/test/SCHEDULERTests/TestScheduler.py" />
-        <option value="$PROJECT_DIR$/src/Scheduler/Scheduler.py" />
-        <option value="$PROJECT_DIR$/src/PCB/PCB.py" />
         <option value="$PROJECT_DIR$/test/HDDTests/HDDTest.py" />
         <option value="$PROJECT_DIR$/test/PCBTests/TestPCBCreator.py" />
         <option value="$PROJECT_DIR$/test/PCBTests/TestPCBInfoHolder.py" />
-        <option value="$PROJECT_DIR$/test/SCHEDULERTests/TestInteractionsCpuScheduler.py" />
         <option value="$PROJECT_DIR$/src/IO/IOManager.py" />
         <option value="$PROJECT_DIR$/test/IOTests/TestIOManager.py" />
         <option value="$PROJECT_DIR$/src/IO/IODevice.py" />
         <option value="$PROJECT_DIR$/test/IOTests/TestIODevice.py" />
         <option value="$PROJECT_DIR$/src/Cpu/Clock.py" />
         <option value="$PROJECT_DIR$/test/InterruptionTest/TestInterruptions.py" />
-        <option value="$PROJECT_DIR$/src/Cpu/Cpu.py" />
         <option value="$PROJECT_DIR$/test/InterruptionTest/TestIOInterruptions.py" />
         <option value="$PROJECT_DIR$/src/Memory/Memory.py" />
         <option value="$PROJECT_DIR$/src/Kernel/Kernel.py" />
         <option value="$PROJECT_DIR$/src/Cpu/InterruptionManager.py" />
         <option value="$PROJECT_DIR$/test/KernelTests/KernelTest.py" />
-        <option value="$PROJECT_DIR$/test/CPUTests/TestCPUWithClock.py" />
         <option value="$PROJECT_DIR$/test/CPUTests/TestCPU.py" />
+        <option value="$PROJECT_DIR$/test/MemoryTests/PagingTests.py" />
+        <option value="$PROJECT_DIR$/src/MemoryManagment/Paging/Page.py" />
         <option value="$PROJECT_DIR$/test/MemoryTests/PageCreatorTests.py" />
         <option value="$PROJECT_DIR$/src/MemoryManagment/Paging/PageCreator.py" />
+        <option value="$PROJECT_DIR$/src/HDD/HDD.py" />
+        <option value="$PROJECT_DIR$/test/MemoryTests/FrameManagerTests.py" />
+        <option value="$PROJECT_DIR$/src/MemoryManagment/Paging/FrameManager.py" />
+        <option value="$PROJECT_DIR$/src/PCB/PCB.py" />
+        <option value="$PROJECT_DIR$/test/SCHEDULERTests/TestScheduler.py" />
+        <option value="$PROJECT_DIR$/src/Scheduler/Scheduler.py" />
+        <option value="$PROJECT_DIR$/test/SCHEDULERTests/TestInteractionsCpuScheduler.py" />
+        <option value="$PROJECT_DIR$/src/Cpu/__init__.py" />
+        <option value="$PROJECT_DIR$/test/CPUTests/TestCPUWithClock.py" />
+        <option value="$PROJECT_DIR$/src/Cpu/Cpu.py" />
+        <option value="$PROJECT_DIR$/src/Cpu/MainCPU.py" />
       </list>
     </option>
   </component>
@@ -197,9 +162,9 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="-4" />
+    <option name="y" value="24" />
     <option name="width" value="1920" />
-    <option name="height" value="1084" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -230,6 +195,9 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="Scope">
+        <subPane subId="Project Files" />
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -276,7 +244,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="MemoryTests" />
+              <option name="myItemId" value="CPUTests" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -290,21 +258,54 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="documentation" />
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="KernelSimulator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="KernelSimulator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Kernel" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="KernelSimulator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="KernelSimulator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Cpu" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
-      </pane>
-      <pane id="Scope">
-        <subPane subId="Project Files" />
       </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Font" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
     <property name="js-jscs-nodeInterpreter" value="/usr/bin/node" />
@@ -317,21 +318,21 @@
       </console-settings>
     </option>
   </component>
-  <component name="RunManager" selected="Python tests.Unittest PageCreatorTest.test_whenICreatePagesForPCB_ThenTheInfoTheyHaveIsCorrect">
-    <configuration default="false" name="Unittest PageCreatorTest.test_whenICreatePagesForPCB_ThenTheInfoHolderHasThemAsItShould" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.MainCPU">
+    <configuration default="false" name="Unittest TestSchedulerInteractions.test_when_given_scheduler_with_priority_and_cpu_then_scheduler_sends_next_process_to_cpu" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test/MemoryTests" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test/SCHEDULERTests" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="KernelSimulator" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/MemoryTests/PageCreatorTests.py" />
-      <option name="CLASS_NAME" value="PageCreatorTest" />
-      <option name="METHOD_NAME" value="test_whenICreatePagesForPCB_ThenTheInfoHolderHasThemAsItShould" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/SCHEDULERTests/TestInteractionsCpuScheduler.py" />
+      <option name="CLASS_NAME" value="TestSchedulerInteractions" />
+      <option name="METHOD_NAME" value="test_when_given_scheduler_with_priority_and_cpu_then_scheduler_sends_next_process_to_cpu" />
       <option name="FOLDER_NAME" value="" />
       <option name="TEST_TYPE" value="TEST_METHOD" />
       <option name="PATTERN" value="" />
@@ -341,22 +342,22 @@
       <option name="USE_PARAM" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="Unittest PageCreatorTest.test_whenICreatePagesForPCB_ThenTheInfoTheyHaveIsCorrect" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="Unittests in TestInteractionsCpuScheduler" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test/MemoryTests" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test/SCHEDULERTests" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="KernelSimulator" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/MemoryTests/PageCreatorTests.py" />
-      <option name="CLASS_NAME" value="PageCreatorTest" />
-      <option name="METHOD_NAME" value="test_whenICreatePagesForPCB_ThenTheInfoTheyHaveIsCorrect" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/SCHEDULERTests/TestInteractionsCpuScheduler.py" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
       <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_METHOD" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
       <option name="PATTERN" value="" />
       <option name="USE_PATTERN" value="false" />
       <option name="PUREUNITTEST" value="true" />
@@ -364,66 +365,56 @@
       <option name="USE_PARAM" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="Unittest PagingTest.test_WhenIWant10PagesInAMemoryOf50Cells_ThenICanMakeThem" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="__init__" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test/MemoryTests" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/Cpu" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="KernelSimulator" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/MemoryTests/PagingTests.py" />
-      <option name="CLASS_NAME" value="PagingTest" />
-      <option name="METHOD_NAME" value="test_WhenIWant10PagesInAMemoryOf50Cells_ThenICanMakeThem" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_METHOD" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <option name="PUREUNITTEST" value="true" />
-      <option name="PARAMS" value="" />
-      <option name="USE_PARAM" value="false" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/Cpu/__init__.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="Unittest PagingTest.test_WhenIAssignOnePCB_ThenFirstFrameIsUsed" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="MainCPU" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test/MemoryTests" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/Cpu" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="KernelSimulator" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/MemoryTests/PagingTests.py" />
-      <option name="CLASS_NAME" value="PagingTest" />
-      <option name="METHOD_NAME" value="test_WhenIAssignOnePCB_ThenFirstFrameIsUsed" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_METHOD" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <option name="PUREUNITTEST" value="true" />
-      <option name="PARAMS" value="" />
-      <option name="USE_PARAM" value="false" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/Cpu/MainCPU.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="Unittest PagingTest.test_WhenIAssignASecondPCB_ThenSecondFrameIsUsed" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="Unittest TestCPUWithClock.test_the_clock_makes_a_tick_and_the_cpu_fetch_a_single_instruction_to_decode" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test/MemoryTests" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test/CPUTests" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="KernelSimulator" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/MemoryTests/PagingTests.py" />
-      <option name="CLASS_NAME" value="PagingTest" />
-      <option name="METHOD_NAME" value="test_WhenIAssignASecondPCB_ThenSecondFrameIsUsed" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/CPUTests/TestCPUWithClock.py" />
+      <option name="CLASS_NAME" value="TestCPUWithClock" />
+      <option name="METHOD_NAME" value="test_the_clock_makes_a_tick_and_the_cpu_fetch_a_single_instruction_to_decode" />
       <option name="FOLDER_NAME" value="" />
       <option name="TEST_TYPE" value="TEST_METHOD" />
       <option name="PATTERN" value="" />
@@ -628,19 +619,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python tests.Unittest PageCreatorTest.test_whenICreatePagesForPCB_ThenTheInfoHolderHasThemAsItShould" />
-      <item index="1" class="java.lang.String" itemvalue="Python tests.Unittest PageCreatorTest.test_whenICreatePagesForPCB_ThenTheInfoTheyHaveIsCorrect" />
-      <item index="2" class="java.lang.String" itemvalue="Python tests.Unittest PagingTest.test_WhenIWant10PagesInAMemoryOf50Cells_ThenICanMakeThem" />
-      <item index="3" class="java.lang.String" itemvalue="Python tests.Unittest PagingTest.test_WhenIAssignOnePCB_ThenFirstFrameIsUsed" />
-      <item index="4" class="java.lang.String" itemvalue="Python tests.Unittest PagingTest.test_WhenIAssignASecondPCB_ThenSecondFrameIsUsed" />
+      <item index="0" class="java.lang.String" itemvalue="Python tests.Unittest TestSchedulerInteractions.test_when_given_scheduler_with_priority_and_cpu_then_scheduler_sends_next_process_to_cpu" />
+      <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests in TestInteractionsCpuScheduler" />
+      <item index="2" class="java.lang.String" itemvalue="Python.__init__" />
+      <item index="3" class="java.lang.String" itemvalue="Python.MainCPU" />
+      <item index="4" class="java.lang.String" itemvalue="Python tests.Unittest TestCPUWithClock.test_the_clock_makes_a_tick_and_the_cpu_fetch_a_single_instruction_to_decode" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python tests.Unittest PageCreatorTest.test_whenICreatePagesForPCB_ThenTheInfoTheyHaveIsCorrect" />
-        <item index="1" class="java.lang.String" itemvalue="Python tests.Unittest PagingTest.test_WhenIAssignASecondPCB_ThenSecondFrameIsUsed" />
-        <item index="2" class="java.lang.String" itemvalue="Python tests.Unittest PagingTest.test_WhenIAssignOnePCB_ThenFirstFrameIsUsed" />
-        <item index="3" class="java.lang.String" itemvalue="Python tests.Unittest PagingTest.test_WhenIWant10PagesInAMemoryOf50Cells_ThenICanMakeThem" />
-        <item index="4" class="java.lang.String" itemvalue="Python tests.Unittest PageCreatorTest.test_whenICreatePagesForPCB_ThenTheInfoHolderHasThemAsItShould" />
+        <item index="0" class="java.lang.String" itemvalue="Python.MainCPU" />
+        <item index="1" class="java.lang.String" itemvalue="Python tests.Unittest TestCPUWithClock.test_the_clock_makes_a_tick_and_the_cpu_fetch_a_single_instruction_to_decode" />
+        <item index="2" class="java.lang.String" itemvalue="Python.__init__" />
+        <item index="3" class="java.lang.String" itemvalue="Python tests.Unittest TestSchedulerInteractions.test_when_given_scheduler_with_priority_and_cpu_then_scheduler_sends_next_process_to_cpu" />
+        <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests in TestInteractionsCpuScheduler" />
       </list>
     </recent_temporary>
   </component>
@@ -709,55 +700,61 @@
       <option name="project" value="LOCAL" />
       <updated>1448302716360</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="PageCreator refactor">
+      <created>1448582228584</created>
+      <option name="number" value="00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1448582228584</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittest_PageCreatorTest_test_whenICreatePagesForPCB_ThenTheInfoTheyHaveIsCorrect - 2015.11.26 at 19h 54m 40s.xml">
-      <configuration name="Unittest PageCreatorTest.test_whenICreatePagesForPCB_ThenTheInfoTheyHaveIsCorrect" configurationId="tests" />
+    <history-entry file="Unittest_TestCPUWithClock_test_the_clock_makes_a_tick_and_the_cpu_fetch_a_single_instruction_to_decode - 2015.11.27 at 18h 23m 58s.xml">
+      <configuration name="Unittest TestCPUWithClock.test_the_clock_makes_a_tick_and_the_cpu_fetch_a_single_instruction_to_decode" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittest_PageCreatorTest_test_whenICreatePagesForPCB_ThenTheInfoTheyHaveIsCorrect - 2015.11.26 at 19h 55m 11s.xml">
-      <configuration name="Unittest PageCreatorTest.test_whenICreatePagesForPCB_ThenTheInfoTheyHaveIsCorrect" configurationId="tests" />
+    <history-entry file="Unittest_TestSchedulerInteractions_test_when_given_scheduler_with_fifo_and_a_cpu_then_scheduler_sends_next_process_to_cpu - 2015.11.27 at 17h 39m 10s.xml">
+      <configuration name="Unittest TestSchedulerInteractions.test_when_given_scheduler_with_fifo_and_a_cpu_then_scheduler_sends_next_process_to_cpu" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittest_PageCreatorTest_test_whenICreatePagesForPCB_ThenTheInfoTheyHaveIsCorrect - 2015.11.26 at 19h 57m 37s.xml">
-      <configuration name="Unittest PageCreatorTest.test_whenICreatePagesForPCB_ThenTheInfoTheyHaveIsCorrect" configurationId="tests" />
+    <history-entry file="Unittest_TestSchedulerInteractions_test_when_given_scheduler_with_priority_and_cpu_then_scheduler_sends_next_process_to_cpu - 2015.11.27 at 17h 33m 43s.xml">
+      <configuration name="Unittest TestSchedulerInteractions.test_when_given_scheduler_with_priority_and_cpu_then_scheduler_sends_next_process_to_cpu" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittest_PageCreatorTest_test_whenICreatePagesForPCB_ThenTheInfoTheyHaveIsCorrect - 2015.11.26 at 19h 57m 53s.xml">
-      <configuration name="Unittest PageCreatorTest.test_whenICreatePagesForPCB_ThenTheInfoTheyHaveIsCorrect" configurationId="tests" />
+    <history-entry file="Unittest_TestSchedulerInteractions_test_when_given_scheduler_with_priority_and_cpu_then_scheduler_sends_next_process_to_cpu - 2015.11.27 at 17h 34m 32s.xml">
+      <configuration name="Unittest TestSchedulerInteractions.test_when_given_scheduler_with_priority_and_cpu_then_scheduler_sends_next_process_to_cpu" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittest_PageCreatorTest_test_whenICreatePagesForPCB_ThenTheInfoTheyHaveIsCorrect - 2015.11.26 at 19h 58m 18s.xml">
-      <configuration name="Unittest PageCreatorTest.test_whenICreatePagesForPCB_ThenTheInfoTheyHaveIsCorrect" configurationId="tests" />
+    <history-entry file="Unittest_TestSchedulerInteractions_test_when_given_scheduler_with_priority_and_cpu_then_scheduler_sends_next_process_to_cpu - 2015.11.27 at 17h 39m 19s.xml">
+      <configuration name="Unittest TestSchedulerInteractions.test_when_given_scheduler_with_priority_and_cpu_then_scheduler_sends_next_process_to_cpu" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittest_PageCreatorTest_test_whenICreatePagesForPCB_ThenTheInfoTheyHaveIsCorrect - 2015.11.26 at 19h 58m 31s.xml">
-      <configuration name="Unittest PageCreatorTest.test_whenICreatePagesForPCB_ThenTheInfoTheyHaveIsCorrect" configurationId="tests" />
+    <history-entry file="Unittest_TestSchedulerInteractions_test_when_given_scheduler_with_priority_and_cpu_then_scheduler_sends_next_process_to_cpu - 2015.11.27 at 17h 48m 10s.xml">
+      <configuration name="Unittest TestSchedulerInteractions.test_when_given_scheduler_with_priority_and_cpu_then_scheduler_sends_next_process_to_cpu" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittest_PageCreatorTest_test_whenICreatePagesForPCB_ThenTheInfoTheyHaveIsCorrect - 2015.11.26 at 19h 58m 39s.xml">
-      <configuration name="Unittest PageCreatorTest.test_whenICreatePagesForPCB_ThenTheInfoTheyHaveIsCorrect" configurationId="tests" />
+    <history-entry file="Unittest_TestSchedulerInteractions_test_when_given_scheduler_with_priority_and_cpu_then_scheduler_sends_next_process_to_cpu - 2015.11.27 at 17h 52m 10s.xml">
+      <configuration name="Unittest TestSchedulerInteractions.test_when_given_scheduler_with_priority_and_cpu_then_scheduler_sends_next_process_to_cpu" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittest_PagingTest_test_WhenIAssignASecondPCB_ThenSecondFrameIsUsed - 2015.11.26 at 19h 55m 02s.xml">
-      <configuration name="Unittest PagingTest.test_WhenIAssignASecondPCB_ThenSecondFrameIsUsed" configurationId="tests" />
+    <history-entry file="Unittest_TestSchedulerInteractions_test_when_given_scheduler_with_priority_and_cpu_then_scheduler_sends_next_process_to_cpu - 2015.11.27 at 17h 55m 27s.xml">
+      <configuration name="Unittest TestSchedulerInteractions.test_when_given_scheduler_with_priority_and_cpu_then_scheduler_sends_next_process_to_cpu" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittest_PagingTest_test_WhenIAssignOnePCB_ThenFirstFrameIsUsed - 2015.11.26 at 19h 54m 52s.xml">
-      <configuration name="Unittest PagingTest.test_WhenIAssignOnePCB_ThenFirstFrameIsUsed" configurationId="tests" />
+    <history-entry file="Unittest_TestSchedulerInteractions_test_when_given_scheduler_with_round_robin_and_a_cpu_then_scheduler_sends_next_process_to_cpu - 2015.11.27 at 17h 36m 25s.xml">
+      <configuration name="Unittest TestSchedulerInteractions.test_when_given_scheduler_with_round_robin_and_a_cpu_then_scheduler_sends_next_process_to_cpu" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittest_PagingTest_test_WhenIWant10PagesInAMemoryOf50Cells_ThenICanMakeThem - 2015.11.26 at 19h 54m 47s.xml">
-      <configuration name="Unittest PagingTest.test_WhenIWant10PagesInAMemoryOf50Cells_ThenICanMakeThem" configurationId="tests" />
+    <history-entry file="Unittests_in_TestInteractionsCpuScheduler - 2015.11.27 at 17h 42m 09s.xml">
+      <configuration name="Unittests in TestInteractionsCpuScheduler" configurationId="tests" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="-4" width="1920" height="1084" extended-state="6" />
+    <frame x="0" y="24" width="1920" height="1056" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.49643946" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960325" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.66836214" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22990844" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21464904" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22990844" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.50356054" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39979655" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -789,98 +786,125 @@
     <MESSAGE value="Todos los tests andando menos CPUTests, KernelTests y algunos tests de HDDTests." />
     <MESSAGE value="Added IODevice, IOManager, and respectives tests. Modified the function handle_signal of IOInterruptionManager." />
     <MESSAGE value="Added TestCPUWithClock, but it has to be fixed." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added TestCPUWithClock, but it has to be fixed." />
+    <MESSAGE value="PageCreator refactor" />
+    <option name="LAST_COMMIT_MESSAGE" value="PageCreator refactor" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="6" />
+      <option name="time" value="9" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Scheduler/LongTermScheduler.py">
+    <entry file="file://$PROJECT_DIR$/test/IOTests/TestIODevice.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3301887">
+        <state vertical-scroll-proportion="0.1572327">
+          <caret line="14" column="51" selection-start-line="14" selection-start-column="51" selection-end-line="14" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/InterruptionTest/Handler_Loaders.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.062893085">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/InterruptionTest/TestInterruptionManager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.14150943">
+          <caret line="10" column="77" selection-start-line="10" selection-start-column="77" selection-end-line="10" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/InterruptionTest/TestInterruptions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.34591195">
+          <caret line="22" column="49" selection-start-line="22" selection-start-column="49" selection-end-line="22" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/InterruptionTest/TestIOInterruptions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.1456044">
+          <caret line="58" column="83" selection-start-line="58" selection-start-column="83" selection-end-line="58" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/documentation/TODO List">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.020604396">
+          <caret line="1" column="18" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Memory/ToyMemory_Admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
           <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scheduler/SchedulerPolicy.py">
+    <entry file="file://$PROJECT_DIR$/src/Memory/ToyMemory.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29874215">
-          <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
+        <state vertical-scroll-proportion="0.69518715">
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/PCBTests/TestPCBInfoHolder.py">
+    <entry file="file://$PROJECT_DIR$/src/Instruction/Instruction.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29874215">
-          <caret line="23" column="57" selection-start-line="23" selection-start-column="57" selection-end-line="23" selection-end-column="57" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/SCHEDULERTests/TestInteractionsCpuScheduler.py">
+    <entry file="file://$PROJECT_DIR$/src/Kernel/Program.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6446541">
-          <caret line="41" column="34" selection-start-line="41" selection-start-column="34" selection-end-line="41" selection-end-column="34" />
+        <state vertical-scroll-proportion="0.5563187">
+          <caret line="27" column="8" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/HDDTests/HDDTest.py">
+    <entry file="file://$PROJECT_DIR$/src/Memory/Memory.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2672956">
-          <caret line="17" column="27" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="9" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/IO/IOManager.py">
+    <entry file="file://$PROJECT_DIR$/src/Cpu/InterruptionManager.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.07861635">
-          <caret line="5" column="31" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="99" column="23" selection-start-line="99" selection-start-column="23" selection-end-line="99" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/IO/IODevice.py">
+    <entry file="file://$PROJECT_DIR$/src/PCB/PCBTable.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20604396">
-          <caret line="10" column="43" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="43" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.PyCharm50/system/python_stubs/-1247971765/builtins.py">
+    <entry file="file://$PROJECT_DIR$/test/KernelTests/KernelTest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="5108" column="8" selection-start-line="5108" selection-start-column="8" selection-end-line="5108" selection-end-column="8" />
-          <folding />
+        <state vertical-scroll-proportion="0.5824176">
+          <caret line="28" column="4" selection-start-line="28" selection-start-column="4" selection-end-line="31" selection-end-column="39" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Cpu/Clock.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32967034">
-          <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/documentation/Not working Stuff !!!">
+    <entry file="file://$PROJECT_DIR$/test/MemoryTests/CAPolicies.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Cpu/Interruption.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18543956">
-          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/MemoryTests/MemoryManagerTests.py">
+    <entry file="file://$PROJECT_DIR$/test/MemoryTests/BlockTests.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -888,79 +912,61 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/MemoryTests/TableTests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Memory/MemoryManager.py">
+    <entry file="file://$PROJECT_DIR$/test/MemoryTests/MemoryManagerTests.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MemoryManagment/ContinuousAssigment/ContinuousAssignment.py">
+    <entry file="file://$PROJECT_DIR$/src/PCB/PCBInfoHolder.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.1826923">
+          <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PCB/ProcessState.py">
+    <entry file="file://$PROJECT_DIR$/test/MemoryTests/MemoryTests.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="7" column="10" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MemoryManagment/Paging/PageCreator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33241758">
+          <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
+          <folding>
+            <element signature="e#24#69#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MemoryManagment/Paging/Frame.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MemoryManagment/Paging/FrameManager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2672956">
-          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MemoryManagment/Paging/PaginationTable.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MemoryManagment/Paging/Paging.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Scheduler/Scheduler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="56" column="0" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.17924528">
+          <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/HDD/HDD.py">
+    <entry file="file://$PROJECT_DIR$/test/MemoryTests/PageCreatorTests.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.061813187">
-          <caret line="3" column="9" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/HDDTests/BlockCreatorTest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.10302198">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.4697802">
+          <caret line="21" column="22" selection-start-line="21" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -969,110 +975,101 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/documentation/README">
+    <entry file="file://$PROJECT_DIR$/test/HDDTests/BlockCreatorTest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2672956">
-          <caret line="17" column="12" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/IOTests/TestIOManager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.047169812">
-          <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/IOTests/TestIODevice.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1572327">
-          <caret line="14" column="51" selection-start-line="14" selection-start-column="51" selection-end-line="14" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/InterruptionTest/Handler_Loaders.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.062893085">
+        <state vertical-scroll-proportion="0.11263736">
           <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/InterruptionTest/TestInterruptionManager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14150943">
-          <caret line="10" column="77" selection-start-line="10" selection-start-column="77" selection-end-line="10" selection-end-column="77" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/InterruptionTest/TestInterruptions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34591195">
-          <caret line="22" column="49" selection-start-line="22" selection-start-column="49" selection-end-line="22" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/InterruptionTest/TestIOInterruptions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1456044">
-          <caret line="58" column="83" selection-start-line="58" selection-start-column="83" selection-end-line="58" selection-end-column="83" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/documentation/TODO List">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.020604396">
-          <caret line="1" column="18" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Memory/ToyMemory_Admin.py">
+    <entry file="file://$PROJECT_DIR$/test/HDDTests/HDDTest.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HDD/FileSystemComponents.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HDD/FileSystem.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python3.4/unittest/case.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="624" column="0" selection-start-line="624" selection-start-column="0" selection-end-line="624" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/MemoryTests/PagingTests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4779874">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HDD/HDD.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7410901">
+          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding>
+            <element signature="e#24#41#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MemoryManagment/Paging/Page.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.19601677">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MemoryManagment/Paging/Paging.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6813417">
+          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MemoryManagment/Paging/FrameManager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25366876">
           <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Memory/ToyMemory.py">
+    <entry file="file://$PROJECT_DIR$/test/MemoryTests/FrameManagerTests.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.69518715">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.6373166">
+          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Instruction/Instruction.py">
+    <entry file="file:///usr/lib/python3.4/heapq.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Kernel/Program.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5563187">
-          <caret line="27" column="8" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Memory/Memory.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="25" column="9" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.33241758">
+          <caret line="233" column="4" selection-start-line="233" selection-start-column="4" selection-end-line="233" selection-end-column="4" />
           <folding />
         </state>
       </provider>
@@ -1080,122 +1077,114 @@
     <entry file="file://$PROJECT_DIR$/src/PCB/PCB.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="34" column="41" selection-start-line="34" selection-start-column="41" selection-end-line="34" selection-end-column="41" />
+          <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PCB/PCBInfoHolder.py">
+    <entry file="file:///usr/lib/python3.4/queue.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="53" column="21" selection-start-line="53" selection-start-column="21" selection-end-line="53" selection-end-column="21" />
+        <state vertical-scroll-proportion="-1.9019607">
+          <caret line="117" column="8" selection-start-line="117" selection-start-column="8" selection-end-line="117" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Kernel/Kernel.py">
+    <entry file="file://$PROJECT_DIR$/test/SCHEDULERTests/TestScheduler.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="104" column="44" selection-start-line="104" selection-start-column="44" selection-end-line="104" selection-end-column="44" />
+          <caret line="19" column="40" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Cpu/InterruptionManager.py">
+    <entry file="file://$PROJECT_DIR$/test/SCHEDULERTests/TestInteractionsCpuScheduler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="99" column="23" selection-start-line="99" selection-start-column="23" selection-end-line="99" selection-end-column="23" />
+        <state vertical-scroll-proportion="0.35849056">
+          <caret line="22" column="103" selection-start-line="22" selection-start-column="103" selection-end-line="22" selection-end-column="103" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PCB/PCBTable.py">
+    <entry file="file://$PROJECT_DIR$/src/Scheduler/Scheduler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="71" column="8" selection-start-line="71" selection-start-column="8" selection-end-line="71" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Kernel/FunctionsForLists.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4697802">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Cpu/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.026098901">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Cpu/Clock.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1826923">
+          <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python3.4/threading.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33241758">
+          <caret line="919" column="0" selection-start-line="919" selection-start-column="0" selection-end-line="919" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/CPUTests/TestCPU.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.6181319">
+          <caret line="17" column="15" selection-start-line="17" selection-start-column="15" selection-end-line="17" selection-end-column="15" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Cpu/Cpu.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33241758">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding>
-            <element signature="e#24#60#0" expanded="false" />
-          </folding>
+        <state vertical-scroll-proportion="0.5041209">
+          <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/CPUTests/TestCPU.py">
+    <entry file="file://$PROJECT_DIR$/src/Cpu/MainCPU.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1304945">
-          <caret line="17" column="15" selection-start-line="17" selection-start-column="15" selection-end-line="17" selection-end-column="15" />
+        <state vertical-scroll-proportion="0.7012579">
+          <caret line="73" column="46" selection-start-line="73" selection-start-column="46" selection-end-line="73" selection-end-column="46" />
           <folding>
-            <element signature="e#24#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/KernelTests/KernelTest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5824176">
-          <caret line="28" column="4" selection-start-line="28" selection-start-column="4" selection-end-line="31" selection-end-column="39" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
+            <element signature="e#0#28#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/CPUTests/TestCPUWithClock.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44368133">
-          <caret line="29" column="42" selection-start-line="29" selection-start-column="41" selection-end-line="29" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#15#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/MemoryTests/FrameManagerTests.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="43" column="15" selection-start-line="42" selection-start-column="8" selection-end-line="42" selection-end-column="87" />
+        <state vertical-scroll-proportion="0.7809224">
+          <caret line="65" column="49" selection-start-line="65" selection-start-column="49" selection-end-line="65" selection-end-column="49" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/MemoryTests/PagingTests.py">
+    <entry file="file://$PROJECT_DIR$/src/Kernel/Kernel.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="24" column="34" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="56" />
+        <state vertical-scroll-proportion="2.0115304">
+          <caret line="104" column="44" selection-start-line="104" selection-start-column="44" selection-end-line="104" selection-end-column="44" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MemoryManagment/Paging/Page.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="28" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/MemoryTests/PageCreatorTests.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="41" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MemoryManagment/Paging/PageCreator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5480769">
-          <caret line="24" column="64" selection-start-line="24" selection-start-column="64" selection-end-line="24" selection-end-column="64" />
-          <folding>
-            <element signature="e#24#69#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>

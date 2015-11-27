@@ -1,3 +1,5 @@
+from queue import Queue
+
 __author__ = 'luciano'
 from src.Kernel.FunctionsForLists import *
 '''
@@ -8,9 +10,9 @@ Tambien quisiera saber que pasa con el mismo cuando hay interrupciones
 
 class Scheduler:
 
-    def __init__(self, policy=None, ready_queue_size=50):
-        self.ready_queue = []
-        self.ready_queue_size = 50
+    def __init__(self, policy=None, ready_queue=Queue() ,ready_queue_size=50):
+        self.ready_queue = ready_queue
+        self.ready_queue_size = ready_queue_size
         self.policy = policy
         self.cpu = None
 
@@ -54,10 +56,10 @@ class FifoPolicy:
         return self.readyQueue
 
     def next_process(self):
-        return self.readyQueue.pop(0)
+        return self.readyQueue.get(0)
 
     def add_pcb(self, pcb):
-        self.readyQueue.append(pcb)
+        self.readyQueue.put(pcb)
 
     def get_quantum(self):
         return -1
@@ -68,10 +70,10 @@ class PriorityPolicy:
         self.readyQueue = ready_queue
 
     def next_process(self):
-        return min(self.readyQueue)
+        return self.readyQueue.get(0)
 
     def add_pcb(self, pcb):
-        self.readyQueue.append(pcb)
+        self.readyQueue.put(pcb)
 
     def get_quantum(self):
         return -1
@@ -85,18 +87,18 @@ class RoundRobinPolicy:
 
     def next_process(self):
         self.send_signal()
-        return self.readyQueue.pop(0)
+        return self.readyQueue.get(0)
 
     def send_signal(self):
         if self.is_time_out():
-            last = self.readyQueue.pop(0)
+            last = self.readyQueue.get(0)
             self.reset_quantum()
             self.readyQueue.append(last)
         else:
             self.increase_quantum()
 
     def add_pcb(self, pcb):
-        self.readyQueue.append(pcb)
+        self.readyQueue.put(pcb)
 
     def increase_quantum(self):
         self.quantum += 1
