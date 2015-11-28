@@ -119,12 +119,16 @@ class NewInterruptionManager(InstructionInterruptionManager):
 class EndIOInterruptionManager(InstructionInterruptionManager):
     def __init__(self):
         super().__init__()
+        self.io_manager = IOManager()
 
     def condition_of_applicability(self, pcb, cpu):
         pcb.state.equals(ProcessState.waiting)
 
     def handle_signal(self, pcb, cpu, pcb_table):
         super().context_switching(pcb, cpu)
+        self.io_manager.send_to_ready_queue(pcb)
+        pcb.state = ProcessState.ready
+
 
 
 class WaitingInterruptionManager(InstructionInterruptionManager):
