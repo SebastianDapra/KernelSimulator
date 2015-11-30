@@ -72,9 +72,10 @@ class Main(Thread):
 
     def run(self):
         self.load_a_instruction_in_a_program()
-        self.cpu.start()
+        self.clock.start()
 
-def main():
+
+def main(self):
     main = Main()
     main.start()
 

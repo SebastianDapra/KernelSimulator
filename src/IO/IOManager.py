@@ -7,7 +7,7 @@ class IOManager:
 
     def __init__(self):
         self.waiting_io_queue = Queue()
-        self.io_device = IODevice()
+        self.io_device = IODevice(self)
 
     def send_to_io_queue(self, instruction):
         self.waiting_io_queue.put(instruction)

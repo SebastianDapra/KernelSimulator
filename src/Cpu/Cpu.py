@@ -1,4 +1,4 @@
-import threading
+from threading import RLock
 
 __author__ = 'luciano'
 
@@ -6,15 +6,15 @@ from src.Kernel.Output import Output
 from src.Cpu.Interruption import *
 
 
-class Cpu(threading.Thread):
+class Cpu:
 
     def __init__(self, kernel):
-        threading.Thread.__init__(self)
         self.kernel = kernel
         self.output = Output()
         self.memory_manager = None
         self.actual_pcb = None
         self.output = None
+        self.mutex = RLock()
 
     def get_actual_pcb(self):
         return self.actual_pcb
@@ -45,9 +45,9 @@ class Cpu(threading.Thread):
                                                                                   self.kernel.pcb_table)
 
     def run(self):
-        print("Running thread...")
-        self.set_actual_pcb(self.kernel.scheduler.next_process())
-        self.complete_instruction_cycle()
+        with self.mutex:
+            self.set_actual_pcb(self.kernel.scheduler.next_process())
+            self.complete_instruction_cycle()
 
     def complete_instruction_cycle(self):
         '''
