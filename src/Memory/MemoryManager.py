@@ -7,10 +7,10 @@ from src.Memory.Memory import *
 
 class MemoryManager:
 
-    def __init__(self, hdd):
+    def __init__(self, hdd,policy=None):
         self._memory = Memory(2048)
         self._next_index = 0
-        self._policy = None
+        self._policy = policy
         self._memory_free_space = self._memory.get_free_space()
         self._hdd = hdd
 

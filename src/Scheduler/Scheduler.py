@@ -1,11 +1,7 @@
-from queue import Queue
-
 __author__ = 'luciano'
+
 from src.Kernel.FunctionsForLists import *
-'''
-Me gustaria que avancemos en lo que corresponderia en la interaccion del Scheduler con el Kernel.
-Tambien quisiera saber que pasa con el mismo cuando hay interrupciones
-'''
+from queue import Queue
 
 
 class Scheduler:

@@ -1,31 +1,41 @@
 __author__ = 'luciano'
 
-from src.Memory.MemoryManager import *
+
 from src.Main.CpuArrangements import *
 from src.Main.HDDArrangements import *
 from src.Kernel.Kernel import *
-from src.Scheduler.Scheduler import *
-from src.Scheduler.SchedulerPolicy import *
-
+from src.Cpu.Clock import *
+from src.PCB.PCBTable import *
 
 class Arrangements:
 
     def __init__(self):
         self.cpuArrangements = CpuArrangements()
         self.hddDependencies = HDDArrangements()
-        self.memory_manager = MemoryManager(None)
 
     def arrange_cpu(self,kernel):
-        pass
+        cpu = Cpu(kernel,kernel.memory_admin)
+        clock = Clock(cpu)
+        kernel.clock = clock
+        self.pcb_table = PCBTable()
+        self.cpuArrangements.load_a_instruction_in_a_program(kernel
+            ,kernel.scheduler,
+            self.pcb_table,
+            cpu,
+            cpu.memory_manager.get_memory())
 
-    def arrange_kernel(kernel,scheduler_policy,hdd,memory_policy):
-        scheduler = Scheduler(scheduler_policy)
+
+    def arrange_kernel(self,kernel,scheduler,hdd):
         kernel.set_scheduler(scheduler)
+        self.arrange_cpu(kernel)
         kernel.set_hdd(hdd)
-        kernel.set_memory_policy(memory_policy)
+        kernel.genetate_file_system()
 
     def arrange_memory(self,kernel,hdd):
-        self.memory_manager._hdd = hdd
+        memory_manager = MemoryManager(hdd)
+        self.memory_policy = Paging(memory_manager.get_memory(),
+                                    2, hdd)
+        kernel.set_memory_admin(memory_manager)
 
     def arrange_hdd(self,hdd):
         self.hddDependencies.load_programs_in_hdd(hdd)

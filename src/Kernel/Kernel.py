@@ -4,29 +4,32 @@ from src.Cpu.Cpu import *
 from src.Memory.MemoryManager import *
 from src.Kernel.Program import *
 from src.Scheduler.LongTermScheduler import *
-
+from src.PCB.PCBCreator import *
 
 class Kernel:
-    def __init__(self, clock,policy_memory=None):
+    def __init__(self, clock):
         self.mode = None
         self.pid = 0
         self.scheduler = None
-        self._fileSystem = self._hdd.generate_file_system()
-        self._memoryManager = MemoryManager(self)
+        self.memory_admin = MemoryManager(self)
+        self.interruption_manager = None
+        self.hdd = None
+        self._fileSystem=None
         self.long_term_scheduler = LongTermScheduler()
         self.cpu = Cpu(self)
+        self._creatorPCB = PCBCreator()
         self.waiting_queue = []
         self.pcb_table = None
         self.clock = clock
-        self.memory_admin = None
-        self.interruption_manager = None
-        self.hdd = None
+
+    def genetate_file_system(self):
+        self._fileSystem = self.hdd.generate_file_system()
 
     def set_hdd(self,hdd):
         self.hdd = hdd
 
     def set_memory_policy(self,policy):
-        self._memoryManager.set_policy(policy)
+        self.memory_admin.set_policy(policy)
 
     def get_hdd(self):
         return self.hdd
@@ -83,15 +86,15 @@ class Kernel:
         self.create_pcb(program, priority)
         self.scheduler.next
 
+    def obtain_instructions(self,program):
+        return [item for sublist in (map(lambda x: x.get_data(), program.fetch_blocks())) for item in sublist]
+
     def run(self,program_name):
         print("Running " + program_name + "...")
         program = self._fileSystem.get_program(program_name)
         instructions = self.obtain_instructions(program)
-        pcb = self._creatorPCB.create_pcb(len(instructions), program, self._memoryManager.get_policy().get_info_holder(program))
+        pcb = self._creatorPCB.create_pcb(len(instructions), program, self.memory_admin.get_policy().get_info_holder(program))
         self._long_term_scheduler.init_process(pcb)
-
-    def obtain_intructions(self,program):
-        return [item for sublist in (map(lambda x: x.get_data(), program.fetch_blocks())) for item in sublist]
 
     @property
     def timing(self):

@@ -1,31 +1,21 @@
 __author__ = 'luciano'
 
-from src.Cpu.InterruptionManager import *
-from src.Memory.Memory import *
-from src.Memory.ToyMemory_Admin import *
-from src.PCB.PCBInfoHolder import BlockHolder
-from test.LoaderTest.ToyProgram import *
-from src.Kernel.Kernel import *
-from src.Scheduler.Scheduler import *
 from src.Main.Arrangements import *
 from src.HDD.HDD import *
+from src.Scheduler.Scheduler import *
 
 class Main:
 
     def __init__(self):
         self.arrangements = Arrangements()
         self.kernel = Kernel(None)
-        self.arrangements.arrange_cpu()
         self.hdd = HDD(50)
         self.arrangements.arrange_hdd(self.hdd)
-        self.arrangements.arrange_memory(self,self.kernel,self.hdd)
-        self.scheduler_policy = RoundRobinPolicy(3)
-        self.memory_policy = Paging(self.memory_manager.get_memory(),
-                                    2, self.hdd)
-
-        self.arrangements.arrange_kernel(self.kernel,
-                                         self.scheduler_policy,
-                                         self.hdd, self.memory_policy)
+        self.arrangements.arrange_memory(self.kernel,self.hdd)
+        self.scheduler = Scheduler(None)
+        self.scheduler.set_as_round_robin(3)
+        self.arrangements.arrange_kernel(self.kernel,self.scheduler,
+                                         self.hdd)
 
 
     def run_example(self):

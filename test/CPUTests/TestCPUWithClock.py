@@ -4,6 +4,7 @@ from src.Cpu.Clock import Clock
 from src.Memory.Memory import *
 from src.Scheduler.Scheduler import *
 from src.Main.CpuArrangements import *
+from src.PCB.PCBTable import *
 
 class TestCPUWithClock(unittest.TestCase):
     def setUp(self):

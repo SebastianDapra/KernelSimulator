@@ -8,10 +8,10 @@ from src.Cpu.Interruption import *
 
 class Cpu:
 
-    def __init__(self, kernel):
+    def __init__(self, kernel,memory_manager=None):
         self.kernel = kernel
         self.output = Output()
-        self.memory_manager = None
+        self.memory_manager = memory_manager
         self.actual_pcb = None
         self.output = None
         self.mutex = RLock()
