@@ -33,8 +33,9 @@ class Arrangements:
 
     def arrange_memory(self,kernel,hdd):
         memory_manager = MemoryManager(hdd)
-        self.memory_policy = Paging(memory_manager.get_memory(),
+        memory_policy = Paging(memory_manager.get_memory(),
                                     2, hdd)
+        memory_manager.set_policy(memory_policy)
         kernel.set_memory_admin(memory_manager)
 
     def arrange_hdd(self,hdd):

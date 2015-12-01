@@ -94,7 +94,7 @@ class Kernel:
         program = self._fileSystem.get_program(program_name)
         instructions = self.obtain_instructions(program)
         pcb = self._creatorPCB.create_pcb(len(instructions), program, self.memory_admin.get_policy().get_info_holder(program))
-        self._long_term_scheduler.init_process(pcb)
+        self.long_term_scheduler.add_pcb(pcb,self.scheduler)
 
     @property
     def timing(self):
