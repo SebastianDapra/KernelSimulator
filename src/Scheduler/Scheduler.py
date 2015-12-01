@@ -6,7 +6,7 @@ from queue import Queue
 
 class Scheduler:
 
-    def __init__(self, policy=None, ready_queue=Queue() ,ready_queue_size=50):
+    def __init__(self, policy=None, ready_queue=Queue(), ready_queue_size=50):
         self.ready_queue = ready_queue
         self.ready_queue_size = ready_queue_size
         self.policy = policy
@@ -89,7 +89,7 @@ class RoundRobinPolicy:
         if self.is_time_out():
             last = self.readyQueue.get(0)
             self.reset_quantum()
-            self.readyQueue.append(last)
+            self.readyQueue.put(last)
         else:
             self.increase_quantum()
 

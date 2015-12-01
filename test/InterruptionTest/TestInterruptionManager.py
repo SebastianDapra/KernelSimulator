@@ -8,7 +8,7 @@ class TestInterruptionManager(unittest.TestCase):
     def setUp(self):
         self.interruption_manager = InterruptionManager(None)
         load_in_interruption_manager = Handle_Loaders()
-        load_in_interruption_manager.load_handlers(self.interruption_manager)
+        load_in_interruption_manager.load_handlers(self, self.interruption_manager)
 
     def test_when_added_handlers_this_work_fine(self):
         for interruption in [(IOInterruption, IOInterruptionManager()), (KillInterruption, KillInterruptionManager()),

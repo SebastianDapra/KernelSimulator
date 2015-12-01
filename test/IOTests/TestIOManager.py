@@ -12,4 +12,4 @@ class TestIOManager(unittest.TestCase):
 
     def test_i_send_a_io_instruction_to_the_waiting_io_queue(self):
         self.io_manager.send_to_io_queue(self.io_instruction)
-        self.assertTrue(self.io_manager.waiting_io_queue.__contains__(self.io_instruction))
+        self.assertTrue(self.io_manager.waiting_io_queue.not_empty)

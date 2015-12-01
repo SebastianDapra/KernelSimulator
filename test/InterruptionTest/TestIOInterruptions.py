@@ -15,13 +15,12 @@ class TestIOInterruption(unittest.TestCase):
     def setUp(self):
         self.kernel = Kernel(None)
         self.kernel.to_user_mode()
-        #self.cpu = Cpu(self.kernel)
         self.kernel.scheduler = Scheduler(None)
         self.kernel.scheduler.set_as_fifo()
         self.interruption_manager = InterruptionManager(self.kernel.cpu)
         self.kernel.set_interruption_manager(self.interruption_manager)
         load_in_interruption_manager = Handle_Loaders()
-        load_in_interruption_manager.load_handlers(self.interruption_manager)
+        load_in_interruption_manager.load_handlers(self, self.interruption_manager)
         self.memory = ToyMemory()
         self.memory_manager = ToyMemoryAdmin(self.memory)
         self.kernel.set_memory_manager(self.memory_manager)
@@ -49,9 +48,9 @@ class TestIOInterruption(unittest.TestCase):
 
     def test_when_a_process_is_io_then_goes_to_the_waiting_queue(self):
         self.two_programs_in_ready_queue()
-        io_pcb = self.kernel.scheduler.ready_queue[0]
+        io_pcb = self.kernel.get_ready_queue._get()
         self.kernel.cpu.set_actual_pcb(io_pcb)
-        without_io_pcb = self.kernel.scheduler.ready_queue[1]
+        without_io_pcb = self.kernel.get_ready_queue._get()
         self.assertEqual(io_pcb.get_pid,self.kernel.cpu.actual_pcb.get_pid)
         self.kernel.cpu.complete_instruction_cycle()
         self.assertEqual(ProcessState.ProcessState.waiting, io_pcb.get_state)

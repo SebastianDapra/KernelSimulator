@@ -99,9 +99,6 @@ class IOInterruptionManager(InstructionInterruptionManager):
         pcb.state = ProcessState.waiting
         pcb.increment()
         self.io_manager.send_to_io_queue(cpu.fetch_single_instruction())
-        '''
-        Cuando pasa a waiting deberia mandarse a la cola de Waiting de IO
-        '''
         #pcb.state = ProcessState.ready
 
 

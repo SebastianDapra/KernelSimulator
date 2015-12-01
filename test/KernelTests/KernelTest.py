@@ -4,6 +4,7 @@ from src.Cpu.InterruptionManager import *
 from src.Memory.Memory import *
 from src.Memory.ToyMemory_Admin import *
 from src.PCB.PCBInfoHolder import BlockHolder
+from src.PCB.PCBTable import PCBTable
 from test.LoaderTest.ToyProgram import *
 from src.Kernel.Kernel import *
 from src.Scheduler.Scheduler import *
@@ -24,7 +25,7 @@ class TestKernel(unittest.TestCase):
         interruption_manager = InterruptionManager(self.a_kernel.cpu)
         self.a_kernel.set_interruption_manager(interruption_manager)
         load_in_interruption_manager = Handle_Loaders()
-        load_in_interruption_manager.load_handlers(interruption_manager)
+        load_in_interruption_manager.load_handlers(self, interruption_manager)
 
     def write_program(self,program,memory):
         pos = 0

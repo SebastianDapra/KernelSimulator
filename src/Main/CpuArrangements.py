@@ -17,7 +17,7 @@ class CpuArrangements:
         interruption_manager = InterruptionManager(cpu)
         a_kernel.set_interruption_manager(interruption_manager)
         load_in_interruption_manager = Handle_Loaders()
-        load_in_interruption_manager.load_handlers(interruption_manager)
+        load_in_interruption_manager.load_handlers(self, interruption_manager)
         instruction = Instruction("Texto")
         program.addInstruction(instruction)
         program.addInstruction(instruction)
@@ -28,7 +28,6 @@ class CpuArrangements:
         pos = 0
         for instruction in program.get_instructions():
             memory.put(pos,instruction)
-
 
     def load_a_io_instruction_in_a_program(self,a_kernel,scheduler,pcb_table,cpu,memory):
         program = Program("IO")

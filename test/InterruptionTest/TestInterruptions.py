@@ -33,7 +33,7 @@ class TestInterruption(unittest.TestCase):
         self.interruption_manager = InterruptionManager(self.cpu)
         self.kernel.set_interruption_manager(self.interruption_manager)
         load_in_interruption_manager = Handle_Loaders()
-        load_in_interruption_manager.load_handlers(self.interruption_manager)
+        load_in_interruption_manager.load_handlers(self, self.interruption_manager)
         #self.new_interruption = NewInterruptionManager()
 
         self.memory = ToyMemory()

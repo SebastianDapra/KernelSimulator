@@ -4,8 +4,16 @@
     <list default="true" id="7c7854bc-a2fe-4957-8d76-5da60467d25a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Cpu/InterruptionManager.py" afterPath="$PROJECT_DIR$/src/Cpu/InterruptionManager.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/IO/IODevice.py" afterPath="$PROJECT_DIR$/src/IO/IODevice.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/IO/IOManager.py" afterPath="$PROJECT_DIR$/src/IO/IOManager.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main/CpuArrangements.py" afterPath="$PROJECT_DIR$/src/Main/CpuArrangements.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scheduler/Scheduler.py" afterPath="$PROJECT_DIR$/src/Scheduler/Scheduler.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/CPUTests/TestCPU.py" afterPath="$PROJECT_DIR$/test/CPUTests/TestCPU.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/IOTests/TestIOManager.py" afterPath="$PROJECT_DIR$/test/IOTests/TestIOManager.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/InterruptionTest/Handler_Loaders.py" afterPath="$PROJECT_DIR$/test/InterruptionTest/Handler_Loaders.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/InterruptionTest/TestIOInterruptions.py" afterPath="$PROJECT_DIR$/test/InterruptionTest/TestIOInterruptions.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/InterruptionTest/TestInterruptionManager.py" afterPath="$PROJECT_DIR$/test/InterruptionTest/TestInterruptionManager.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/InterruptionTest/TestInterruptions.py" afterPath="$PROJECT_DIR$/test/InterruptionTest/TestInterruptions.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/KernelTests/KernelTest.py" afterPath="$PROJECT_DIR$/test/KernelTests/KernelTest.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/SCHEDULERTests/TestScheduler.py" afterPath="$PROJECT_DIR$/test/SCHEDULERTests/TestScheduler.py" />
     </list>
     <ignored path="KernelSimulator.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -153,9 +161,9 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="24" />
+    <option name="y" value="-4" />
     <option name="width" value="1920" />
-    <option name="height" value="1056" />
+    <option name="height" value="1084" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -185,6 +193,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope">
+        <subPane subId="Project Files" />
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -232,9 +243,6 @@
             </PATH_ELEMENT>
           </PATH>
         </subPane>
-      </pane>
-      <pane id="Scope">
-        <subPane subId="Project Files" />
       </pane>
       <pane id="Scratches" />
     </panes>
@@ -685,7 +693,7 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="24" width="1920" height="1056" extended-state="6" />
+    <frame x="0" y="-4" width="1920" height="1084" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.49643946" order="0" side_tool="false" content_ui="combo" />
@@ -1019,7 +1027,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33241758">
           <caret line="919" column="0" selection-start-line="919" selection-start-column="0" selection-end-line="919" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1063,7 +1070,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1071,7 +1077,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.09958071">
           <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1095,9 +1100,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.139413">
           <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#16#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1105,9 +1107,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.17924528">
           <caret line="9" column="29" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
