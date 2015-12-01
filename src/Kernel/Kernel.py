@@ -71,6 +71,16 @@ class Kernel:
         self.create_pcb(program, priority)
         self.scheduler.next
 
+    def run(self,program_name):
+        print("Running " + program_name + "...")
+        program = self._fileSystem.get_program(program_name)
+        instructions = self.obtain_instructions(program)
+        pcb = self._creatorPCB.create_pcb(len(instructions), program, self._memoryManager.get_policy().get_info_holder(program))
+        self._long_term_scheduler.init_process(pcb)
+
+    def obtain_intructions(self,program):
+        return [item for sublist in (map(lambda x: x.get_data(), program.fetch_blocks())) for item in sublist]
+
     @property
     def timing(self):
         self.clock.tick()
@@ -111,3 +121,5 @@ class KernelMode:
 class UserMode:
     def __init__(self,kernel):
         self.kernel = kernel
+
+
