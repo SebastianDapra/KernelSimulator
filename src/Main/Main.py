@@ -19,9 +19,9 @@ class Main:
 
 
     def run_example(self):
-        self.kernel.run("Word")
-        self.kernel.run("Excel")
-        self.kernel.run("Powerpoint")
+        self.kernel.run("Word",2)
+        self.kernel.run("Excel",3)
+        self.kernel.run("Powerpoint",1)
 
 if __name__ == '__main__':
     Main().run_example()
