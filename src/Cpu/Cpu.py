@@ -1,7 +1,6 @@
-from threading import RLock
-
 __author__ = 'luciano'
 
+from threading import RLock
 from src.Kernel.Output import Output
 from src.Cpu.Interruption import *
 
@@ -59,3 +58,7 @@ class Cpu:
             self.kernel.signal_handler(IOInterruption, self.actual_pcb)
         else:
             self.execute_single_instruction(actual_instruction)
+
+    '''
+    PROX
+    '''
