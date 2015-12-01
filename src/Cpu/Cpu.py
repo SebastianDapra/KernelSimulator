@@ -49,9 +49,7 @@ class Cpu:
             self.complete_instruction_cycle()
 
     def complete_instruction_cycle(self):
-        '''
-        We assume the instruction cycle to be atomic which is not necessary true
-        '''
+
         actual_instruction = self.fetch_single_instruction()
 
         if actual_instruction.is_io:

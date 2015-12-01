@@ -82,18 +82,21 @@ class Kernel:
         print("Running " + program_name + "...")
         program = Program(program_name)
         self.create_pcb(program, priority)
-        self.scheduler.next
+        self.scheduler.next_process()
 
     def obtain_instructions(self,program):
         return [item for sublist in (map(lambda x: x.get_data(), program.fetch_blocks())) for item in sublist]
 
-    def run(self,program_name):
+    def run(self,program_name,priority):
         print("Running " + program_name + "...")
+        '''
         program = self._fileSystem.get_program(program_name)
         instructions = self.obtain_instructions(program)
         pcb = self._creatorPCB.create_pcb(len(instructions), program, self.memory_admin.get_policy().get_info_holder(program))
         self.long_term_scheduler.set_short_term_scheduler(self.scheduler)
         self.long_term_scheduler.add_pcb(pcb)
+        '''
+        self.execute_itself(program_name,priority)
         print("Finish running " + program_name)
 
     @property
