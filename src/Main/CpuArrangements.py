@@ -10,8 +10,6 @@ from src.Kernel.Kernel import *
 
 class CpuArrangements:
 
-
-
     def load_a_instruction_in_a_program(self,a_kernel,scheduler,pcb_table,cpu,memory):
         program = Program("SIN-IO")
         a_kernel.set_scheduler(scheduler)

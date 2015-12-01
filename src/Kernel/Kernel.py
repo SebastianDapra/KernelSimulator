@@ -1,16 +1,18 @@
 __author__ = 'luciano'
 
 from src.Cpu.Cpu import *
-from src.PCB.PCBTable import *
+from src.Memory.MemoryManager import *
 from src.Kernel.Program import *
 from src.Scheduler.LongTermScheduler import *
 
 
 class Kernel:
-    def __init__(self, clock):
+    def __init__(self, clock,policy_memory=None):
         self.mode = None
         self.pid = 0
         self.scheduler = None
+        self._fileSystem = self._hdd.generate_file_system()
+        self._memoryManager = MemoryManager(self)
         self.long_term_scheduler = LongTermScheduler()
         self.cpu = Cpu(self)
         self.waiting_queue = []
@@ -18,6 +20,16 @@ class Kernel:
         self.clock = clock
         self.memory_admin = None
         self.interruption_manager = None
+        self.hdd = None
+
+    def set_hdd(self,hdd):
+        self.hdd = hdd
+
+    def set_memory_policy(self,policy):
+        self._memoryManager.set_policy(policy)
+
+    def get_hdd(self):
+        return self.hdd
 
     def set_interruption_manager(self,interruption_manager):
         self.interruption_manager = interruption_manager
