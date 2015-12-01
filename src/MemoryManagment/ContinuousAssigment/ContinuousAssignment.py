@@ -1,5 +1,3 @@
-__author__ = 'luciano'
-
 from src.MemoryManagment.ContinuousAssigment.BlockManager import *
 from src.Memory.PolicyResult import *
 from src.PCB.PCBInfoHolder import BlockHolder

@@ -1,4 +1,3 @@
-__author__ = 'luciano'
 
 '''
 Es candidato a pasar a ser un enum, no???

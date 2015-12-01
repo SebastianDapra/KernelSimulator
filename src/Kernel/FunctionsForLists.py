@@ -1,5 +1,3 @@
-__author__ = 'luciano'
-
 class FunctionsForLists:
 
     @staticmethod

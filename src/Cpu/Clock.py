@@ -1,5 +1,3 @@
-__author__ = 'luciano'
-
 import threading
 from src.Cpu.Interruption import TimeoutInterruption
 

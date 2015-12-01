@@ -1,5 +1,3 @@
-__author__ = 'luciano'
-
 from src.Kernel.FunctionsForLists import *
 from queue import Queue
 

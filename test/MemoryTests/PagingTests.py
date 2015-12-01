@@ -1,7 +1,4 @@
 from src.HDD.HDD import HDD
-
-__author__ = 'luciano'
-
 import unittest
 from src.Memory.Memory import *
 from src.MemoryManagment.Paging.Paging import *

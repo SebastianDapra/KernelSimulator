@@ -1,7 +1,6 @@
-__author__ = 'luciano'
-
 from src.MemoryManagment.Paging.PaginationTable import *
 from src.Kernel.FunctionsForLists import *
+
 
 class FrameManager:
 
@@ -31,6 +30,9 @@ class FrameManager:
         policy_result = self.assign(page)
         self.update_free_frames()
         return policy_result
+
+    def get_frames_of_pcb(self,pcb):
+        self._frames
 
     def __not_used_page(self,pcb_pages):
         return FunctionsForLists.findFirst(lambda p: not p.has_been_used(), pcb_pages)

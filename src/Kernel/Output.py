@@ -1,6 +1,3 @@
-__author__ = 'luciano'
-
-
 class Output:
     def __init__(self):
         self.instructions = []

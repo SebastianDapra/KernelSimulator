@@ -1,6 +1,3 @@
-__author__ = 'luciano'
-
-
 import unittest
 from src.HDD.DriveContainer import *
 from src.HDD.HDD import *

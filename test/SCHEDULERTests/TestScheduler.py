@@ -1,7 +1,4 @@
 from queue import PriorityQueue
-
-__author__ = 'luciano'
-
 import unittest
 from src.Scheduler.Scheduler import *
 from src.PCB.PCB import *
@@ -34,7 +31,7 @@ class TestScheduler(unittest.TestCase):
         self.scheduler.push_to_queue(self.pcb2)
         self.scheduler.push_to_queue(self.pcb3)
         self.scheduler.push_to_queue(self.pcb4)
-        expected_elements = [self.pcb1,self.pcb2,self.pcb3,self.pcb4]
+        expected_elements = [self.pcb1, self.pcb2, self.pcb3, self.pcb4]
         for expected_element in expected_elements:
             self.assertEqual(expected_element, self.scheduler.next_process())
 

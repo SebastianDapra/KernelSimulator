@@ -1,6 +1,3 @@
-__author__ = 'luciano'
-
-
 class Instruction:
 
     def __init__(self, text):
@@ -17,7 +14,7 @@ class Instruction:
         return False
 
     def execute(self):
-        pass
+        print(self.text)
         #self.output.addInstruction(self.text)
 
 
@@ -31,7 +28,7 @@ class InstructionIO:
         return True
 
     def execute(self):
-        pass
+        print(self._text)
 
 
 class InstructionCPU(Instruction):
@@ -43,4 +40,4 @@ class InstructionCPU(Instruction):
         return False
 
     def execute(self):
-        pass
+        print(self._text)

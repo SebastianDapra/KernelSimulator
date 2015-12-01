@@ -1,5 +1,3 @@
-__author__ = 'luciano'
-
 from src.Kernel.Output import *
 
 
@@ -15,9 +13,6 @@ class Program:
 
     def size(self):
         return len(self.instructions)
-
-    def getInstructions(self):
-        return self.instructions
 
     def getElementAt(self, position):
         return self.instructions[position]

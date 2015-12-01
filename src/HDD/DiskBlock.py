@@ -1,5 +1,3 @@
-__author__ = 'luciano'
-
 class DiskBlock:
 
     def __init__(self, data):

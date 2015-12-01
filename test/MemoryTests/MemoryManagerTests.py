@@ -1,5 +1,3 @@
-__author__ = 'luciano'
-
 import unittest
 from src.HDD.HDD import HDD
 from src.PCB.PCB import PCB

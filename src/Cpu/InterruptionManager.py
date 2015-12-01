@@ -1,16 +1,13 @@
 from src.IO.IOManager import IOManager
 
-__author__ = 'luciano'
-
 from src.PCB.ProcessState import *
 from src.PCB.PCB import PCB
 
 
 class InterruptionManager:
 
-    def __init__(self, cpu):
+    def __init__(self):
         self.handlers = []
-        self.cpu = cpu
 
     def register(self, pack):
         self.handlers.append(pack)
@@ -68,10 +65,11 @@ class KillInterruptionManager(InstructionInterruptionManager):
         return pcb.final_position == pcb.pc
 
     def handle_signal(self, pcb, cpu, pcb_table):
-        #super().context_switching(pcb, cpu)
+        super().context_switching(pcb, cpu)
         pcb.state = ProcessState.terminated
         pcb_table.remove(pcb)
         # falta que lo saquen de memoria
+
 
 
 class TimeoutInterruptionManager(InstructionInterruptionManager):
@@ -109,8 +107,10 @@ class NewInterruptionManager(InstructionInterruptionManager):
     def condition_of_applicability(self, pcb, cpu):
         pcb.state.equals(ProcessState.new)
 
-    def handle_signal(self, data_to_create_pcb, pcb_table):
-        return PCB(data_to_create_pcb[0],data_to_create_pcb[1],data_to_create_pcb[2])
+    def handle_signal(self, size,idPcb, pcb_table,holder):
+        pcb = PCB(size,idPcb,holder)
+        pcb_table.add(pcb)
+        return pcb
 
 
 class EndIOInterruptionManager(InstructionInterruptionManager):

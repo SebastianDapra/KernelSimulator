@@ -1,11 +1,13 @@
 class Loader:
 
-    def __init__(self, hdd,logical_memory):
-        self.hdd = hdd
-        self.logical_memory = logical_memory
+    def __init__(self,kernel=None):
+        self.kernel = kernel
+        kernel.set_loader(self)
 
-    def load(self, program):
-        self.logical_memory.load_program(program)
+    def load(self, memory_manager ,program):
+        page_holder = self.kernel.generate_page_holder(program)
+        pcb = self.kernel.create_pcb(program,page_holder)
+        memory_manager.write(pcb)
 
     def remove(self, pcb):
         self.logical_memory.delete_program(pcb)

@@ -1,5 +1,3 @@
-__author__ = 'luciano'
-
 from src.HDD.DiskBlock import *
 from random import randint
 from src.HDD.DriveNavigator import Navigator

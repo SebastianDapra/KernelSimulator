@@ -1,5 +1,3 @@
-__author__ = 'luciano'
-
 import jsonpickle
 from jsonpickle.compat import unicode
 from src.HDD.FileSystemComponents import *
@@ -37,12 +35,12 @@ class HDD:
     def __serialize_file_system(self, file_system):
         self._representation = jsonpickle.encode(file_system)
 
-    def find_page(self, index):
-        page = FunctionsForLists.findFirst(self.__conditions_for_finding_page(index), self._swap_area)
+    def find_page(self, page_index):
+        page = FunctionsForLists.findFirst(self.__conditions_for_finding_page(page_index), self._swap_area)
         return page
 
     def __conditions_for_finding_page(self,index):
-        return lambda aIndex: aIndex.get_index() != index
+        return lambda aIndex: aIndex.get_index() == index
 
     def add_to_swap(self, page):
         self._swap_area.append(page)

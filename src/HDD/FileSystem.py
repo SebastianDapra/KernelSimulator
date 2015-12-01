@@ -1,5 +1,3 @@
-__author__ = 'luciano'
-
 class FileSystem:
 
     def __init__(self, drive_container, main_folder):

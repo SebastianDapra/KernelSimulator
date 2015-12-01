@@ -1,3 +1,4 @@
 1- In handle_signal of KillInterruptionManager the pcb needs to be taken from memory.
 2- In create_pcb of Kernel the implementation should probably be changed by the new implementation of memory.
 3- In is_holding of PCBInfoHolder should be corrected.
+4- Refactor pages of PageHolder. Should be a PaginationTable.

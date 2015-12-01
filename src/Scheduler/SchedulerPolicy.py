@@ -1,6 +1,3 @@
-__author__ = 'luciano'
-
-
 class SchedulerPolicy:
 
     def __init__(self):

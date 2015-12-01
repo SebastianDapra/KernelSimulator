@@ -1,7 +1,4 @@
-__author__ = 'luciano'
-
 from src.Cpu.InterruptionManager import *
-from src.Memory.ToyMemory_Admin import *
 from src.PCB.PCBInfoHolder import BlockHolder
 from test.InterruptionTest.Handler_Loaders import Handle_Loaders
 from test.LoaderTest.ToyProgram import *
@@ -14,7 +11,7 @@ class CpuArrangements:
         program = Program("SIN-IO")
         a_kernel.set_scheduler(scheduler)
         a_kernel.set_pcb_table(pcb_table)
-        interruption_manager = InterruptionManager(cpu)
+        interruption_manager = InterruptionManager()
         a_kernel.set_interruption_manager(interruption_manager)
         load_in_interruption_manager = Handle_Loaders()
         load_in_interruption_manager.load_handlers(self, interruption_manager)
@@ -23,6 +20,8 @@ class CpuArrangements:
         program.addInstruction(instruction)
         self.write_program(program,memory)
         self.setup_load_of_a_program_in_memory(scheduler,pcb_table,cpu,memory,2, program, 1)
+
+
 
     def write_program(self,program,memory):
         pos = 0

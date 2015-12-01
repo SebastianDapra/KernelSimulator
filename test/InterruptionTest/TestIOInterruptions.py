@@ -1,7 +1,4 @@
 from src.Scheduler.Scheduler import Scheduler
-
-__author__ = 'luciano'
-
 import unittest
 from test.InterruptionTest.Handler_Loaders import *
 from src.Kernel.Kernel import *

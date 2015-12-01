@@ -1,5 +1,3 @@
-__author__ = 'luciano'
-
 from src.PCB.ProcessState import *
 from src.PCB.PCBInfoHolder import *
 

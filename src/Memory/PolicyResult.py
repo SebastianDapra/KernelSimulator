@@ -1,6 +1,3 @@
-__author__ = 'luciano'
-
-
 class PolicyResult():
 
     def __init__(self, start_index, end_index):

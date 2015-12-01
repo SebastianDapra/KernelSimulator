@@ -1,9 +1,9 @@
-__author__ = 'luciano'
-
 class FrameBuilder:
+
     @staticmethod
     def crearFrame(index,_starting_index,_ending_index):
         return Frame(index, _starting_index,_ending_index)
+
 
 class Frame:
 

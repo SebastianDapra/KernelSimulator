@@ -1,5 +1,3 @@
-__author__ = 'luciano'
-
 class Page:
 
     def __init__(self, index, starting_index, ending_index, amount_of_instructions):

@@ -1,6 +1,3 @@
-__author__ = 'luciano'
-
-
 import unittest
 from src.Kernel.Loader import *
 from src.Kernel.Program import *

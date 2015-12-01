@@ -1,5 +1,3 @@
-__author__ = 'luciano'
-
 from src.Kernel.FunctionsForLists import *
 
 
@@ -24,8 +22,7 @@ class PageHolder:
         return self._pages[aux].has_been_read(pc)
 
     def instructions(self):
-        blocks = self._program.fetch_blocks()
-        return blocks[self._current].get_data()
+        return self._program.get_instructions()
 
     def current_mem_dir(self):
         return self._pages[self._current].get_real_instruction_number(self._pc)

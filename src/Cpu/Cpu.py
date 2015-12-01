@@ -1,5 +1,3 @@
-__author__ = 'luciano'
-
 from threading import RLock
 from src.Kernel.Output import Output
 from src.Cpu.Interruption import *
@@ -7,10 +5,9 @@ from src.Cpu.Interruption import *
 
 class Cpu:
 
-    def __init__(self, kernel,memory_manager=None):
+    def __init__(self, kernel):
         self.kernel = kernel
         self.output = Output()
-        self.memory_manager = memory_manager
         self.actual_pcb = None
         self.output = None
         self.mutex = RLock()
@@ -27,11 +24,8 @@ class Cpu:
     def scheduler(self):
         return self.kernel.scheduler
 
-    def set_memory_manager(self,memory_admin):
-        self.memory_manager = memory_admin
-
     def fetch_single_instruction(self):
-        return self.memory_manager.get_instruction_of(self.actual_pcb)
+        return self.kernel.memory_manager.get_instruction_of(self.actual_pcb)
 
     def interruption_manager(self):
         return self.kernel.get_interruption_manager()

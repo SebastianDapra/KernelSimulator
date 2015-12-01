@@ -1,8 +1,7 @@
-__author__ = 'luciano'
-
 import jsonpickle
 from src.Kernel.FunctionsForLists import *
 from jsonpickle.compat import unicode
+
 
 class Memory:
 

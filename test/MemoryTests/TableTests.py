@@ -1,6 +1,3 @@
-__author__ = 'luciano'
-
-
 import unittest
 from src.MemoryManagment.Paging.PaginationTable import *
 from src.MemoryManagment.Paging.Frame import *

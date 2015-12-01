@@ -1,7 +1,6 @@
-__author__ = 'luciano'
-
 from src.Instruction.Instruction import *
 from src.Kernel.Program import *
+
 
 class HDDArrangements:
 
@@ -18,7 +17,8 @@ class HDDArrangements:
         self.file_system.add_file("Powerpoint", self.program1)
         hdd.display(self.file_system)
 
-    def load_instructions(self,program,quantity_of_needed_instructions):
+    def load_instructions(self,program, quantity_of_needed_instructions):
             for i in range(1, quantity_of_needed_instructions):
                 program.instructions.append(Instruction("Hooo"))
                 program.instructions.append(Instruction("Booo"))
+                program.instructions.append(InstructionIO())

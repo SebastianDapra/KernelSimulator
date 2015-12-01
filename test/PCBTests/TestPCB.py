@@ -1,5 +1,3 @@
-__author__ = 'luciano'
-
 import unittest
 from src.PCB.PCBTable import *
 from src.PCB.PCB import *

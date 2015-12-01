@@ -1,5 +1,3 @@
-__author__ = 'luciano'
-
 from src.Memory.PolicyResult import *
 from src.Kernel.FunctionsForLists import *
 

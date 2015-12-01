@@ -1,4 +1,3 @@
-__author__ = 'luciano'
 from src.Cpu.Interruption import *
 from src.Cpu.InterruptionManager import *
 

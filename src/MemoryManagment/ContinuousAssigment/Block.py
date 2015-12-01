@@ -1,5 +1,3 @@
-__author__ = 'luciano'
-
 class Block:
 
     def __init__(self, id, startIndex, endIndex):

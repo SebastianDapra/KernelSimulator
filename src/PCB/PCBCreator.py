@@ -1,5 +1,3 @@
-__author__ = 'luciano'
-
 from src.PCB.PCB import *
 
 class PCBCreator :

@@ -1,17 +1,18 @@
-__author__ = 'luciano'
-
 from src.Cpu.Cpu import *
 from src.Memory.MemoryManager import *
 from src.Kernel.Program import *
 from src.Scheduler.LongTermScheduler import *
 from src.PCB.PCBCreator import *
+from src.PCB.PCBTable import *
+
 
 class Kernel:
-    def __init__(self, clock):
+    def __init__(self, clock,loader=None, memory_manager=None):
         self.mode = None
         self.pid = 0
         self.scheduler = None
-        self.memory_admin = MemoryManager(self)
+        self.loader = loader
+        self.memory_manager = memory_manager
         self.interruption_manager = None
         self.hdd = None
         self._fileSystem=None
@@ -19,17 +20,22 @@ class Kernel:
         self.cpu = Cpu(self)
         self._creatorPCB = PCBCreator()
         self.waiting_queue = []
-        self.pcb_table = None
+        self.pcb_table = PCBTable()
         self.clock = clock
+
+    def set_loader(self,loader):
+        self.loader = loader
 
     def genetate_file_system(self):
         self._fileSystem = self.hdd.generate_file_system()
 
     def set_hdd(self,hdd):
         self.hdd = hdd
+        self.memory_manager._hdd = hdd
+
 
     def set_memory_policy(self,policy):
-        self.memory_admin.set_policy(policy)
+        self.memory_manager.set_policy(policy)
 
     def get_hdd(self):
         return self.hdd
@@ -37,8 +43,8 @@ class Kernel:
     def set_interruption_manager(self,interruption_manager):
         self.interruption_manager = interruption_manager
 
-    def set_memory_admin(self, memory_admin):
-        self.memory_admin = memory_admin
+    def set_memory_manager(self, memory_admin):
+        self.memory_manager = memory_admin
 
     def set_pcb_table(self, table):
         self.pcb_table = table
@@ -46,8 +52,8 @@ class Kernel:
     def get_interruption_manager(self):
         return self.interruption_manager
 
-    def memory_admin(self):
-        return self.memory_admin
+    def memory_manager(self):
+        return self.memory_manager
     
     def scheduler(self):
         return self.scheduler
@@ -78,17 +84,23 @@ class Kernel:
     def get_ready_queue(self):
         return self.scheduler.ready_queue
 
-    def execute_itself(self, program_name,priority):
+    def generate_page_holder(self,program):
+        return PageHolder(program)
+
+    def load_process(self,program_name):
+        program = Program(program_name)
+        self.loader.load(self.memory_manager,program)
+
+    def execute_itself(self, program_name):
         print("Running " + program_name + "...")
         program = Program(program_name)
-        self.create_pcb(program, priority)
-        self.scheduler.next_process()
+        pageHolder = PageHolder(program)
+        self.create_pcb(program,pageHolder)
+        self.cpu.run()
 
-    def obtain_instructions(self,program):
-        return [item for sublist in (map(lambda x: x.get_data(), program.fetch_blocks())) for item in sublist]
-
-    def run(self,program_name,priority):
+    def run(self,program_name):
         print("Running " + program_name + "...")
+
         '''
         program = self._fileSystem.get_program(program_name)
         instructions = self.obtain_instructions(program)
@@ -96,7 +108,8 @@ class Kernel:
         self.long_term_scheduler.set_short_term_scheduler(self.scheduler)
         self.long_term_scheduler.add_pcb(pcb)
         '''
-        self.execute_itself(program_name,priority)
+        self.load_process(program_name)
+        #self.execute_itself(program_name)
         print("Finish running " + program_name)
 
     @property
@@ -109,14 +122,15 @@ class Kernel:
         self.mode.manage_interruption_from(signal,pcb)
         self.to_user_mode()
 
-    def create_pcb(self, program, priority):
-        # This would probably change with memory implementation
-        data_to_create_pcb = (program.size(), self.get_pid, priority)
-        pcb = self.interruption_manager.manager_for(NewInterruption).handle_signal(data_to_create_pcb, self.pcb_table)
+    def create_pcb(self, program,pageHolder):
+
+        size = program.size()
+        idPcb = self.get_pid
+        pcb = self.interruption_manager.manager_for(NewInterruption).handle_signal(size,idPcb, self.pcb_table,pageHolder)
         self.pid += 1
-        self.pcb_table.add(pcb)
-        #Agrego en memoria
+        self.memory_manager.write(pcb)
         self.long_term_scheduler.add_pcb(pcb,self.scheduler)
+        return pcb
 
 
 class KernelMode:

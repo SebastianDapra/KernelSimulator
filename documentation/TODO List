@@ -12,3 +12,9 @@
 12- Change old test using toy implementations (for ex Memory and HDD) to one using real ones.
 13- Check usefullness of Handlers Module (Seems to be deleted)
 14- More Unit-Testing for Memory!
+
+15- Le manda el PCB?? O en la interrupcion ya viene el PCB???
+        TODO: Entonces hacer un KILL en cualquier momento de la ejecucion de un proceso,
+        es signal_handler valido y puede hacerse si esta en modo Kernel.
+
+16- Ver TestSchedulerWithRoundRobin, ya que cuando se ejecutan los tests juntos rompe, pero cuando se ejecuta solo no.

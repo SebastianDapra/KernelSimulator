@@ -1,12 +1,10 @@
-__author__ = 'luciano'
-
 import unittest
 from test.InterruptionTest.Handler_Loaders import *
 
 
 class TestInterruptionManager(unittest.TestCase):
     def setUp(self):
-        self.interruption_manager = InterruptionManager(None)
+        self.interruption_manager = InterruptionManager()
         load_in_interruption_manager = Handle_Loaders()
         load_in_interruption_manager.load_handlers(self, self.interruption_manager)
 

@@ -1,5 +1,3 @@
-__author__ = 'luciano'
-
 from src.MemoryManagment.ContinuousAssigment.Block import *
 
 class BlocksManager:

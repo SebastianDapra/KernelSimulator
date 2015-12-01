@@ -1,6 +1,3 @@
-__author__ = 'luciano'
-
-
 import unittest
 from src.MemoryManagment.ContinuousAssigment.CAPolicies import *
 from src.PCB.PCB import *

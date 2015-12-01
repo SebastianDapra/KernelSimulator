@@ -1,7 +1,4 @@
 from src.PCB.PCBTable import PCBTable
-
-__author__ = 'luciano'
-
 from src.Cpu.Cpu import Cpu
 from src.Instruction.Instruction import Instruction, InstructionIO
 from src.Kernel.Kernel import Kernel
@@ -30,7 +27,7 @@ class TestInterruption(unittest.TestCase):
         self.block_holder.set_representation(hold)
         self.pcb = PCB(1, 4, self.block_holder)
         self.cpu.set_actual_pcb(self.pcb)
-        self.interruption_manager = InterruptionManager(self.cpu)
+        self.interruption_manager = InterruptionManager()
         self.kernel.set_interruption_manager(self.interruption_manager)
         load_in_interruption_manager = Handle_Loaders()
         load_in_interruption_manager.load_handlers(self, self.interruption_manager)
