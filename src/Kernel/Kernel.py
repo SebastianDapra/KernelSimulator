@@ -40,9 +40,6 @@ class Kernel:
     def set_memory_admin(self, memory_admin):
         self.memory_admin = memory_admin
 
-    def set_memory_manager(self, mem):
-        self.cpu.set_memory_manager(mem)
-
     def set_pcb_table(self, table):
         self.pcb_table = table
 
@@ -81,7 +78,8 @@ class Kernel:
     def get_ready_queue(self):
         return self.scheduler.ready_queue
 
-    def execute_itself(self, program_name, path, priority):
+    def execute_itself(self, program_name,priority):
+        print("Running " + program_name + "...")
         program = Program(program_name)
         self.create_pcb(program, priority)
         self.scheduler.next
@@ -94,7 +92,9 @@ class Kernel:
         program = self._fileSystem.get_program(program_name)
         instructions = self.obtain_instructions(program)
         pcb = self._creatorPCB.create_pcb(len(instructions), program, self.memory_admin.get_policy().get_info_holder(program))
-        self._long_term_scheduler.init_process(pcb)
+        self.long_term_scheduler.set_short_term_scheduler(self.scheduler)
+        self.long_term_scheduler.add_pcb(pcb)
+        print("Finish running " + program_name)
 
     @property
     def timing(self):
