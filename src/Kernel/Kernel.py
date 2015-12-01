@@ -95,6 +95,7 @@ class Kernel:
         instructions = self.obtain_instructions(program)
         pcb = self._creatorPCB.create_pcb(len(instructions), program, self.memory_admin.get_policy().get_info_holder(program))
         self.long_term_scheduler.add_pcb(pcb,self.scheduler)
+        print("Finish running " + program_name)
 
     @property
     def timing(self):
