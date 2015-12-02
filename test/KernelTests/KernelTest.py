@@ -1,6 +1,6 @@
 import unittest
 
-from src.Cpu.InterruptionManager import *
+from src.Cpu.InterruptionHandler import *
 from src.Memory.Memory import *
 from src.Memory.ToyMemory_Admin import *
 from src.PCB.PCBInfoHolder import BlockHolder
@@ -22,7 +22,7 @@ class TestKernel(unittest.TestCase):
         self.a_kernel = Kernel(None)
         self.pcb_table = PCBTable()
         self.a_kernel.set_pcb_table(self.pcb_table)
-        interruption_manager = InterruptionManager(self.a_kernel.cpu)
+        interruption_manager = InterruptionHandler(self.a_kernel.cpu)
         self.a_kernel.set_interruption_manager(interruption_manager)
         load_in_interruption_manager = Handle_Loaders()
         load_in_interruption_manager.load_handlers(self, interruption_manager)

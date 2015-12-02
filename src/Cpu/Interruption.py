@@ -1,33 +1,9 @@
-
-'''
-Es candidato a pasar a ser un enum, no???
-'''
-
-class Interruption():
-    pass
-
-class KillInterruption(Interruption):
-    pass
-
-class TimeoutInterruption(Interruption):
-    pass
-
-class IOInterruption(Interruption):
-    pass
-
-class NewInterruption(Interruption):
-    pass
-
-class EndIOInterruption(Interruption):
-    pass
-
-class WaitingInterruption(Interruption):
-    pass
-
-'''
-    TimeoutInterruption = 2
-    IOInterruption = 3
-    NewInterruption = 4
-    EndIOInterruption = 5
-    WaitingInterruption = 6
-'''
+class Interruption:
+    def __init__(self, pcb, interruption):
+        self.pcb = pcb
+        Interruption.KILL = 1
+        Interruption.NEW = 2
+        Interruption.TIMEOUT = 3
+        Interruption.IO = 4
+        Interruption.WAITING = 5
+        Interruption.ENDIO = 6

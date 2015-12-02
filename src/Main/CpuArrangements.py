@@ -1,4 +1,4 @@
-from src.Cpu.InterruptionManager import *
+from src.Cpu.InterruptionHandler import *
 from src.PCB.PCBInfoHolder import BlockHolder
 from test.InterruptionTest.Handler_Loaders import Handle_Loaders
 from test.LoaderTest.ToyProgram import *
@@ -11,7 +11,7 @@ class CpuArrangements:
         program = Program("SIN-IO")
         a_kernel.set_scheduler(scheduler)
         a_kernel.set_pcb_table(pcb_table)
-        interruption_manager = InterruptionManager()
+        interruption_manager = InterruptionHandler()
         a_kernel.set_interruption_manager(interruption_manager)
         load_in_interruption_manager = Handle_Loaders()
         load_in_interruption_manager.load_handlers(self, interruption_manager)
@@ -31,7 +31,7 @@ class CpuArrangements:
     def load_a_io_instruction_in_a_program(self,a_kernel,scheduler,pcb_table,cpu,memory):
         program = Program("IO")
         a_kernel.set_scheduler(scheduler)
-        interruption_manager = InterruptionManager(cpu)
+        interruption_manager = InterruptionHandler(cpu)
         load_in_interruption_manager = Handle_Loaders()
         load_in_interruption_manager.load_handlers(interruption_manager)
         a_kernel.set_interruption_manager(interruption_manager)

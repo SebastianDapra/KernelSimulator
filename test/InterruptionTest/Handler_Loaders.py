@@ -1,5 +1,5 @@
 from src.Cpu.Interruption import *
-from src.Cpu.InterruptionManager import *
+from src.Cpu.InterruptionHandler import *
 
 class Handle_Loaders:
 

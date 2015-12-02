@@ -84,8 +84,8 @@ class Kernel:
     def get_ready_queue(self):
         return self.scheduler.ready_queue
 
-    def generate_page_holder(self,program):
-        return PageHolder(program)
+    def generate_page_holder(self):
+        return PageHolder()
 
     def load_process(self,program_name):
         program = Program(program_name)
@@ -94,7 +94,7 @@ class Kernel:
     def execute_itself(self, program_name):
         print("Running " + program_name + "...")
         program = Program(program_name)
-        pageHolder = PageHolder(program)
+        pageHolder = PageHolder()
         self.create_pcb(program,pageHolder)
         self.cpu.run()
 
@@ -122,11 +122,11 @@ class Kernel:
         self.mode.manage_interruption_from(signal,pcb)
         self.to_user_mode()
 
-    def create_pcb(self, program,pageHolder):
+    def create_pcb(self, program, pageHolder):
 
         size = program.size()
         idPcb = self.get_pid
-        pcb = self.interruption_manager.manager_for(NewInterruption).handle_signal(size,idPcb, self.pcb_table,pageHolder)
+        #pcb = self.interruption_manager.manager_for(Interruption()).handle_signal(size,idPcb, self.pcb_table,pageHolder)
         self.pid += 1
         self.memory_manager.write(pcb)
         self.long_term_scheduler.add_pcb(pcb,self.scheduler)

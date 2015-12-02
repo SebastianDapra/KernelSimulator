@@ -27,7 +27,10 @@ class HDD:
         return len(self._sectors.keys())
 
     def generate_file_system(self):
-        return jsonpickle.decode(self._representation)
+        temp = jsonpickle.json.loads(self._representation)
+        temp['_representation._current_directory._files'] = None
+        js = jsonpickle.json.dumps(temp)
+        return jsonpickle.decode(js)
 
     def display(self,file_system):
         self.__serialize_file_system(file_system)

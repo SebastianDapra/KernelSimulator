@@ -15,7 +15,7 @@ class HDDArrangements:
         self.file_system.add_file("Word", self.program1)
         self.file_system.add_file("Excel", self.program1)
         self.file_system.add_file("Powerpoint", self.program1)
-        hdd.display(self.file_system)
+        #hdd.display(self.file_system)
 
     def load_instructions(self,program, quantity_of_needed_instructions):
             for i in range(1, quantity_of_needed_instructions):

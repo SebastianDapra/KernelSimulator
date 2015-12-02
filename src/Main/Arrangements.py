@@ -20,7 +20,7 @@ class Arrangements:
 
 
     def arrange_managers(self,kernel):
-        interruption_manager = InterruptionManager()
+        interruption_manager = InterruptionHandler()
         kernel.set_interruption_manager(interruption_manager)
         load_in_interruption_manager = Handle_Loaders()
         load_in_interruption_manager.load_handlers(self, interruption_manager)

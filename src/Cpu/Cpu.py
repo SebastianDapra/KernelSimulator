@@ -7,9 +7,7 @@ class Cpu:
 
     def __init__(self, kernel):
         self.kernel = kernel
-        self.output = Output()
         self.actual_pcb = None
-        self.output = None
         self.mutex = RLock()
 
     def get_actual_pcb(self):
@@ -17,9 +15,6 @@ class Cpu:
 
     def set_actual_pcb(self, pcb):
         self.actual_pcb = pcb
-
-    def set_output(self,output):
-        self.output = output
 
     def scheduler(self):
         return self.kernel.scheduler
@@ -34,12 +29,12 @@ class Cpu:
         instruction.execute()
         self.actual_pcb.increment()
         if self.actual_pcb.has_finished():
-            self.interruption_manager().manager_for(KillInterruption).handle_signal(self.actual_pcb,self,
-                                                                                  self.kernel.pcb_table)
+            self.interruption_manager().handle(self.actual_pcb, Interruption(self.actual_pcb, Interruption.NEW))#TODO: ARREGLAR!
+            #self.interruption_manager().manager_for(KillInterruption).handle_signal(self.actual_pcb,self,self.kernel.pcb_table)
 
     def run(self):
         with self.mutex:
-            self.set_actual_pcb(self.kernel.scheduler.next_process())
+            self.kernel.scheduler.send_next_to_cpu()
             self.complete_instruction_cycle()
 
     def complete_instruction_cycle(self):
@@ -47,10 +42,6 @@ class Cpu:
         actual_instruction = self.fetch_single_instruction()
 
         if actual_instruction.is_io:
-            self.kernel.signal_handler(IOInterruption, self.actual_pcb)
+            self.kernel.signal_handler(Interruption.IO, self.actual_pcb)
         else:
             self.execute_single_instruction(actual_instruction)
-
-    '''
-    PROX
-    '''
