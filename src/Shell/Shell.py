@@ -1,12 +1,24 @@
-from src.PCB.PCBCreator import PCBCreator
+import cmd
 
 
-class Shell:
-    def __init__(self, prog_loader, pcb_table):
-        self.loader = prog_loader
-        self.pcb_table = pcb_table
-        self.pcb_creator = PCBCreator()
+class Shell(cmd.Cmd):
+    def __init__(self, kernel):
+        super().__init__()
+        self.intro = 'Welcome to the KernelSimulator shell. Type help or ? to list commands.\n'
+        self.prompt = '(>)'
+        self.kernel = kernel
+        self.hdd = kernel.get_hdd()
 
-    def execute_my_program(self, program, m_policy):
-        self.loader.load(program)
-        self.pcb_creator.create_pcb(program.size(), program, m_policy)
+    def do_run(self, name):
+        self.hdd.generate_file_system()
+        for file in self.hdd._representation.get_files():
+
+            if name == file._name:
+                self.kernel.run(file._program_asociated.name)
+                print("Running "+ file._program_asociated.name)
+
+            else:
+                print("Program not found")
+
+    def do_EOF(self, line):
+        return True

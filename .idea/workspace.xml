@@ -2,76 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7c7854bc-a2fe-4957-8d76-5da60467d25a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Shell/Shell.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Shell/__init__.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Memory/LogicalMemory.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Memory/ToyMemory.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Memory/ToyMemory_Admin.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/documentation/Inventory" afterPath="$PROJECT_DIR$/documentation/Inventory" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/documentation/Not working Stuff !!!" afterPath="$PROJECT_DIR$/documentation/Not working Stuff !!!" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/documentation/TODO List" afterPath="$PROJECT_DIR$/documentation/TODO List" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Cpu/Clock.py" afterPath="$PROJECT_DIR$/src/Cpu/Clock.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Cpu/Cpu.py" afterPath="$PROJECT_DIR$/src/Cpu/Cpu.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Cpu/Interruption.py" afterPath="$PROJECT_DIR$/src/Cpu/Interruption.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Cpu/InterruptionManager.py" afterPath="$PROJECT_DIR$/src/Cpu/InterruptionManager.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/HDD/DiskBlock.py" afterPath="$PROJECT_DIR$/src/HDD/DiskBlock.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/HDD/DriveContainer.py" afterPath="$PROJECT_DIR$/src/HDD/DriveContainer.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/HDD/DriveNavigator.py" afterPath="$PROJECT_DIR$/src/HDD/DriveNavigator.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/HDD/FileSystem.py" afterPath="$PROJECT_DIR$/src/HDD/FileSystem.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/HDD/FileSystemComponents.py" afterPath="$PROJECT_DIR$/src/HDD/FileSystemComponents.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/HDD/HDD.py" afterPath="$PROJECT_DIR$/src/HDD/HDD.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Instruction/Instruction.py" afterPath="$PROJECT_DIR$/src/Instruction/Instruction.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Kernel/FunctionsForLists.py" afterPath="$PROJECT_DIR$/src/Kernel/FunctionsForLists.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Kernel/Kernel.py" afterPath="$PROJECT_DIR$/src/Kernel/Kernel.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Kernel/Loader.py" afterPath="$PROJECT_DIR$/src/Kernel/Loader.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Kernel/Output.py" afterPath="$PROJECT_DIR$/src/Kernel/Output.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Kernel/Program.py" afterPath="$PROJECT_DIR$/src/Kernel/Program.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main/Arrangements.py" afterPath="$PROJECT_DIR$/src/Main/Arrangements.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main/CpuArrangements.py" afterPath="$PROJECT_DIR$/src/Main/CpuArrangements.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main/HDDArrangements.py" afterPath="$PROJECT_DIR$/src/Main/HDDArrangements.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main/Main.py" afterPath="$PROJECT_DIR$/src/Main/Main.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Memory/Memory.py" afterPath="$PROJECT_DIR$/src/Memory/Memory.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Memory/MemoryManager.py" afterPath="$PROJECT_DIR$/src/Memory/MemoryManager.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Memory/PolicyResult.py" afterPath="$PROJECT_DIR$/src/Memory/PolicyResult.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MemoryManagment/ContinuousAssigment/Block.py" afterPath="$PROJECT_DIR$/src/MemoryManagment/ContinuousAssigment/Block.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MemoryManagment/ContinuousAssigment/BlockManager.py" afterPath="$PROJECT_DIR$/src/MemoryManagment/ContinuousAssigment/BlockManager.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MemoryManagment/ContinuousAssigment/CAPolicies.py" afterPath="$PROJECT_DIR$/src/MemoryManagment/ContinuousAssigment/CAPolicies.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MemoryManagment/ContinuousAssigment/ContinuousAssignment.py" afterPath="$PROJECT_DIR$/src/MemoryManagment/ContinuousAssigment/ContinuousAssignment.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MemoryManagment/Paging/Frame.py" afterPath="$PROJECT_DIR$/src/MemoryManagment/Paging/Frame.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MemoryManagment/Paging/FrameManager.py" afterPath="$PROJECT_DIR$/src/MemoryManagment/Paging/FrameManager.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MemoryManagment/Paging/Page.py" afterPath="$PROJECT_DIR$/src/MemoryManagment/Paging/Page.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MemoryManagment/Paging/PageCreator.py" afterPath="$PROJECT_DIR$/src/MemoryManagment/Paging/PageCreator.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MemoryManagment/Paging/PaginationTable.py" afterPath="$PROJECT_DIR$/src/MemoryManagment/Paging/PaginationTable.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MemoryManagment/Paging/Paging.py" afterPath="$PROJECT_DIR$/src/MemoryManagment/Paging/Paging.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PCB/PCB.py" afterPath="$PROJECT_DIR$/src/PCB/PCB.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PCB/PCBCreator.py" afterPath="$PROJECT_DIR$/src/PCB/PCBCreator.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PCB/PCBInfoHolder.py" afterPath="$PROJECT_DIR$/src/PCB/PCBInfoHolder.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PCB/PCBTable.py" afterPath="$PROJECT_DIR$/src/PCB/PCBTable.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PCB/ProcessState.py" afterPath="$PROJECT_DIR$/src/PCB/ProcessState.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scheduler/Scheduler.py" afterPath="$PROJECT_DIR$/src/Scheduler/Scheduler.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Scheduler/SchedulerPolicy.py" afterPath="$PROJECT_DIR$/src/Scheduler/SchedulerPolicy.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/CPUTests/TestCPU.py" afterPath="$PROJECT_DIR$/test/CPUTests/TestCPU.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/HDDTests/BlockCreatorTest.py" afterPath="$PROJECT_DIR$/test/HDDTests/BlockCreatorTest.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/HDDTests/FileSystemComponentsTests.py" afterPath="$PROJECT_DIR$/test/HDDTests/FileSystemComponentsTests.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/HDDTests/HDDTest.py" afterPath="$PROJECT_DIR$/test/HDDTests/HDDTest.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/InterruptionTest/Handler_Loaders.py" afterPath="$PROJECT_DIR$/test/InterruptionTest/Handler_Loaders.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/InterruptionTest/TestIOInterruptions.py" afterPath="$PROJECT_DIR$/test/InterruptionTest/TestIOInterruptions.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/InterruptionTest/TestInterruptionManager.py" afterPath="$PROJECT_DIR$/test/InterruptionTest/TestInterruptionManager.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/InterruptionTest/TestInterruptions.py" afterPath="$PROJECT_DIR$/test/InterruptionTest/TestInterruptions.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/LoaderTest/TestLoader.py" afterPath="$PROJECT_DIR$/test/LoaderTest/TestLoader.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/MemoryTests/BlockTests.py" afterPath="$PROJECT_DIR$/test/MemoryTests/BlockTests.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/MemoryTests/CAPolicies.py" afterPath="$PROJECT_DIR$/test/MemoryTests/CAPolicies.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/MemoryTests/ContinuousAssignmentTests.py" afterPath="$PROJECT_DIR$/test/MemoryTests/ContinuousAssignmentTests.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/MemoryTests/FrameManagerTests.py" afterPath="$PROJECT_DIR$/test/MemoryTests/FrameManagerTests.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/MemoryTests/MemoryManagerTests.py" afterPath="$PROJECT_DIR$/test/MemoryTests/MemoryManagerTests.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/MemoryTests/MemoryTests.py" afterPath="$PROJECT_DIR$/test/MemoryTests/MemoryTests.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/MemoryTests/PageCreatorTests.py" afterPath="$PROJECT_DIR$/test/MemoryTests/PageCreatorTests.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/MemoryTests/PagingTests.py" afterPath="$PROJECT_DIR$/test/MemoryTests/PagingTests.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/MemoryTests/TableTests.py" afterPath="$PROJECT_DIR$/test/MemoryTests/TableTests.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/PCBTests/TestPCB.py" afterPath="$PROJECT_DIR$/test/PCBTests/TestPCB.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/SCHEDULERTests/TestInteractionsCpuScheduler.py" afterPath="$PROJECT_DIR$/test/SCHEDULERTests/TestInteractionsCpuScheduler.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/SCHEDULERTests/TestScheduler.py" afterPath="$PROJECT_DIR$/test/SCHEDULERTests/TestScheduler.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Shell/Shell.py" afterPath="$PROJECT_DIR$/src/Shell/Shell.py" />
     </list>
     <ignored path="KernelSimulator.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -132,7 +66,7 @@
     <SUITE FILE_PATH="coverage/KernelSimulator$Unittests_in_PagingTest.coverage" NAME="Unittests in PagingTest Coverage Results" MODIFIED="1448644460820" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/MemoryTests" />
     <SUITE FILE_PATH="coverage/KernelSimulator$Unittests_in_TestCPUWithClock.coverage" NAME="Unittests in TestCPUWithClock Coverage Results" MODIFIED="1448999342422" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/CPUTests" />
     <SUITE FILE_PATH="coverage/KernelSimulator$Unittests_in_KernelTest.coverage" NAME="Unittests in KernelTest Coverage Results" MODIFIED="1448644032487" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/KernelTests" />
-    <SUITE FILE_PATH="coverage/KernelSimulator$Main.coverage" NAME="Main Coverage Results" MODIFIED="1449005103106" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/Main" />
+    <SUITE FILE_PATH="coverage/KernelSimulator$Main.coverage" NAME="Main Coverage Results" MODIFIED="1449027922916" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/Main" />
     <SUITE FILE_PATH="coverage/KernelSimulator$Unittests_in_TestKernel.coverage" NAME="Unittests in TestKernel Coverage Results" MODIFIED="1448578000719" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/KernelTests" />
     <SUITE FILE_PATH="coverage/KernelSimulator$Unittest_FrameManagerTest_test_whenAllFramesAreUsedAndPCBAssignsOneMorePage_ThenTheYoungestFrameGetsEmpty.coverage" NAME="Unittest FrameManagerTest.test_whenAllFramesAreUsedAndPCBAssignsOneMorePage_ThenTheYoungestFrameGetsEmpty Coverage Results" MODIFIED="1448652539561" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/MemoryTests" />
     <SUITE FILE_PATH="coverage/KernelSimulator$Unittests_in_TestLoader.coverage" NAME="Unittests in TestLoader Coverage Results" MODIFIED="1448578325094" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test/LoaderTest" />
@@ -169,7 +103,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/MemoryManagment/ContinuousAssigment/CAPolicies.py" />
         <option value="$PROJECT_DIR$/src/MemoryManagment/ContinuousAssigment/ContinuousAssignment.py" />
         <option value="$PROJECT_DIR$/src/MemoryManagment/Paging/Frame.py" />
         <option value="$PROJECT_DIR$/src/MemoryManagment/Paging/Page.py" />
@@ -197,11 +130,8 @@
         <option value="$PROJECT_DIR$/test/SCHEDULERTests/TestScheduler.py" />
         <option value="$PROJECT_DIR$/src/Scheduler/Scheduler.py" />
         <option value="$PROJECT_DIR$/documentation/TODO List" />
-        <option value="$PROJECT_DIR$/src/Shell/Shell.py" />
         <option value="$PROJECT_DIR$/src/MemoryManagment/Paging/PageCreator.py" />
-        <option value="$PROJECT_DIR$/src/HDD/HDD.py" />
         <option value="$PROJECT_DIR$/src/Kernel/Program.py" />
-        <option value="$PROJECT_DIR$/src/Main/HDDArrangements.py" />
         <option value="$PROJECT_DIR$/src/Instruction/Instruction.py" />
         <option value="$PROJECT_DIR$/test/CPUTests/TestCPU.py" />
         <option value="$PROJECT_DIR$/documentation/Not working Stuff !!!" />
@@ -214,12 +144,16 @@
         <option value="$PROJECT_DIR$/src/PCB/PCBTable.py" />
         <option value="$PROJECT_DIR$/src/PCB/PCB.py" />
         <option value="$PROJECT_DIR$/src/PCB/PCBInfoHolder.py" />
-        <option value="$PROJECT_DIR$/src/Main/Main.py" />
         <option value="$PROJECT_DIR$/src/Kernel/Loader.py" />
         <option value="$PROJECT_DIR$/src/MemoryManagment/Paging/Paging.py" />
         <option value="$PROJECT_DIR$/src/Memory/MemoryManager.py" />
         <option value="$PROJECT_DIR$/src/Cpu/InterruptionManager.py" />
         <option value="$PROJECT_DIR$/src/Kernel/Kernel.py" />
+        <option value="$PROJECT_DIR$/src/HDD/FileSystemComponents.py" />
+        <option value="$PROJECT_DIR$/src/HDD/HDD.py" />
+        <option value="$PROJECT_DIR$/src/Main/HDDArrangements.py" />
+        <option value="$PROJECT_DIR$/src/Main/Main.py" />
+        <option value="$PROJECT_DIR$/src/Shell/Shell.py" />
       </list>
     </option>
   </component>
@@ -261,9 +195,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Project Files" />
-      </pane>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -292,175 +224,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KernelSimulator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KernelSimulator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PCBTests" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KernelSimulator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KernelSimulator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MemoryTests" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KernelSimulator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KernelSimulator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="InterruptionTest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KernelSimulator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KernelSimulator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CPUTests" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KernelSimulator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KernelSimulator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KernelSimulator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KernelSimulator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PCB" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KernelSimulator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KernelSimulator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MemoryManagment" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Paging" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KernelSimulator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KernelSimulator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MemoryManagment" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KernelSimulator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KernelSimulator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Memory" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope">
+        <subPane subId="Project Files" />
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -907,7 +679,13 @@
       <option name="project" value="LOCAL" />
       <updated>1448983479735</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="All refactors">
+      <created>1449006616397</created>
+      <option name="number" value="00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1449006616397</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -950,7 +728,6 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960325" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32858595" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21464904" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21566632" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -965,6 +742,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32858595" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -990,7 +768,8 @@
     <MESSAGE value="PageCreator refactor" />
     <MESSAGE value="Added MainCPU for trying threads" />
     <MESSAGE value="Added file Inventory" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added file Inventory" />
+    <MESSAGE value="All refactors" />
+    <option name="LAST_COMMIT_MESSAGE" value="All refactors" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -999,43 +778,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/test/MemoryTests/MemoryTests.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/MemoryTests/PageCreatorTests.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/MemoryTests/PagingTests.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.019916143">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/MemoryTests/TableTests.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/PCBTests/TestPCB.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1043,9 +789,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#15#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1053,7 +796,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1061,7 +803,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.8962264">
           <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1069,7 +810,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4865229">
           <caret line="19" column="118" selection-start-line="19" selection-start-column="118" selection-end-line="19" selection-end-column="118" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1077,9 +817,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.61590296">
           <caret line="89" column="37" selection-start-line="89" selection-start-column="37" selection-end-line="89" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#42#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1087,25 +824,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5377358">
           <caret line="33" column="72" selection-start-line="33" selection-start-column="72" selection-end-line="33" selection-end-column="72" />
-          <folding>
-            <element signature="e#0#31#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Shell/Shell.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="70" selection-start-line="11" selection-start-column="70" selection-end-line="11" selection-end-column="70" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/HDD/HDD.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="42" column="50" selection-start-line="42" selection-start-column="50" selection-end-line="42" selection-end-column="50" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1113,9 +831,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="23" column="31" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1123,7 +838,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.48787063">
           <caret line="37" column="8" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1131,7 +845,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.12803234">
           <caret line="7" column="30" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1139,7 +852,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.12803234">
           <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1147,7 +859,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="14" column="37" selection-start-line="14" selection-start-column="37" selection-end-line="14" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1155,15 +866,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main/HDDArrangements.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.12803234">
-          <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1171,7 +873,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.019916143">
           <caret line="1" column="26" selection-start-line="1" selection-start-column="26" selection-end-line="1" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1179,7 +880,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.17924528">
           <caret line="7" column="48" selection-start-line="7" selection-start-column="48" selection-end-line="7" selection-end-column="48" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1187,9 +887,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1197,9 +894,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1207,19 +901,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/HDDTests/HDDTest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1227,9 +908,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1237,9 +915,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1247,9 +922,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#34#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1257,9 +929,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="6" column="56" selection-start-line="6" selection-start-column="56" selection-end-line="6" selection-end-column="56" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1267,9 +936,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5178197">
           <caret line="26" column="51" selection-start-line="26" selection-start-column="51" selection-end-line="26" selection-end-column="51" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1277,7 +943,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.33153638">
           <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1285,9 +950,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.56469005">
           <caret line="24" column="18" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1295,7 +957,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1303,7 +964,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="41" selection-start-line="0" selection-start-column="41" selection-end-line="0" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1311,7 +971,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.38409704">
           <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1319,7 +978,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1327,7 +985,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="49" column="45" selection-start-line="49" selection-start-column="45" selection-end-line="49" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1335,17 +992,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main/Arrangements.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="27" column="8" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1353,9 +999,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="27" column="55" selection-start-line="27" selection-start-column="55" selection-end-line="27" selection-end-column="55" />
-          <folding>
-            <element signature="e#0#27#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1363,7 +1006,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1371,17 +1013,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="26" column="23" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Cpu/InterruptionManager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="109" column="56" selection-start-line="109" selection-start-column="56" selection-end-line="109" selection-end-column="56" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1389,25 +1020,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main/Main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="8" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Kernel/Kernel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35849056">
-          <caret line="101" column="48" selection-start-line="101" selection-start-column="48" selection-end-line="101" selection-end-column="48" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1415,7 +1027,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3342318">
           <caret line="31" column="8" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1423,7 +1034,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.20485175">
           <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1431,7 +1041,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3328841">
           <caret line="15" column="53" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="53" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1439,6 +1048,101 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3328841">
           <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/HDDTests/HDDTest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2389937">
+          <caret line="15" column="29" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HDD/DriveContainer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.29874215">
+          <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HDD/FileSystemComponents.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7610063">
+          <caret line="56" column="41" selection-start-line="56" selection-start-column="41" selection-end-line="56" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HDD/FileSystem.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.21907757">
+          <caret line="11" column="43" selection-start-line="11" selection-start-column="43" selection-end-line="11" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Kernel/Kernel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.87061995">
+          <caret line="39" column="8" selection-start-line="39" selection-start-column="8" selection-end-line="39" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main/HDDArrangements.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15363881">
+          <caret line="7" column="53" selection-start-line="7" selection-start-column="53" selection-end-line="7" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main/Arrangements.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.79514825">
+          <caret line="40" column="38" selection-start-line="40" selection-start-column="38" selection-end-line="40" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HDD/HDD.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15363881">
+          <caret line="11" column="55" selection-start-line="11" selection-start-column="55" selection-end-line="11" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Cpu/InterruptionManager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6671159">
+          <caret line="133" column="8" selection-start-line="133" selection-start-column="8" selection-end-line="133" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python3.4/cmd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.87061995">
+          <caret line="105" column="0" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Shell/Shell.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="10" selection-start-line="0" selection-start-column="10" selection-end-line="0" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main/Main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.059748426">
+          <caret line="7" column="9" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="10" />
           <folding />
         </state>
       </provider>

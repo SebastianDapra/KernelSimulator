@@ -2,6 +2,7 @@ from src.Kernel.Loader import Loader
 from src.Main.Arrangements import *
 from src.HDD.HDD import *
 from src.Scheduler.Scheduler import *
+from src.Shell.Shell import Shell
 
 
 class Main:
@@ -23,9 +24,10 @@ class Main:
         self.arrangements.arrange_kernel(self.kernel,self.scheduler, self.hdd)
 
     def run_example(self):
-        self.kernel.run("Word")
-        self.kernel.run("Excel")
-        self.kernel.run("Powerpoint")
+        #self.kernel.run("Word")
+        #self.kernel.run("Excel")
+        #self.kernel.run("Powerpoint")
+        Shell(self.kernel).cmdloop()
 
 if __name__ == '__main__':
     Main().run_example()
