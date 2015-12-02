@@ -23,7 +23,7 @@ class Cpu:
         return self.kernel.memory_manager.get_instruction_of(self.actual_pcb)
 
     def interruption_manager(self):
-        return self.kernel.get_interruption_manager()
+        return self.kernel.get_interruption_handler()
 
     def execute_single_instruction(self,instruction):
         instruction.execute()
@@ -33,7 +33,6 @@ class Cpu:
             #self.interruption_manager().manager_for(KillInterruption).handle_signal(self.actual_pcb,self,self.kernel.pcb_table)
 
     def run(self):
-        with self.mutex:
             self.kernel.scheduler.send_next_to_cpu()
             self.complete_instruction_cycle()
 
@@ -42,6 +41,6 @@ class Cpu:
         actual_instruction = self.fetch_single_instruction()
 
         if actual_instruction.is_io:
-            self.kernel.signal_handler(Interruption.IO, self.actual_pcb)
+            self.kernel.send_signal(Interruption.IO, self.actual_pcb)
         else:
             self.execute_single_instruction(actual_instruction)

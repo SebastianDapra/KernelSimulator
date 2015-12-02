@@ -13,7 +13,7 @@ class Kernel:
         self.scheduler = None
         self.loader = loader
         self.memory_manager = memory_manager
-        self.interruption_manager = None
+        self.interruption_handler = None
         self.hdd = None
         self._fileSystem=None
         self.long_term_scheduler = LongTermScheduler()
@@ -33,15 +33,11 @@ class Kernel:
         self.hdd = hdd
         self.memory_manager._hdd = hdd
 
-
-    def set_memory_policy(self,policy):
-        self.memory_manager.set_policy(policy)
-
     def get_hdd(self):
         return self.hdd
 
-    def set_interruption_manager(self,interruption_manager):
-        self.interruption_manager = interruption_manager
+    def set_interruption_handler(self, interruption_manager):
+        self.interruption_handler = interruption_manager
 
     def set_memory_manager(self, memory_admin):
         self.memory_manager = memory_admin
@@ -49,8 +45,8 @@ class Kernel:
     def set_pcb_table(self, table):
         self.pcb_table = table
 
-    def get_interruption_manager(self):
-        return self.interruption_manager
+    def get_interruption_handler(self):
+        return self.interruption_handler
 
     def memory_manager(self):
         return self.memory_manager
@@ -63,9 +59,6 @@ class Kernel:
 
     def set_default_kernel_mode(self):
         self.to_user_mode()
-        
-    def add_handlers(self,pack):
-        self.interruption_manager.register(pack)
 
     def to_kernel_mode(self):
         self.mode = KernelMode(self)
@@ -76,9 +69,6 @@ class Kernel:
     @property
     def get_pid(self):
         return self.pid
-
-    def set_scheduler_policy(self):
-        self.scheduler.set_as_fifo
 
     @property
     def get_ready_queue(self):
@@ -112,12 +102,8 @@ class Kernel:
         #self.execute_itself(program_name)
         print("Finish running " + program_name)
 
-    @property
-    def timing(self):
-        self.clock.tick()
-
     # Signal should make process execution changed
-    def signal_handler(self, signal, pcb):
+    def send_signal(self, signal, pcb):
         self.to_kernel_mode()
         self.mode.manage_interruption_from(signal,pcb)
         self.to_user_mode()
@@ -144,10 +130,8 @@ class KernelMode:
         self.kernel = kernel
 
     def manage_interruption_from(self,interruption,pcb):
-        self.manager_for(interruption).handle_signal(pcb,self.kernel.cpu,self.kernel.pcb_table)
-
-    def manager_for(self,interruption):
-        return self.kernel.interruption_manager.manager_for(interruption)
+        #self.manager_for(interruption).handle_signal(pcb,self.kernel.cpu,self.kernel.pcb_table)
+        self.kernel.interruption_handler.handle(interruption, pcb)
 
 
 class UserMode:

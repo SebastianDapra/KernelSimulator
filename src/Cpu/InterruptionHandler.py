@@ -7,34 +7,17 @@ from src.PCB.PCB import PCB
 class InterruptionHandler:
 
     def __init__(self, manager):
-        self.handlers = []
         self.manager = manager
 
-    def register(self, pack):
-        self.handlers.append(pack)
-
-    def manager_for(self, a_interruption):
-        for handler in self.handlers:
-            if handler[0] == a_interruption:
-                return handler[1]
-        #return self.handlers.get(a_interruption)
-
-
-    '''
-        Le manda el PCB?? O en la interrupcion ya viene el PCB???
-        ---
-        TODO: Entonces hacer un KILL en cualquier momento de la ejecucion de un proceso,
-        es signal_handler valido y puede hacerse si esta en modo Kernel.
-
-
-    '''
+    def handle(self, pcb, interruption):
+        raise NotImplementedError
 
 
 class KillInterruptionHandler(InterruptionHandler):
     def __init__(self):
         super().__init__()
 
-    def condition_of_applicability(self, pcb, cpu):
+    def condition_of_applicability(self, pcb):
         return pcb.final_position == pcb.pc
 
     def handle(self, pcb, interruption):
@@ -44,7 +27,7 @@ class TimeoutInterruptionHandler(InterruptionHandler):
     def __init__(self):
         super().__init__()
 
-    def condition_of_applicability(self, pcb, cpu):
+    def condition_of_applicability(self, pcb):
         return True
 
     def handle(self, pcb, interruption):
@@ -56,7 +39,7 @@ class IOInterruptionHandler(InterruptionHandler):
     def __init__(self):
         super().__init__()
 
-    def condition_of_applicability(self, pcb, cpu):
+    def condition_of_applicability(self, pcb):
         return pcb.next_instruction.is_io
 
     def handle(self, pcb, interruption):
@@ -79,7 +62,7 @@ class EndIOInterruptionHandler(InterruptionHandler):
         super().__init__()
         self.io_manager = IOManager()
 
-    def condition_of_applicability(self, pcb, cpu):
+    def condition_of_applicability(self, pcb):
         pcb.state.equals(ProcessState.waiting)
 
     def handle(self, pcb, interruption):
@@ -92,7 +75,7 @@ class WaitingInterruptionHandler(InterruptionHandler):
     def __init__(self):
         super().__init__()
 
-    def condition_of_applicability(self, pcb, cpu):
+    def condition_of_applicability(self, pcb):
         return True
 
     def handle(self, pcb, interruption):

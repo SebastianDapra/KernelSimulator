@@ -2,25 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7c7854bc-a2fe-4957-8d76-5da60467d25a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Cpu/Manager.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/Helpers/TestHelper.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/Helpers/__init__.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Cpu/InterruptionManager.py" afterPath="$PROJECT_DIR$/src/Cpu/InterruptionHandler.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Cpu/Clock.py" afterPath="$PROJECT_DIR$/src/Cpu/Clock.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Cpu/Cpu.py" afterPath="$PROJECT_DIR$/src/Cpu/Cpu.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Cpu/Interruption.py" afterPath="$PROJECT_DIR$/src/Cpu/Interruption.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Cpu/InterruptionHandler.py" afterPath="$PROJECT_DIR$/src/Cpu/InterruptionHandler.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Cpu/MainCPU.py" afterPath="$PROJECT_DIR$/src/Cpu/MainCPU.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/HDD/HDD.py" afterPath="$PROJECT_DIR$/src/HDD/HDD.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/IO/IOManager.py" afterPath="$PROJECT_DIR$/src/IO/IOManager.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Cpu/Manager.py" afterPath="$PROJECT_DIR$/src/Cpu/Manager.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Kernel/Kernel.py" afterPath="$PROJECT_DIR$/src/Kernel/Kernel.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Kernel/Loader.py" afterPath="$PROJECT_DIR$/src/Kernel/Loader.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main/Arrangements.py" afterPath="$PROJECT_DIR$/src/Main/Arrangements.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main/CpuArrangements.py" afterPath="$PROJECT_DIR$/src/Main/CpuArrangements.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main/HDDArrangements.py" afterPath="$PROJECT_DIR$/src/Main/HDDArrangements.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PCB/PCBInfoHolder.py" afterPath="$PROJECT_DIR$/src/PCB/PCBInfoHolder.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Shell/Shell.py" afterPath="$PROJECT_DIR$/src/Shell/Shell.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/CPUTests/TestCPU.py" afterPath="$PROJECT_DIR$/test/CPUTests/TestCPU.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/InterruptionTest/Handler_Loaders.py" afterPath="$PROJECT_DIR$/test/InterruptionTest/Handler_Loaders.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/Helpers/TestHelper.py" afterPath="$PROJECT_DIR$/test/Helpers/TestHelper.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/InterruptionTest/TestIOInterruptions.py" afterPath="$PROJECT_DIR$/test/InterruptionTest/TestIOInterruptions.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/InterruptionTest/TestInterruptionManager.py" afterPath="$PROJECT_DIR$/test/InterruptionTest/TestInterruptionManager.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/InterruptionTest/TestInterruptions.py" afterPath="$PROJECT_DIR$/test/InterruptionTest/TestInterruptions.py" />
@@ -122,7 +114,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/PCB/ProcessState.py" />
         <option value="$PROJECT_DIR$/src/Scheduler/SchedulerPolicy.py" />
         <option value="$PROJECT_DIR$/test/HDDTests/BlockCreatorTest.py" />
         <option value="$PROJECT_DIR$/test/HDDTests/FileSystemComponentsTests.py" />
@@ -147,7 +138,6 @@
         <option value="$PROJECT_DIR$/src/Kernel/Program.py" />
         <option value="$PROJECT_DIR$/src/Instruction/Instruction.py" />
         <option value="$PROJECT_DIR$/documentation/Not working Stuff !!!" />
-        <option value="$PROJECT_DIR$/test/InterruptionTest/TestInterruptionManager.py" />
         <option value="$PROJECT_DIR$/test/InterruptionTest/TestInterruptions.py" />
         <option value="$PROJECT_DIR$/src/MemoryManagment/Paging/FrameManager.py" />
         <option value="$PROJECT_DIR$/src/Main/Arrangements.py" />
@@ -161,18 +151,20 @@
         <option value="$PROJECT_DIR$/src/Main/HDDArrangements.py" />
         <option value="$PROJECT_DIR$/src/Shell/Shell.py" />
         <option value="$PROJECT_DIR$/src/HDD/HDD.py" />
-        <option value="$PROJECT_DIR$/test/Helpers/TestHelper.py" />
         <option value="$PROJECT_DIR$/test/CPUTests/TestCPU.py" />
         <option value="$PROJECT_DIR$/src/Cpu/InterruptionManager.py" />
-        <option value="$PROJECT_DIR$/src/Cpu/Interruption.py" />
         <option value="$PROJECT_DIR$/src/Scheduler/Scheduler.py" />
         <option value="$PROJECT_DIR$/src/IO/IOManager.py" />
         <option value="$PROJECT_DIR$/src/PCB/PCBInfoHolder.py" />
-        <option value="$PROJECT_DIR$/src/Kernel/Kernel.py" />
         <option value="$PROJECT_DIR$/src/Kernel/Loader.py" />
-        <option value="$PROJECT_DIR$/src/Cpu/Manager.py" />
-        <option value="$PROJECT_DIR$/src/Cpu/InterruptionHandler.py" />
         <option value="$PROJECT_DIR$/src/Cpu/Cpu.py" />
+        <option value="$PROJECT_DIR$/src/Cpu/Clock.py" />
+        <option value="$PROJECT_DIR$/test/InterruptionTest/TestInterruptionManager.py" />
+        <option value="$PROJECT_DIR$/test/Helpers/TestHelper.py" />
+        <option value="$PROJECT_DIR$/src/Cpu/Interruption.py" />
+        <option value="$PROJECT_DIR$/src/Cpu/InterruptionHandler.py" />
+        <option value="$PROJECT_DIR$/src/Cpu/Manager.py" />
+        <option value="$PROJECT_DIR$/src/Kernel/Kernel.py" />
       </list>
     </option>
   </component>
@@ -214,10 +206,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Project Files" />
-      </pane>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -237,6 +225,10 @@
             </PATH_ELEMENT>
           </PATH>
         </subPane>
+      </pane>
+      <pane id="Scratches" />
+      <pane id="Scope">
+        <subPane subId="Project Files" />
       </pane>
     </panes>
   </component>
@@ -696,7 +688,13 @@
       <option name="project" value="LOCAL" />
       <updated>1449028078307</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Almost fixed the problem of managers and handlers.">
+      <created>1449085892971</created>
+      <option name="number" value="00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1449085892971</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -739,22 +737,22 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960325" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32858595" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21464904" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21566632" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.50356054" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39979655" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21566632" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32858595" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39979655" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -781,7 +779,8 @@
     <MESSAGE value="Added file Inventory" />
     <MESSAGE value="All refactors" />
     <MESSAGE value="Shell working, but with a problem in the representation of the HDD (with jsonpickle)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Shell working, but with a problem in the representation of the HDD (with jsonpickle)" />
+    <MESSAGE value="Almost fixed the problem of managers and handlers." />
+    <option name="LAST_COMMIT_MESSAGE" value="Almost fixed the problem of managers and handlers." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -790,27 +789,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Memory/Memory.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48787063">
-          <caret line="37" column="8" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Kernel/Program.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="37" selection-start-line="14" selection-start-column="37" selection-end-line="14" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Instruction/Instruction.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/documentation/Inventory">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.019916143">
@@ -867,24 +845,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/InterruptionTest/TestInterruptionManager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="56" selection-start-line="6" selection-start-column="56" selection-end-line="6" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/MemoryManagment/Paging/Frame.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.33153638">
           <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/InterruptionTest/TestInterruptions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.56469005">
-          <caret line="24" column="18" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -1011,7 +975,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="12" column="49" selection-start-line="12" selection-start-column="49" selection-end-line="12" selection-end-column="49" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1034,7 +997,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.059748426">
           <caret line="7" column="9" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1042,7 +1004,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.61455524">
           <caret line="24" column="54" selection-start-line="24" selection-start-column="54" selection-end-line="24" selection-end-column="54" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1050,17 +1011,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="25" column="56" selection-start-line="25" selection-start-column="56" selection-end-line="25" selection-end-column="56" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/Helpers/TestHelper.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="67" column="56" selection-start-line="67" selection-start-column="56" selection-end-line="67" selection-end-column="56" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1068,7 +1018,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3328841">
           <caret line="34" column="8" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1076,15 +1025,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/IO/IOManager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17924528">
-          <caret line="9" column="47" selection-start-line="9" selection-start-column="47" selection-end-line="9" selection-end-column="47" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1092,7 +1032,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.12803234">
           <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1104,19 +1043,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Kernel/Kernel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="86" column="35" selection-start-line="86" selection-start-column="35" selection-end-line="86" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/PCB/PCBTable.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.051212937">
           <caret line="2" column="8" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1124,25 +1054,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.25606468">
           <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Cpu/Manager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6657682">
-          <caret line="35" column="69" selection-start-line="35" selection-start-column="69" selection-end-line="35" selection-end-column="69" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Cpu/Interruption.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.025606468">
-          <caret line="1" column="40" selection-start-line="1" selection-start-column="40" selection-end-line="1" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1151,23 +1062,109 @@
         <state vertical-scroll-proportion="0.46091643">
           <caret line="18" column="33" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
           <folding>
-            <element signature="e#0#42#0" expanded="true" />
+            <element signature="e#0#42#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Cpu/Clock.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.278826">
+          <caret line="14" column="46" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
+          <folding>
+            <element signature="e#0#16#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/IO/IOManager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2389937">
+          <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/Helpers/TestHelper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.975891">
+          <caret line="60" column="31" selection-start-line="60" selection-start-column="31" selection-end-line="60" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/InterruptionTest/TestInterruptions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.278826">
+          <caret line="24" column="18" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/InterruptionTest/TestInterruptionManager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3385744">
+          <caret line="18" column="24" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Cpu/Interruption.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15932915">
+          <caret line="8" column="35" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Cpu/MainCPU.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5377358">
+          <caret line="27" column="35" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Cpu/Manager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="39" column="24" selection-start-line="39" selection-start-column="24" selection-end-line="39" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Kernel/Kernel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="70" column="23" selection-start-line="70" selection-start-column="23" selection-end-line="70" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Cpu/InterruptionHandler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9474394">
-          <caret line="40" column="49" selection-start-line="40" selection-start-column="49" selection-end-line="40" selection-end-column="49" />
+        <state vertical-scroll-proportion="1.4737946">
+          <caret line="77" column="44" selection-start-line="77" selection-start-column="44" selection-end-line="77" selection-end-column="44" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Cpu/Cpu.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7425876">
-          <caret line="31" column="128" selection-start-line="31" selection-start-column="128" selection-end-line="31" selection-end-column="128" />
+        <state vertical-scroll-proportion="0.8165618">
+          <caret line="43" column="30" selection-start-line="43" selection-start-column="30" selection-end-line="43" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Instruction/Instruction.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3186583">
+          <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
           <folding />
         </state>
       </provider>

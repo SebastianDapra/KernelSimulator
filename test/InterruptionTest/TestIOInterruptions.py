@@ -15,7 +15,7 @@ class TestIOInterruption(unittest.TestCase):
         self.kernel.scheduler = Scheduler(None)
         self.kernel.scheduler.set_as_fifo()
         self.interruption_manager = InterruptionHandler(self.kernel.cpu)
-        self.kernel.set_interruption_manager(self.interruption_manager)
+        self.kernel.set_interruption_handler(self.interruption_manager)
         load_in_interruption_manager = Handle_Loaders()
         load_in_interruption_manager.load_handlers(self, self.interruption_manager)
         self.memory = ToyMemory()

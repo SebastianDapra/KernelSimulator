@@ -23,7 +23,7 @@ class TestKernel(unittest.TestCase):
         self.pcb_table = PCBTable()
         self.a_kernel.set_pcb_table(self.pcb_table)
         interruption_manager = InterruptionHandler(self.a_kernel.cpu)
-        self.a_kernel.set_interruption_manager(interruption_manager)
+        self.a_kernel.set_interruption_handler(interruption_manager)
         load_in_interruption_manager = Handle_Loaders()
         load_in_interruption_manager.load_handlers(self, interruption_manager)
 

@@ -7,7 +7,7 @@ class Manager:
         self._scheduler = scheduler or None
         self.pcb_table = pcb_table or None
         self.memory_manager = memory_manager or None
-        self.io_manager = IOManager()
+        self.io_manager = IOManager() or None
 
     def manage(self, pcb, interruption):
         if interruption == interruption.KILL:
@@ -37,15 +37,10 @@ class Manager:
             pcb.state = ProcessState.ready
 
     def context_switching(self, pcb):
-        print("Ejecute"+self.__str__())
+        print("Ejecute" + self.__str__())
 
         next_pcb = self._scheduler.next_process()
         next_pcb.state = ProcessState.running
-        '''
-            Y como conoce el CPU al prox PCB a ejecutar?
-            La CPU mantiene su PCB actual
-        '''
-        #cpu.read_burst_instruction(next_pcb)
 
     def remove_from_pcb_table(self, pcb):
         self.pcb_table.remove(pcb)
