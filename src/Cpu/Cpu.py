@@ -1,7 +1,6 @@
 from threading import RLock
 
-from src.Kernel.Kernel import KernelMode
-from src.Kernel.Output import Output
+from src.Kernel.Kernel import *
 from src.Cpu.Interruption import *
 
 
@@ -35,12 +34,13 @@ class Cpu:
             #self.interruption_manager().manager_for(KillInterruption).handle_signal(self.actual_pcb,self,self.kernel.pcb_table)
 
     def run(self):
+        with self.mutex:
             self.kernel.scheduler.send_next_to_cpu()
             self.complete_instruction_cycle()
 
     def complete_instruction_cycle(self):
 
-        while self.kernel.mode == KernelMode():
+        while self.kernel.mode == KernelMode(self.kernel):
 
             actual_instruction = self.fetch_single_instruction()
 
