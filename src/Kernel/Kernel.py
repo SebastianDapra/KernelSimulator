@@ -129,7 +129,7 @@ class KernelMode:
     def __init__(self,kernel):
         self.kernel = kernel
 
-    def manage_interruption_from(self,interruption,pcb):
+    def manage_interruption_from(self, interruption, pcb):
         #self.manager_for(interruption).handle_signal(pcb,self.kernel.cpu,self.kernel.pcb_table)
         self.kernel.interruption_handler.handle(interruption, pcb)
 
