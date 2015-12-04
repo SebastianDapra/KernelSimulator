@@ -13,6 +13,7 @@ from test.InterruptionTest.Handler_Loaders import Handle_Loaders
 class TestCPU(unittest.TestCase):
     def setUp(self):
         self.helper = Helper()
+        self.cpu = self.helper.cpu
 
     def test_given_pcb_when_cpu_complete_instruction_cycle_then_the_Manager_captures_interruption(self):
         '''

@@ -1,6 +1,8 @@
 from src.Kernel.Loader import Loader
 from src.Main.Arrangements import *
 from src.HDD.HDD import *
+from src.Memory.Memory import Memory
+from src.Memory.MemoryManager import MemoryManager
 from src.Scheduler.Scheduler import *
 from src.Shell.Shell import Shell
 

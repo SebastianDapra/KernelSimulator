@@ -46,9 +46,6 @@ class FifoPolicy:
     def __init__(self, ready_queue):
         self.readyQueue = ready_queue
 
-    def get_readyQueue(self):
-        return self.readyQueue
-
     def next_process(self):
         return self.readyQueue.get(0)
 

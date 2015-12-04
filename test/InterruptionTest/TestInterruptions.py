@@ -1,10 +1,10 @@
+from src.Memory.Memory import Memory
+from src.Memory.MemoryManager import MemoryManager
 from src.PCB.PCBTable import PCBTable
 from src.Cpu.Cpu import Cpu
 from src.Instruction.Instruction import Instruction, InstructionIO
 from src.Kernel.Kernel import Kernel
 from src.Kernel.Program import Program
-from src.Memory.ToyMemory import ToyMemory
-from src.Memory.ToyMemory_Admin import ToyMemoryAdmin
 from src.PCB.PCBInfoHolder import BlockHolder
 from src.Scheduler.Scheduler import Scheduler
 import unittest
@@ -27,18 +27,15 @@ class TestInterruption(unittest.TestCase):
         self.block_holder.set_representation(hold)
         self.pcb = PCB(1, 4, self.block_holder)
         self.cpu.set_actual_pcb(self.pcb)
-        self.interruption_manager = InterruptionHandler()
-        self.kernel.set_interruption_handler(self.interruption_manager)
-        load_in_interruption_manager = Handle_Loaders()
-        load_in_interruption_manager.load_handlers(self, self.interruption_manager)
+        self.interruption_handler = InterruptionHandler()
+        self.kernel.set_interruption_handler(self.interruption_handler)
         #self.new_interruption = NewInterruptionManager()
 
-        self.memory = ToyMemory()
-        self.memory_manager = ToyMemoryAdmin(self.memory)
+        self.memory = Memory(50)
+        self.memory_manager = MemoryManager()
         self.cpu.set_memory_manager(self.memory_manager)
 
     def test_when_new_process_is_created_and_handler_loaded_then_the_pid_is_increased_and_the_pcb_is_added_to_pcb_table(self):
-        self.kernel.create_pcb(self.program, 1)
         self.assertEqual(self.kernel.pid, 1)
         self.assertEqual(len(self.kernel.pcb_table.pcbs), 1)
 

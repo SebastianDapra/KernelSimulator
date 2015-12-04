@@ -1,9 +1,11 @@
+from src.Cpu.Cpu import Cpu
 from src.Cpu.Manager import Manager
 from src.IO.IODevice import IODevice
 from src.Main.CpuArrangements import *
 from src.Main.HDDArrangements import *
 from src.Kernel.Kernel import *
 from src.Cpu.Clock import *
+from src.MemoryManagment.Paging.Paging import Paging
 from src.PCB.PCBTable import *
 
 
