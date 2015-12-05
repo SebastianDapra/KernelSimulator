@@ -21,8 +21,11 @@ class MemoryManager:
             self.get_policy().assign_to_memory(pcb)
 
         else:
-            #deberia cargar en disco
+            #TODO: deberia cargar en disco
             pass
+
+    def remove_instruction(self, pcb, pc):
+        self._policy.remove(pcb, pc)#TODO: IMPLEMENTAR!
 
     def get_instruction_of(self,pcb):
         return self.pcb.get_information().current_mem_dir()

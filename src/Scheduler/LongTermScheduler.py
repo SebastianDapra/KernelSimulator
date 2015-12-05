@@ -1,15 +1,11 @@
-from src.PCB import ProcessState
-
-
 class LongTermScheduler:
 
-
-    def __init__(self,short_term_scheduler=None, memory_manager=None):
-        self.short_term_scheduler = short_term_scheduler
-        self.memory_manager = memory_manager
+    def __init__(self,short_term_scheduler, memory_manager):
+        self.short_term_scheduler = short_term_scheduler or None
+        self.memory_manager = memory_manager or None
         self.waiting_queue = []
 
-    def set_short_term_scheduler(self,scheduler):
+    def set_short_term_scheduler(self, scheduler):
         self.short_term_scheduler = scheduler
 
     def send_pcb_to_sts(self, a_short_scheduler):
@@ -22,31 +18,33 @@ class LongTermScheduler:
             hacer el state con enum ?
 
             '''
-            a_short_scheduler.push_to_queue(first_pcb)
+            a_short_scheduler.add_pcb(first_pcb)
 
-    def handle_pcb(self, pcb, a_short_scheduler):
+        else:
+            pass #TODO: Espera de pcbs nuevos.
+
+    def handle_pcb(self, pcb):
         self.waiting_queue.insert(0, pcb)
-        if a_short_scheduler.not_full():
-            self.send_pcb_to_sts(a_short_scheduler)
-
-    def add_pcb(self,pcb,scheduler):
+        if self.short_term_scheduler.not_full():
+            self.send_pcb_to_sts(self.short_term_scheduler)
+    '''
+    def add_pcb(self, pcb, scheduler):
         pcb.set_state(1)
         scheduler.policy.add_pcb(pcb)
-
-
+    '''
 
     def init_process(self, pcb):
-        if self._memory_manager.can_serve(pcb):
-            self._memory_manager.write(pcb)
-            self._shortTermS.add(pcb)
+        if self.memory_manager.can_serve(pcb):
+            self.memory_manager.write(pcb)
+            self.short_term_scheduler.add_pcb(pcb)
         else:
-            self._waitingPrograms.append(pcb)
+            self.waiting_queue.append(pcb)
 
     def init_pending_process(self, process_size):
-       pcb = next(i for i in self._waitingPrograms if i.get_amount_of_instructions is process_size)
-       begin = self._memory_manager.write(pcb)
+       pcb = next(i for i in self.waiting_queue if i.get_amount_of_instructions is process_size)
+       begin = self.memory_manager.write(pcb)
        pcb.set_start_instruction(begin)
-       self._shortTermS.add(pcb)
+       self.short_term_scheduler.add_pcb(pcb)
 
     def amount_programs_waiting(self):
-        return len(self._waitingPrograms)
+        return len(self.waiting_queue)

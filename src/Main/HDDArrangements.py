@@ -19,6 +19,6 @@ class HDDArrangements:
 
     def load_instructions(self,program, quantity_of_needed_instructions):
             for i in range(1, quantity_of_needed_instructions):
-                program.instructions.append(Instruction("Hooo"))
-                program.instructions.append(Instruction("Booo"))
-                program.instructions.append(InstructionIO())
+                program.instructions.append(InstructionProgram("Hooo"))
+                program.instructions.append(InstructionProgram("Booo"))
+                program.instructions.append(InstructionIO("Teclado"))

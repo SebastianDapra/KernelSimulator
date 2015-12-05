@@ -43,7 +43,7 @@ class Cpu:
 
             actual_instruction = self.fetch_single_instruction()
 
-            if actual_instruction.is_io:
+            if actual_instruction.is_io():
                 self.kernel.send_signal(Interruption(self.actual_pcb, Interruption.IO), self.actual_pcb)
             else:
                 self.execute_single_instruction(actual_instruction)

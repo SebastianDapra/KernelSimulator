@@ -1,4 +1,4 @@
-class Instruction:
+class Instruction: #TODO: VER Y ENTENDER EL PATRON COMMAND
 
     def __init__(self, text):
         self.text = text
@@ -9,35 +9,32 @@ class Instruction:
     def text(self):
         return self.text
 
-    @property
     def is_io(self):
-        return False
+        raise NotImplementedError
 
     def execute(self):
         print(self.text)
-        #self.output.addInstruction(self.text)
 
 
-class InstructionIO:
+class InstructionIO(Instruction):
 
-    def __init__(self):
-        self._text = "This is an IO Instruction"
+    def __init__(self, text):
+        super().__init__(text)
 
-    @property
     def is_io(self):
         return True
 
     def execute(self):
-        print(self._text)
+        super().execute()
 
 
-class InstructionCPU(Instruction):
+class InstructionProgram(Instruction):
 
-    def __init__(self):
-        self._text = "This is a CPU Instruction"
+    def __init__(self, text):
+        super().__init__(text)
 
-    def isIO(self):
+    def is_io(self):
         return False
 
     def execute(self):
-        print(self._text)
+        super().execute()

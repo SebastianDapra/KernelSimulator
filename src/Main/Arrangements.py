@@ -20,7 +20,6 @@ class Arrangements:
         clock = Clock(cpu)
         kernel.clock = clock
 
-
     def arrange_handlers(self, kernel, scheduler, pcb_table, memory_manager):
         manager = Manager(scheduler, pcb_table, memory_manager)
         interruption_handler = InterruptionHandler(manager)
@@ -32,8 +31,8 @@ class Arrangements:
         kernel.genetate_file_system()
         self.arrange_handlers(kernel, scheduler, kernel.pcb_table, kernel.memory_manager)
 
-    def arrange_memory(self,kernel,memory,hdd):
-        memory_policy = Paging(memory,2, hdd)
+    def arrange_memory(self, kernel, memory, hdd):
+        memory_policy = Paging(memory, 2, hdd)
         kernel.memory_manager.set_policy(memory_policy)
         #memory_manager = MemoryManager(hdd,memory_policy)
         #kernel.set_memory_manager(memory_manager)

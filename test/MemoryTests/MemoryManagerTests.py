@@ -15,7 +15,7 @@ class MemoryManagerTest(unittest.TestCase):
         self.hdd = HDD(10)
         self.fs = self.hdd.generate_file_system()
         self.instruction1 = InstructionIO()
-        self.instruction2 = InstructionCPU()
+        self.instruction2 = InstructionProgram()
         self.instruction3 = InstructionIO()
         self.instructionsForMonkeyIsland = [self.instruction1, self.instruction2]
         self.instructionForManiacManson = [self.instruction1, self.instruction2, self.instruction3]

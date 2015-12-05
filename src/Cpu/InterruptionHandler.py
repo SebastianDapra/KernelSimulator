@@ -1,13 +1,10 @@
-from src.IO.IOManager import IOManager
-
 from src.PCB.ProcessState import *
-from src.PCB.PCB import PCB
 
 
 class InterruptionHandler:
 
     def __init__(self, manager):
-        self.manager = manager
+        self.manager = manager or None
 
     def handle(self, interruption):
         raise NotImplementedError
@@ -40,7 +37,7 @@ class IOInterruptionHandler(InterruptionHandler):
         super().__init__()
 
     def condition_of_applicability(self, pcb):
-        return pcb.next_instruction.is_io
+        return pcb.next_instruction.is_io()
 
     def handle(self, interruption):
         super().manager.manage(interruption.pcb, interruption)
@@ -60,7 +57,6 @@ class NewInterruptionHandler(InterruptionHandler):
 class EndIOInterruptionHandler(InterruptionHandler):
     def __init__(self):
         super().__init__()
-        self.io_manager = IOManager()
 
     def condition_of_applicability(self, pcb):
         pcb.state.equals(ProcessState.waiting)

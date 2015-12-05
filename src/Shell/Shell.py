@@ -10,14 +10,18 @@ class Shell(cmd.Cmd):
         self.hdd = kernel.get_hdd()
 
     def do_run(self, name):
-        for file in self.hdd._representation.list_files():
+        for file in self.hdd.generate_file_system().list_files():
 
             if name == file._name:
-                self.kernel.run(file._program_asociated.name)
-                print("Running "+ file._program_asociated.name)
+                self.kernel.run(name)
+                return print("Running "+ name)
 
             else:
-                print("Program not found")
+                return print("Program not found")
 
     def do_EOF(self, line):
-        return True
+        return self.do_exit(line)
+
+    def do_exit(self, args):
+        """Exits from the console"""
+        return -1

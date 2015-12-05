@@ -15,9 +15,9 @@ class Kernel:
         self.interruption_handler = None
         self.hdd = None
         self._fileSystem = None
-        self.long_term_scheduler = LongTermScheduler()
+        self.long_term_scheduler = LongTermScheduler(self.scheduler, self.memory_manager)
         self.cpu = cpu
-        self._creatorPCB = PCBCreator()
+        #self._creatorPCB = PCBCreator()
         self.pcb_table = PCBTable()
         self.clock = Clock(self.cpu) or None
 
