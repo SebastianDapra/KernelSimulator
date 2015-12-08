@@ -25,7 +25,7 @@ class CpuArrangements:
 
     def write_program(self,program,memory):
         pos = 0
-        for instruction in program.get_instructions():
+        for instruction in program.obtain_instructions():
             memory.put(pos,instruction)
 
     def load_a_io_instruction_in_a_program(self,a_kernel,scheduler,pcb_table,cpu,memory):

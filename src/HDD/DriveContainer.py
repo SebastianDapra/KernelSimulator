@@ -17,7 +17,7 @@ class DriveContainer:
         return [instructions[x:x+10] for x in range(0, len(instructions), 10)]
 
     def save_to_hdd(self, instructions):
-        sector = randint(1, self._hdd.sectors_size())
-        block_index_list = FunctionsForLists.mapList(lambda inst: self._hdd.add_block(sector, inst), self.convert_into_blocks(instructions))
-        return Navigator(self._hdd, sector, block_index_list)
+        choosed_sector = randint(1, self._hdd.sectors_size())
+        block_index_list = list(map(lambda inst: self._hdd.add_block(choosed_sector, inst), self.convert_into_blocks(instructions)))
+        return Navigator(self._hdd, choosed_sector, block_index_list)
 

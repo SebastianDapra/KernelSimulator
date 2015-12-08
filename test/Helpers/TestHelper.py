@@ -54,7 +54,7 @@ class Helper:
 
     def write_program(self,program,memory):
         pos = 0
-        for instruction in program.get_instructions():
+        for instruction in program.obtain_instructions():
             memory.put(pos,instruction)
 
     def setup_load_of_a_program_in_memory(self, amount_instructions, program, pcb_id):

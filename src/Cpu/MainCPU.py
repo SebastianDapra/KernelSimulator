@@ -43,7 +43,7 @@ class Main(Thread):
 
     def write_program(self,program,memory):
         pos = 0
-        for instruction in program.get_instructions():
+        for instruction in program.obtain_instructions():
             memory.put(pos,instruction)
 
 

@@ -10,7 +10,7 @@ class Shell(cmd.Cmd):
         self.hdd = kernel.get_hdd()
 
     def do_run(self, name):
-        for file in self.hdd.generate_file_system().list_files():
+        for file in self.hdd.generate_file_system().list_files_in_current():
 
             if name == file._name:
                 self.kernel.run(name)

@@ -29,7 +29,7 @@ class TestKernel(unittest.TestCase):
 
     def write_program(self,program,memory):
         pos = 0
-        for instruction in program.get_instructions():
+        for instruction in program.obtain_instructions():
             memory.put(pos,instruction)
 
     def load_a_instruction_in_a_program(self):

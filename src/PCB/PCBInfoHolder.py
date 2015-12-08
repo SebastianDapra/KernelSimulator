@@ -22,7 +22,7 @@ class PageHolder:
         return self._pages[aux].has_been_read(pc)
 
     def instructions(self):
-        return self._program.get_instructions()
+        return self._program.obtain_instructions()
 
     def current_mem_dir(self):
         return self._pages[self._current].get_real_instruction_number(self._pc)
@@ -63,7 +63,7 @@ class BlockHolder:
         return self.instructions().__len__()
 
     def instructions(self):
-        instructions = FunctionsForLists.mapList(lambda b: b.get_data(), self._program.fetch_blocks())
+        instructions = FunctionsForLists.mapList(lambda b: b.obtain_instructions(), self._program.fetch_blocks())
 
         return [item for sublist in instructions for item in sublist]
 

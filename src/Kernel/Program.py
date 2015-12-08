@@ -3,9 +3,9 @@ from src.Kernel.Output import *
 
 class Program:
 
-    def __init__(self, name, instructions=None):
+    def __init__(self, name, instructions=[]):
         self.name = name
-        self.instructions = []
+        self.instructions = instructions
         self.output = Output()
 
     def addInstruction(self, instruction):

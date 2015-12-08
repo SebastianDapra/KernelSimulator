@@ -1,28 +1,38 @@
 from src.Cpu.Clock import Clock
+from src.Cpu.Cpu import Cpu
+from src.Kernel.Loader import Loader
 from src.Kernel.Program import *
 from src.Scheduler.LongTermScheduler import *
 from src.PCB.PCBCreator import *
 from src.PCB.PCBTable import *
+from src.Scheduler.Scheduler import Scheduler
 
+'''
+NOTA: NO ESTOY USANDO EL LOADER PARA NADA ....
+'''
 
 class Kernel:
-    def __init__(self, cpu, loader=None, memory_manager=None):
-        self.mode = None
+    def __init__(self, clock, memory_manager=None, hdd= None):
+        self.mode = UserMode(self)
         self.pid = 0
-        self.scheduler = None
-        self.loader = loader
+        self.scheduler = Scheduler()
+        self.loader = Loader(self)
         self.memory_manager = memory_manager
         self.interruption_handler = None
-        self.hdd = None
+        self.hdd = hdd
         self._fileSystem = None
         self.long_term_scheduler = LongTermScheduler(self.scheduler, self.memory_manager)
-        self.cpu = cpu
-        #self._creatorPCB = PCBCreator()
+        self.cpu = Cpu(self)
+        self._creatorPCB = PCBCreator()
+        self.waiting_queue = []
         self.pcb_table = PCBTable()
-        self.clock = Clock(self.cpu) or None
+        self.clock = clock
 
     def set_loader(self,loader):
         self.loader = loader
+
+    def set_long_term_scheduler(self):
+        self.long_term_scheduler = LongTermScheduler(self.scheduler,self.memory_manager)
 
     def genetate_file_system(self):
         self._fileSystem = self.hdd.generate_file_system()
@@ -30,6 +40,9 @@ class Kernel:
     def set_hdd(self,hdd):
         self.hdd = hdd
         self.memory_manager._hdd = hdd
+        '''
+        Is this last line necesssary?
+        '''
 
     def get_hdd(self):
         return self.hdd
@@ -76,27 +89,43 @@ class Kernel:
         return PageHolder()
 
     def load_process(self,program_name):
+        #traer programa de disco ...
         program = Program(program_name)
-        self.loader.load(self.memory_manager,program)
-    '''
+        self.loader.load(self.memory_manager,program,self.hdd)
+
     def execute_itself(self, program_name):
         print("Running " + program_name + "...")
         program = Program(program_name)
         pageHolder = PageHolder()
         self.create_pcb(program,pageHolder)
         self.cpu.run()
-    '''
+
 
     def run(self,program_name):
         print("Running " + program_name + "...")
         self.load_process(program_name)
         print("Finish running " + program_name)
 
+    def alternative_run(self,program_name):
+        print("Running " + program_name + "...")
+        program_file = self._fileSystem.get_program(program_name)
+        instructions = self.obtain_instructions(program_file)
+        pcb = self._creatorPCB.create_pcb(len(instructions),self.memory_manager.get_policy().get_info_holder(program_file))
+        self.long_term_scheduler.initiate_process(pcb)
+
+    def obtain_instructions(self,program_file):
+        return [item for sublist in  self.list_of_blocks(program_file) for item in sublist]
+
+
+    def list_of_blocks(self,program_file):
+        return list(map(lambda  diskBlock: diskBlock.get_instructions(), program_file.fetch_blocks()))
+
     # Signal should make process execution changed
     def send_signal(self, signal, pcb):
         self.to_kernel_mode()
         self.mode.manage_interruption_from(signal, pcb)
         self.to_user_mode()
+
 
 
 class KernelMode:

@@ -15,7 +15,7 @@ class MemoryManager:
     def write(self, pcb):
         policy_result = self._policy.assign_to_memory(pcb)
         aux = policy_result.get_start_index()
-        instructions = pcb.get_instructions()
+        instructions = pcb.obtain_instructions()
 
         if self.can_serve(pcb):
             self.get_policy().assign_to_memory(pcb)

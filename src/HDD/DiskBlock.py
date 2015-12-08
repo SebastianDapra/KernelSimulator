@@ -6,7 +6,7 @@ class DiskBlock:
     def __len__(self):
         return len(self._instructions)
 
-    def get_data(self):
+    def get_instructions(self):
         return self._instructions
 
 

@@ -20,5 +20,5 @@ class TestHDD(unittest.TestCase):
         fs.add_file("a word file", self.program1)
         self.hdd.display(fs)
         otherFs = self.hdd.generate_file_system()
-        amount_of_folders = len(otherFs.list_files())
+        amount_of_folders = len(otherFs.list_files_in_current())
         self.assertEquals(amount_of_folders, 1, "Should have 1 file")

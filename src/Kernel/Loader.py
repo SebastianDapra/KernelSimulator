@@ -18,4 +18,4 @@ class Loader:
         self.pcb_table.remove(pcb)
 
     def get_instructions(self,program):
-        return self.hdd.get_instructions(program)
+        return self.hdd.obtain_instructions(program)
