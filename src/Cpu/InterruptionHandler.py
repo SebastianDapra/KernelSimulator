@@ -7,7 +7,7 @@ class InterruptionHandler:
         self.manager = manager or None
 
     def handle(self, interruption):
-        raise NotImplementedError
+        raise NotImplementedError("Abstract")
 
 
 class KillInterruptionHandler(InterruptionHandler):
