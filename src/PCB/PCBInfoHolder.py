@@ -3,12 +3,12 @@ from src.Kernel.FunctionsForLists import *
 
 class PageHolder:
 
-    def __init__(self):
+    def __init__(self,program):
         self._pc = 0
         self._pages = []
         self._current = 0
         self._policy_result = None
-        #self._program = program
+        self._program = program
 
     def increment(self):
         self._pc += 1
@@ -32,6 +32,9 @@ class PageHolder:
 
     def get_representation(self):
         return self._pages
+
+    def get_program_name(self):
+        self._program.name()
 
     def is_holding(self):
         '''

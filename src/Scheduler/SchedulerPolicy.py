@@ -1,11 +1,12 @@
+from queue import PriorityQueue
+
 from src.Kernel.FunctionsForLists import FunctionsForLists
 from src.Scheduler.Scheduler import Scheduler
 
 
-class SchedulerPolicy(Scheduler):
+class SchedulerPolicy:
 
     def __init__(self, scheduler):
-        super().__init__()
         self.scheduler = scheduler
     '''
     def push_to_queue(self, sts, pcb):
@@ -16,7 +17,7 @@ class SchedulerPolicy(Scheduler):
         self.scheduler.add_pcb(pcb)
 
     def next_process(self):
-        self.scheduler.next_process()
+        return self.scheduler.next_process()
     '''
     def send_next_to_cpu(self, scheduler):
         if self.__satisfy_conditions_of_sending(scheduler):
@@ -50,12 +51,13 @@ class PriorityPolicy(SchedulerPolicy):
 
     def __init__(self, scheduler):
         super().__init__(scheduler)
+        self.priority_queue = PriorityQueue()
 
     def add_pcb(self, pcb): #TODO: VER TEMA PRIORIDADES DEL PCB AL AGREGAR PCB.
-        super().add_pcb(pcb)
+        self.priority_queue._put(pcb)
 
     def next_process(self):
-        super().next_process()
+        self.priority_queue._get()
 
     def increase_pcbs_priority(self):
         self.ready_queue = FunctionsForLists.mapList((lambda x: x.increase_priority), self.ready_queue)
@@ -97,8 +99,8 @@ class RoundRobinPolicy(SchedulerPolicy):
         super().add_pcb(pcb)
 
     def next_process(self):
-        super().next_process()
         self.send_signal()
+        return super().next_process()
 
     def send_signal(self): #TODO: VER
         if self.is_time_out():

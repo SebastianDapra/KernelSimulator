@@ -4,10 +4,10 @@ from src.PCB.PCBInfoHolder import *
 
 class PCB:
 
-    def __init__(self, amount_instructions, pid, information_about_process):
+    def __init__(self,pid, amount_instructions,  information_about_process,priority=PCBPriorities.LOW):
         self._id = pid
         self._amountInstructions = amount_instructions
-        self.priority = None
+        self.priority = priority
         self.information_about_process = information_about_process
         self.state = None
 
@@ -30,7 +30,7 @@ class PCB:
         return self.get_pages_assigned()[page_number]
 
     def get_program_name(self):
-        return self.program_name
+        return self.information_about_process.get_program_name()
 
     def get_pc(self):
         return self.information_about_process.current_mem_dir()
@@ -61,9 +61,9 @@ class PCB:
 
     def increase_priority(self):
         if self.priority == 3:
-            self.priority = PCBPriorities().get_priorities().MEDIUM
+            self.priority = PCBPriorities.MEDIUM
         elif self.priority == 2:
-            self.priority = PCBPriorities().get_priorities().HIGH
+            self.priority = PCBPriorities.HIGH
 
     def __cmp__(self, another_pcb):
         return self.priority.__cmp__(another_pcb)
@@ -83,12 +83,10 @@ class PCB:
 
 class PCBPriorities:
 
+    HIGH = 1
+    MEDIUM = 2
+    LOW = 3
+
     def __init__(self):
-        self._priorities = self.enum(HIGH=1, MEDIUM=2, LOW=3)
-
-    def get_priorities(self):
-        return self._priorities
-
-    def enum(self, **enums):
-        return type('Enum', (), enums)
+        pass
 

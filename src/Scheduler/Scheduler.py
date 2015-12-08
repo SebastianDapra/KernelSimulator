@@ -1,20 +1,20 @@
 from src.Kernel.FunctionsForLists import *
-from queue import Queue
+from queue import Queue, LifoQueue
 
 
 class Scheduler:
 
-    def __init__(self, ready_queue_size=50):
-        self.ready_queue = Queue() or None
-        self.ready_queue_size = ready_queue_size
+    def __init__(self):
+        self.ready_queue = Queue(50)
         self.cpu = None
 
     def set_cpu(self, cpu):
         self.cpu = cpu
 
+    '''
     def not_full(self):
         return self.ready_queue_size > self.ready_queue.__len__()
-    '''
+
     def push_to_queue(self, pcb):
         self.policy.add_pcb(pcb)
     '''
@@ -23,7 +23,7 @@ class Scheduler:
         self.ready_queue.put(pcb)
 
     def next_process(self):
-        return self.readyQueue.get(0)
+        return self.ready_queue.get()
 
     def send_next_to_cpu(self):
         self.cpu.set_actual_pcb(self.next_process())
@@ -31,6 +31,9 @@ class Scheduler:
     def ask_cpu_for_space(self):
         if self.cpu.pcb is None:
             self.send_next_to_cpu()
+
+    def set_ready_queue(self, queue):
+        self.ready_queue = queue
     '''
     def set_as_fifo(self):
         self.policy = FifoPolicy(self.ready_queue)
