@@ -1,5 +1,6 @@
 from src.Memory.Memory import Memory
 from src.Memory.MemoryManager import MemoryManager
+from src.PCB.PCB import PCB
 from src.PCB.PCBTable import PCBTable
 from src.Cpu.Cpu import Cpu
 from src.Instruction.Instruction import Instruction, InstructionIO

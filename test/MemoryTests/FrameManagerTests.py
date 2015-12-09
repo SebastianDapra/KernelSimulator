@@ -20,7 +20,7 @@ class FrameManagerTest(unittest.TestCase):
         self.hdd = HDD(50)
         self.frame_manager = FrameManager(self.frames, self.hdd)
         self.page_creator = PageCreator()
-        self.pcb = PCB(0, 20, pageHolder)
+        self.pcb = PCB(0, 30, pageHolder)
         self.page_creator.create(self.pcb, 5)
 
     def test_whenIAssignAPCBTheFirstTime_ThenFrameManagerUsesTheFirstFrame(self):
@@ -46,6 +46,7 @@ class FrameManagerTest(unittest.TestCase):
         # Pages
         first_pcb_page = self.pcb.get_page_assigned_by_number(0)
         second_pcb_page = self.pcb.get_page_assigned_by_number(1)
+        assert (second_pcb_page != None)
         third_pcb_page = self.pcb.get_page_assigned_by_number(2)
         forth_pcb_page = self.pcb.get_page_assigned_by_number(3)
         fifth_pcb_page = self.pcb.get_page_assigned_by_number(4)

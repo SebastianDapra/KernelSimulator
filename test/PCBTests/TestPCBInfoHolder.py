@@ -1,7 +1,8 @@
 import unittest
+from src.Instruction.Instruction import Instruction
 
 from src.Kernel.Program import Program
-from src.PCB.PCBTable import *
+from src.MemoryManagment.Paging.PageCreator import PageCreator
 from src.PCB.PCB import *
 
 
@@ -9,16 +10,16 @@ class TestPCBInfoHolder(unittest.TestCase):
 
     def setUp(self):
         self.program = Program("AProgram")
-        self.program.addInstruction("Hola")
-        self.program.addInstruction("Chau")
-        info_unit = [0, 1]
-        self.block_holder = BlockHolder(self.program)
-        self.block_holder.set_representation(info_unit)
-        self.pcb1 = PCB(2, 1, self.block_holder)
+        self.program.addInstruction(Instruction("Hola"))
+        self.program.addInstruction(Instruction("Chau"))
+        self.page_holder = PageHolder(self.program)
+        self.pcb = PCB(0, 2, self.page_holder)
+        self.page_creator = PageCreator(1)
+        self.page_creator.create(self.pcb,1)
 
-    def test_current_memory_dir(self):
-        self.assertEqual(0, self.block_holder.current_mem_dir())
+    def test_pcb_ni_idea(self):
+        self.assertEqual(2, len(self.pcb.get_pages()))
 
     def test_i_increment_my_pc_and_ask_if_has_finished(self):
-        self.block_holder.increment()
-        self.assertTrue(self.block_holder.has_finished())
+        self.page_holder.increment()
+        self.assertTrue(self.page_holder.has_finished())

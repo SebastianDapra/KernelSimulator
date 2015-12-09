@@ -7,17 +7,13 @@ class TestPCB(unittest.TestCase):
 
     def setUp(self):
         self.pcb_table = PCBTable()
-        self.pcb1 = PCB(3, 5, 4)
-        self.pcb2 = PCB(8, 10, 3)
-        self.pcb3 = PCB(20, 30, 5)
 
-        self.pcb_table.add(self.pcb1)
-        self.pcb_table.add(self.pcb2)
-        self.pcb_table.add(self.pcb3)
+    '''
+    Test involving PCBs
+    '''
 
-    def test_add(self):
-        self.assertEqual(3, self.pcb_table.size())
+    def test_when_pcb_is_created_then_it_is_add_to_pcb_table_with_state_new(self):
+        pass
 
-    def test_remove(self):
-        self.pcb_table.remove(self.pcb2)
-        self.assertEqual(2, self.pcb_table.size())
+    def test_when_execution_finishes_pcb_state_pcb_is_deleted_from_table(self):
+        pass
