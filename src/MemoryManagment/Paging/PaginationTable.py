@@ -8,7 +8,8 @@ class PaginationTable():
         pass
 
     def put_page(self, page, frames, free_frames):
-        frame_to_use = next(iter(free_frames))
+        frame_to_use = free_frames[0]
+            #next(iter(free_frames))
         self.update_frames_life(frame_to_use, frames)
         frame_to_use.set_page(page)
         return PolicyResult(frame_to_use.get_starting_index(), frame_to_use.get_ending_index())

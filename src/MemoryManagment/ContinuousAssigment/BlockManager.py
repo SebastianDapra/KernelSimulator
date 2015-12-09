@@ -8,7 +8,7 @@ class BlocksManager:
     def divide_block(self, pcb, block_to_used, blocks):
         if self.pcb_has_same_size_than_block(pcb, block_to_used):
             block_to_used.setUsed()
-            pcb.get_information().set_block(block_to_used)
+            pcb.get_memory_policy_for_pcb().set_block(block_to_used)
         else:
             new_block = self.create_new_block_from(block_to_used, pcb)
             new_block.setUsed()
@@ -16,7 +16,7 @@ class BlocksManager:
             block_to_used.decrease_size(new_block.size())
             blocks.insert(block_to_used.get_id(), new_block)
             self.update_blocks_ids_from(block_to_used)
-            pcb.get_information().set_representation(new_block)
+            pcb.get_memory_policy_for_pcb().set_representation(new_block)
 
     def pcb_has_same_size_than_block(self, pcb, block_to_use):
         return pcb.get_amount_of_instructions() == block_to_use.size()

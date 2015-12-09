@@ -21,7 +21,7 @@ class ContinuousAssignment:
             block_to_use = self._policy.find_block(self._free_blocks, pcb)
             self._blocks_manager.divide_block(pcb, block_to_use, self._blocks)
             self.update_free_blocks()
-            pcb.get_information().set_representation((block_to_use.get_start_index(), block_to_use.get_end_index()))
+            pcb.get_memory_policy_for_pcb().set_representation((block_to_use.get_start_index(), block_to_use.get_end_index()))
             return PolicyResult(block_to_use.get_start_index(), block_to_use.get_end_index())
         else:
             print("Compact required!")
