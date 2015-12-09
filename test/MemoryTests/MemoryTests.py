@@ -8,9 +8,9 @@ class MemoryTest(unittest.TestCase):
     #Arrange
     def setUp(self):
         self.memory = Memory(20)
-        self.instruction1 = InstructionProgram()
-        self.instruction2 = InstructionIO()
-        self.instruction3 = InstructionProgram()
+        self.instruction1 = InstructionProgram("An Instruction")
+        self.instruction2 = InstructionIO("IO")
+        self.instruction3 = InstructionProgram("Other Instruction")
 
     def test_whenTheMemoryAddsAnInstructionAndIAskForIt_thenIGetIt(self):
         self.memory.put(0, self.instruction1)

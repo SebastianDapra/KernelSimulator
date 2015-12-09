@@ -11,11 +11,11 @@ class PageCreatorTest(unittest.TestCase):
         self.program = Program("Duke Nukem",20)
         id = 0
         cantidadDeInstrucciones = 20
-        self.pcb = PCB(cantidadDeInstrucciones, id, PageHolder(self.program))
+        self.pcb = PCB(id, cantidadDeInstrucciones,PageHolder(self.program))
 
     def test_whenICreatePagesForPCB_ThenTheInfoHolderHasThemAsItShould(self):
         self.page_creator.create(self.pcb, 5)
-        self.assertEqual(len(self.pcb.get_information().get_representation()), 4)
+        self.assertEqual(len(self.pcb.get_memory_policy_for_pcb().get_pages()), 4)
 
     def test_whenICreatePagesForPCB_ThenTheInfoTheyHaveIsCorrect(self):
         self.page_creator.create(self.pcb, 5)
