@@ -1,4 +1,3 @@
-from src.Memory.Mmu import *
 from src.Memory.Memory import Memory
 from src.MemoryManagment.ContinuousAssigment.ContinuousAssignment import ContinuousAssignment
 from src.MemoryManagment.Paging.Paging import Paging

@@ -1,18 +1,18 @@
-from src.Cpu.Clock import Clock
-from src.Cpu.Cpu import Cpu
+from src.Cpu.Cpu import *
 from src.Kernel.Loader import Loader
+from src.Memory.MemoryManager import *
 from src.Kernel.Program import *
 from src.Scheduler.LongTermScheduler import *
 from src.PCB.PCBCreator import *
 from src.PCB.PCBTable import *
-from src.Scheduler.Scheduler import Scheduler
+from src.Scheduler.SchedulerPolicy import Scheduler
+
 
 '''
-NOTA: NO ESTOY USANDO EL LOADER PARA NADA ....
+NOTA: NO ESTOY USANDO EL KERNEL PARA NADA
 '''
-
 class Kernel:
-    def __init__(self, clock, memory_manager=None, hdd= None):
+    def __init__(self, clock, memory_manager=None,hdd=None):
         self.mode = UserMode(self)
         self.pid = 0
         self.scheduler = Scheduler()
@@ -20,8 +20,8 @@ class Kernel:
         self.memory_manager = memory_manager
         self.interruption_handler = None
         self.hdd = hdd
-        self._fileSystem = None
-        self.long_term_scheduler = LongTermScheduler(self.scheduler, self.memory_manager)
+        self._fileSystem=self.hdd.generate_file_system()
+        self.long_term_scheduler = None
         self.cpu = Cpu(self)
         self._creatorPCB = PCBCreator()
         self.waiting_queue = []
@@ -32,7 +32,7 @@ class Kernel:
         self.loader = loader
 
     def set_long_term_scheduler(self):
-        self.long_term_scheduler = LongTermScheduler(self.scheduler,self.memory_manager)
+        self.long_term_scheduler = LongTermScheduler(self.scheduler, self.memory_manager)
 
     def genetate_file_system(self):
         self._fileSystem = self.hdd.generate_file_system()
@@ -40,9 +40,6 @@ class Kernel:
     def set_hdd(self,hdd):
         self.hdd = hdd
         self.memory_manager._hdd = hdd
-        '''
-        Is this last line necesssary?
-        '''
 
     def get_hdd(self):
         return self.hdd
@@ -89,7 +86,7 @@ class Kernel:
         return PageHolder()
 
     def load_process(self,program_name):
-        #traer programa de disco ...
+        # traer programa de disco ...
         program = Program(program_name)
         self.loader.load(self.memory_manager,program,self.hdd)
 
@@ -100,30 +97,38 @@ class Kernel:
         self.create_pcb(program,pageHolder)
         self.cpu.run()
 
-
     def run(self,program_name):
         print("Running " + program_name + "...")
+
+        '''
+        program = self._fileSystem.get_program(program_name)
+        instructions = self.obtain_instructions(program)
+        pcb = self._creatorPCB.create_pcb(len(instructions), program, self.memory_admin.get_policy().get_info_holder(program))
+        self.long_term_scheduler.set_short_term_scheduler(self.scheduler)
+        self.long_term_scheduler.add_pcb(pcb)
+        '''
         self.load_process(program_name)
+        #self.execute_itself(program_name)
         print("Finish running " + program_name)
 
     def alternative_run(self,program_name):
         print("Running " + program_name + "...")
         program_file = self._fileSystem.get_program(program_name)
         instructions = self.obtain_instructions(program_file)
-        pcb = self._creatorPCB.create_pcb(len(instructions),self.memory_manager.get_policy().get_info_holder(program_file))
+        pcb = self._creatorPCB.create_pcb(len(instructions), self.memory_manager.get_policy().get_info_holder(program_file))
         self.long_term_scheduler.initiate_process(pcb)
 
     def obtain_instructions(self,program_file):
-        return [item for sublist in  self.list_of_blocks(program_file) for item in sublist]
-
+        return [item for sublist in self.list_of_blocks(program_file)
+                        for item in sublist]
 
     def list_of_blocks(self,program_file):
-        return list(map(lambda  diskBlock: diskBlock.get_instructions(), program_file.fetch_blocks()))
+        return list(map(lambda diskBlock: diskBlock.get_instructions(), program_file.fetch_blocks()))
 
     # Signal should make process execution changed
     def send_signal(self, signal, pcb):
         self.to_kernel_mode()
-        self.mode.manage_interruption_from(signal, pcb)
+        self.mode.manage_interruption_from(signal,pcb)
         self.to_user_mode()
 
 

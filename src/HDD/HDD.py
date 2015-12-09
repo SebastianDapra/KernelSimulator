@@ -7,6 +7,9 @@ from src.Kernel.FunctionsForLists import *
 
 class HDD:
 
+    '''
+    Sectors representation is a map with int keys and list values.
+    '''
     def __init__(self, amount_sector):
         self._drive_container = DriveContainer(self)
         self._sectors = dict.fromkeys(range(1, amount_sector), [])
@@ -27,14 +30,16 @@ class HDD:
         return self._drive_container
 
     def get_blocks(self, a_navigator):
-        return list(map(self.blocks_from_give_navigator(a_navigator), a_navigator.get_blocks()))
+        return list(map( self.blocks_from_given_navigator(a_navigator)
+            , a_navigator.get_blocks()))
 
-    def blocks_from_give_navigator(self,a_navigator):
-        return lambda x: self._sectors[unicode(a_navigator.get_sector())][x - 1]
+    def blocks_from_given_navigator(self,a_navigator):
+        return lambda index: self._sectors[unicode(a_navigator.get_sector())][index - 1]
 
     def add_block(self, sector, block):
         self._sectors[unicode(sector)].append(block)
         return len(self._sectors[unicode(sector)])
+
 
     def sectors_size(self):
         return len(self._sectors.keys())
@@ -49,11 +54,8 @@ class HDD:
         self._watchable_representation_of_FS = jsonpickle.encode(file_system)
 
     def find_page(self, page_index):
-        page = FunctionsForLists.findFirst(self.__conditions_for_finding_page(page_index), self._swap_area)
+        page = list(filter(lambda x: x.get_index() != page_index, self._swap_area ))
         return page
-
-    def __conditions_for_finding_page(self,index):
-        return lambda aIndex: aIndex.get_index() == index
 
     def add_to_swap(self, page):
         self._swap_area.append(page)

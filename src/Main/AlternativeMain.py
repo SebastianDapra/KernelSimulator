@@ -36,7 +36,7 @@ class Alternative_main:
         self.memory_manager.set_as_paging(2)
         self.kernel = Kernel(None,self.memory_manager,self.hdd)
         scheduler = Scheduler()
-        scheduler.set_as_rr(3)
+        #scheduler.set_as_rr(3)
         self.kernel.set_scheduler(Scheduler)
         self.kernel.set_long_term_scheduler()
         self.kernel.alternative_run("Word")

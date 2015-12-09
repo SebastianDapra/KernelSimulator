@@ -36,7 +36,7 @@ class LongTermScheduler:
     def initiate_process(self, pcb):
         if self.memory_manager.can_serve(pcb):
             self.memory_manager.write(pcb)
-            self.short_term_scheduler.add_pcb(pcb)
+            #self.short_term_scheduler.add_pcb(pcb)
         else:
             self.waiting_queue.append(pcb)
 

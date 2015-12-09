@@ -54,8 +54,8 @@ class File:
 
     def __init__(self, drive_saver, name, program):
         self._name = name
-        self._program_asociated = program
-        self._navigator = drive_saver.save_to_hdd(self._program_asociated.obtain_instructions())
+        self._program_associated = program
+        self._navigator = drive_saver.save_to_hdd(self._program_associated.get_instructions())
 
     def get_name(self):
         return self._name
