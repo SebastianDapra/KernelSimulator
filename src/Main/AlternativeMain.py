@@ -53,6 +53,7 @@ class Main:
 
     def run_example(self):
         self.kernel = Kernel(None,self.memory_manager,self.hdd,self.scheduler)
+        self.kernel.set_long_term_scheduler()
         self.kernel.run("Word")
         self.kernel.run("Excel")
         self.kernel.run("Powerpoint")

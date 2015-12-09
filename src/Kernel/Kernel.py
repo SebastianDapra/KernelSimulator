@@ -12,10 +12,10 @@ from src.Scheduler.SchedulerPolicy import Scheduler
 NOTA: NO ESTOY USANDO EL KERNEL PARA NADA
 '''
 class Kernel:
-    def __init__(self, clock, memory_manager=None,hdd=None):
+    def __init__(self, clock, memory_manager=None,hdd=None,scheduler=Scheduler()):
         self.mode = UserMode(self)
         self.pid = 0
-        self.scheduler = Scheduler()
+        self.scheduler = scheduler
         self.loader = Loader(self)
         self.memory_manager = memory_manager
         self.interruption_handler = None
@@ -84,7 +84,7 @@ class Kernel:
 
     def generate_page_holder(self):
         return PageHolder()
-
+    '''
     def load_process(self,program_name):
         # traer programa de disco ...
         program = Program(program_name)
@@ -100,18 +100,18 @@ class Kernel:
     def run(self,program_name):
         print("Running " + program_name + "...")
 
-        '''
+
         program = self._fileSystem.get_program(program_name)
         instructions = self.obtain_instructions(program)
         pcb = self._creatorPCB.create_pcb(len(instructions), program, self.memory_admin.get_policy().get_info_holder(program))
         self.long_term_scheduler.set_short_term_scheduler(self.scheduler)
         self.long_term_scheduler.add_pcb(pcb)
-        '''
+
         self.load_process(program_name)
         #self.execute_itself(program_name)
         print("Finish running " + program_name)
-
-    def alternative_run(self,program_name):
+    '''
+    def run(self,program_name):
         print("Running " + program_name + "...")
         program_file = self._fileSystem.get_program(program_name)
         instructions = self.obtain_instructions(program_file)
