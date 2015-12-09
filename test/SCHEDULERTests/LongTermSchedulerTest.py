@@ -10,7 +10,7 @@ class LongTermSchedulerTest(unittest.TestCase):
     #Arrange
     def setUp(self):
         self.memory_manager = MemoryManager()
-        self.memory_manager.set_as_paging(3)
+        self.memory_manager.set_policy_as_paging(3)
         self.STS = Scheduler()
         self.STS.set_as_fifo()
         self.LTS = LongTermScheduler(self.STS, self.memory_manager)

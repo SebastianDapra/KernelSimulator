@@ -43,7 +43,7 @@ class MemoryManager:
     def set_as_continuous_assignment(self, ca_policy):
         self._managing_policy = ContinuousAssignment(self.memory, ca_policy)
 
-    def set_as_paging(self, instructions_per_frame):
+    def set_policy_as_paging(self, instructions_per_frame):
         self._managing_policy = Paging(self.memory, instructions_per_frame, self._hdd)
 
     def get_memory(self):

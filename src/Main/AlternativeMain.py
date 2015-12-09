@@ -6,9 +6,14 @@ from src.Memory.MemoryManager import MemoryManager
 from src.Scheduler.SchedulerPolicy import Scheduler
 
 
-class Alternative_main:
+class Main:
 
     def __init__(self):
+        #Faltan arranges para que el init quede más chico.
+
+        '''
+        Esto deberia ir a un arrange para cargar programas
+        '''
         instructions1 = []
         instructions2 = []
         instructions3 = []
@@ -20,6 +25,10 @@ class Alternative_main:
         for i in range(0,30):
             instructions3.append(Instruction("instr3"))
 
+        '''
+        Otro arrange para dado un HDD, cargarle archivos al FS
+        '''
+
         self.program1 = Program("Word",instructions1)
         self.program2 = Program("Excel",instructions2)
         self.program3 = Program("Powerpoint",instructions3)
@@ -29,19 +38,24 @@ class Alternative_main:
         self.file_system.add_file("Excel", self.program1)
         self.file_system.add_file("Powerpoint", self.program1)
         self.hdd.display(self.file_system)
+
+        '''
+        Otro arrange para el manejador de memoria
+        '''
         self.memory_manager = MemoryManager(self.hdd)
+        self.memory_manager.set_policy_as_paging(2)
+        '''
+        Otro arrange para el scheduler
+        '''
+        self.scheduler = Scheduler()
+        #scheduler.set_as_rr(3)
 
 
     def run_example(self):
-        self.memory_manager.set_as_paging(2)
-        self.kernel = Kernel(None,self.memory_manager,self.hdd)
-        scheduler = Scheduler()
-        #scheduler.set_as_rr(3)
-        self.kernel.set_scheduler(Scheduler)
-        self.kernel.set_long_term_scheduler()
-        self.kernel.alternative_run("Word")
-        self.kernel.alternative_run("Excel")
-        self.kernel.alternative_run("Powerpoint")
+        self.kernel = Kernel(None,self.memory_manager,self.hdd,self.scheduler)
+        self.kernel.run("Word")
+        self.kernel.run("Excel")
+        self.kernel.run("Powerpoint")
 
 if __name__ == '__main__':
-    Alternative_main().run_example()
+    Main().run_example()

@@ -28,7 +28,7 @@ class MemoryManagerTest(unittest.TestCase):
         self.pcb1 = PCB(0, 2, PageHolder(self.monkeyIslandProgram))
         self.pcb2 = PCB(1, 3 , PageHolder(self.maniacMansonProgram))
         self.memoryManager = MemoryManager(self.hdd)
-        self.memoryManager.set_as_paging(2)
+        self.memoryManager.set_policy_as_paging(2)
 
     def test_whenTheMemoryManagerAddsTwoProgramsAndIAskForThe6thPosition_thenIShouldGetException(self):
         self.memoryManager.write(self.pcb1)
