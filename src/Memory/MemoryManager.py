@@ -30,7 +30,7 @@ class MemoryManager:
         self.get_policy().assign_to_hdd(self._hdd,pcb)
 
     def get_instruction_of(self,pcb):
-        return self.pcb.get_memory_policy_for_pcb().current_mem_dir()
+        return pcb.get_memory_policy_for_pcb().current_mem_dir()
 
     def read(self, mem_dir):
         return self.get_policy().read(mem_dir)

@@ -2,18 +2,24 @@ from src.HDD.HDD import HDD
 from src.Instruction.Instruction import Instruction
 from src.Kernel.Kernel import Kernel
 from src.Kernel.Program import Program
+from src.Main.Arrangements import Arrangements
 from src.Memory.MemoryManager import MemoryManager
-from src.Scheduler.SchedulerPolicy import Scheduler
+from src.Scheduler.SchedulerPolicy import Scheduler, FifoPolicy
 
 
 class Main:
 
     def __init__(self):
+        self.arrangements = Arrangements()
+        self.scheduler = Scheduler()
+        self.fifo = FifoPolicy(self.scheduler)
+        self.kernel = Kernel(None, self.arrangements.memory_manager, self.scheduler, self.arrangements.hdd)
+
         #Faltan arranges para que el init quede más chico.
 
         '''
         Esto deberia ir a un arrange para cargar programas
-        '''
+
         instructions1 = []
         instructions2 = []
         instructions3 = []
@@ -25,9 +31,8 @@ class Main:
         for i in range(0,30):
             instructions3.append(Instruction("instr3"))
 
-        '''
+
         Otro arrange para dado un HDD, cargarle archivos al FS
-        '''
 
         self.program1 = Program("Word",instructions1)
         self.program2 = Program("Excel",instructions2)
@@ -40,19 +45,22 @@ class Main:
         self.hdd.display(self.file_system)
 
         '''
-        Otro arrange para el manejador de memoria
+
+        self.arrangements.hddDependencies.load_programs_in_hdd(self.arrangements.hdd)
+
         '''
+        Otro arrange para el manejador de memoria
+
         self.memory_manager = MemoryManager(self.hdd)
         self.memory_manager.set_policy_as_paging(2)
         '''
+        self.arrangements.arrange_memory()
+        '''
         Otro arrange para el scheduler
         '''
-        self.scheduler = Scheduler()
-        #scheduler.set_as_rr(3)
-
+        self.arrangements.arrange_kernel(self.kernel, self.scheduler, self.fifo)
 
     def run_example(self):
-        self.kernel = Kernel(None,self.memory_manager,self.hdd,self.scheduler)
         self.kernel.set_long_term_scheduler()
         self.kernel.run("Word")
         self.kernel.run("Excel")

@@ -1,3 +1,4 @@
+from src.Cpu.Clock import Clock
 from src.Cpu.Cpu import *
 from src.Kernel.Loader import Loader
 from src.Memory.MemoryManager import *
@@ -12,20 +13,21 @@ from src.Scheduler.SchedulerPolicy import Scheduler
 NOTA: NO ESTOY USANDO EL KERNEL PARA NADA
 '''
 class Kernel:
-    def __init__(self, clock, memory_manager=None,hdd=None,scheduler=Scheduler()):
+    def __init__(self, cpu, clock=Clock, memory_manager=MemoryManager(), hdd=None, scheduler=Scheduler(), pcb_table=PCBTable()):
         self.mode = UserMode(self)
         self.pid = 0
-        self.scheduler = scheduler
-        self.loader = Loader(self)
-        self.memory_manager = memory_manager
-        self.interruption_handler = None
         self.hdd = hdd
-        self._fileSystem=self.hdd.generate_file_system()
+        self.scheduler = scheduler
+        self.scheduler_policy = None
+        self.loader = Loader(self)
+        self.interruption_handler = None
+        self.memory_manager = memory_manager
+        self.fileSystem = self.hdd.generate_file_system()
+        self.cpu = cpu
         self.long_term_scheduler = None
-        self.cpu = Cpu(self)
         self._creatorPCB = PCBCreator()
         self.waiting_queue = []
-        self.pcb_table = PCBTable()
+        self.pcb_table = pcb_table
         self.clock = clock
 
     def set_loader(self,loader):
@@ -35,7 +37,7 @@ class Kernel:
         self.long_term_scheduler = LongTermScheduler(self.scheduler, self.memory_manager)
 
     def genetate_file_system(self):
-        self._fileSystem = self.hdd.generate_file_system()
+        self.fileSystem = self.hdd.generate_file_system()
 
     def set_hdd(self,hdd):
         self.hdd = hdd
@@ -64,6 +66,9 @@ class Kernel:
 
     def set_scheduler(self, scheduler):
         self.scheduler = scheduler
+
+    def set_scheduler_policy(self, policy):
+        self.scheduler_policy = policy
 
     def set_default_kernel_mode(self):
         self.to_user_mode()
@@ -113,7 +118,7 @@ class Kernel:
     '''
     def run(self,program_name):
         print("Running " + program_name + "...")
-        program_file = self._fileSystem.get_program(program_name)
+        program_file = self.fileSystem.get_program(program_name)
         instructions = self.obtain_instructions(program_file)
         pcb = self._creatorPCB.create_pcb(len(instructions), self.memory_manager.get_policy().get_info_holder(program_file))
         self.long_term_scheduler.initiate_process(pcb)

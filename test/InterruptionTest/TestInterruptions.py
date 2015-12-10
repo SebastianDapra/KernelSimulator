@@ -1,3 +1,4 @@
+from src.Cpu.Manager import Manager
 from src.Memory.Memory import Memory
 from src.Memory.MemoryManager import MemoryManager
 from src.PCB.PCB import PCB
@@ -9,40 +10,34 @@ from src.Kernel.Program import Program
 from src.PCB.PCBInfoHolder import BlockHolder
 from src.Scheduler.Scheduler import Scheduler
 import unittest
+
+from src.Scheduler.SchedulerPolicy import FifoPolicy
 from test.InterruptionTest.Handler_Loaders import *
 
 
 class TestInterruption(unittest.TestCase):
     def setUp(self):
-        self.pcb_table = PCBTable()
-        self.kernel = Kernel(None)
-        self.kernel.scheduler = Scheduler()
-        self.kernel.scheduler.set_as_fifo()
-        self.kernel.set_pcb_table(self.pcb_table)
-        self.cpu = Cpu(self.kernel)
+        self.cpu = Cpu(None)
+        self.kernel = Kernel(None, self.cpu)
+        self.cpu.kernel = self.kernel
+        self.pcb_table = self.kernel.pcb_table
+        self.memory_manager = self.kernel.memory_manager
+        self.fifo = FifoPolicy(self.kernel.scheduler)
         self.program = Program("Pepe")
         self.instruction = Instruction("first instruction")
         self.program.addInstruction(self.instruction)
-        hold = [1,2,3,4]
+        self.info_unit = [1,2,3,4]
         self.block_holder = BlockHolder(self.program)
-        self.block_holder.set_representation(hold)
+        self.block_holder.set_representation(self.info_unit)
         self.pcb = PCB(1, 4, self.block_holder)
+        self.pcb_table.add(self.pcb)
         self.cpu.set_actual_pcb(self.pcb)
-        self.interruption_handler = InterruptionHandler()
+        self.manager = Manager(self.kernel.scheduler, self.pcb_table, self.memory_manager)
+        self.interruption_handler = InterruptionHandler(self.manager)
         self.kernel.set_interruption_handler(self.interruption_handler)
-        #self.new_interruption = NewInterruptionManager()
-
-        self.memory = Memory(50)
-        self.memory_manager = MemoryManager()
-        self.cpu.set_memory_manager(self.memory_manager)
-
-    def test_when_new_process_is_created_and_handler_loaded_then_the_pid_is_increased_and_the_pcb_is_added_to_pcb_table(self):
-        self.assertEqual(self.kernel.pid, 1)
-        self.assertEqual(len(self.kernel.pcb_table.pcbs), 1)
 
     def test_when_a_process_is_killed_then_it_is_removed_from_the_pcb_table(self):
-        self.kernel.pcb_table.add(self.pcb)
         self.cpu.execute_single_instruction(self.program.get_instructions().pop())
-        self.assertEqual(len(self.kernel.pcb_table.pcbs), 0)
+        self.assertEquals(self.pcb_table.size(), 0)
 
 

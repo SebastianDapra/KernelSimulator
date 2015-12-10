@@ -24,7 +24,7 @@ class Main:
         self.arrangements.arrange_memory(self.kernel,memory,self.hdd)
         self.scheduler = Scheduler()
         self.round_robin = RoundRobinPolicy(self.scheduler, 3)
-        self.arrangements.arrange_kernel(self.kernel,self.scheduler, self.hdd)
+        self.arrangements.arrange_kernel(self.kernel,self.scheduler)
 
     def run_example(self):
         #self.kernel.run("Word")

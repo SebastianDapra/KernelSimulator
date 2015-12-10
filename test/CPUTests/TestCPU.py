@@ -1,19 +1,29 @@
 import unittest
+from unittest.mock import Mock
 
-from src.Cpu.InterruptionHandler import *
-from src.Memory.Memory import *
-from src.PCB.PCBInfoHolder import BlockHolder
-from test.Helpers.TestHelper import Helper
-from test.LoaderTest.ToyProgram import *
-from src.Kernel.Kernel import *
-from src.Scheduler.Scheduler import *
-from test.InterruptionTest.Handler_Loaders import Handle_Loaders
+from src.Cpu.Cpu import Cpu
+from src.Kernel.Kernel import Kernel
 
 
 class TestCPU(unittest.TestCase):
+
     def setUp(self):
-        self.helper = Helper()
-        self.cpu = self.helper.cpu
+        self.kernel = Mock()
+        self.cpu = Cpu(self.kernel)
+        self.kernel.return_value = Kernel()
+        self.kernel.return_value.cpu = self.cpu
+        self.memory_manager = Mock()
+        self.kernel.return_value.memory_manager = self.memory_manager
+        self.program = Mock()
+        self.hdd = Mock()
+        self.scheduler = Mock()
+        self.fifo = Mock()
+        self.pcb_table = Mock()
+
+    def test_a_cpu_fetch_a_instruction_allocated_in_memory(self):
+        self.helper.load_a_instruction_in_a_program()
+        instruction = self.cpu.fetch_single_instruction()
+        self.assertEquals(self.helper.instruction, instruction)
 
     def test_given_pcb_when_cpu_complete_instruction_cycle_then_the_Manager_captures_interruption(self):
         '''

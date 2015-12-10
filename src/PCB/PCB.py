@@ -67,9 +67,9 @@ class PCB:
 
     def increase_priority(self):
         if self.priority == 3:
-            self.priority = PCBPriorities().get_priorities().MEDIUM
+            self.priority = PCBPriorities.MEDIUM
         elif self.priority == 2:
-            self.priority = PCBPriorities().get_priorities().HIGH
+            self.priority = PCBPriorities.HIGH
 
     def __cmp__(self, another_pcb):
         return self.priority.__cmp__(another_pcb)
@@ -86,12 +86,10 @@ class PCB:
 
 class PCBPriorities:
 
+    HIGH = 1
+    MEDIUM = 2
+    LOW = 3
+
     def __init__(self):
-        self._priorities = self.enum(HIGH=1, MEDIUM=2, LOW=3)
-
-    def get_priorities(self):
-        return self._priorities
-
-    def enum(self, **enums):
-        return type('Enum', (), enums)
+        pass
 

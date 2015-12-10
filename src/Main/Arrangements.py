@@ -11,7 +11,8 @@ from src.PCB.PCBTable import *
 class Arrangements:
 
     def __init__(self):
-
+        self.memory_manager = MemoryManager()
+        self.hdd = HDD(50)
         self.hddDependencies = HDDArrangements()
 
     def arrange_cpu(self,kernel):
@@ -19,25 +20,18 @@ class Arrangements:
         clock = Clock(cpu)
         kernel.clock = clock
 
-
     def arrange_handlers(self, kernel, scheduler, pcb_table, memory_manager):
         manager = Manager(scheduler, pcb_table, memory_manager)
         interruption_handler = InterruptionHandler(manager)
         kernel.set_interruption_handler(interruption_handler)
 
-    def arrange_kernel(self,kernel,scheduler,hdd):
+    def arrange_kernel(self,kernel,scheduler,policy):
         kernel.set_scheduler(scheduler)
-        kernel.set_hdd(hdd)
-        kernel.genetate_file_system()
+        kernel.set_scheduler_policy(policy)
         self.arrange_handlers(kernel, scheduler, kernel.pcb_table, kernel.memory_manager)
 
-    def arrange_memory(self,kernel,memory,hdd):
-        memory_policy = Paging(memory,2, hdd)
-        kernel.memory_manager.set_policy(memory_policy)
+    def arrange_memory(self):
+        self.memory_manager.set_policy_as_paging(2)
         #memory_manager = MemoryManager(hdd,memory_policy)
         #kernel.set_memory_manager(memory_manager)
-
-    def arrange_hdd(self,kernel,hdd):
-        kernel.set_hdd(hdd)
-        self.hddDependencies.load_programs_in_hdd(hdd)
 

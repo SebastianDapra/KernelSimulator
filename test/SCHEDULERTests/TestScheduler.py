@@ -16,9 +16,17 @@ class TestScheduler(unittest.TestCase):
         program4 = Program('S')
 
         self.pcb1 = PCB(1, 20, PageHolder(program1))
+        self.pcb1.set_priority(PCBPriorities.HIGH)
+
         self.pcb2 = PCB(2, 25, PageHolder(program2))
-        self.pcb3 = PCB(3, 15, PageHolder(program3),PCBPriorities.MEDIUM)
-        self.pcb4 = PCB(4, 6, PageHolder(program4),PCBPriorities.HIGH)
+        self.pcb2.set_priority(PCBPriorities.MEDIUM)
+
+        self.pcb3 = PCB(3, 15, PageHolder(program3))
+        self.pcb3.set_priority(PCBPriorities.LOW)
+
+        self.pcb4 = PCB(4, 6, PageHolder(program4))
+        self.pcb4.set_priority(PCBPriorities.LOW)
+
         self.scheduler = Scheduler()
 
     def test_scheduler_with_fifo(self):
@@ -47,7 +55,8 @@ class TestScheduler(unittest.TestCase):
         self.priority_policy.add_pcb(self.pcb2)
         self.priority_policy.add_pcb(self.pcb3)
         self.priority_policy.add_pcb(self.pcb4)
-        result = self.priority_policy.next_process()
-        self.assertEqual(self.pcb4, result)
+        expected_elems = [self.pcb1, self.pcb2, self.pcb3, self.pcb4]
+        for expected_elem in expected_elems:
+            self.assertEqual(expected_elem.get_pid, self.scheduler.next_process().get_pid)
 
 

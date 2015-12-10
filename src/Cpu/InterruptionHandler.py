@@ -7,9 +7,9 @@ class InterruptionHandler:
         self.manager = manager or None
 
     def handle(self, interruption):
-        raise NotImplementedError("Abstract")
+        self.manager.manage(interruption.pcb, interruption)
 
-
+'''
 class KillInterruptionHandler(InterruptionHandler):
     def __init__(self):
         super().__init__()
@@ -53,7 +53,9 @@ class NewInterruptionHandler(InterruptionHandler):
     def handle(self, interruption):
         super().manager.manage(interruption.pcb, interruption)
 
+'''
 
+'''
 class EndIOInterruptionHandler(InterruptionHandler):
     def __init__(self):
         super().__init__()
@@ -76,3 +78,5 @@ class WaitingInterruptionHandler(InterruptionHandler):
 
     def handle(self, interruption):
         super().manager.manage(interruption.pcb, interruption)
+
+'''

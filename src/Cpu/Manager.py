@@ -1,15 +1,20 @@
 from queue import Queue
+
+from src.Memory.MemoryManager import MemoryManager
 from src.PCB import ProcessState
+from src.PCB.PCBTable import PCBTable
+from src.Scheduler.Scheduler import Scheduler
 
 
 class Manager:
-    def __init__(self, scheduler, pcb_table, memory_manager):
-        self._scheduler = scheduler or None
-        self.pcb_table = pcb_table or None
-        self.memory_manager = memory_manager or None
+    def __init__(self, scheduler=Scheduler(), pcb_table=None, memory_manager=MemoryManager()):
+        self._scheduler = scheduler
+        self.pcb_table = pcb_table
+        self.memory_manager = memory_manager
         self.waiting_io_queue = Queue()
 
     def manage(self, pcb, interruption):
+
         if interruption == interruption.KILL:
             self.context_switching(pcb)
             pcb.state = ProcessState.terminated
